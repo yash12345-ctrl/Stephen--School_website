@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './program_top.css';
 
-export const programs = [
+const programs = [
   { grade: 'Pre-Primary & Kindergarten', range: 'Ages 3–5', emoji: '🧸', desc: 'Fostering early cognitive and social development through play-based learning and creative exploration in a safe environment.', color1: '#11998e', color2: '#38ef7d', vid: 'GLcDu24gr98' },
   { grade: 'Primary School', range: 'Grades 1–5', emoji: '📚', desc: 'Building strong foundational skills in literacy, numeracy, and critical thinking with a focus on holistic child development.', color1: '#4776e6', color2: '#8e54e9', vid: '49fgMBNbX0w' },
   { grade: 'Middle School', range: 'Grades 6–8', emoji: '🔬', desc: 'Encouraging independent thought and scientific inquiry through an accelerated, interdisciplinary STEM-focused curriculum.', color1: '#f7971e', color2: '#ffd200', vid: 'pjFFMXKb5_M' },
@@ -181,19 +181,6 @@ export default function ProgramTop() {
                 <a href="#contact" className="btn-gold">Inquire for Admission →</a>
               </div>
 
-            </div>
-
-            {/* Video Side */}
-            <div className="prog-showcase-video">
-              <div className="prog-showcase-vid-container">
-                <div className="vid-click-shield"></div>
-                <iframe 
-                  key={activeProg.vid}
-                  src={`https://www.youtube.com/embed/${activeProg.vid}?autoplay=1&mute=1&loop=1&playlist=${activeProg.vid}&controls=0&showinfo=0&disablekb=1&modestbranding=1`} 
-                  allow="autoplay; encrypted-media" 
-                  tabIndex={-1}
-                />
-              </div>
             </div>
 
           </div>

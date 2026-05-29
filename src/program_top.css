@@ -369,10 +369,8 @@
 /* Layout Adjustments */
 @media(min-width: 901px) {
   .prog-showcase {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 3.5rem;
-    align-items: center;
+    display: block;
+    padding: 4.5rem;
   }
 }
 

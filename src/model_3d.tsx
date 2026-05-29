@@ -9,7 +9,7 @@ function RealisticHumanAvatar() {
   const groupRef = useRef<THREE.Group>(null);
   const [rightHand, setRightHand] = useState<THREE.Bone | null>(null);
   const { mouse } = useThree();
-  
+
   // Load a highly realistic human avatar GLB (Ready Player Me avatar stored in three.js examples)
   const { scene } = useGLTF('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/models/gltf/readyplayer.me.glb');
 
@@ -35,13 +35,9 @@ function RealisticHumanAvatar() {
         child.receiveShadow = true;
       }
     });
-    
-    // Set initial pose - Removed extreme rotation to keep arm stable
+    // Set initial pose
     if (rightArmRef.current && rightForeArmRef.current) {
-       // Gentle bend to hold the board naturally
-       rightArmRef.current.rotation.z += 0.2;
-       rightArmRef.current.rotation.x += 0.1;
-       rightForeArmRef.current.rotation.x -= 0.5;
+      // Arm is kept straight in default pose
     }
   }, [scene]);
 
@@ -51,7 +47,7 @@ function RealisticHumanAvatar() {
     // 1. Smoothly rotate the whole body to face forward and float slightly
     if (groupRef.current) {
       groupRef.current.position.y = -1.5 + Math.sin(t * 2) * 0.05;
-      
+
       // Make the body lean slightly based on mouse
       const targetRotationY = (mouse.x * Math.PI) / 8;
       groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetRotationY, 0.05);
@@ -62,7 +58,7 @@ function RealisticHumanAvatar() {
     if (neckRef.current && spineRef.current) {
       // const targetNeckX = -(mouse.y * Math.PI) / 6;
       // const targetNeckY = (mouse.x * Math.PI) / 4;
-      
+
       // neckRef.current.rotation.x = THREE.MathUtils.lerp(neckRef.current.rotation.x, targetNeckX, 0.1);
       // neckRef.current.rotation.y = THREE.MathUtils.lerp(neckRef.current.rotation.y, targetNeckY, 0.1);
     }
@@ -77,34 +73,11 @@ function RealisticHumanAvatar() {
   });
 
   return (
-    <group ref={groupRef} scale={1.5} position={[0, -1.5, 0]}>
+    <group ref={groupRef} scale={1.0} position={[0, -1.5, 0]}>
       {/* The actual 3D Human Model */}
       <primitive object={scene} />
 
-      {/* Board attached to the hand */}
-      {rightHand && createPortal(
-        <group position={[0.02, 0.08, 0.02]} rotation={[0, -Math.PI / 2, -Math.PI / 2]}>
-          <Html transform scale={0.06} position={[0, 0, 0]}>
-            <div style={{
-              background: 'rgba(20, 20, 25, 0.85)',
-              backdropFilter: 'blur(10px)',
-              border: '2px solid rgba(212, 175, 55, 0.3)', // Gold border
-              borderRadius: '12px',
-              padding: '12px 24px',
-              color: '#D4AF37',
-              fontFamily: 'Inter',
-              fontWeight: 'bold',
-              fontSize: '24px',
-              whiteSpace: 'nowrap',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-              pointerEvents: 'none'
-            }}>
-              May I help you?
-            </div>
-          </Html>
-        </group>,
-        rightHand
-      )}
+
     </group>
   );
 }
@@ -123,6 +96,52 @@ function Loader() {
   );
 }
 
+function CloudMessage() {
+  const cloudRef = useRef<THREE.Group>(null);
+
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime();
+    if (cloudRef.current) {
+      // Float the cloud gently, positioned lower and closer to the model
+      cloudRef.current.position.y = 0.3 + Math.sin(t * 1.5) * 0.05;
+    }
+  });
+
+  return (
+    <group ref={cloudRef} position={[0.6, 0.4, 0]} scale={0.65}>
+      {/* 3D Cloud made of 3 intersecting spheres */}
+      <mesh position={[0, 0, 0]} castShadow>
+        <sphereGeometry args={[0.4, 32, 32]} />
+        <meshStandardMaterial color="white" roughness={0.8} />
+      </mesh>
+      <mesh position={[0.35, -0.1, 0]} castShadow>
+        <sphereGeometry args={[0.3, 32, 32]} />
+        <meshStandardMaterial color="white" roughness={0.8} />
+      </mesh>
+      <mesh position={[-0.35, -0.1, 0]} castShadow>
+        <sphereGeometry args={[0.3, 32, 32]} />
+        <meshStandardMaterial color="white" roughness={0.8} />
+      </mesh>
+
+      {/* Message on the cloud */}
+      <Html center position={[0, 0, 0.45]}>
+        <div style={{
+          color: '#1a1a1a',
+          fontFamily: 'Inter, sans-serif',
+          fontWeight: 'bold',
+          fontSize: '14px',
+          whiteSpace: 'nowrap',
+          pointerEvents: 'none',
+          textShadow: '0px 0px 10px rgba(255,255,255,1)',
+          background: 'transparent'
+        }}>
+          May I help you?
+        </div>
+      </Html>
+    </group>
+  );
+}
+
 export default function Model3D() {
   return (
     <div className="model-3d-container">
@@ -130,13 +149,14 @@ export default function Model3D() {
         <ambientLight intensity={0.6} />
         <directionalLight position={[2, 5, 5]} intensity={1.5} castShadow shadow-bias={-0.0001} />
         <pointLight position={[-2, 2, 2]} intensity={0.8} />
-        
+
         <Environment preset="city" />
-        
+
         <Suspense fallback={<Loader />}>
           <RealisticHumanAvatar />
+          <CloudMessage />
         </Suspense>
-        
+
         <ContactShadows position={[0, -1.6, 0]} opacity={0.6} scale={5} blur={2.5} far={4} color="#000000" />
       </Canvas>
     </div>

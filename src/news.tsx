@@ -142,13 +142,6 @@ const today = new Date().toLocaleDateString('en-IN', {
 export default function News() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<Category>('All');
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const featured = allNews[0];
   const gridNews = allNews.filter(n =>
@@ -162,7 +155,7 @@ export default function News() {
     <div className="news-page">
 
       {/* ── NAVBAR ── */}
-      <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
+      <nav className="navbar">
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <span className="logo-crest"><GraduationCap size={32} /></span>

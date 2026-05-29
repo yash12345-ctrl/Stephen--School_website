@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import ProgramTop, { programs, ProgramMegaMenu } from './program_top'
+import ProgramTop, { ProgramMegaMenu } from './program_top'
 import Model3D from './model_3d'
 const testimonials = [
   { name: 'Priya Sharma', role: 'Parent · Grade 10', quote: 'Greenfield transformed my daughter into a confident, curious learner. The faculty truly care about each child\'s individual growth journey.', initial: 'P', color: '#c5a880' },
@@ -60,7 +60,7 @@ export default function App() {
               </li>
             ))}
           </ul>
-          <a href="#contact" className="nav-cta">Apply Now →</a>
+          <a href="/apply" className="nav-cta">Apply Now →</a>
         </div>
       </nav>
 

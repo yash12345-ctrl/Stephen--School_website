@@ -72,6 +72,7 @@ export default function About() {
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a
+<<<<<<< HEAD
                   href={
                     l === 'Home'  ? '/' :
                     l === 'About' ? '/about' :
@@ -79,6 +80,9 @@ export default function About() {
                     l === 'School'? '/the-school' :
                     `/#${l.toLowerCase().replace(/\s+/g, '-')}`
                   }
+=======
+                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : `/#${l.toLowerCase()}`}
+>>>>>>> b2fc2bc5bc321339479f72b7ccfb1f7f9218e8e3
                   onClick={(e) => {
                     if (l === 'Programs') {
                       e.preventDefault();
@@ -98,7 +102,7 @@ export default function About() {
               </li>
             ))}
           </ul>
-          <a href="/#contact" className="nav-cta">Apply Now →</a>
+          <a href="/apply" className="nav-cta">Apply Now →</a>
         </div>
       </nav>
 

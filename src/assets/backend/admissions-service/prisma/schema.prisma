@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Application {
+  id                        String   @id @default(uuid())
+  guardianName              String
+  guardianRelation          String
+  guardianOccupation        String
+  guardianCompany           String?
+  guardianEmail             String
+  guardianPhone             String
+  guardianAddress           String
+  guardianCity              String
+  guardianPin               String
+  studentName               String
+  studentDob                DateTime
+  studentGender             String
+  studentNationality        String
+  studentLanguage           String
+  studentBloodGroup         String
+  studentMedical            String?
+  programApplied            String
+  previousSchool            String?
+  lastGradeCompleted        String?
+  curriculumBoard           String?
+  extracurricularInterests  String?
+  transportationRequired    Boolean
+  enrollmentType            String
+  referralSource            String
+  reasonForEnrolling        String
+
+  createdAt                 DateTime @default(now())
+  updatedAt                 DateTime @updatedAt
+}
