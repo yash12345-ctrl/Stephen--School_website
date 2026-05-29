@@ -183,14 +183,6 @@ export default function ProgramTop() {
 
             </div>
 
-            {/* Video Side (Replaced with an image placeholder to maintain layout) */}
-            <div className="prog-showcase-video">
-              <div className="prog-showcase-vid-container" style={{ background: `linear-gradient(135deg, ${activeProg.color1}, ${activeProg.color2})`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                 {/* Empty box to keep layout intact without YouTube */}
-                 <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: '4rem' }}>{activeProg.emoji}</span>
-              </div>
-            </div>
-
           </div>
 
         </div>
