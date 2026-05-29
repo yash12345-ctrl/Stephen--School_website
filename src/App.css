@@ -2,15 +2,15 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#0b0f19;
-  --navy2:#131a26;
-  --navy3:#1c2638;
-  --gold:#c5a880;
-  --gold2:#e1cdb3;
-  --white:#fff;
-  --offwhite:#f9fafb;
-  --slate:#6b7280;
-  --light:#9ca3af;
+  --navy: #0F1115;
+  --navy2: #16191E;
+  --navy3: #1E2229;
+  --gold: #D4AF37;
+  --gold2: #F6E2A3;
+  --white: #FCFBF9;
+  --offwhite: #F3EFEA;
+  --slate: #6B6C72;
+  --light: #A3A4A8;
   --radius:20px;
 }
 html{scroll-behavior:smooth}
@@ -48,6 +48,7 @@ a{text-decoration:none}
 .navbar{position:absolute;top:2rem;left:50%;transform:translateX(-50%);width:calc(100% - 8vw);max-width:1600px;z-index:999;background:rgba(11,15,25,.85);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border:1px solid rgba(255,255,255,.15);box-shadow:0 24px 48px rgba(0,0,0,.4), inset 0 1px 1px rgba(255,255,255,.2);border-radius:100px;transition:all .3s}
 .nav-inner{padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:76px}
 .nav-logo{display:flex;align-items:center;gap:12px;cursor:pointer}
+.nav-logo .logo-crest{color:var(--gold);display:flex;align-items:center;justify-content:center}
 .logo-crest{font-size:2rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
 .logo-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:800;color:#fff;line-height:1.1;letter-spacing:.5px}
 .logo-tagline{font-size:.58rem;font-weight:800;letter-spacing:3.5px;color:var(--gold);text-transform:uppercase}

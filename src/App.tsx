@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
 import ProgramTop, { programs, ProgramMegaMenu } from './program_top'
-
+import Model3D from './model_3d'
 const testimonials = [
   { name: 'Priya Sharma', role: 'Parent · Grade 10', quote: 'Greenfield transformed my daughter into a confident, curious learner. The faculty truly care about each child\'s individual growth journey.', initial: 'P', color: '#c5a880' },
   { name: 'Arjun Mehta', role: 'Alumni · Batch 2020', quote: 'The values and skills I gained here shaped who I am. I am now at IIT Bombay — a dream I owe entirely to Greenfield Academy.', initial: 'A', color: '#6b7280' },
@@ -280,6 +280,9 @@ export default function App() {
           <span>Privacy Policy · Terms of Use · Sitemap</span>
         </div>
       </footer>
+      
+      {/* ── 3D AI ASSISTANT ── */}
+      <Model3D />
 
     </div>
   )
