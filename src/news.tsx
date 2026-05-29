@@ -172,7 +172,7 @@ export default function News() {
             </div>
           </a>
           <ul className="nav-links">
-            {(['Home', 'About', 'Programs', 'Campus', 'News', 'Contact'] as const).map(l => (
+            {(['Home', 'About', 'Programs', 'School', 'News', 'Contact'] as const).map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
@@ -180,7 +180,7 @@ export default function News() {
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a
-                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : `/#${l.toLowerCase()}`}
+                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `/#${l.toLowerCase().replace(/\s+/g, '-')}`}
                   onClick={e => { if (l === 'Programs') { e.preventDefault(); setMegaMenuOpen(!megaMenuOpen); } }}
                   className={[
                     l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : '',

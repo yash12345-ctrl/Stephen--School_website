@@ -42,12 +42,19 @@ const AnimatedBoxContent = ({ contents }: { contents: string[] }) => {
 
 export default function About() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="abt-page">
 
       {/* ── NAVBAR ── */}
-      <nav className="navbar">
+      <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <span className="logo-crest"><GraduationCap size={32} /></span>
@@ -57,7 +64,7 @@ export default function About() {
             </div>
           </a>
           <ul className="nav-links">
-            {['Home', 'About', 'Programs', 'Campus', 'News', 'Contact'].map(l => (
+            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
@@ -65,7 +72,13 @@ export default function About() {
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a
-                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : `/#${l.toLowerCase()}`}
+                  href={
+                    l === 'Home'  ? '/' :
+                    l === 'About' ? '/about' :
+                    l === 'News'  ? '/news' :
+                    l === 'School'? '/the-school' :
+                    `/#${l.toLowerCase().replace(/\s+/g, '-')}`
+                  }
                   onClick={(e) => {
                     if (l === 'Programs') {
                       e.preventDefault();
@@ -331,7 +344,7 @@ export default function About() {
           <p className="abt-cta-p">Schedule a visit, speak with our team, or apply online today.</p>
           <div className="abt-cta-btns">
             <a href="/#contact" className="btn-gold large">Apply for Admission</a>
-            <a href="/#campus" className="btn-ghost large" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>Virtual Tour <Play size={18} /></a>
+            <a href="/the-school" className="btn-ghost large" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>Virtual Tour <Play size={18} /></a>
           </div>
         </div>
       </section>

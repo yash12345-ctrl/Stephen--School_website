@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import ProgramTop, { programs, ProgramMegaMenu } from './program_top'
 import Model3D from './model_3d'
@@ -10,12 +10,19 @@ const testimonials = [
 
 export default function App() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="site">
 
       {/* ── NAVBAR ── */}
-      <nav className="navbar">
+      <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
         <div className="nav-inner">
           <a href="#home" className="nav-logo">
             <span className="logo-crest">🎓</span>
@@ -25,7 +32,7 @@ export default function App() {
             </div>
           </a>
           <ul className="nav-links">
-            {['Home','About','Programs','Campus','News','Contact'].map(l => (
+            {['Home','About','Programs','School','News','Contact'].map(l => (
               <li 
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
@@ -33,7 +40,7 @@ export default function App() {
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a 
-                  href={l === 'About' ? '/about' : l === 'News' ? '/news' : `#${l.toLowerCase()}`}
+                  href={l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `#${l.toLowerCase().replace(/\s+/g, '-')}`}
                   onClick={(e) => {
                     if (l === 'Programs') {
                       e.preventDefault();
@@ -68,7 +75,7 @@ export default function App() {
           <p className="hero-p">Where academic brilliance meets character — empowering every student to reach their highest potential in a world-class learning environment.</p>
           <div className="hero-btns">
             <a href="#programs" className="btn-gold">Explore Programs</a>
-            <a href="#campus" className="btn-ghost">Virtual Tour ▶</a>
+            <a href="/the-school" className="btn-ghost">Virtual Tour ▶</a>
           </div>
           <div className="hero-stats">
             {[['3,200+','Students'],['98%','Pass Rate'],['150+','Faculty'],['40+','Yrs Legacy']].map(([n,l],i)=>(
@@ -128,7 +135,7 @@ export default function App() {
       <ProgramTop />
 
       {/* ── CAMPUS ── */}
-      <section className="campus-sec" id="campus">
+      <section className="campus-sec" id="the-school">
         <svg style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
           <defs>
             <linearGradient id="goldIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
