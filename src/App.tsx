@@ -129,6 +129,14 @@ export default function App() {
 
       {/* ── CAMPUS ── */}
       <section className="campus-sec" id="campus">
+        <svg style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
+          <defs>
+            <linearGradient id="goldIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="var(--gold)" />
+              <stop offset="100%" stopColor="var(--gold2)" />
+            </linearGradient>
+          </defs>
+        </svg>
         <div className="campus-bg" style={{backgroundImage:"url('/sports_field.png')"}}/>
         <div className="campus-veil"/>
         <div className="campus-body">
@@ -137,12 +145,82 @@ export default function App() {
           <p className="campus-p">Spread across 25 acres, our world-class campus features state-of-the-art facilities designed to inspire learning, creativity and growth in every student.</p>
           <div className="campus-cards">
             {[
-              {icon:'🏟️',val:'12+',lbl:'Sports Grounds'},
-              {icon:'🔬',val:'8',lbl:'Science Labs'},
-              {icon:'📚',val:'50K+',lbl:'Library Books'},
-              {icon:'🖥️',val:'6',lbl:'Computer Labs'},
-              {icon:'🎭',val:'3',lbl:'Auditoriums'},
-              {icon:'🏊',val:'2',lbl:'Swimming Pools'},
+              {
+                icon: (
+                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <line x1="12" y1="4" x2="12" y2="20" />
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M2 12h3" />
+                    <path d="M19 12h3" />
+                  </svg>
+                ),
+                val: '12+',
+                lbl: 'Sports Grounds'
+              },
+              {
+                icon: (
+                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4.5 3h15" />
+                    <path d="M6 3v6a6 6 0 0 0 1.5 4L12 18.5l4.5-5.5a6 6 0 0 0 1.5-4V3" />
+                    <path d="M6 14h12" />
+                    <line x1="8" y1="9" x2="16" y2="9" />
+                    <line x1="9" y1="6" x2="15" y2="6" />
+                  </svg>
+                ),
+                val: '8',
+                lbl: 'Science Labs'
+              },
+              {
+                icon: (
+                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                    <path d="M6 8h2" />
+                    <path d="M6 12h2" />
+                    <path d="M16 8h2" />
+                    <path d="M16 12h2" />
+                  </svg>
+                ),
+                val: '50K+',
+                lbl: 'Library Books'
+              },
+              {
+                icon: (
+                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="17" x2="12" y2="21" />
+                    <line x1="6" y1="8" x2="18" y2="8" />
+                  </svg>
+                ),
+                val: '6',
+                lbl: 'Computer Labs'
+              },
+              {
+                icon: (
+                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 22V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v18" />
+                    <path d="M2 10c4 0 6 4 10 4s6-4 10-4" />
+                    <path d="M12 2v20" />
+                    <path d="M6 22V13c0-2 1-3 3-3" />
+                    <path d="M18 22V13c0-2-1-3-3-3" />
+                  </svg>
+                ),
+                val: '3',
+                lbl: 'Auditoriums'
+              },
+              {
+                icon: (
+                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 6c.6.5 1.2 1 2.5 1C5.8 7 7 5 9.5 5c2.6 0 3.7 2 6.2 2 2.6 0 3.8-2 6.3-2" />
+                    <path d="M2 12c.6.5 1.2 1 2.5 1 1.3 0 2.5-2 5-2 2.6 0 3.7 2 6.2 2 2.6 0 3.8-2 6.3-2" />
+                    <path d="M2 18c.6.5 1.2 1 2.5 1 1.3 0 2.5-2 5-2 2.6 0 3.7 2 6.2 2 2.6 0 3.8-2 6.3-2" />
+                  </svg>
+                ),
+                val: '2',
+                lbl: 'Swimming Pools'
+              },
             ].map((c,i)=>(
               <div className="cc" key={i}>
                 <span className="cc-icon">{c.icon}</span>

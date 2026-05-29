@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import './program_top.css';
 
 export const programs = [
@@ -10,7 +10,54 @@ export const programs = [
   { grade: 'Athletics & The Arts', range: 'All Grades', emoji: '🏆', desc: 'Cultivating exceptional physical and creative talent with state-of-the-art sports facilities and world-class performing arts studios.', color1: '#00b09b', color2: '#96c93d', vid: '49fgMBNbX0w' },
 ];
 
-/* ── Mega Menu Dropdown (used inside Navbar) ── */
+const displayData = [
+  {
+    grade: 'Pre-Primary & Kindergarten',
+    range: 'Ages 3–5',
+    emoji: '🧸',
+    desc: 'Fostering early cognitive and social development through play-based learning, sensory exploration, and creative storytelling in a warm, nurturing environment.',
+    color1: '#11998e',
+    color2: '#38ef7d',
+    vid: 'GLcDu24gr98',
+    stats: [
+      { val: '1:8', lbl: 'Teacher-Student Ratio' },
+      { val: 'Play-Based', lbl: 'Curriculum Focus' },
+      { val: 'Sensory', lbl: 'Development Labs' }
+    ],
+    features: ['Theme-based activity rooms', 'Early literacy & numeracy', 'Phonics & music integration', 'Social & emotional growth focus']
+  },
+  {
+    grade: 'Primary School',
+    range: 'Grades 1–5',
+    emoji: '📚',
+    desc: 'Nurturing curiosity and building strong foundational skills in literacy, mathematical concepts, and inquiry-based science while encouraging positive self-expression.',
+    color1: '#4776e6',
+    color2: '#8e54e9',
+    vid: '49fgMBNbX0w',
+    stats: [
+      { val: '1:12', lbl: 'Class Size Ratio' },
+      { val: 'CBSE / IB PYP', lbl: 'Curriculum Standard' },
+      { val: '8+', lbl: 'Co-Curricular Clubs' }
+    ],
+    features: ['Inquiry-led learning projects', 'Structured reading programs', 'Basic coding & STEM labs', 'Visual arts & swimming program']
+  },
+  {
+    grade: 'High School',
+    range: 'Grades 9–12',
+    emoji: '🎓',
+    desc: 'Comprehensive academic rigor combined with career counseling and college prep, empowering students to excel in board examinations and gain admission to top global universities.',
+    color1: '#eb3349',
+    color2: '#f45c43',
+    vid: 'j-3eArinB7E',
+    stats: [
+      { val: '1:10', lbl: 'Mentor-Student Ratio' },
+      { val: '98%', lbl: 'University Placement' },
+      { val: 'Advanced', lbl: 'Lab & Research Facilities' }
+    ],
+    features: ['Dedicated college counseling cell', 'AP, IB & board exam coaching', 'Student government & leadership roles', 'International science olympiad training']
+  }
+];
+
 export function ProgramMegaMenu({ open }: { open: boolean }) {
   return (
     <div className={`mega-menu ${open ? 'open' : ''}`}>
@@ -41,64 +88,118 @@ export function ProgramMegaMenu({ open }: { open: boolean }) {
   );
 }
 
-/* ── Programs Section (full page section) ── */
 export default function ProgramTop() {
-  const observer = useRef<IntersectionObserver | null>(null);
-
-  useEffect(() => {
-    observer.current = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        } else {
-          entry.target.classList.remove('in-view');
-        }
-      });
-    }, { threshold: 0.15 });
-
-    const elements = document.querySelectorAll('.prog-card');
-    elements.forEach(el => observer.current?.observe(el));
-
-    return () => observer.current?.disconnect();
-  }, []);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const activeProg = displayData[activeIdx];
 
   return (
     <section className="section programs-section" id="programs">
       <div className="container">
+        
+        {/* Section Header */}
         <div className="sec-head">
           <div className="s-tag">Academic Programs</div>
           <h2 className="s-title">World-Class <span className="gold">Programs</span> for Every Stage</h2>
-          <p className="sec-desc">Comprehensive education from foundational years through senior secondary, unlocking every student's unique potential.</p>
+          <p className="sec-desc">A structured journey of holistic growth and academic excellence, custom-tailored for different developmental milestones.</p>
         </div>
-        <div className="prog-grid">
-          {programs.map((p,i)=>(
-            <div className={`prog-card ${i % 2 === 0 ? 'row-normal' : 'row-reverse'}`} key={i} style={{'--c1':p.color1,'--c2':p.color2} as React.CSSProperties}>
-              <div className="prog-glow"/>
-              <div className="prog-content-side">
-                <div className="prog-top">
-                  <div className="prog-emoji-wrap"><span className="prog-emoji">{p.emoji}</span></div>
-                  <span className="prog-range">{p.range}</span>
+
+        {/* Dashboard Grid */}
+        <div className="prog-dashboard">
+          
+          {/* Left: Tab Selectors */}
+          <div className="prog-tabs">
+            {displayData.map((p, i) => {
+              const isActive = i === activeIdx;
+              return (
+                <div 
+                  key={i} 
+                  className={`prog-tab-card ${isActive ? 'active' : ''}`}
+                  onClick={() => setActiveIdx(i)}
+                  style={{
+                    '--c1': p.color1, 
+                    '--c2': p.color2,
+                  } as React.CSSProperties}
+                >
+                  <div className="prog-tab-glow" />
+                  <div className="prog-tab-emoji-wrap">
+                    <span className="prog-tab-emoji">{p.emoji}</span>
+                  </div>
+                  <div className="prog-tab-info">
+                    <span className="prog-tab-range">{p.range}</span>
+                    <h3 className="prog-tab-title">{p.grade}</h3>
+                  </div>
+                  <div className="prog-tab-indicator">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                  </div>
                 </div>
-                <h3 className="prog-title">{p.grade}</h3>
-                <p className="prog-desc">{p.desc}</p>
-                <div className="prog-footer">
-                  <a href="#contact" className="prog-link">Learn more <span>→</span></a>
-                  <div className="prog-dot"/>
-                </div>
+              );
+            })}
+          </div>
+
+          {/* Right: Active Showcase Panel */}
+          <div 
+            className="prog-showcase"
+            style={{
+              '--c1': activeProg.color1, 
+              '--c2': activeProg.color2
+            } as React.CSSProperties}
+          >
+            <div className="prog-showcase-bg-glow" />
+            <div className="prog-showcase-content">
+              
+              <div className="prog-showcase-header">
+                <span className="prog-showcase-pill">{activeProg.range} Showcase</span>
+                <h3 className="prog-showcase-title">{activeProg.grade}</h3>
+                <p className="prog-showcase-desc">{activeProg.desc}</p>
               </div>
-              <div className="prog-video-side">
-                <div className="prog-vid-wrap">
-                  <div className="vid-click-shield"></div>
-                  <iframe 
-                    src={`https://www.youtube.com/embed/${p.vid}?autoplay=1&mute=1&loop=1&playlist=${p.vid}&controls=0&showinfo=0&disablekb=1&modestbranding=1`} 
-                    allow="autoplay; encrypted-media" 
-                    tabIndex={-1}
-                  />
-                </div>
+
+              {/* Stats Row */}
+              <div className="prog-showcase-stats">
+                {activeProg.stats.map((st, idx) => (
+                  <div className="prog-stat-box" key={idx}>
+                    <div className="prog-stat-val">{st.val}</div>
+                    <div className="prog-stat-lbl">{st.lbl}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Features List */}
+              <div className="prog-showcase-features">
+                <h4 className="features-title">Program Highlights</h4>
+                <ul className="features-list">
+                  {activeProg.features.map((feat, idx) => (
+                    <li key={idx} className="feature-item">
+                      <span className="feature-bullet">✦</span> {feat}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="prog-showcase-footer">
+                <a href="#contact" className="btn-gold">Inquire for Admission →</a>
+              </div>
+
+            </div>
+
+            {/* Video Side */}
+            <div className="prog-showcase-video">
+              <div className="prog-showcase-vid-container">
+                <div className="vid-click-shield"></div>
+                <iframe 
+                  key={activeProg.vid}
+                  src={`https://www.youtube.com/embed/${activeProg.vid}?autoplay=1&mute=1&loop=1&playlist=${activeProg.vid}&controls=0&showinfo=0&disablekb=1&modestbranding=1`} 
+                  allow="autoplay; encrypted-media" 
+                  tabIndex={-1}
+                />
               </div>
             </div>
-          ))}
+
+          </div>
+
         </div>
+
       </div>
     </section>
   );
