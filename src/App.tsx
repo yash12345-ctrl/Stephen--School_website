@@ -33,7 +33,7 @@ export default function App() {
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a 
-                  href={l === 'About' ? '/about' : `#${l.toLowerCase()}`}
+                  href={l === 'About' ? '/about' : l === 'News' ? '/news' : `#${l.toLowerCase()}`}
                   onClick={(e) => {
                     if (l === 'Programs') {
                       e.preventDefault();
