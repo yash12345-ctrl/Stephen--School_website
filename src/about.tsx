@@ -85,7 +85,7 @@ export default function About() {
               </li>
             ))}
           </ul>
-          <a href="/#contact" className="nav-cta">Apply Now →</a>
+          <a href="/apply" className="nav-cta">Apply Now →</a>
         </div>
       </nav>
 
