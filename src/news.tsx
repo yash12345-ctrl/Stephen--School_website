@@ -141,7 +141,15 @@ const today = new Date().toLocaleDateString('en-IN', {
 ══════════════════════════════════════════ */
 export default function News() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [activeCategory, setActiveCategory] = useState<Category>('All');
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const featured = allNews[0];
   const gridNews = allNews.filter(n =>
@@ -155,7 +163,7 @@ export default function News() {
     <div className="news-page">
 
       {/* ── NAVBAR ── */}
-      <nav className="navbar">
+      <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <span className="logo-crest"><GraduationCap size={32} /></span>
@@ -164,7 +172,7 @@ export default function News() {
               <div className="logo-tagline">ACADEMY</div>
             </div>
           </a>
-          <ul className="nav-links">
+          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
             {(['Home', 'About', 'Programs', 'School', 'News', 'Contact'] as const).map(l => (
               <li
                 key={l}
@@ -173,8 +181,15 @@ export default function News() {
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a
-                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `/#${l.toLowerCase().replace(/\s+/g, '-')}`}
-                  onClick={e => { if (l === 'Programs') { e.preventDefault(); setMegaMenuOpen(!megaMenuOpen); } }}
+                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `/#${l.toLowerCase().replace(/\\s+/g, '-')}`}
+                  onClick={e => { 
+                    if (l === 'Programs') { 
+                      e.preventDefault(); 
+                      setMegaMenuOpen(!megaMenuOpen); 
+                    } else {
+                      setMobileMenuOpen(false);
+                    }
+                  }}
                   className={[
                     l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : '',
                     l === 'News'     ? 'nav-active' : '',
@@ -190,8 +205,17 @@ export default function News() {
                 {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} />}
               </li>
             ))}
+            {/* Mobile-only Apply Button */}
+            <li className="mobile-only-nav-apply">
+              <a href="/apply">Apply Now</a>
+            </li>
           </ul>
-          <a href="/#contact" className="nav-cta">Apply Now →</a>
+          <div className="nav-actions">
+            <a href="/#contact" className="nav-cta">Apply Now →</a>
+            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
         </div>
       </nav>
 
@@ -415,20 +439,13 @@ export default function News() {
 
           {/* ── QUOTE / EDITORIAL BANNER ── */}
           {activeCategory === 'All' && (
-            <div style={{
-              background: 'var(--navy)',
-              borderRadius: '4px',
-              padding: '2.5rem 3rem',
-              marginBottom: '2.5rem',
-              position: 'relative',
-              overflow: 'hidden',
-            }}>
-              <div style={{ position:'absolute', top:'-30px', right:'-30px', fontSize:'10rem', opacity:.04, color:'#D4AF37', fontFamily:'Playfair Display,serif', lineHeight:1 }}>❝</div>
-              <div style={{ fontSize:'.72rem', fontWeight:900, color:'var(--gold)', textTransform:'uppercase', letterSpacing:'.14em', marginBottom:'1rem' }}>Editor's Note</div>
-              <blockquote style={{ fontFamily:'Merriweather,serif', fontSize:'1.15rem', color:'rgba(255,255,255,.88)', lineHeight:1.8, margin:'0 0 1.2rem', fontStyle:'italic' }}>
+            <div className="np-editorial-banner">
+              <div className="np-ed-quote-mark">❝</div>
+              <div className="np-ed-label">Editor's Note</div>
+              <blockquote className="np-ed-blockquote">
                 "Education is not the preparation for life; education is life itself. At Greenfield, every headline you read here is proof that our students are already living that truth — winning, creating, competing and inspiring every single day."
               </blockquote>
-              <cite style={{ fontSize:'.82rem', color:'var(--gold)', fontStyle:'normal', fontWeight:700 }}>— Dr. Ramesh Agarwal, Founder & Chairman</cite>
+              <cite className="np-ed-cite">— Dr. Ramesh Agarwal, Founder & Chairman</cite>
             </div>
           )}
 
@@ -457,23 +474,16 @@ export default function News() {
 
           {/* ── QUICK STATS BAND ── */}
           {activeCategory === 'All' && (
-            <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: '1px', background: 'var(--border)',
-              border: '1px solid var(--border)', borderRadius: '4px',
-              overflow: 'hidden', marginBottom: '2.5rem',
-            }}>
+            <div className="np-stats-band">
               {[
                 { n: '14', l: 'News stories this semester' },
                 { n: '8',  l: 'Upcoming events this month' },
                 { n: '12', l: 'Championship titles in 2026' },
                 { n: '3',  l: 'Perfect IB scores achieved' },
               ].map((s, i) => (
-                <div key={i} style={{
-                  background: 'var(--offwhite)', padding: '1.8rem 1.2rem', textAlign: 'center',
-                }}>
-                  <div style={{ fontFamily:'Playfair Display,serif', fontSize:'2.2rem', fontWeight:800, color:'var(--gold)', lineHeight:1 }}>{s.n}</div>
-                  <div style={{ fontSize:'.75rem', color:'var(--slate)', marginTop:'6px', fontWeight:600, textTransform:'uppercase', letterSpacing:'.06em', lineHeight:1.4 }}>{s.l}</div>
+                <div key={i} className="np-stat-box">
+                  <div className="np-stat-n">{s.n}</div>
+                  <div className="np-stat-l">{s.l}</div>
                 </div>
               ))}
             </div>

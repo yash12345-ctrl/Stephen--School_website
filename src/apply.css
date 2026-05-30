@@ -496,3 +496,59 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media(max-width: 480px) {
+  .apply-title {
+    font-size: 2.2rem;
+  }
+  .apply-subtitle {
+    font-size: 0.95rem;
+  }
+  .apply-section {
+    padding: 3rem 4vw 5rem;
+  }
+  .apply-main {
+    padding: 2rem 1.25rem;
+  }
+  .apply-sidebar {
+    padding: 2.5rem 1.25rem;
+  }
+  
+  /* Progress Tracker Mobile */
+  .step-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+    border-width: 2px;
+  }
+  .step-node.active .step-circle {
+    box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.15), 0 4px 10px rgba(201, 168, 76, 0.2);
+  }
+  .step-label {
+    font-size: 0.65rem;
+    letter-spacing: 0px;
+  }
+  .progress-line {
+    top: 17px;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+  }
+  
+  /* Form Mobile */
+  .form-header h2 {
+    font-size: 1.6rem;
+  }
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  .btn-prev, .btn-next, .btn-submit {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .success-screen h2 {
+    font-size: 1.8rem;
+  }
+}

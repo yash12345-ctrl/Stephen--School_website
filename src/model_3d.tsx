@@ -1,8 +1,17 @@
-import React, { useRef, useEffect, Suspense, useState } from 'react';
+import React, { useRef, useEffect, Suspense, useState, Component, ErrorInfo, ReactNode } from 'react';
 import { Canvas, useFrame, useThree, createPortal } from '@react-three/fiber';
 import { Html, Environment, ContactShadows, useGLTF, Float } from '@react-three/drei';
 import * as THREE from 'three';
 import './model_3d.css';
+
+// Suppress THREE.Clock deprecation warning from @react-three/fiber
+const originalWarn = console.warn;
+console.warn = (...args) => {
+  if (args[0] && typeof args[0] === 'string' && args[0].includes('THREE.Clock')) {
+    return;
+  }
+  originalWarn(...args);
+};
 
 // Realistic Human Avatar loaded from a stable Github CDN
 function RealisticHumanAvatar() {
@@ -142,23 +151,52 @@ function CloudMessage() {
   );
 }
 
+class ErrorBoundary extends Component<{children: ReactNode}, {hasError: boolean}> {
+  constructor(props: {children: ReactNode}) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(_: Error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error("3D Assistant Error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // Return a fallback UI when the 3D model fails to load
+      return (
+        <div style={{ position: 'fixed', bottom: '20px', right: '20px', color: '#D4AF37', background: 'rgba(15, 17, 21, 0.8)', padding: '10px 20px', borderRadius: '10px', fontFamily: 'Inter', fontSize: '14px', zIndex: 9999, whiteSpace: 'nowrap' }}>
+          3D Assistant Unavailable
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 export default function Model3D() {
   return (
-    <div className="model-3d-container">
-      <Canvas camera={{ position: [0, 0.5, 3.5], fov: 45 }} gl={{ alpha: true }}>
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[2, 5, 5]} intensity={1.5} castShadow shadow-bias={-0.0001} />
-        <pointLight position={[-2, 2, 2]} intensity={0.8} />
+    <ErrorBoundary>
+      <div className="model-3d-container">
+        <Canvas camera={{ position: [0, 0.5, 3.5], fov: 45 }} gl={{ alpha: true }}>
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[2, 5, 5]} intensity={1.5} castShadow shadow-bias={-0.0001} />
+          <pointLight position={[-2, 2, 2]} intensity={0.8} />
 
-        <Environment preset="city" />
+          <Environment preset="city" />
 
-        <Suspense fallback={<Loader />}>
-          <RealisticHumanAvatar />
-          <CloudMessage />
-        </Suspense>
+          <Suspense fallback={<Loader />}>
+            <RealisticHumanAvatar />
+            <CloudMessage />
+          </Suspense>
 
-        <ContactShadows position={[0, -1.6, 0]} opacity={0.6} scale={5} blur={2.5} far={4} color="#000000" />
-      </Canvas>
-    </div>
+          <ContactShadows position={[0, -1.6, 0]} opacity={0.6} scale={5} blur={2.5} far={4} color="#000000" />
+        </Canvas>
+      </div>
+    </ErrorBoundary>
   );
 }

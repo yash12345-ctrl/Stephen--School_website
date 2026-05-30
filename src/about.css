@@ -956,7 +956,11 @@
     text-align: center;
     gap: 3rem;
     min-height: auto;
-    padding-top: 100px;
+    padding-top: 140px;
+  }
+
+  .abt-hero-right {
+    width: 100%;
   }
 
   .abt-hero-p {
@@ -981,7 +985,7 @@
   }
 
   .abt-editorial-img-sec {
-    right: -10px;
+    right: 0;
     bottom: -20px;
     width: 60%;
   }
@@ -1018,6 +1022,22 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
+  }
+
+  .abt-bento-3d-scene {
+    height: 420px;
+  }
+
+  .abt-bento-carousel {
+    width: 280px;
+    height: 340px;
+    animation: spinCarouselMobile 30s infinite linear;
+    transform: translateZ(-350px);
+  }
+
+  .abt-bento-card-3d {
+    padding: 1.5rem;
+    transform: rotateY(calc(var(--i) * 60deg)) translateZ(350px);
   }
 
   .abt-hero-h1 {
@@ -1062,5 +1082,15 @@
   .abt-tl-row.abt-tl-alt .abt-tl-content {
     padding: 0 0 0 2.5rem;
     text-align: left;
+  }
+}
+
+@keyframes spinCarouselMobile {
+  0% {
+    transform: translateZ(-350px) rotateY(0deg);
+  }
+
+  100% {
+    transform: translateZ(-350px) rotateY(-360deg);
   }
 }

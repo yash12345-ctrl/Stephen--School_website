@@ -15,9 +15,10 @@
   --light:    #A3A4A8;
   --border:   #E2E0DC;
   min-height: 100vh;
-  background: var(--white);
   font-family: 'Inter', sans-serif;
   color: var(--navy);
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ══ NAVBAR — starts at top, sticks on scroll ══ */
@@ -73,6 +74,7 @@
 .np-ticker-track {
   overflow: hidden;
   flex: 1;
+  min-width: 0;
 }
 
 .np-ticker-scroll {
@@ -506,6 +508,92 @@
 }
 
 /* ══════════════════════════════════════════
+   EDITORIAL BANNER
+══════════════════════════════════════════ */
+.np-editorial-banner {
+  background: var(--navy);
+  border-radius: 4px;
+  padding: 2.5rem 3rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.np-ed-quote-mark {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  font-size: 10rem;
+  opacity: .04;
+  color: #D4AF37;
+  font-family: 'Playfair Display', serif;
+  line-height: 1;
+}
+
+.np-ed-label {
+  font-size: .72rem;
+  font-weight: 900;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  margin-bottom: 1rem;
+}
+
+.np-ed-blockquote {
+  font-family: 'Merriweather', serif;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, .88);
+  line-height: 1.8;
+  margin: 0 0 1.2rem;
+  font-style: italic;
+}
+
+.np-ed-cite {
+  font-size: .82rem;
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════════
+   QUICK STATS BAND
+══════════════════════════════════════════ */
+.np-stats-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.np-stat-box {
+  background: var(--offwhite);
+  padding: 1.8rem 1.2rem;
+  text-align: center;
+}
+
+.np-stat-n {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.np-stat-l {
+  font-size: .75rem;
+  color: var(--slate);
+  margin-top: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  line-height: 1.4;
+}
+
+/* ══════════════════════════════════════════
    EVENTS SECTION
 ══════════════════════════════════════════ */
 .np-events {
@@ -783,8 +871,30 @@
   .np-masthead-meta { display: none; }
   .np-masthead-brand { text-align: left; }
   .np-events { padding: 1.5rem; }
+  .np-stats-band { grid-template-columns: repeat(2, 1fr); }
+  .np-editorial-banner { padding: 2rem 1.5rem; }
 }
 
 @media (max-width: 480px) {
   .np-list-item { grid-template-columns: 80px 1fr; }
+  .np-stats-band { grid-template-columns: 1fr; }
+  .np-masthead-title { font-size: 1.8rem; }
+  .np-masthead-sub { font-size: 0.65rem; }
+  
+  /* Fix horizontal overflow caused by long non-wrapping section headers */
+  .np-section-head { 
+    gap: 0.5rem; 
+    flex-wrap: wrap; 
+  }
+  .np-section-title { 
+    white-space: normal; 
+    font-size: 1.05rem; 
+  }
+  .np-view-all { 
+    white-space: normal; 
+  }
+  .np-section-line::before {
+    width: 20px;
+  }
+  .np-events { padding: 1.25rem; }
 }

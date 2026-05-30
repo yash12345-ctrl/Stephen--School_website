@@ -11,6 +11,7 @@ const testimonials = [
 export default function App() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -31,7 +32,7 @@ export default function App() {
               <div className="logo-tagline">ACADEMY</div>
             </div>
           </a>
-          <ul className="nav-links">
+          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
             {['Home','About','Programs','School','News','Contact'].map(l => (
               <li 
                 key={l}
@@ -40,11 +41,13 @@ export default function App() {
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a 
-                  href={l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `#${l.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `#${l.toLowerCase().replace(/\\s+/g, '-')}`}
                   onClick={(e) => {
                     if (l === 'Programs') {
                       e.preventDefault();
                       setMegaMenuOpen(!megaMenuOpen);
+                    } else {
+                      setMobileMenuOpen(false);
                     }
                   }}
                   className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
@@ -59,8 +62,17 @@ export default function App() {
                 )}
               </li>
             ))}
+            {/* Mobile-only Apply Button */}
+            <li className="mobile-only-nav-apply">
+              <a href="/apply">Apply Now</a>
+            </li>
           </ul>
-          <a href="/apply" className="nav-cta">Apply Now →</a>
+          <div className="nav-actions">
+            <a href="/apply" className="nav-cta">Apply Now →</a>
+            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
         </div>
       </nav>
 

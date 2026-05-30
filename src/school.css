@@ -702,11 +702,16 @@
 .sch-partners-list {
   display: flex;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  gap: 2.5rem;
+  gap: var(--slider-gap, 2.5rem);
+  --visible-items: 4;
+  --max-slide: calc(4 - var(--visible-items));
+  --actual-slide: min(var(--active-slide, 0), var(--max-slide));
+  width: calc(100% * 4 / var(--visible-items));
+  transform: translateX(calc(var(--actual-slide) * -25%));
 }
 
 .sch-partner-card {
-  flex: 0 0 calc(25% - 1.875rem); /* Show 4 logos on desktop */
+  flex: 1;
   height: 150px;
   background: #fff;
   border: 1.5px solid rgba(0, 0, 0, 0.04);
@@ -752,6 +757,11 @@
   transform: scale(1.2);
 }
 
+@media (min-width: 1025px) {
+  .sch-slider-dots { display: none; }
+  .sch-play-pause-btn { display: none; }
+}
+
 /* ══════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════ */
@@ -759,7 +769,7 @@
   .sch-infra-grid { grid-template-columns: repeat(2, 1fr); }
   .sch-house-grid { grid-template-columns: repeat(2, 1fr); }
   .sch-spots-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .sch-partner-card { flex: 0 0 calc(33.333% - 1.67rem); } /* Show 3 logos on tablet */
+  .sch-partners-list { --visible-items: 3; }
   .sch-msg-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
   .sch-msg-photo-wrap { max-width: 320px; margin: 0 auto; }
   .sch-stats-row { grid-template-columns: repeat(2, 1fr); gap: 3rem; padding: 3rem 2rem; }
@@ -767,15 +777,15 @@
 }
 
 @media (max-width: 768px) {
-  .sch-partner-card { flex: 0 0 calc(50% - 1.25rem); } /* Show 2 logos on mobile landscape */
+  .sch-partners-list { --visible-items: 2; --slider-gap: 1rem; }
   .sch-partners-slider-wrap { gap: 1rem; }
 }
 
 @media (max-width: 640px) {
   .sch-infra-grid { grid-template-columns: 1fr; }
   .sch-house-grid { grid-template-columns: 1fr; }
-  .sch-partner-card { flex: 0 0 100%; } /* Show 1 logo on narrow mobile */
-  .sch-stats-row { grid-template-columns: 1fr; gap: 2.5rem; }
+  .sch-partners-list { --visible-items: 1; }
+  .sch-stats-row { grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: -80px; }
   .sch-hero { padding-top: 120px; }
   .sch-section { padding: 5rem 0; }
   .sch-cta { padding-top: 10rem; }

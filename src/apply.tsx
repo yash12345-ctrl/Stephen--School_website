@@ -7,8 +7,16 @@ import { ProgramMegaMenu } from './program_top';
 
 export default function Apply() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const [selectedGrade, setSelectedGrade] = useState('');
   const [submittedData, setSubmittedData] = useState<Record<string, any>>({});
 
@@ -160,7 +168,7 @@ export default function Apply() {
   return (
     <div className="site">
       {/* ── NAVBAR ── */}
-      <nav className="navbar">
+      <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
         <div className="nav-inner">
           <Link to="/" className="nav-logo">
             <span className="logo-crest">🎓</span>
@@ -169,8 +177,8 @@ export default function Apply() {
               <div className="logo-tagline">ACADEMY</div>
             </div>
           </Link>
-          <ul className="nav-links">
-            {['Home', 'About', 'Programs', 'Campus', 'News', 'Contact'].map(l => (
+          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
+            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
@@ -183,6 +191,8 @@ export default function Apply() {
                     if (l === 'Programs') {
                       e.preventDefault();
                       setMegaMenuOpen(!megaMenuOpen);
+                    } else {
+                      setMobileMenuOpen(false);
                     }
                   }}
                   className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
@@ -197,8 +207,17 @@ export default function Apply() {
                 )}
               </li>
             ))}
+            {/* Mobile-only Apply Button */}
+            <li className="mobile-only-nav-apply">
+              <Link to="/apply" onClick={() => setMobileMenuOpen(false)}>Apply Now</Link>
+            </li>
           </ul>
-          <Link to="/apply" className="nav-cta">Apply Now →</Link>
+          <div className="nav-actions">
+            <Link to="/apply" className="nav-cta">Apply Now →</Link>
+            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
         </div>
       </nav>
 

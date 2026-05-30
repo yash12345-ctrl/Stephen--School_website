@@ -6,6 +6,7 @@ import { GraduationCap, BookOpen, Atom, Trophy, Compass, ArrowRight, Play, Cpu, 
 export default function School() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -130,7 +131,7 @@ export default function School() {
               <div className="logo-tagline">ACADEMY</div>
             </div>
           </a>
-          <ul className="nav-links">
+          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
             {(['Home', 'About', 'Programs', 'School', 'News', 'Contact'] as const).map(l => (
               <li
                 key={l}
@@ -140,7 +141,14 @@ export default function School() {
               >
                 <a
                   href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `/#${l.toLowerCase().replace(/\s+/g, '-')}`}
-                  onClick={e => { if (l === 'Programs') { e.preventDefault(); setMegaMenuOpen(!megaMenuOpen); } }}
+                  onClick={e => { 
+                    if (l === 'Programs') { 
+                      e.preventDefault(); 
+                      setMegaMenuOpen(!megaMenuOpen); 
+                    } else {
+                      setMobileMenuOpen(false);
+                    }
+                  }}
                   className={[
                     l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : '',
                     l === 'School'   ? 'nav-active' : '',
@@ -158,8 +166,17 @@ export default function School() {
                 )}
               </li>
             ))}
+            {/* Mobile-only Apply Button */}
+            <li className="mobile-only-nav-apply">
+              <a href="/apply">Apply Now</a>
+            </li>
           </ul>
-          <a href="/#contact" className="nav-cta">Apply Now →</a>
+          <div className="nav-actions">
+            <a href="/#contact" className="nav-cta">Apply Now →</a>
+            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
         </div>
       </nav>
 
@@ -353,8 +370,8 @@ export default function School() {
               <div 
                 className="sch-partners-list" 
                 style={{ 
-                  transform: `translateX(-${activeSlide * 25}%)` 
-                }}
+                  '--active-slide': activeSlide 
+                } as React.CSSProperties}
               >
                 {/* Partner 1: CLL */}
                 <div className="sch-partner-card">
