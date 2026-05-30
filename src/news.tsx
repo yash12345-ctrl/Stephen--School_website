@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './news.css';
 import { ProgramMegaMenu } from './program_top';
 import { GraduationCap } from 'lucide-react';
@@ -351,7 +351,7 @@ export default function News() {
 
                 {/* Two medium cards stacked */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.8rem' }}>
-                  {[gridNews[1], gridNews[2]].map((item, i) => item && (
+                  {[gridNews[1], gridNews[2]].map((item) => item && (
                     <div className="np-card" key={item.id}>
                       <div className="np-card-img med">
                         <img src={item.image} alt={item.title} />

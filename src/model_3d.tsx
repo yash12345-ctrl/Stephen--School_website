@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, Suspense, useState, Component, ErrorInfo, ReactNode } from 'react';
-import { Canvas, useFrame, useThree, createPortal } from '@react-three/fiber';
-import { Html, Environment, ContactShadows, useGLTF, Float } from '@react-three/drei';
+import { useRef, useEffect, Suspense, Component, type ErrorInfo, type ReactNode } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Html, Environment, ContactShadows, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 import './model_3d.css';
 
@@ -16,7 +16,6 @@ console.warn = (...args) => {
 // Realistic Human Avatar loaded from a stable Github CDN
 function RealisticHumanAvatar() {
   const groupRef = useRef<THREE.Group>(null);
-  const [rightHand, setRightHand] = useState<THREE.Bone | null>(null);
   const { mouse } = useThree();
 
   // Load a highly realistic human avatar GLB (Ready Player Me avatar stored in three.js examples)
@@ -36,7 +35,6 @@ function RealisticHumanAvatar() {
         if (child.name === 'Spine') spineRef.current = child as THREE.Bone;
         if (child.name === 'RightArm') rightArmRef.current = child as THREE.Bone;
         if (child.name === 'RightForeArm') rightForeArmRef.current = child as THREE.Bone;
-        if (child.name === 'RightHand') setRightHand(child as THREE.Bone);
       }
       // Enable shadows on the meshes
       if ((child as THREE.Mesh).isMesh) {
