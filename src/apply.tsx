@@ -28,7 +28,7 @@ export default function Apply() {
     const data = Object.fromEntries(formData.entries());
     data.programApplied = selectedGrade;
     setSubmittedData(data);
-    
+
     try {
       const response = await fetch('http://localhost:4001/api/applications', {
         method: 'POST',
@@ -52,7 +52,7 @@ export default function Apply() {
 
   const generatePDF = () => {
     const doc = new jsPDF();
-    
+
     // Premium Colors
     const navy = [11, 15, 25] as [number, number, number];
     const gold = [201, 168, 76] as [number, number, number];
@@ -68,17 +68,17 @@ export default function Apply() {
     doc.setFontSize(24);
     doc.setTextColor(navy[0], navy[1], navy[2]);
     doc.text("GREENFIELD ACADEMY", 105, 28, { align: 'center' });
-    
+
     doc.setFont("helvetica", "normal");
     doc.setFontSize(11);
     doc.setTextColor(slate[0], slate[1], slate[2]);
     doc.text("PREMIUM ADMISSIONS PORTAL 2026-27", 105, 36, { align: 'center' });
-    
+
     // Decorative Gold Line
     doc.setDrawColor(gold[0], gold[1], gold[2]);
     doc.setLineWidth(1);
     doc.line(75, 42, 135, 42);
-    
+
     // Application ID / Date
     doc.setFontSize(9);
     doc.setTextColor(100);
@@ -94,7 +94,7 @@ export default function Apply() {
       ['Email', submittedData.guardianEmail || '-'],
       ['Phone', submittedData.guardianPhone || '-'],
       ['Address', `${submittedData.guardianAddress || '-'}, ${submittedData.guardianCity || '-'}`],
-      
+
       [{ content: 'STUDENT PROFILE', colSpan: 2, styles: { fillColor: navy, textColor: gold, fontStyle: 'bold', halign: 'center' } }],
       ['Student Name', submittedData.studentName || '-'],
       ['Date of Birth', submittedData.studentDob || '-'],
@@ -102,13 +102,13 @@ export default function Apply() {
       ['Nationality', submittedData.studentNationality || '-'],
       ['Blood Group', submittedData.studentBloodGroup || '-'],
       ['Medical Info', submittedData.studentMedical || 'None'],
-      
+
       [{ content: 'ACADEMIC DETAILS', colSpan: 2, styles: { fillColor: navy, textColor: gold, fontStyle: 'bold', halign: 'center' } }],
       ['Program Applied', submittedData.programApplied || '-'],
       ['Previous School', submittedData.previousSchool || 'N/A'],
       ['Curriculum Board', submittedData.curriculumBoard || 'N/A'],
       ['Extracurricular', submittedData.extracurricularInterests || 'N/A'],
-      
+
       [{ content: 'LOGISTICS & FINAL DETAILS', colSpan: 2, styles: { fillColor: navy, textColor: gold, fontStyle: 'bold', halign: 'center' } }],
       ['Transport Required', submittedData.transportationRequired || '-'],
       ['Enrollment Type', submittedData.enrollmentType || '-'],
@@ -119,14 +119,14 @@ export default function Apply() {
       startY: 58,
       body: tableData,
       theme: 'grid',
-      headStyles: { fillColor: navy, textColor: [255,255,255] },
-      columnStyles: { 
+      headStyles: { fillColor: navy, textColor: [255, 255, 255] },
+      columnStyles: {
         0: { cellWidth: 55, fontStyle: 'bold', fillColor: [250, 251, 252], textColor: navy },
         1: { textColor: [50, 50, 50] }
       },
       styles: { fontSize: 10, cellPadding: 8, lineColor: [226, 232, 240], lineWidth: 0.5 }
     });
-    
+
     // Official Signatures Area
     const finalY = (doc as any).lastAutoTable.finalY || 200;
     if (finalY < 230) {
@@ -134,13 +134,13 @@ export default function Apply() {
       doc.setLineWidth(0.5);
       doc.line(30, finalY + 30, 80, finalY + 30);
       doc.text("Parent/Guardian Signature", 55, finalY + 35, { align: 'center' });
-      
+
       doc.line(130, finalY + 30, 180, finalY + 30);
       doc.text("Admissions Officer", 155, finalY + 35, { align: 'center' });
     }
-    
+
     const pageCount = (doc as any).internal.getNumberOfPages();
-    for(let i = 1; i <= pageCount; i++) {
+    for (let i = 1; i <= pageCount; i++) {
       doc.setPage(i);
       doc.setFontSize(8);
       doc.setTextColor(150);
@@ -171,13 +171,13 @@ export default function Apply() {
           </Link>
           <ul className="nav-links">
             {['Home', 'About', 'Programs', 'Campus', 'News', 'Contact'].map(l => (
-              <li 
+              <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
                 onMouseLeave={l === 'Programs' ? () => setMegaMenuOpen(false) : undefined}
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
-                <Link 
+                <Link
                   to={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : `/#${l.toLowerCase()}`}
                   onClick={(e) => {
                     if (l === 'Programs') {
@@ -206,7 +206,7 @@ export default function Apply() {
       <section className="apply-hero">
         <div className="apply-hero-bg" />
         <div className="apply-hero-veil" />
-        
+
         <div className="apply-hero-content">
           <div className="s-tag light">Admissions 2026–27</div>
           <h1 className="apply-title">Your Future Starts <span className="gold">Here</span></h1>
@@ -217,10 +217,10 @@ export default function Apply() {
       {/* ── FORM WIZARD ── */}
       <section className="apply-section">
         <div className="apply-container">
-          
+
           {/* Sidebar */}
           <div className="apply-sidebar">
-            <h3 className="apply-sidebar-title">The Greenfield<br/><span>Advantage</span></h3>
+            <h3 className="apply-sidebar-title">The Greenfield<br /><span>Advantage</span></h3>
             <ul className="apply-features">
               <li className="af-item">
                 <div className="af-icon">🌍</div>
@@ -255,7 +255,7 @@ export default function Apply() {
                   <div className="progress-line">
                     <div className="progress-fill" style={{ width: `${((step - 1) / (totalSteps - 1)) * 100}%` }}></div>
                   </div>
-                  
+
                   {[1, 2, 3, 4].map(num => (
                     <div key={num} className={`step-node ${step === num ? 'active' : ''} ${step > num ? 'completed' : ''}`}>
                       <div className="step-circle">
@@ -279,8 +279,8 @@ export default function Apply() {
                         <p>Provide details of the primary guardians or parents.</p>
                       </div>
                       <div className="form-grid">
-                        <div className="form-group full" style={{marginBottom: '-10px'}}>
-                          <label style={{color: 'var(--gold)'}}>Primary Guardian (Father/Mother/Guardian)</label>
+                        <div className="form-group full" style={{ marginBottom: '-10px' }}>
+                          <label style={{ color: 'var(--gold)' }}>Primary Guardian (Father/Mother/Guardian)</label>
                         </div>
                         <div className="form-group">
                           <label>Full Name</label>
@@ -312,7 +312,7 @@ export default function Apply() {
                           <input type="tel" name="guardianPhone" placeholder="+91 00000 00000" required />
                         </div>
 
-                        <div className="form-group full" style={{marginTop: '10px'}}>
+                        <div className="form-group full" style={{ marginTop: '10px' }}>
                           <label>Complete Residential Address</label>
                           <input type="text" name="guardianAddress" placeholder="House/Flat No, Street, Landmark" required />
                         </div>
@@ -395,7 +395,7 @@ export default function Apply() {
                           <label>Program Applied For</label>
                           <div className="grade-selector">
                             {gradeOptions.map(g => (
-                              <div 
+                              <div
                                 key={g.id}
                                 className={`grade-card ${selectedGrade === g.id ? 'selected' : ''}`}
                                 onClick={() => setSelectedGrade(g.id)}
@@ -487,7 +487,7 @@ export default function Apply() {
                         ← Previous
                       </button>
                     ) : <div></div>}
-                    
+
                     {step < totalSteps ? (
                       <button type="button" className="btn-next" onClick={handleNext}>
                         Next Step →
@@ -530,16 +530,16 @@ export default function Apply() {
           <div className="footer-brand">
             <div className="footer-logo"><span className="logo-crest">🎓</span><div><div className="logo-name">Greenfield</div><div className="logo-tagline">ACADEMY</div></div></div>
             <p>Nurturing young minds and shaping tomorrow's leaders since 1985. A tradition of excellence, a promise of a better future.</p>
-            <div className="socials">{['Facebook','Instagram','Twitter','YouTube'].map(s=><a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>)}</div>
+            <div className="socials">{['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>)}</div>
           </div>
           {[
-            {h:'Quick Links',links:['About Us','Programs','Admissions','Faculty','Alumni','Careers']},
-            {h:'Academics',links:['Pre-Primary','Primary School','Middle School','Senior Secondary','Sports & Arts','Digital Skills']},
-            {h:'Resources',links:['Academic Calendar','Exam Schedule','Fee Structure','Scholarship','Downloads','Contact']},
-          ].map(col=>(
+            { h: 'Quick Links', links: ['About Us', 'Programs', 'Admissions', 'Faculty', 'Alumni', 'Careers'] },
+            { h: 'Academics', links: ['Pre-Primary', 'Primary School', 'Middle School', 'Senior Secondary', 'Sports & Arts', 'Digital Skills'] },
+            { h: 'Resources', links: ['Academic Calendar', 'Exam Schedule', 'Fee Structure', 'Scholarship', 'Downloads', 'Contact'] },
+          ].map(col => (
             <div className="footer-col" key={col.h}>
               <div className="footer-col-h">{col.h}</div>
-              <ul>{col.links.map(l=><li key={l}><a href="#">{l}</a></li>)}</ul>
+              <ul>{col.links.map(l => <li key={l}><a href="#">{l}</a></li>)}</ul>
             </div>
           ))}
         </div>
