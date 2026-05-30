@@ -18,7 +18,7 @@ export default function Apply() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const [selectedGrade, setSelectedGrade] = useState('');
-  const [submittedData, setSubmittedData] = useState<Record<string, any>>({});
+  const [submittedData, setSubmittedData] = useState<Record<string, string>>({});
 
   const totalSteps = 4;
 
@@ -33,7 +33,10 @@ export default function Apply() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
-    const data = Object.fromEntries((formData as any).entries());
+    const data: Record<string, string> = {};
+    formData.forEach((value, key) => {
+      data[key] = value.toString();
+    });
     data.programApplied = selectedGrade;
     setSubmittedData(data);
 
@@ -95,7 +98,7 @@ export default function Apply() {
     doc.text(`Date: ${new Date().toLocaleDateString()}`, 190, 52, { align: 'right' });
 
     const tableData = [
-      [{ content: 'FAMILY INFORMATION', colSpan: 2, styles: { fillColor: navy, textColor: gold, fontStyle: 'bold', halign: 'center' } }],
+      [{ content: 'FAMILY INFORMATION', colSpan: 2, styles: { fillColor: navy, textColor: gold, fontStyle: 'bold' as const, halign: 'center' as const } }],
       ['Primary Guardian', submittedData.guardianName || '-'],
       ['Relationship', submittedData.guardianRelation || '-'],
       ['Occupation', submittedData.guardianOccupation || '-'],
@@ -103,7 +106,7 @@ export default function Apply() {
       ['Phone', submittedData.guardianPhone || '-'],
       ['Address', `${submittedData.guardianAddress || '-'}, ${submittedData.guardianCity || '-'}`],
 
-      [{ content: 'STUDENT PROFILE', colSpan: 2, styles: { fillColor: navy, textColor: gold, fontStyle: 'bold', halign: 'center' } }],
+      [{ content: 'STUDENT PROFILE', colSpan: 2, styles: { fillColor: navy, textColor: gold, fontStyle: 'bold' as const, halign: 'center' as const } }],
       ['Student Name', submittedData.studentName || '-'],
       ['Date of Birth', submittedData.studentDob || '-'],
       ['Gender', submittedData.studentGender || '-'],
@@ -111,13 +114,13 @@ export default function Apply() {
       ['Blood Group', submittedData.studentBloodGroup || '-'],
       ['Medical Info', submittedData.studentMedical || 'None'],
 
-      [{ content: 'ACADEMIC DETAILS', colSpan: 2, styles: { fillColor: navy, textColor: gold, fontStyle: 'bold', halign: 'center' } }],
+      [{ content: 'ACADEMIC DETAILS', colSpan: 2, styles: { fillColor: navy, textColor: gold, fontStyle: 'bold' as const, halign: 'center' as const } }],
       ['Program Applied', submittedData.programApplied || '-'],
       ['Previous School', submittedData.previousSchool || 'N/A'],
       ['Curriculum Board', submittedData.curriculumBoard || 'N/A'],
       ['Extracurricular', submittedData.extracurricularInterests || 'N/A'],
 
-      [{ content: 'LOGISTICS & FINAL DETAILS', colSpan: 2, styles: { fillColor: navy, textColor: gold, fontStyle: 'bold', halign: 'center' } }],
+      [{ content: 'LOGISTICS & FINAL DETAILS', colSpan: 2, styles: { fillColor: navy, textColor: gold, fontStyle: 'bold' as const, halign: 'center' as const } }],
       ['Transport Required', submittedData.transportationRequired || '-'],
       ['Enrollment Type', submittedData.enrollmentType || '-'],
       ['Reason for Enrolling', submittedData.reasonForEnrolling || '-'],
@@ -136,7 +139,7 @@ export default function Apply() {
     });
 
     // Official Signatures Area
-    const finalY = (doc as any).lastAutoTable.finalY || 200;
+    const finalY = (doc as unknown as { lastAutoTable?: { finalY: number } }).lastAutoTable?.finalY || 200;
     if (finalY < 230) {
       doc.setDrawColor(200);
       doc.setLineWidth(0.5);
@@ -147,7 +150,7 @@ export default function Apply() {
       doc.text("Admissions Officer", 155, finalY + 35, { align: 'center' });
     }
 
-    const pageCount = (doc as any).internal.getNumberOfPages();
+    const pageCount = (doc as unknown as { internal: { getNumberOfPages: () => number } }).internal.getNumberOfPages();
     for (let i = 1; i <= pageCount; i++) {
       doc.setPage(i);
       doc.setFontSize(8);
