@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import ProgramTop, { ProgramMegaMenu } from './program_top'
 import Model3D from './model_3d'

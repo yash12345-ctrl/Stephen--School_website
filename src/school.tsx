@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './school.css';
 import { ProgramMegaMenu } from './program_top';
-import { GraduationCap, BookOpen, Atom, Trophy, Compass, ArrowRight, Play, Cpu, Sparkles, Building, Waves, Palette } from 'lucide-react';
+import { GraduationCap, BookOpen, Atom, Compass, Play, Cpu, Sparkles } from 'lucide-react';
 
 export default function School() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
