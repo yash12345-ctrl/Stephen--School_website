@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import ProgramTop, { ProgramMegaMenu } from './program_top'
-import Model3D from './model_3d'
 const testimonials = [
   { name: 'Priya Sharma', role: 'Parent · Grade 10', quote: 'Greenfield transformed my daughter into a confident, curious learner. The faculty truly care about each child\'s individual growth journey.', initial: 'P', color: '#c5a880' },
   { name: 'Arjun Mehta', role: 'Alumni · Batch 2020', quote: 'The values and skills I gained here shaped who I am. I am now at IIT Bombay — a dream I owe entirely to Greenfield Academy.', initial: 'A', color: '#6b7280' },
@@ -78,12 +77,12 @@ export default function App() {
 
       {/* ── HERO ── */}
       <section className="hero" id="home">
-        <div className="hero-img" style={{backgroundImage:"url('/hero_bg.png')"}} />
+        <div className="hero-img" style={{backgroundImage:"url('/img.png')"}} />
         <div className="hero-veil" />
         <div className="hero-glow g1" /><div className="hero-glow g2" />
         <div className="hero-body">
           <div className="hero-pill">✦ Est. 1985 &nbsp;·&nbsp; Excellence in Education ✦</div>
-          <h1 className="hero-h1">Shaping <em>Tomorrow's</em><br/>Leaders <span className="stroke-text">Today</span></h1>
+          <h1 className="hero-h1">Shaping<br/><em>Tomorrow's</em><br/>Leaders <span className="stroke-text">Today</span></h1>
           <p className="hero-p">Where academic brilliance meets character — empowering every student to reach their highest potential in a world-class learning environment.</p>
           <div className="hero-btns">
             <a href="#programs" className="btn-gold">Explore Programs</a>
@@ -98,6 +97,33 @@ export default function App() {
             ))}
           </div>
         </div>
+        <aside className="hero-news-panel" aria-label="Latest school news">
+          <div className="hero-news-top">
+            <div>
+              <span className="hero-news-kicker">Live Desk</span>
+              <h2>School Updates</h2>
+            </div>
+            <span className="hero-news-status">3 New</span>
+          </div>
+          <div className="hero-news-feature">
+            <span className="hero-news-tag">Featured</span>
+            <h3>Admissions Open for 2026-27</h3>
+            <p>Priority counselling slots are now available for families applying across all grades.</p>
+          </div>
+          <div className="hero-news-list">
+            {[
+              ['June 15', 'Annual Day rehearsal schedule released'],
+              ['May 20', 'Science Olympiad team wins national gold'],
+              ['This Week', 'New STEM lab orientation begins'],
+            ].map(([date, title]) => (
+              <a href="#news" className="hero-news-item" key={title}>
+                <span>{date}</span>
+                <strong>{title}</strong>
+              </a>
+            ))}
+          </div>
+          <a href="#news" className="hero-news-link">View all updates →</a>
+        </aside>
         <div className="scroll-hint"><div className="scroll-wheel"/><span>Scroll</span></div>
       </section>
 
@@ -377,10 +403,6 @@ export default function App() {
           <span>Privacy Policy · Terms of Use · Sitemap</span>
         </div>
       </footer>
-      
-      {/* ── 3D AI ASSISTANT ── */}
-      <Model3D />
-
     </div>
   )
 }
