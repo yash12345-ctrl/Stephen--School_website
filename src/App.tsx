@@ -1,16 +1,26 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, MouseEvent } from 'react'
 import './App.css'
 import ProgramTop, { ProgramMegaMenu } from './program_top'
 const testimonials = [
-  { name: 'Priya Sharma', role: 'Parent · Grade 10', quote: 'Greenfield transformed my daughter into a confident, curious learner. The faculty truly care about each child\'s individual growth journey.', initial: 'P', color: '#c5a880' },
-  { name: 'Arjun Mehta', role: 'Alumni · Batch 2020', quote: 'The values and skills I gained here shaped who I am. I am now at IIT Bombay — a dream I owe entirely to Greenfield Academy.', initial: 'A', color: '#6b7280' },
-  { name: 'Dr. Sunita Rao', role: 'Parent · Grade 8', quote: 'The STEM programs are outstanding. My son built his first robot at 13. Greenfield makes innovation accessible to every child.', initial: 'S', color: '#131a26' },
+  { name: 'Priya Sharma', role: 'Parent · Grade 10', quote: 'St. Stephen\'s transformed my daughter into a confident, curious learner. The faculty truly care about each child\'s individual growth journey.', initial: 'P', color: '#c5a880' },
+  { name: 'Arjun Mehta', role: 'Alumni · Batch 2020', quote: 'The values and skills I gained here shaped who I am. I am now at IIT Bombay — a dream I owe entirely to St. Stephen\'s School.', initial: 'A', color: '#6b7280' },
+  { name: 'Dr. Sunita Rao', role: 'Parent · Grade 8', quote: 'The STEM programs are outstanding. My son built his first robot at 13. St. Stephen\'s makes innovation accessible to every child.', initial: 'S', color: '#131a26' },
 ]
 
 export default function App() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+
+  const handleHeroMouseMove = (e: MouseEvent<HTMLElement>) => {
+    if (!heroRef.current) return;
+    const { left, top, width, height } = heroRef.current.getBoundingClientRect();
+    const x = (e.clientX - left) / width;
+    const y = (e.clientY - top) / height;
+    heroRef.current.style.setProperty('--mouse-x', `${x}`);
+    heroRef.current.style.setProperty('--mouse-y', `${y}`);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -25,21 +35,23 @@ export default function App() {
       <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
         <div className="nav-inner">
           <a href="#home" className="nav-logo">
-            <span className="logo-crest">🎓</span>
+            <div className="logo-crest-wrapper">
+              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+            </div>
             <div>
-              <div className="logo-name">Greenfield</div>
-              <div className="logo-tagline">ACADEMY</div>
+              <div className="logo-name">St. Stephen's</div>
+              <div className="logo-tagline">SCHOOL</div>
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home','About','Programs','School','News','Contact'].map(l => (
-              <li 
+            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
+              <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
                 onMouseLeave={l === 'Programs' ? () => setMegaMenuOpen(false) : undefined}
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
-                <a 
+                <a
                   href={l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `#${l.toLowerCase().replace(/\\s+/g, '-')}`}
                   onClick={(e) => {
                     if (l === 'Programs') {
@@ -76,20 +88,41 @@ export default function App() {
       </nav>
 
       {/* ── HERO ── */}
-      <section className="hero" id="home">
-        <div className="hero-img" style={{backgroundImage:"url('/img.png')"}} />
+      <section className="hero" id="home" ref={heroRef} onMouseMove={handleHeroMouseMove}>
+        <div className="hero-img" style={{ backgroundImage: "url('/img.png')" }} />
         <div className="hero-veil" />
         <div className="hero-glow g1" /><div className="hero-glow g2" />
         <div className="hero-body">
-          <div className="hero-pill">✦ Est. 1985 &nbsp;·&nbsp; Excellence in Education ✦</div>
-          <h1 className="hero-h1">Shaping<br/><em>Tomorrow's</em><br/>Leaders <span className="stroke-text">Today</span></h1>
+          <div className="hero-pill">
+            <span className="pulse-dot"></span> Est. 1985 &nbsp;·&nbsp; Excellence in Education
+          </div>
+          <h1 className="hero-h1">Shaping<br />Tomorrow's<br />Leaders</h1>
           <p className="hero-p">Where academic brilliance meets character — empowering every student to reach their highest potential in a world-class learning environment.</p>
           <div className="hero-btns">
             <a href="#programs" className="btn-gold">Explore Programs</a>
             <a href="/the-school" className="btn-ghost">Virtual Tour ▶</a>
           </div>
+        </div>
+
+        <div className="hero-right">
+          <aside className="hero-admissions-card" aria-label="Admissions information">
+            <div className="hac-image" style={{ backgroundImage: "url('/library.png')" }}>
+              <div className="hac-badge">
+                <span className="pulse-dot-red"></span> Now Open
+              </div>
+            </div>
+            <div className="hac-content">
+              <h3>Admissions 2026–27</h3>
+              <p>Discover our world-class campus and innovative curriculum. Schedule a personalized family tour today.</p>
+              <div className="hac-actions">
+                <a href="#apply" className="hac-btn-main">Apply Now</a>
+                <a href="/the-school" className="hac-link">Campus Tour →</a>
+              </div>
+            </div>
+          </aside>
+
           <div className="hero-stats">
-            {[['3,200+','Students'],['98%','Pass Rate'],['150+','Faculty'],['40+','Yrs Legacy']].map(([n,l],i)=>(
+            {[['3,200+', 'Students'], ['98%', 'Pass Rate'], ['150+', 'Faculty'], ['40+', 'Yrs Legacy']].map(([n, l], i) => (
               <div key={i} className="hstat">
                 <span className="hstat-n">{n}</span>
                 <span className="hstat-l">{l}</span>
@@ -97,34 +130,7 @@ export default function App() {
             ))}
           </div>
         </div>
-        <aside className="hero-news-panel" aria-label="Latest school news">
-          <div className="hero-news-top">
-            <div>
-              <span className="hero-news-kicker">Live Desk</span>
-              <h2>School Updates</h2>
-            </div>
-            <span className="hero-news-status">3 New</span>
-          </div>
-          <div className="hero-news-feature">
-            <span className="hero-news-tag">Featured</span>
-            <h3>Admissions Open for 2026-27</h3>
-            <p>Priority counselling slots are now available for families applying across all grades.</p>
-          </div>
-          <div className="hero-news-list">
-            {[
-              ['June 15', 'Annual Day rehearsal schedule released'],
-              ['May 20', 'Science Olympiad team wins national gold'],
-              ['This Week', 'New STEM lab orientation begins'],
-            ].map(([date, title]) => (
-              <a href="#news" className="hero-news-item" key={title}>
-                <span>{date}</span>
-                <strong>{title}</strong>
-              </a>
-            ))}
-          </div>
-          <a href="#news" className="hero-news-link">View all updates →</a>
-        </aside>
-        <div className="scroll-hint"><div className="scroll-wheel"/><span>Scroll</span></div>
+        <div className="scroll-hint"><div className="scroll-wheel" /><span>Scroll</span></div>
       </section>
 
       {/* ── TICKER ── */}
@@ -139,25 +145,25 @@ export default function App() {
       <section className="section about-section" id="about">
         <div className="container about-grid">
           <div className="about-imgs">
-            <div className="aimg aimg-main"><img src="/library.png" alt="Library"/></div>
-            <div className="aimg aimg-sec"><img src="/science_lab.png" alt="Science Lab"/></div>
+            <div className="aimg aimg-main"><img src="/library.png" alt="Library" /></div>
+            <div className="aimg aimg-sec"><img src="/science_lab.png" alt="Science Lab" /></div>
             <div className="about-badge">
               <div className="ab-num">40+</div>
-              <div className="ab-txt">Years of<br/>Excellence</div>
+              <div className="ab-txt">Years of<br />Excellence</div>
             </div>
             <div className="about-award">🏅 National Best School Award</div>
           </div>
           <div className="about-body">
             <div className="s-tag">About Us</div>
             <h2 className="s-title">A Legacy of <span className="gold">Academic Excellence</span></h2>
-            <p className="s-lead">Founded in 1985, Greenfield Academy has been a beacon of quality education, nurturing over 50,000 alumni who are now leaders across the globe.</p>
+            <p className="s-lead">Founded in 1985, St. Stephen's School has been a beacon of quality education, nurturing over 50,000 alumni who are now leaders across the globe.</p>
             <p className="s-body">Our holistic approach combines rigorous academics with character development, producing graduates who excel in every field of human endeavour — from science and technology to arts and public service.</p>
             <div className="pillars">
               {[
-                {icon:'🏅', h:'Award-Winning Faculty', p:'Nationally recognized educators dedicated to student success'},
-                {icon:'🌍', h:'Global Curriculum', p:'International standards aligned with CBSE & IB frameworks'},
-                {icon:'💡', h:'Innovation-Driven', p:'Cutting-edge labs, tech-enabled classrooms & maker spaces'},
-              ].map((f,i)=>(
+                { icon: '🏅', h: 'Award-Winning Faculty', p: 'Nationally recognized educators dedicated to student success' },
+                { icon: '🌍', h: 'Global Curriculum', p: 'International standards aligned with CBSE & IB frameworks' },
+                { icon: '💡', h: 'Innovation-Driven', p: 'Cutting-edge labs, tech-enabled classrooms & maker spaces' },
+              ].map((f, i) => (
                 <div className="pillar" key={i}>
                   <div className="pillar-icon">{f.icon}</div>
                   <div><div className="pillar-h">{f.h}</div><div className="pillar-p">{f.p}</div></div>
@@ -182,8 +188,8 @@ export default function App() {
             </linearGradient>
           </defs>
         </svg>
-        <div className="campus-bg" style={{backgroundImage:"url('/sports_field.png')"}}/>
-        <div className="campus-veil"/>
+        <div className="campus-bg" style={{ backgroundImage: "url('/sports_field.png')" }} />
+        <div className="campus-veil" />
         <div className="campus-body">
           <div className="s-tag light">Campus Life</div>
           <h2 className="s-title white">A Campus That <span className="gold">Inspires</span></h2>
@@ -266,7 +272,7 @@ export default function App() {
                 val: '2',
                 lbl: 'Swimming Pools'
               },
-            ].map((c,i)=>(
+            ].map((c, i) => (
               <div className="cc" key={i}>
                 <span className="cc-icon">{c.icon}</span>
                 <span className="cc-val">{c.val}</span>
@@ -285,13 +291,13 @@ export default function App() {
             <h2 className="s-title">Trusted by <span className="gold">Thousands</span> of Families</h2>
           </div>
           <div className="testi-grid">
-            {testimonials.map((t,i)=>(
+            {testimonials.map((t, i) => (
               <div className="testi-card" key={i}>
                 <div className="testi-quote-mark">❝</div>
                 <p className="testi-text">{t.quote}</p>
                 <div className="testi-stars">★★★★★</div>
                 <div className="testi-author">
-                  <div className="testi-av" style={{background:`linear-gradient(135deg,${t.color},${t.color}88)`}}>{t.initial}</div>
+                  <div className="testi-av" style={{ background: `linear-gradient(135deg,${t.color},${t.color}88)` }}>{t.initial}</div>
                   <div><div className="testi-name">{t.name}</div><div className="testi-role">{t.role}</div></div>
                 </div>
               </div>
@@ -309,11 +315,11 @@ export default function App() {
           </div>
           <div className="news-grid">
             {[
-              {tag:'🏆 Achievement',date:'May 20, 2026',h:'Students Win National Science Olympiad',p:'Our team of 5 brought home gold at the 2026 National Science Olympiad held in New Delhi.',hot:true},
-              {tag:'📅 Event',date:'June 15, 2026',h:'Annual Day Celebration 2026',p:'Join us for a grand evening of performances, award ceremonies and cultural showcases across all grades.',hot:false},
-              {tag:'📋 Admissions',date:'May 1, 2026',h:'Admissions Open for 2026–27',p:'Applications now open for all grades. Early registrations receive priority slots and scholarship consideration.',hot:false},
-            ].map((n,i)=>(
-              <div className={`news-card${n.hot?' news-hot':''}`} key={i}>
+              { tag: '🏆 Achievement', date: 'May 20, 2026', h: 'Students Win National Science Olympiad', p: 'Our team of 5 brought home gold at the 2026 National Science Olympiad held in New Delhi.', hot: true },
+              { tag: '📅 Event', date: 'June 15, 2026', h: 'Annual Day Celebration 2026', p: 'Join us for a grand evening of performances, award ceremonies and cultural showcases across all grades.', hot: false },
+              { tag: '📋 Admissions', date: 'May 1, 2026', h: 'Admissions Open for 2026–27', p: 'Applications now open for all grades. Early registrations receive priority slots and scholarship consideration.', hot: false },
+            ].map((n, i) => (
+              <div className={`news-card${n.hot ? ' news-hot' : ''}`} key={i}>
                 {n.hot && <div className="news-ribbon">Featured</div>}
                 <div className="news-tag">{n.tag}</div>
                 <div className="news-date">📅 {n.date}</div>
@@ -328,11 +334,11 @@ export default function App() {
 
       {/* ── CTA ── */}
       <section className="cta-section">
-        <div className="cta-glow"/>
+        <div className="cta-glow" />
         <div className="cta-body">
           <div className="cta-badge">🎓 Admissions Open 2026–27</div>
           <h2 className="cta-h">Begin Your Child's <span className="gold">Journey</span> with Us</h2>
-          <p className="cta-p">Join thousands of families who trust Greenfield Academy for a world-class, values-driven education that lasts a lifetime.</p>
+          <p className="cta-p">Join thousands of families who trust St. Stephen's School for a world-class, values-driven education that lasts a lifetime.</p>
           <div className="cta-btns">
             <a href="#contact" className="btn-gold large">Apply for Admission</a>
             <a href="tel:+911234567890" className="btn-ghost large">📞 Call Us</a>
@@ -346,34 +352,34 @@ export default function App() {
           <div className="contact-info">
             <div className="s-tag">Contact Us</div>
             <h2 className="s-title">We'd Love to <span className="gold">Hear</span> From You</h2>
-            <p className="s-body" style={{marginBottom:'2.5rem'}}>Have questions about admissions, programs, or campus life? Our friendly team is ready to help every step of the way.</p>
+            <p className="s-body" style={{ marginBottom: '2.5rem' }}>Have questions about admissions, programs, or campus life? Our friendly team is ready to help every step of the way.</p>
             {[
-              {icon:'📍',lbl:'Address',val:'42 Knowledge Park, Sector 12, New Delhi – 110045'},
-              {icon:'📞',lbl:'Phone',val:'+91 12345 67890'},
-              {icon:'✉️',lbl:'Email',val:'info@greenfieldacademy.edu.in'},
-              {icon:'🕐',lbl:'Office Hours',val:'Monday – Saturday: 8:00 AM – 4:00 PM'},
-            ].map((d,i)=>(
+              { icon: '📍', lbl: 'Address', val: '42 Knowledge Park, Sector 12, New Delhi – 110045' },
+              { icon: '📞', lbl: 'Phone', val: '+91 12345 67890' },
+              { icon: '✉️', lbl: 'Email', val: 'info@ststephens.edu.in' },
+              { icon: '🕐', lbl: 'Office Hours', val: 'Monday – Saturday: 8:00 AM – 4:00 PM' },
+            ].map((d, i) => (
               <div className="ci" key={i}>
                 <div className="ci-icon">{d.icon}</div>
                 <div><div className="ci-lbl">{d.lbl}</div><div className="ci-val">{d.val}</div></div>
               </div>
             ))}
           </div>
-          <form className="contact-form" onSubmit={e=>e.preventDefault()}>
+          <form className="contact-form" onSubmit={e => e.preventDefault()}>
             <div className="form-head">Send Us a Message</div>
             <div className="form-row">
-              <div className="fg"><label>Parent / Guardian Name</label><input type="text" placeholder="Your full name"/></div>
-              <div className="fg"><label>Phone Number</label><input type="tel" placeholder="+91 00000 00000"/></div>
+              <div className="fg"><label>Parent / Guardian Name</label><input type="text" placeholder="Your full name" /></div>
+              <div className="fg"><label>Phone Number</label><input type="tel" placeholder="+91 00000 00000" /></div>
             </div>
-            <div className="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+            <div className="fg"><label>Email Address</label><input type="email" placeholder="your@email.com" /></div>
             <div className="fg">
               <label>Grade Applying For</label>
               <select>
                 <option value="">Select grade</option>
-                {['Pre-Primary','Grade 1','Grade 2','Grade 3','Grade 4','Grade 5','Grade 6','Grade 7','Grade 8','Grade 9','Grade 10','Grade 11','Grade 12'].map(g=><option key={g}>{g}</option>)}
+                {['Pre-Primary', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'].map(g => <option key={g}>{g}</option>)}
               </select>
             </div>
-            <div className="fg"><label>Message</label><textarea rows={4} placeholder="Your questions or message..."/></div>
+            <div className="fg"><label>Message</label><textarea rows={4} placeholder="Your questions or message..." /></div>
             <button type="submit" className="btn-gold full">Send Message 🚀</button>
           </form>
         </div>
@@ -383,23 +389,31 @@ export default function App() {
       <footer className="footer">
         <div className="footer-top">
           <div className="footer-brand">
-            <div className="footer-logo"><span className="logo-crest">🎓</span><div><div className="logo-name">Greenfield</div><div className="logo-tagline">ACADEMY</div></div></div>
+            <div className="footer-logo">
+              <div className="logo-crest-wrapper">
+                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              </div>
+              <div>
+                <div className="logo-name">St. Stephen's</div>
+                <div className="logo-tagline">SCHOOL</div>
+              </div>
+            </div>
             <p>Nurturing young minds and shaping tomorrow's leaders since 1985. A tradition of excellence, a promise of a better future.</p>
-            <div className="socials">{['Facebook','Instagram','Twitter','YouTube'].map(s=><a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>)}</div>
+            <div className="socials">{['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>)}</div>
           </div>
           {[
-            {h:'Quick Links',links:['About Us','Programs','Admissions','Faculty','Alumni','Careers']},
-            {h:'Academics',links:['Pre-Primary','Primary School','Middle School','Senior Secondary','Sports & Arts','Digital Skills']},
-            {h:'Resources',links:['Academic Calendar','Exam Schedule','Fee Structure','Scholarship','Downloads','Contact']},
-          ].map(col=>(
+            { h: 'Quick Links', links: ['About Us', 'Programs', 'Admissions', 'Faculty', 'Alumni', 'Careers'] },
+            { h: 'Academics', links: ['Pre-Primary', 'Primary School', 'Middle School', 'Senior Secondary', 'Sports & Arts', 'Digital Skills'] },
+            { h: 'Resources', links: ['Academic Calendar', 'Exam Schedule', 'Fee Structure', 'Scholarship', 'Downloads', 'Contact'] },
+          ].map(col => (
             <div className="footer-col" key={col.h}>
               <div className="footer-col-h">{col.h}</div>
-              <ul>{col.links.map(l=><li key={l}><a href="#">{l}</a></li>)}</ul>
+              <ul>{col.links.map(l => <li key={l}><a href="#">{l}</a></li>)}</ul>
             </div>
           ))}
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Greenfield Academy. All rights reserved.</span>
+          <span>© 2026 St. Stephen's School. All rights reserved.</span>
           <span>Privacy Policy · Terms of Use · Sitemap</span>
         </div>
       </footer>
