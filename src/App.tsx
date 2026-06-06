@@ -145,24 +145,26 @@ export default function App() {
       <section className="section about-section" id="about">
         <div className="container about-grid">
           <div className="about-imgs">
-            <div className="aimg aimg-main"><img src="/library.png" alt="Library" /></div>
-            <div className="aimg aimg-sec"><img src="/science_lab.png" alt="Science Lab" /></div>
+            <div className="aimg aimg-main"><img src="/v3.png" alt="Campus Life" /></div>
+            <div className="aimg aimg-sec"><img src="/v4.jpeg" alt="Students" /></div>
             <div className="about-badge">
-              <div className="ab-num">40+</div>
-              <div className="ab-txt">Years of<br />Excellence</div>
+              <div className="ab-num">20+</div>
+              <div className="ab-txt">Years of<br />Service</div>
             </div>
-            <div className="about-award">🏅 National Best School Award</div>
           </div>
           <div className="about-body">
-            <div className="s-tag">About Us</div>
-            <h2 className="s-title">A Legacy of <span className="gold">Academic Excellence</span></h2>
-            <p className="s-lead">Founded in 1985, St. Stephen's School has been a beacon of quality education, nurturing over 50,000 alumni who are now leaders across the globe.</p>
-            <p className="s-body">Our holistic approach combines rigorous academics with character development, producing graduates who excel in every field of human endeavour — from science and technology to arts and public service.</p>
+            <div className="s-tag" style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <svg style={{ marginRight: '6px', marginTop: '-2px' }} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              NGO Based Education
+            </div>
+            <h2 className="s-title">Building Leaders Beyond <span className="gold">Circumstances</span></h2>
+            <p className="s-lead">An NGO-based school in Bowbazar, Kolkata, committed to the social and economic transformation of underprivileged children since 2001.</p>
+            <p className="s-body">With over 500 students from Lower Nursery to Class X, we provide a haven of learning for first-generation learners. We deliver quality education and extracurricular opportunities without discrimination.</p>
             <div className="pillars">
               {[
-                { icon: '🏅', h: 'Award-Winning Faculty', p: 'Nationally recognized educators dedicated to student success' },
-                { icon: '🌍', h: 'Global Curriculum', p: 'International standards aligned with CBSE & IB frameworks' },
-                { icon: '💡', h: 'Innovation-Driven', p: 'Cutting-edge labs, tech-enabled classrooms & maker spaces' },
+                { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>, h: 'Our Vision', p: 'Building strong connections to help students achieve independence and academic confidence.' },
+                { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>, h: 'Our Mission', p: 'Providing a valued haven where staff and families partner for every student\'s success.' },
+                { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>, h: 'Holistic Growth', p: 'Following the Madhyamik syllabus alongside sports, arts, and interactive social clubs.' },
               ].map((f, i) => (
                 <div className="pillar" key={i}>
                   <div className="pillar-icon">{f.icon}</div>
@@ -178,110 +180,7 @@ export default function App() {
       {/* ── PROGRAMS ── */}
       <ProgramTop />
 
-      {/* ── CAMPUS ── */}
-      <section className="campus-sec" id="the-school">
-        <svg style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} aria-hidden="true">
-          <defs>
-            <linearGradient id="goldIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="var(--gold)" />
-              <stop offset="100%" stopColor="var(--gold2)" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <div className="campus-bg" style={{ backgroundImage: "url('/sports_field.png')" }} />
-        <div className="campus-veil" />
-        <div className="campus-body">
-          <div className="s-tag light">Campus Life</div>
-          <h2 className="s-title white">A Campus That <span className="gold">Inspires</span></h2>
-          <p className="campus-p">Spread across 25 acres, our world-class campus features state-of-the-art facilities designed to inspire learning, creativity and growth in every student.</p>
-          <div className="campus-cards">
-            {[
-              {
-                icon: (
-                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <line x1="12" y1="4" x2="12" y2="20" />
-                    <circle cx="12" cy="12" r="4" />
-                    <path d="M2 12h3" />
-                    <path d="M19 12h3" />
-                  </svg>
-                ),
-                val: '12+',
-                lbl: 'Sports Grounds'
-              },
-              {
-                icon: (
-                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4.5 3h15" />
-                    <path d="M6 3v6a6 6 0 0 0 1.5 4L12 18.5l4.5-5.5a6 6 0 0 0 1.5-4V3" />
-                    <path d="M6 14h12" />
-                    <line x1="8" y1="9" x2="16" y2="9" />
-                    <line x1="9" y1="6" x2="15" y2="6" />
-                  </svg>
-                ),
-                val: '8',
-                lbl: 'Science Labs'
-              },
-              {
-                icon: (
-                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                    <path d="M6 8h2" />
-                    <path d="M6 12h2" />
-                    <path d="M16 8h2" />
-                    <path d="M16 12h2" />
-                  </svg>
-                ),
-                val: '50K+',
-                lbl: 'Library Books'
-              },
-              {
-                icon: (
-                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                    <line x1="8" y1="21" x2="16" y2="21" />
-                    <line x1="12" y1="17" x2="12" y2="21" />
-                    <line x1="6" y1="8" x2="18" y2="8" />
-                  </svg>
-                ),
-                val: '6',
-                lbl: 'Computer Labs'
-              },
-              {
-                icon: (
-                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 22V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v18" />
-                    <path d="M2 10c4 0 6 4 10 4s6-4 10-4" />
-                    <path d="M12 2v20" />
-                    <path d="M6 22V13c0-2 1-3 3-3" />
-                    <path d="M18 22V13c0-2-1-3-3-3" />
-                  </svg>
-                ),
-                val: '3',
-                lbl: 'Auditoriums'
-              },
-              {
-                icon: (
-                  <svg className="cc-svg" viewBox="0 0 24 24" fill="none" stroke="url(#goldIconGrad)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 6c.6.5 1.2 1 2.5 1C5.8 7 7 5 9.5 5c2.6 0 3.7 2 6.2 2 2.6 0 3.8-2 6.3-2" />
-                    <path d="M2 12c.6.5 1.2 1 2.5 1 1.3 0 2.5-2 5-2 2.6 0 3.7 2 6.2 2 2.6 0 3.8-2 6.3-2" />
-                    <path d="M2 18c.6.5 1.2 1 2.5 1 1.3 0 2.5-2 5-2 2.6 0 3.7 2 6.2 2 2.6 0 3.8-2 6.3-2" />
-                  </svg>
-                ),
-                val: '2',
-                lbl: 'Swimming Pools'
-              },
-            ].map((c, i) => (
-              <div className="cc" key={i}>
-                <span className="cc-icon">{c.icon}</span>
-                <span className="cc-val">{c.val}</span>
-                <span className="cc-lbl">{c.lbl}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── CAMPUS (Removed for NGO identity) ── */}
 
       {/* ── TESTIMONIALS ── */}
       <section className="section testi-section">
