@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, MouseEvent } from 'react'
+import { useState, useEffect, useRef, type MouseEvent } from 'react'
 import './App.css'
 import ProgramTop, { ProgramMegaMenu } from './program_top'
 const testimonials = [
