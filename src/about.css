@@ -27,6 +27,31 @@
 }
 
 /* ── NAVBAR REMOVED - NOW USING GLOBAL NAVBAR ── */
+.navbar.navbar--about:not(.navbar--fixed) {
+  background: transparent !important;
+  border-bottom: none !important;
+}
+
+.navbar.navbar--about:not(.navbar--fixed) .nav-links a {
+  color: var(--navy) !important;
+  font-weight: 600;
+}
+
+.navbar.navbar--about:not(.navbar--fixed) .nav-links a:hover {
+  color: var(--gold) !important;
+}
+
+.navbar.navbar--about:not(.navbar--fixed) .logo-name {
+  color: var(--navy) !important;
+}
+
+.navbar.navbar--about:not(.navbar--fixed) .caret {
+  stroke: var(--navy) !important;
+}
+
+.navbar.navbar--about:not(.navbar--fixed) .mobile-toggle span {
+  background: var(--navy) !important;
+}
 
 /* ── SPLIT HERO ── */
 .abt-hero {

@@ -55,7 +55,7 @@ export default function About() {
     <div className="abt-page">
 
       {/* ── NAVBAR ── */}
-      <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
+      <nav className={`navbar navbar--about${scrolled ? ' navbar--fixed' : ''}`}>
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
@@ -67,7 +67,7 @@ export default function About() {
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
+            {['Home', 'About', 'Programs', 'Gallery', 'News', 'Contact'].map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
@@ -108,7 +108,7 @@ export default function About() {
             </li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate →</a>
+            <a href="/#donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
