@@ -1,11 +1,6 @@
 import { useState, useEffect, useRef, type MouseEvent } from 'react'
 import './App.css'
 import ProgramTop, { ProgramMegaMenu } from './program_top'
-const testimonials = [
-  { name: 'Priya Sharma', role: 'Parent · Grade 10', quote: 'St. Stephen\'s transformed my daughter into a confident, curious learner. The faculty truly care about each child\'s individual growth journey.', initial: 'P', color: '#c5a880' },
-  { name: 'Arjun Mehta', role: 'Alumni · Batch 2020', quote: 'The values and skills I gained here shaped who I am. I am now at IIT Bombay — a dream I owe entirely to St. Stephen\'s School.', initial: 'A', color: '#6b7280' },
-  { name: 'Dr. Sunita Rao', role: 'Parent · Grade 8', quote: 'The STEM programs are outstanding. My son built his first robot at 13. St. Stephen\'s makes innovation accessible to every child.', initial: 'S', color: '#131a26' },
-]
 
 export default function App() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
