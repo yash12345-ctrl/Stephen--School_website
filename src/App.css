@@ -572,24 +572,28 @@ a {
 }
 
 .hero-h1 {
-  font-size: clamp(2.8rem, 4.6vw, 4.8rem);
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3.2rem, 5vw, 5.5rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.05;
   letter-spacing: -1.5px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   color: #fff;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
   opacity: 0;
   animation: premiumReveal 1.2s cubic-bezier(0.2, 1, 0.3, 1) 0.15s forwards;
 }
 
 .hero-p {
-  font-size: 1.12rem;
-  color: rgba(255, 255, 255, .85);
-  max-width: 540px;
-  margin: 0 0 2.2rem;
-  line-height: 1.8;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 500px;
+  margin: 0 0 2.5rem;
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
   opacity: 0;
   animation: premiumReveal 1.2s cubic-bezier(0.2, 1, 0.3, 1) 0.3s forwards;
 }
@@ -1174,10 +1178,86 @@ a {
 }
 
 .testi-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem
+  display: none;
 }
+
+/* ── DIGNITARY CARD ── */
+.dignitary-card {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  background: #fff;
+  padding: 4rem;
+  border-radius: 36px;
+  box-shadow: 0 30px 60px rgba(11, 15, 25, 0.05);
+  margin-top: 3rem;
+}
+
+.dignitary-img {
+  flex: 0 0 320px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.dignitary-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dignitary-content {
+  flex: 1;
+}
+
+.dignitary-quote-icon {
+  font-size: 4rem;
+  color: var(--gold);
+  line-height: 1;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.dignitary-quote {
+  font-size: 1.5rem;
+  color: var(--navy);
+  line-height: 1.8;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  margin-bottom: 2.5rem;
+}
+
+.dignitary-name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+
+.dignitary-role {
+  font-size: 0.95rem;
+  color: var(--slate);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+@media(max-width: 900px) {
+  .dignitary-card {
+    flex-direction: column;
+    padding: 2.5rem;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  .dignitary-img {
+    flex: 0 0 auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+  }
+}
+
 
 .testi-card {
   background: linear-gradient(180deg, #fff, var(--offwhite));

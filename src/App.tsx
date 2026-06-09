@@ -134,7 +134,6 @@ export default function App() {
 
       {/* ── TICKER ── */}
       <div className="ticker">
-        <span className="ticker-badge">📢 LIVE</span>
         <div className="ticker-run">
           <span>🏆 National Science Olympiad Champions 2026 &nbsp;·&nbsp; 📅 Admissions Open 2026–27 &nbsp;·&nbsp; 🎓 Annual Day — June 15 &nbsp;·&nbsp; ⚽ Inter-School Finals: We Advance! &nbsp;·&nbsp; 🔬 New STEM Lab Opening Soon &nbsp;·&nbsp; 📚 Board Results: 96% Distinction &nbsp;·&nbsp; 🏆 National Science Olympiad Champions 2026 &nbsp;·&nbsp; 📅 Admissions Open 2026–27 &nbsp;·&nbsp; 🎓 Annual Day — June 15 &nbsp;·&nbsp;</span>
         </div>
@@ -186,20 +185,30 @@ export default function App() {
         <div className="container">
           <div className="sec-head">
             <div className="s-tag">Community Voices</div>
-            <h2 className="s-title">Trusted by <span className="gold">Thousands</span> of Families</h2>
+            <h2 className="s-title">Words <span className="gold">From</span> Diginitories</h2>
           </div>
-          <div className="testi-grid">
-            {testimonials.map((t, i) => (
-              <div className="testi-card" key={i}>
-                <div className="testi-quote-mark">❝</div>
-                <p className="testi-text">{t.quote}</p>
-                <div className="testi-stars">★★★★★</div>
-                <div className="testi-author">
-                  <div className="testi-av" style={{ background: `linear-gradient(135deg,${t.color},${t.color}88)` }}>{t.initial}</div>
-                  <div><div className="testi-name">{t.name}</div><div className="testi-role">{t.role}</div></div>
-                </div>
-              </div>
-            ))}
+          <div className="dignitary-card">
+            <div className="dignitary-img">
+              <img src="/v9.png" alt="Imran Zaki" />
+            </div>
+            <div className="dignitary-content">
+              <div className="dignitary-quote-icon">❝</div>
+              <p className="dignitary-quote">"To build strong, positive connections with students privileged and under-privileged, so they can achieve independence, confidence and academic knowledge."</p>
+              <h4 className="dignitary-name">Imran Zaki</h4>
+              <p className="dignitary-role">Hony. Secretary</p>
+            </div>
+          </div>
+
+          <div className="dignitary-card" style={{ marginTop: '2rem' }}>
+            <div className="dignitary-img">
+              <img src="/v10.png" alt="Ayesha Siddiqui" />
+            </div>
+            <div className="dignitary-content">
+              <div className="dignitary-quote-icon">❝</div>
+              <p className="dignitary-quote">"To build strong, positive connections with students privileged and under-privileged, so they can achieve independence, confidence and academic knowledge."</p>
+              <h4 className="dignitary-name">Ayesha Siddiqui</h4>
+              <p className="dignitary-role">HeadMistress</p>
+            </div>
           </div>
         </div>
       </section>
@@ -213,17 +222,21 @@ export default function App() {
           </div>
           <div className="news-grid">
             {[
-              { tag: '🏆 Achievement', date: 'May 20, 2026', h: 'Students Win National Science Olympiad', p: 'Our team of 5 brought home gold at the 2026 National Science Olympiad held in New Delhi.', hot: true },
-              { tag: '📅 Event', date: 'June 15, 2026', h: 'Annual Day Celebration 2026', p: 'Join us for a grand evening of performances, award ceremonies and cultural showcases across all grades.', hot: false },
-              { tag: '📋 Admissions', date: 'May 1, 2026', h: 'Admissions Open for 2026–27', p: 'Applications now open for all grades. Early registrations receive priority slots and scholarship consideration.', hot: false },
+              { tag: '🎨 Event', date: 'May 20, 2026', h: 'Annual Art & Craft Exhibition', p: 'Join us for a spectacular showcase of creativity as students display their finest artwork, sculptures, and crafts.', hot: true, img: '/v11.png' },
+              { tag: '🎭 Event', date: 'December 15, 2026', h: 'Annual Function 2026', p: 'Experience a grand evening of student performances, award ceremonies, and cultural showcases across all grades.', hot: false, img: '/v12.png' },
+              { tag: '📋 Admissions', date: 'May 1, 2026', h: 'Admissions Open for 2026–27', p: 'Applications now open for all grades. Early registrations receive priority slots and scholarship consideration.', hot: false, img: '/img.png' },
             ].map((n, i) => (
               <div className={`news-card${n.hot ? ' news-hot' : ''}`} key={i}>
                 {n.hot && <div className="news-ribbon">Featured</div>}
+                {n.img && (
+                  <div style={{ height: '200px', margin: '-2.5rem -2.5rem 1.5rem -2.5rem', overflow: 'hidden' }}>
+                    <img src={n.img} alt={n.h} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                )}
                 <div className="news-tag">{n.tag}</div>
-                <div className="news-date">📅 {n.date}</div>
                 <h3 className="news-h">{n.h}</h3>
                 <p className="news-p">{n.p}</p>
-                <a href="#" className="news-link">Read Full Story →</a>
+
               </div>
             ))}
           </div>
