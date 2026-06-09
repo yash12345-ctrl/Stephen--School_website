@@ -176,6 +176,32 @@ export default function App() {
             <a href="/about" className="btn-gold">Discover Our Story</a>
           </div>
         </div>
+
+        {/* ── LEADERSHIP ── */}
+        <div className="leadership-wrap">
+          <div className="leadership-head">
+            <div className="s-tag">Our People</div>
+            <h3 className="leadership-title">Meet Our <span className="gold">Leadership</span></h3>
+          </div>
+          <div className="leadership-grid">
+            {[
+              { name: 'Imran Zaki',       role: 'Hony. Secretary',              initial: 'IZ', color: '#c5a048' },
+              { name: 'Ayesha Siddiqui', role: 'HeadMistress',                 initial: 'AS', color: '#7c6b99' },
+              { name: 'Ajay Paul',        role: 'Administrator & Advisory Board', initial: 'AP', color: '#2d6a6a' },
+              { name: 'Rajesh Arora',     role: 'Advisory Board',               initial: 'RA', color: '#5a4a7a' },
+            ].map((l, i) => (
+              <div className="leader-card" key={i}>
+                <div className="leader-av" style={{ background: `linear-gradient(135deg, ${l.color}, ${l.color}99)` }}>
+                  {l.initial}
+                </div>
+                <div className="leader-info">
+                  <div className="leader-name">{l.name}</div>
+                  <div className="leader-role">{l.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ── PROGRAMS ── */}

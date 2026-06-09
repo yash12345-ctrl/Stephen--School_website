@@ -328,10 +328,10 @@ export default function About() {
           </div>
           <div className="abt-leaders">
             {[
-              { name: 'Dr. Ramesh Agarwal', role: 'Founder & Chairman', initial: 'R', color: '#C9A84C', desc: 'Visionary social worker dedicated to bringing economic transformation through education.' },
-              { name: 'Mrs. Sudha Sharma', role: 'Principal', initial: 'S', color: '#4776e6', desc: 'Experienced educator leading the academic and character development programs at St. Stephen\'s.' },
-              { name: 'Dr. Arjun Reddy', role: 'Academic Director', initial: 'A', color: '#11998e', desc: 'Oxford alumnus leading curriculum design for first-generation learners and local clubs.' },
-              { name: 'Ms. Priya Menon', role: 'Head of Student Affairs', initial: 'P', color: '#8E2DE2', desc: 'Champion of student well-being, co-curricular activities, and community outreach in Bowbazar.' },
+              { name: 'Imran Zaki',       role: 'Hony. Secretary',                  initial: 'IZ', color: '#C9A84C', desc: 'Dedicated leader committed to the social and economic transformation of underprivileged children in Kolkata.' },
+              { name: 'Ayesha Siddiqui', role: 'HeadMistress',                     initial: 'AS', color: '#7c6b99', desc: 'Experienced educator guiding the academic excellence and holistic development of every student at St. Stephen\'s.' },
+              { name: 'Ajay Paul',        role: 'Administrator & Advisory Board',   initial: 'AP', color: '#2d6a6a', desc: 'Overseeing school operations and providing strategic advisory support to strengthen the institution\'s mission.' },
+              { name: 'Rajesh Arora',     role: 'Advisory Board',                   initial: 'RA', color: '#5a4a7a', desc: 'Providing expert guidance and community leadership to support St. Stephen\'s long-term educational goals.' },
             ].map((l, i) => (
               <div className="abt-leader" key={i}>
                 <div className="abt-leader-av" style={{ background: `linear-gradient(135deg, ${l.color}, ${l.color}66)` }}>{l.initial}</div>
