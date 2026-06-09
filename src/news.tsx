@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './news.css';
 import { ProgramMegaMenu } from './program_top';
-import { GraduationCap } from 'lucide-react';
+
 
 /* ══════════════════════════════════════════
    DATA
@@ -24,52 +24,49 @@ const allNews = [
     image: '/library.png', featured: false, hot: true,
   },
   {
-    id: 3, category: 'Admissions' as const,
-    date: 'May 1, 2026', readTime: '2 min read',
-    title: 'Admissions Open for 2026–27 — Early Applicants Get Scholarship Priority',
-    excerpt: 'Applications are now open for all grades from Pre-Primary to Grade 12. Early registrations receive priority slots and are automatically considered for merit scholarships worth up to ₹1,20,000 per year. The first round closes June 30th.',
+    id: 3,    excerpt: 'Applications are now open for all grades from Lower Nursery to Class X. Early registrations receive priority slots and are automatically considered for merit scholarships. The first round closes June 30th.',
     image: '/hero_bg.png', featured: false, hot: false,
   },
   {
     id: 4, category: 'Sports' as const,
     date: 'April 28, 2026', readTime: '3 min read',
     title: 'Football Team Powers Through to District Finals After 3–1 Victory',
-    excerpt: "Greenfield Academy's football squad delivered a commanding performance to advance to the district finals. Striker Rohit Sharma scored twice in the second half, and goalkeeper Dev Patel made three crucial saves in what coaches are calling the team's best performance of the season.",
+    excerpt: "St. Stephen's School's football squad delivered a commanding performance to advance to the district finals. Striker Rohit Sharma scored twice in the second half, and goalkeeper Dev Patel made three crucial saves in what coaches are calling the team's best performance of the season.",
     image: '/sports_field.png', featured: false, hot: false,
   },
   {
     id: 5, category: 'Academic' as const,
     date: 'April 15, 2026', readTime: '3 min read',
     title: 'Board Results 2026: 96% Distinction Rate — Best in School History',
-    excerpt: 'Class X and XII students achieved a record-breaking 96% distinction rate in CBSE boards this year. Topper Kavya Singh scored 499/500 in Class XII Science, and 14 students achieved perfect 100 in Mathematics. Principal Mrs. Sharma called it "a defining moment for Greenfield."',
+    excerpt: 'Class X students achieved a record-breaking 96% distinction rate in Madhyamik boards this year. Topper Rahul Das scored 685/700 in Class X, and 14 students achieved perfect marks in Mathematics. Principal Mrs. Sharma called it "a defining moment for St. Stephen\'s."',
     image: '/library.png', featured: false, hot: false,
   },
   {
     id: 6, category: 'Achievement' as const,
     date: 'March 30, 2026', readTime: '5 min read',
-    title: "Google & Microsoft Partner with Greenfield to Launch India's First School AI Hub",
-    excerpt: "Greenfield Academy inaugurated India's first school-level AI & Robotics Hub backed by Google and Microsoft. The 5,000 sq ft facility houses 80 AI workstations, a robotics arena, and a dedicated research library. Students from Grade 5 onwards now have structured access to machine learning and coding curricula.",
+    title: "Local NGOs Partner with St. Stephen's to Launch New Vocational Training Center",
+    excerpt: "St. Stephen's School inaugurated a new Vocational Training Center. The facility houses 20 computing desks, a tailoring setup, and a dedicated career library. Students from Class VIII onwards now have structured access to digital literacy and vocational skills.",
     image: '/science_lab.png', featured: false, hot: false,
   },
   {
     id: 7, category: 'Sports' as const,
     date: 'April 10, 2026', readTime: '2 min read',
     title: 'Swimming Team Clinches 5 Gold Medals at State Aquatics Championship',
-    excerpt: 'Our swimmers dominated the State Aquatics Championship held in Pune, winning 5 gold, 3 silver and 2 bronze medals. Ananya Bose set a new state record in the 200m freestyle with a time of 2:04.31, breaking the previous record held for seven years.',
+    excerpt: 'Our swimmers dominated the State Aquatics Championship held in Kolkata, winning 5 gold, 3 silver and 2 bronze medals. Ananya Bose set a new record in the 200m freestyle, breaking the previous record held for seven years.',
     image: '/sports_field.png', featured: false, hot: false,
   },
   {
     id: 8, category: 'Academic' as const,
     date: 'March 22, 2026', readTime: '4 min read',
-    title: 'Greenfield Introduces Coding as a Core Subject from Grade 3 Onwards',
-    excerpt: 'In a landmark curriculum reform, Greenfield Academy has made computational thinking and coding a mandatory core subject starting from Grade 3. The new syllabus, co-designed with IIT Delhi faculty, covers Python, web development, and algorithmic problem-solving by Grade 8.',
+    title: 'St. Stephen\'s Introduces Basic Computer Literacy from Class III Onwards',
+    excerpt: 'In a landmark curriculum reform, St. Stephen\'s School has made basic computer literacy a mandatory core subject starting from Class III. The new syllabus, co-designed with local tech volunteers, covers typing, internet safety, and basic office tools by Class VIII.',
     image: '/library.png', featured: false, hot: false,
   },
   {
     id: 9, category: 'Achievement' as const,
     date: 'March 5, 2026', readTime: '3 min read',
     title: 'Debating Team Wins National Inter-School Debate Championship in Mumbai',
-    excerpt: 'The Greenfield Debate Club defeated 64 schools to clinch the National Inter-School Debate Championship. Team captain Ritika Nair was awarded Best Speaker of the Tournament. The team argued on climate policy, digital privacy, and education reform across seven rounds.',
+    excerpt: 'The St. Stephen\'s Debate Club defeated 64 schools to clinch the National Inter-School Debate Championship. Team captain Ritika Nair was awarded Best Speaker of the Tournament. The team argued on climate policy, digital privacy, and education reform across seven rounds.',
     image: '/library.png', featured: false, hot: false,
   },
   {
@@ -82,37 +79,37 @@ const allNews = [
   {
     id: 11, category: 'Admissions' as const,
     date: 'February 15, 2026', readTime: '2 min read',
-    title: 'Scholarship Program 2026–27: ₹50 Lakh Reserved for Meritorious Students',
-    excerpt: 'Greenfield Academy has set aside ₹50 lakh in scholarships for the 2026–27 academic year. Awards range from 25% to full fee waivers. Students from government schools and economically weaker sections are especially encouraged to apply before the June 30th deadline.',
+    title: 'Scholarship Program 2026–27: Funding Reserved for Meritorious Students',
+    excerpt: 'St. Stephen\'s School has set aside dedicated scholarships for the 2026–27 academic year. Awards range from 25% to full fee waivers. Students from economically weaker sections are especially encouraged to apply before the June 30th deadline.',
     image: '/hero_bg.png', featured: false, hot: false,
   },
   {
     id: 12, category: 'Sports' as const,
     date: 'January 30, 2026', readTime: '2 min read',
     title: 'Chess Club Produces Two National-Ranked Players Under Age 14',
-    excerpt: 'The Greenfield Chess Club has achieved a remarkable milestone — two of its members, Samir Joshi (age 12) and Tara Singh (age 13), have been ranked in the top 20 nationally in their age group by the All India Chess Federation following the winter circuit.',
+    excerpt: 'The St. Stephen\'s Chess Club has achieved a remarkable milestone — two of its members, Samir Joshi (age 12) and Tara Singh (age 13), have been ranked in the top 20 nationally in their age group following the winter tournament.',
     image: '/library.png', featured: false, hot: false,
   },
   {
     id: 13, category: 'Academic' as const,
     date: 'January 20, 2026', readTime: '3 min read',
-    title: 'IB Diploma Results: Three Students Score Perfect 45/45 — A School First',
-    excerpt: 'For the first time in the school history, three IB Diploma students have achieved a perfect score of 45 points. Meera Krishnan, Aditya Rao, and Simran Kaur have received offers from universities including Oxford, MIT, and NUS Singapore. The average school IB score this year was 38.4.',
+    title: 'Madhyamik Results: High Distinction Rate Across All Subject Categories',
+    excerpt: 'For the academic session, our Madhyamik students achieved exemplary results. The average score this year was outstanding, and top students received invitations to prestigious junior colleges across the state.',
     image: '/library.png', featured: false, hot: false,
   },
   {
     id: 14, category: 'Event' as const,
     date: 'January 10, 2026', readTime: '2 min read',
     title: 'Sports Day 2026 — 800 Athletes Compete Across 22 Track and Field Events',
-    excerpt: 'The 41st Annual Sports Day was held at our main ground with over 800 student athletes competing in 22 events. Chief Guest Olympian P.T. Usha inspired students with a keynote on discipline and perseverance. The event was livestreamed with over 4,000 online viewers.',
+    excerpt: 'The Annual Sports Day was held at our main ground with over 800 student athletes competing in 22 events. Chief Guest Olympian P.T. Usha inspired students with a keynote on discipline and perseverance. The event was livestreamed with over 4,000 online viewers.',
     image: '/sports_field.png', featured: false, hot: false,
   },
 ];
 
 const sportsNews = [
-  { title: 'Cricket XI Selected for CBSE Nationals — 4 Players from Greenfield', date: 'May 18, 2026', cat: 'Cricket' },
+  { title: 'Cricket XI Selected for District Finals — 4 Players from St. Stephen\'s', date: 'May 18, 2026', cat: 'Cricket' },
   { title: 'Badminton Star Asha Verma Wins U-17 State Title Unbeaten', date: 'May 12, 2026', cat: 'Badminton' },
-  { title: 'Basketball Team Finishes Runner-Up at Delhi State League', date: 'May 5, 2026', cat: 'Basketball' },
+  { title: 'Basketball Team Finishes Runner-Up at Kolkata League', date: 'May 5, 2026', cat: 'Basketball' },
   { title: 'Athletics: School Records Broken in 100m, 400m and Long Jump', date: 'April 20, 2026', cat: 'Athletics' },
 ];
 
@@ -166,10 +163,12 @@ export default function News() {
       <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
         <div className="nav-inner">
           <a href="/" className="nav-logo">
-            <span className="logo-crest"><GraduationCap size={32} /></span>
+            <div className="logo-crest-wrapper">
+              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+            </div>
             <div>
-              <div className="logo-name">Greenfield</div>
-              <div className="logo-tagline">ACADEMY</div>
+              <div className="logo-name">St. Stephen's</div>
+              <div className="logo-tagline">SCHOOL</div>
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
@@ -443,7 +442,7 @@ export default function News() {
               <div className="np-ed-quote-mark">❝</div>
               <div className="np-ed-label">Editor's Note</div>
               <blockquote className="np-ed-blockquote">
-                "Education is not the preparation for life; education is life itself. At Greenfield, every headline you read here is proof that our students are already living that truth — winning, creating, competing and inspiring every single day."
+                "Education is not the preparation for life; education is life itself. At St. Stephen's, every headline you read here is proof that our students are already living that truth — winning, creating, competing and inspiring every single day."
               </blockquote>
               <cite className="np-ed-cite">— Dr. Ramesh Agarwal, Founder & Chairman</cite>
             </div>
@@ -560,13 +559,15 @@ export default function News() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
-              <span className="logo-crest"><GraduationCap size={32} /></span>
+              <div className="logo-crest-wrapper">
+                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              </div>
               <div>
-                <div className="logo-name">Greenfield</div>
-                <div className="logo-tagline">ACADEMY</div>
+                <div className="logo-name">St. Stephen's</div>
+                <div className="logo-tagline">SCHOOL</div>
               </div>
             </div>
-            <p>Nurturing young minds and shaping tomorrow's leaders since 1985.</p>
+            <p>Nurturing young minds and shaping tomorrow's leaders since 2001. A tradition of excellence, a promise of a better future.</p>
             <div className="socials">
               {['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => (
                 <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>
@@ -585,7 +586,7 @@ export default function News() {
           ))}
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Greenfield Academy. All rights reserved.</span>
+          <span>© 2026 St. Stephen's School. All rights reserved.</span>
           <span>Privacy Policy · Terms of Use · Sitemap</span>
         </div>
       </footer>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './school.css';
 import { ProgramMegaMenu } from './program_top';
-import { GraduationCap, BookOpen, Atom, Compass, Play, Cpu, Sparkles } from 'lucide-react';
+import { BookOpen, Atom, Compass, Play, Cpu, Sparkles } from 'lucide-react';
 
 export default function School() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -125,10 +125,12 @@ export default function School() {
       <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
         <div className="nav-inner">
           <a href="/" className="nav-logo">
-            <span className="logo-crest"><GraduationCap size={32} /></span>
+            <div className="logo-crest-wrapper">
+              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+            </div>
             <div>
-              <div className="logo-name">Greenfield</div>
-              <div className="logo-tagline">ACADEMY</div>
+              <div className="logo-name">St. Stephen's</div>
+              <div className="logo-tagline">SCHOOL</div>
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
@@ -187,13 +189,13 @@ export default function School() {
         <div className="sch-hero-glow" />
         <div className="sch-hero-inner">
           <div className="sch-hero-pill">
-            <Sparkles size={14} /> The Greenfield Experience
+            <Sparkles size={14} /> The St. Stephen's Experience
           </div>
           <h1 className="sch-hero-h1">
-            Where <em>Legacy</em> Meets<br />Modern Innovation
+            Where <em>Legacy</em> Meets<br />Modern Service
           </h1>
           <p className="sch-hero-p">
-            Explore a 25-acre modern school environment equipped with state-of-the-art labs, sports grounds, and classrooms, designed to shape future-ready leaders.
+            Explore a modern NGO secondary school environment in Bowbazar, Kolkata, equipped with interactive clubs and science labs, designed to spread the power of education amongst all.
           </p>
           <div className="sch-hero-btns">
             <a href="#infra" className="sch-btn-gold">Explore Campus</a>
@@ -206,10 +208,10 @@ export default function School() {
       <div className="sch-container" style={{ position: 'relative', zIndex: 12 }}>
         <div className="sch-stats-row">
           {[
-            { num: '25 Acres', label: 'Lush Green Campus' },
-            { num: '12+', label: 'Elite Sports Facilities' },
-            { num: '80+', label: 'AI & Tech Workstations' },
-            { num: '100%', label: 'Smart Classroom Tech' }
+            { num: '500', label: 'Active Students' },
+            { num: 'NGO School', label: 'Bowbazar, Kolkata' },
+            { num: 'L.N. to X', label: 'Madhyamik Syllabus' },
+            { num: '25+ Years', label: 'Of Dedicated Service' }
           ].map((st, i) => (
             <div className="sch-stat-box" key={i}>
               <div className="sch-stat-num">{st.num}</div>
@@ -226,7 +228,7 @@ export default function School() {
             <span className="sch-chip">World-Class Infrastructure</span>
             <h2 className="sch-section-h2">Designed to Inspire <span>Excellence</span></h2>
             <p className="sch-section-p">
-              We believe the physical environment is the "third teacher." Every space at Greenfield Academy is designed to encourage discovery, safety, and physical wellness.
+              We believe in creating a supportive learning environment. Every space at St. Stephen's School is designed to encourage discovery, safety, and creative growth.
             </p>
           </div>
 
@@ -263,14 +265,14 @@ export default function School() {
                 "We don't just teach curricula; we cultivate an environment where students learn to identify problems, build creative models, and test them with scientific rigor."
               </div>
               <p className="sch-msg-text">
-                At Greenfield Academy, education is a dynamic partnership. We combine CBSE and IB frameworks with hands-on AI & Robotics work and sports fields to ensure students achieve academic excellence while developing strong team cooperation and moral character.
+                At St. Stephen's School, education is a pathway to transformation. We combine the Madhyamik syllabus with hands-on interactive clubs focusing on sports, art, and social work, ensuring students achieve academic milestones while developing character and collaboration.
               </p>
               <p className="sch-msg-text">
-                As you walk through our hallways, you'll see collaborative work hubs, dynamic student-run projects, and competitive sports sessions. We welcome families to visit our campus and join us in our pursuit of leadership.
+                As you walk through our hallways, you'll see engaged children, creative art projects, and lively club activities. We welcome supporters and families to visit our school and join us in our mission to spread education to all.
               </p>
               <div className="sch-msg-signature">
                 <div className="sch-msg-name">Mrs. Sudha Sharma</div>
-                <div className="sch-msg-title">Principal, Greenfield Academy</div>
+                <div className="sch-msg-title">Principal, St. Stephen's School</div>
               </div>
             </div>
           </div>
@@ -284,7 +286,7 @@ export default function School() {
             <span className="sch-chip">Aesthetic Havens</span>
             <h2 className="sch-section-h2">Signature Campus <span>Spots</span></h2>
             <p className="sch-section-p">
-              Explore the peaceful, visual corners of Greenfield Academy. These green spaces and sunlit structures are designed to provide students with zones of quiet inspiration and creative peace.
+              Explore the functional and clean corners of St. Stephen's School. These learning spaces and libraries are designed to provide students with zones of quiet inspiration and academic support.
             </p>
           </div>
 
@@ -309,7 +311,7 @@ export default function School() {
         <div className="sch-container">
           <div className="sch-center-head">
             <span className="sch-chip light">Student Life</span>
-            <h2 className="sch-section-h2" style={{ color: '#fff' }}>The Greenfield <span>House System</span></h2>
+            <h2 className="sch-section-h2" style={{ color: '#fff' }}>The St. Stephen's <span>House System</span></h2>
             <p className="sch-section-p" style={{ color: 'rgba(255,255,255,0.7)' }}>
               To foster healthy competition, sportsmanship, and student leadership, the school is divided into four distinct houses, competing annually for the prestigious Chairman's Shield.
             </p>
@@ -348,7 +350,7 @@ export default function School() {
           <div style={{ maxWidth: '700px', marginBottom: '3.5rem' }}>
             <h2 className="sch-section-h2" style={{ fontSize: '2.6rem', marginBottom: '1.2rem', fontWeight: 800 }}>Learning Partners</h2>
             <p className="sch-section-p" style={{ fontSize: '1.05rem', color: '#555', lineHeight: '1.8' }}>
-              Greenfield Academy works with world-class external partners to offer new and exciting programmes and services. These include:
+              St. Stephen's School works with external partners to offer new and exciting programmes and services. These include:
             </p>
           </div>
 
@@ -473,10 +475,10 @@ export default function School() {
         <div className="sch-cta-inner">
           <span className="sch-chip light">Support Us</span>
           <h2 className="sch-section-h2" style={{ color: '#fff', marginBottom: '1.5rem' }}>
-            Ready to Discover the <span>Greenfield Advantage</span>?
+            Ready to Discover the <span>St. Stephen's Advantage</span>?
           </h2>
           <p className="sch-section-p" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '3rem' }}>
-            Admissions for the academic session 2026–27 are open. Schedule a campus tour, request a prospectus, or support us today.
+            Admissions for the academic session 2026–27 are open. Connect with us to support our cause, enroll a child, or submit your online application today.
           </p>
           <div className="sch-hero-btns">
             <a href="/#donate" className="sch-btn-gold">Donate Now</a>
@@ -490,13 +492,15 @@ export default function School() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
-              <span className="logo-crest"><GraduationCap size={32} /></span>
+              <div className="logo-crest-wrapper">
+                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              </div>
               <div>
-                <div className="logo-name">Greenfield</div>
-                <div className="logo-tagline">ACADEMY</div>
+                <div className="logo-name">St. Stephen's</div>
+                <div className="logo-tagline">SCHOOL</div>
               </div>
             </div>
-            <p>Providing value-based, world-class education that shapes tomorrow's leaders since 1985.</p>
+            <p>Nurturing young minds and shaping tomorrow's leaders since 2001. A tradition of excellence, a promise of a better future.</p>
             <div className="socials">
               {['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => (
                 <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>
@@ -529,15 +533,15 @@ export default function School() {
           <div className="footer-col">
             <div className="footer-col-h">Contact Info</div>
             <ul style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.83rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-              <li>📍 25, Knowledge Park, New Delhi, India</li>
-              <li>📞 +91 11 4050 6070</li>
-              <li>✉️ info@greenfield.edu.in</li>
+              <li>📍 Bowbazar, Kolkata, India</li>
+              <li>📞 +91 33 2244 5566</li>
+              <li>✉️ info@ststephenskolkata.org</li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 Greenfield Academy. All rights reserved.</span>
+          <span>© 2026 St. Stephen's School. All rights reserved.</span>
           <span>Privacy Policy · Terms of Use · Sitemap</span>
         </div>
       </footer>

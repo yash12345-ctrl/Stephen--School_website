@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef, type MouseEvent } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import type { MouseEvent } from 'react'
 import './App.css'
 import ProgramTop, { ProgramMegaMenu } from './program_top'
 
@@ -89,7 +90,7 @@ export default function App() {
         <div className="hero-glow g1" /><div className="hero-glow g2" />
         <div className="hero-body">
           <div className="hero-pill">
-            <span className="pulse-dot"></span> Est. 1985 &nbsp;·&nbsp; Excellence in Education
+            <span className="pulse-dot"></span> Est. 2001 &nbsp;·&nbsp; Excellence in Education
           </div>
           <h1 className="hero-h1">Shaping<br />Tomorrow's<br />Leaders</h1>
           <p className="hero-p">Where academic brilliance meets character — empowering every student to reach their highest potential in a world-class learning environment.</p>
@@ -116,7 +117,7 @@ export default function App() {
           </aside>
 
           <div className="hero-stats">
-            {[['3,200+', 'Students'], ['98%', 'Pass Rate'], ['150+', 'Faculty'], ['40+', 'Yrs Legacy']].map(([n, l], i) => (
+            {[['500', 'Students'], ['NGO', 'School'], ['L.N. to X', 'Grades'], ['25+', 'Yrs Legacy']].map(([n, l], i) => (
               <div key={i} className="hstat">
                 <span className="hstat-n">{n}</span>
                 <span className="hstat-l">{l}</span>
@@ -165,7 +166,33 @@ export default function App() {
                 </div>
               ))}
             </div>
-            <a href="#contact" className="btn-gold">Discover Our Story</a>
+            <a href="/about" className="btn-gold">Discover Our Story</a>
+          </div>
+        </div>
+
+        {/* ── LEADERSHIP ── */}
+        <div className="leadership-wrap">
+          <div className="leadership-head">
+            <div className="s-tag">Our People</div>
+            <h3 className="leadership-title">Meet Our <span className="gold">Leadership</span></h3>
+          </div>
+          <div className="leadership-grid">
+            {[
+              { name: 'Imran Zaki',       role: 'Hony. Secretary',              initial: 'IZ', color: '#c5a048' },
+              { name: 'Ayesha Siddiqui', role: 'HeadMistress',                 initial: 'AS', color: '#7c6b99' },
+              { name: 'Ajay Paul',        role: 'Administrator & Advisory Board', initial: 'AP', color: '#2d6a6a' },
+              { name: 'Rajesh Arora',     role: 'Advisory Board',               initial: 'RA', color: '#5a4a7a' },
+            ].map((l, i) => (
+              <div className="leader-card" key={i}>
+                <div className="leader-av" style={{ background: `linear-gradient(135deg, ${l.color}, ${l.color}99)` }}>
+                  {l.initial}
+                </div>
+                <div className="leader-info">
+                  <div className="leader-name">{l.name}</div>
+                  <div className="leader-role">{l.role}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -303,7 +330,7 @@ export default function App() {
                 <div className="logo-tagline">BOWBAZAR</div>
               </div>
             </div>
-            <p>Nurturing young minds and shaping tomorrow's leaders since 1985. A tradition of excellence, a promise of a better future.</p>
+            <p>Nurturing young minds and shaping tomorrow's leaders since 2001. A tradition of excellence, a promise of a better future.</p>
             <div className="socials">{['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>)}</div>
           </div>
           {[
