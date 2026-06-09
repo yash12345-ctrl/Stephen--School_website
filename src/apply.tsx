@@ -78,7 +78,7 @@ export default function Apply() {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(24);
     doc.setTextColor(navy[0], navy[1], navy[2]);
-    doc.text("GREENFIELD ACADEMY", 105, 28, { align: 'center' });
+    doc.text("ST. STEPHEN'S SCHOOL", 105, 28, { align: 'center' });
 
     doc.setFont("helvetica", "normal");
     doc.setFontSize(11);
@@ -155,17 +155,17 @@ export default function Apply() {
       doc.setPage(i);
       doc.setFontSize(8);
       doc.setTextColor(150);
-      doc.text(`Generated securely by Greenfield Academy Portal on ${new Date().toLocaleDateString()}  •  Page ${i} of ${pageCount}`, 105, 282, { align: 'center' });
+      doc.text(`Generated securely by St. Stephen's School Portal on ${new Date().toLocaleDateString()}  •  Page ${i} of ${pageCount}`, 105, 282, { align: 'center' });
     }
 
-    doc.save(`${submittedData.studentName || 'Application'}_Greenfield.pdf`);
+    doc.save(`${submittedData.studentName || 'Application'}_StStephens.pdf`);
   };
 
   const gradeOptions = [
-    { id: 'pre', label: 'Pre-Primary', icon: '🧸', desc: 'Ages 3–5 years' },
-    { id: 'primary', label: 'Primary School', icon: '📚', desc: 'Grades 1–5' },
-    { id: 'middle', label: 'Middle School', icon: '🔬', desc: 'Grades 6–8' },
-    { id: 'high', label: 'High School', icon: '🎓', desc: 'Grades 9–12' },
+    { id: 'pre', label: 'Pre-Primary', icon: '🧸', desc: 'Lower Nursery to Upper Nursery' },
+    { id: 'primary', label: 'Primary School', icon: '📚', desc: 'Classes I to V' },
+    { id: 'middle', label: 'Middle School', icon: '🔬', desc: 'Classes VI to VIII' },
+    { id: 'high', label: 'High School', icon: '🎓', desc: 'Classes IX & X' },
   ];
 
   return (
@@ -174,10 +174,12 @@ export default function Apply() {
       <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
         <div className="nav-inner">
           <Link to="/" className="nav-logo">
-            <span className="logo-crest">🎓</span>
+            <div className="logo-crest-wrapper">
+              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+            </div>
             <div>
-              <div className="logo-name">Greenfield</div>
-              <div className="logo-tagline">ACADEMY</div>
+              <div className="logo-name">St. Stephen's</div>
+              <div className="logo-tagline">SCHOOL</div>
             </div>
           </Link>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
@@ -485,7 +487,7 @@ export default function Apply() {
                           </select>
                         </div>
                         <div className="form-group full">
-                          <label>How did you hear about Greenfield Academy?</label>
+                          <label>How did you hear about St. Stephen's School?</label>
                           <select name="referralSource" required>
                             <option value="">Select...</option>
                             <option value="friends">Friends / Family Referral</option>
@@ -496,7 +498,7 @@ export default function Apply() {
                           </select>
                         </div>
                         <div className="form-group full">
-                          <label>Why do you wish to enroll your child at Greenfield Academy?</label>
+                          <label>Why do you wish to enroll your child at St. Stephen's School?</label>
                           <textarea name="reasonForEnrolling" rows={4} placeholder="Briefly describe your expectations and how we align with your goals..." required></textarea>
                         </div>
                       </div>
@@ -529,7 +531,7 @@ export default function Apply() {
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
                 <h2>Application Received!</h2>
-                <p>Thank you for choosing Greenfield Academy. Our admissions committee will review your profile and we'll reach out to you at the email provided within 2-3 business days.</p>
+                <p>Thank you for choosing St. Stephen's School. Our admissions committee will review your profile and we'll reach out to you at the email provided within 2-3 business days.</p>
                 <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '1.5rem' }}>
                   <button className="btn-prev" onClick={generatePDF} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--navy)', borderColor: 'var(--navy)' }}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -550,8 +552,16 @@ export default function Apply() {
       <footer className="footer">
         <div className="footer-top">
           <div className="footer-brand">
-            <div className="footer-logo"><span className="logo-crest">🎓</span><div><div className="logo-name">Greenfield</div><div className="logo-tagline">ACADEMY</div></div></div>
-            <p>Nurturing young minds and shaping tomorrow's leaders since 1985. A tradition of excellence, a promise of a better future.</p>
+            <div className="footer-logo">
+              <div className="logo-crest-wrapper">
+                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              </div>
+              <div>
+                <div className="logo-name">St. Stephen's</div>
+                <div className="logo-tagline">SCHOOL</div>
+              </div>
+            </div>
+            <p>Nurturing young minds and shaping tomorrow's leaders since 2001. A tradition of excellence, a promise of a better future.</p>
             <div className="socials">{['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>)}</div>
           </div>
           {[
@@ -566,7 +576,7 @@ export default function Apply() {
           ))}
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Greenfield Academy. All rights reserved.</span>
+          <span>© 2026 St. Stephen's School. All rights reserved.</span>
           <span>Privacy Policy · Terms of Use · Sitemap</span>
         </div>
       </footer>

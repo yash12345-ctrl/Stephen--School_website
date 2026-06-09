@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './about.css';
 import { ProgramMegaMenu } from './program_top';
-import { GraduationCap, Award, Target, Telescope, Gem, Globe, Lightbulb, Building2, Handshake, BarChart, Play } from 'lucide-react';
+import { Award, Target, Telescope, Gem, Globe, Lightbulb, Building2, Handshake, BarChart, Play } from 'lucide-react';
 
 const AnimatedBoxContent = ({ contents }: { contents: string[] }) => {
   const [idx, setIdx] = useState(0);
@@ -58,10 +58,12 @@ export default function About() {
       <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
         <div className="nav-inner">
           <a href="/" className="nav-logo">
-            <span className="logo-crest"><GraduationCap size={32} /></span>
+            <div className="logo-crest-wrapper">
+              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+            </div>
             <div>
-              <div className="logo-name">Greenfield</div>
-              <div className="logo-tagline">ACADEMY</div>
+              <div className="logo-name">St. Stephen's</div>
+              <div className="logo-tagline">SCHOOL</div>
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
@@ -117,15 +119,15 @@ export default function About() {
       {/* ── SPLIT HERO ── */}
       <section className="abt-hero">
         <div className="abt-hero-left">
-          <span className="abt-hero-label">About Greenfield Academy</span>
-          <h1 className="abt-hero-h1">Where Every Child's <span className="abt-accent">Potential</span> Becomes Reality</h1>
-          <p className="abt-hero-p">For over four decades, we've been shaping leaders, thinkers, and change-makers. Welcome to a place where education meets purpose.</p>
+          <span className="abt-hero-label">About St. Stephen's School</span>
+          <h1 className="abt-hero-h1">Spreading the Power of <span className="abt-accent">Education</span> to All</h1>
+          <p className="abt-hero-p">An NGO-based secondary school in Bowbazar, Kolkata, dedicated to bringing social and economic transformation for underprivileged children since 2001.</p>
           <div className="abt-hero-counters">
             {[
-              { num: '40+', label: 'Years' },
-              { num: '50K+', label: 'Alumni' },
-              { num: '3,200', label: 'Students' },
-              { num: '150+', label: 'Faculty' },
+              { num: '25+', label: 'Years' },
+              { num: '500', label: 'Students' },
+              { num: 'L.N. - X', label: 'Grades' },
+              { num: '100%', label: 'NGO Commitment' },
             ].map((c, i) => (
               <div className="abt-counter" key={i}>
                 <span className="abt-counter-num">{c.num}</span>
@@ -136,8 +138,8 @@ export default function About() {
         </div>
         <div className="abt-hero-right">
           <div className="abt-hero-img-stack">
-            <img src="/about_library.png" alt="Library" className="abt-hero-img1" />
-            <img src="/about_lab.png" alt="Lab" className="abt-hero-img2" />
+            <img src="/st_stephen_group_2.jpg" alt="St. Stephen's School Community" className="abt-hero-img1" />
+            <img src="/st_stephen_group_1.jpg" alt="St. Stephen's School Group" className="abt-hero-img2" />
             <div className="abt-hero-float-card">
               <span className="abt-float-emoji"><Award size={28} /></span>
               <span className="abt-float-text">National Best<br />School Award</span>
@@ -150,8 +152,8 @@ export default function About() {
       <div className="abt-quote-banner">
         <div className="abt-quote-inner">
           <span className="abt-quote-mark">❝</span>
-          <blockquote className="abt-quote-text">Education is not the filling of a pail, but the lighting of a fire. At Greenfield, we light that fire every single day.</blockquote>
-          <cite className="abt-quote-cite">— Dr. Ramesh Agarwal, Founder</cite>
+          <blockquote className="abt-quote-text">We envision bringing social and economic transformation by educating the less fortunate and underprivileged children of Kolkata.</blockquote>
+          <cite className="abt-quote-cite">— St. Stephen's School Mission</cite>
         </div>
       </div>
 
@@ -160,16 +162,16 @@ export default function About() {
         <div className="abt-wrap">
           <div className="abt-editorial">
             <div className="abt-editorial-images">
-              <img src="/about_campus.png" alt="Campus Aerial" className="abt-editorial-img-main" />
-              <img src="/about_lab.png" alt="Science Lab" className="abt-editorial-img-sec" />
+              <img src="/st_stephen_group_1.jpg" alt="St. Stephen's School Group" className="abt-editorial-img-main" />
+              <img src="/st_stephen_group_2.jpg" alt="St. Stephen's School Community" className="abt-editorial-img-sec" />
             </div>
             <div className="abt-editorial-content">
-              <h2 className="abt-section-h2">From <span className="abt-accent">120 Students</span> to a National Institution</h2>
+              <h2 className="abt-section-h2">Our Story: Empowering the <span className="abt-accent">Underprivileged</span></h2>
               <div className="abt-editorial-text">
-                <p className="abt-text-lg">Founded in 1985 by Dr. Ramesh Agarwal with a bold vision — that every child, regardless of background, deserves access to world-class education that nurtures both mind and character.</p>
-                <p className="abt-text">What began as a modest school with 120 students and 8 passionate teachers has grown into one of India's most respected educational institutions, serving over 3,200 students across a stunning 25-acre campus.</p>
-                <p className="abt-text">Our alumni network of 50,000+ strong spans the globe — leading in science, technology, arts, governance, medicine, and public service. From IIT toppers to Oxford scholars, from entrepreneurs to civil servants, Greenfield graduates carry forward a tradition of excellence.</p>
-                <p className="abt-text">What hasn't changed in four decades is our founding promise: <strong>every child deserves an education that nurtures not just the intellect, but the heart and character.</strong></p>
+                <p className="abt-text-lg">St Stephen's School is an NGO based school situated in Bowbazar, Kolkata, founded in 2001 with a core vision to bring social and economic transformation.</p>
+                <p className="abt-text">What started with a small group of children now supports 500 students on its rolls. Our school provides opportunities through education to some of the most vulnerable children from the streets and slums of our locality, ensuring they receive the support they need to break the cycle of poverty.</p>
+                <p className="abt-text">Most of our children are first-generation learners and their parents fall in the extremely low income brackets. We introduce ourselves as a secondary school from class Lower Nursery to class X following the Madhyamik syllabus, delivering quality education without any discrimination.</p>
+                <p className="abt-text">What hasn't changed since our founding in 2001 is our core promise: <strong>we believe in spreading the power of education amongst all, providing a bright future for every child in our community.</strong></p>
               </div>
             </div>
           </div>
@@ -189,23 +191,19 @@ export default function About() {
             {[
               {
                 icon: <Target size={36} />, title: 'Our Mission', color1: '#11998e', color2: '#38ef7d', shadow: 'rgba(17,153,142,0.25)', light: 'rgba(17,153,142,0.1)', texts: [
-                  'To provide a world-class, inclusive education that empowers every student to achieve academic excellence, develop strong character, and become a responsible global citizen.',
-                  'To build a collaborative community where diversity is celebrated, creativity is nurtured, and every voice is heard and valued across all disciplines.',
-                  'To instill a lifelong love for learning, equipping our students with the critical skills to adapt, innovate, and thrive in an ever-changing dynamic world.'
+                  'To provide a haven where everyone is valued and all staff, in partnership with parents and families, is committed to doing what it takes for students to achieve academic success, as guided by state standards.'
                 ]
               },
               {
                 icon: <Telescope size={36} />, title: 'Our Vision', color1: '#4776e6', color2: '#8e54e9', shadow: 'rgba(71,118,230,0.25)', light: 'rgba(71,118,230,0.1)', texts: [
-                  'To be recognized as India\'s leading institution for holistic education — where innovation meets tradition, and every learner is inspired to reach their highest potential.',
-                  'To continuously push the boundaries of modern pedagogy, integrating cutting-edge technology and experiential learning into our core curriculum.',
-                  'To nurture a vibrant, inclusive community that honors diverse perspectives and prepares students to become compassionate, ethical leaders.'
+                  'To build strong, positive connections with students privileged and under-privileged, so they can achieve independence, confidence and academic knowledge.'
                 ]
               },
               {
                 icon: <Gem size={36} />, title: 'Our Values', color1: '#C9A84C', color2: '#F0C96B', shadow: 'rgba(201,168,76,0.25)', light: 'rgba(201,168,76,0.1)', texts: [
-                  'Integrity, Excellence, Compassion, Innovation, and Inclusivity. These five pillars guide everything we do — from classroom instruction to community engagement and beyond.',
-                  'Resilience, Respect, Empathy, Curiosity, and Accountability. We believe in fostering an environment where mistakes are stepping stones to success.',
-                  'Sustainability, Global Citizenship, Creativity, Teamwork, and Lifelong Learning. We are committed to developing students who positively impact their communities.'
+                  'Compassion, Inclusivity, and Equality. We are committed to delivering our services without discrimination of any form.',
+                  'Community Service, Integrity, and Resilience. We believe in uplifting families and supporting low-income brackets.',
+                  'Holistic Growth, Mutual Respect, and Lifelong Empowerment. Supporting first-generation learners in their educational journey.'
                 ]
               },
             ].map((m, i) => (
@@ -224,46 +222,46 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── WHY GREENFIELD — bento grid ── */}
+      {/* ── WHY ST. STEPHEN'S — bento grid ── */}
       <section className="abt-section">
         <div className="abt-wrap">
           <div className="abt-center-head">
-            <span className="abt-chip">Why Greenfield</span>
+            <span className="abt-chip">Our Core Strengths</span>
             <h2 className="abt-section-h2">What Sets Us <span className="abt-accent">Apart</span></h2>
-            <p className="abt-subdesc">A commitment to excellence that goes far beyond textbooks.</p>
+            <p className="abt-subdesc">A deep commitment to social transformation and child development.</p>
           </div>
           <div className="abt-section-3d-wrapper">
             <div className="abt-bento-3d-scene">
               <div className="abt-bento-carousel">
                 {[
                   {
-                    icon: <Award size={32} />, title: 'Award-Winning Faculty',
-                    desc: '150+ nationally recognized educators with advanced degrees from IITs, IIMs, and global universities, undergoing continuous professional development.',
+                    icon: <Award size={32} />, title: 'Dedicated Faculty',
+                    desc: 'Compassionate educators specializing in supporting first-generation learners, helping them adapt and thrive in an academic setup.',
                     colors: { bg: 'rgba(201,168,76,0.12)', color: '#C9A84C', shadow: 'rgba(201,168,76,0.25)', grad: 'radial-gradient(circle at right, rgba(201,168,76,0.08), transparent 60%)' }
                   },
                   {
-                    icon: <Globe size={32} />, title: 'Global Curriculum',
-                    desc: 'Internationally aligned with CBSE and IB frameworks, blending Indian academic tradition with global standards.',
+                    icon: <Globe size={32} />, title: 'Madhyamik Syllabus',
+                    desc: 'A structured secondary school curriculum from class Lower Nursery to class X, fully aligned with the West Bengal Madhyamik board.',
                     colors: { bg: 'rgba(71,118,230,0.12)', color: '#4776e6', shadow: 'rgba(71,118,230,0.25)', grad: 'radial-gradient(circle at right, rgba(71,118,230,0.08), transparent 60%)' }
                   },
                   {
-                    icon: <Lightbulb size={32} />, title: 'Innovation-Driven',
-                    desc: 'AI labs, maker spaces, and a Tech Hub for robotics, coding, and design thinking from Grade 5 onward.',
+                    icon: <Lightbulb size={32} />, title: 'Interactive Clubs',
+                    desc: 'Focusing on sports, art, and social work to discover and nurture creative talent and physical health beyond textbooks.',
                     colors: { bg: 'rgba(255,152,0,0.12)', color: '#FF9800', shadow: 'rgba(255,152,0,0.25)', grad: 'radial-gradient(circle at right, rgba(255,152,0,0.08), transparent 60%)' }
                   },
                   {
-                    icon: <Building2 size={32} />, title: 'World-Class Campus',
-                    desc: '25-acre campus with 12+ sports grounds, Olympic pool, 3 auditoriums, and smart classrooms.',
+                    icon: <Building2 size={32} />, title: 'Bowbazar Location',
+                    desc: 'Conveniently situated in Bowbazar, Kolkata, serving underprivileged families in our surrounding local street and slum areas.',
                     colors: { bg: 'rgba(76,175,80,0.12)', color: '#4CAF50', shadow: 'rgba(76,175,80,0.25)', grad: 'radial-gradient(circle at right, rgba(76,175,80,0.08), transparent 60%)' }
                   },
                   {
-                    icon: <Handshake size={32} />, title: 'Character & Leadership',
-                    desc: 'Dedicated programs for community service, public speaking, student governance, and emotional intelligence.',
+                    icon: <Handshake size={32} />, title: 'Inclusive Service',
+                    desc: 'We are committed to delivering educational service to all communities of Kolkata without any discrimination of any form.',
                     colors: { bg: 'rgba(156,39,176,0.12)', color: '#9C27B0', shadow: 'rgba(156,39,176,0.25)', grad: 'radial-gradient(circle at right, rgba(156,39,176,0.08), transparent 60%)' }
                   },
                   {
-                    icon: <BarChart size={32} />, title: 'Proven Results',
-                    desc: '98% pass rate, 96% distinction. Graduates placed at IITs, AIIMS, MIT, Stanford, and Oxford.',
+                    icon: <BarChart size={32} />, title: 'NGO Foundation',
+                    desc: 'A non-profit educational institution providing low-cost or free opportunities for children in low-income brackets.',
                     colors: { bg: 'rgba(33,150,243,0.12)', color: '#2196F3', shadow: 'rgba(33,150,243,0.25)', grad: 'radial-gradient(circle at right, rgba(33,150,243,0.08), transparent 60%)' }
                   },
                 ].map((p, i) => (
@@ -301,12 +299,12 @@ export default function About() {
           </div>
           <div className="abt-vertical-tl">
             {[
-              { year: '1985', title: 'Founded', desc: 'Greenfield Academy opens with 120 students and a vision of educational excellence.' },
-              { year: '1995', title: 'CBSE Affiliation', desc: 'Full CBSE affiliation received, expanded to senior secondary (Grades 11–12).' },
-              { year: '2005', title: 'New Campus', desc: 'Moved to our current 25-acre campus with world-class sports and science facilities.' },
-              { year: '2012', title: 'IB World School', desc: 'Authorized as an IB World School, offering the International Baccalaureate Diploma.' },
-              { year: '2018', title: 'National Award', desc: 'Recognized among India\'s Top 10 schools by the National Education Council.' },
-              { year: '2024', title: 'AI Innovation Hub', desc: 'Launched India\'s first school-level AI Hub with Google and Microsoft partnerships.' },
+              { year: '2001', title: 'School Founded', desc: 'St. Stephen\'s School starts in Bowbazar, Kolkata, serving underprivileged street and slum children.' },
+              { year: '2006', title: 'Extracurricular Launch', desc: 'Introduced the first interactive clubs focusing on sports, art, and social work.' },
+              { year: '2012', title: 'Syllabus Alignment', desc: 'Full secondary curriculum implementation following the Madhyamik syllabus.' },
+              { year: '2018', title: 'Expanding Outreach', desc: 'Expanded support structure for first-generation learners and low-income families.' },
+              { year: '2022', title: '400+ Students', desc: 'Reached a milestone of over 400 active students on our rolls.' },
+              { year: '2026', title: 'NGO Celebration', desc: 'Now serving 500 students, spreading the power of education without discrimination.' },
             ].map((m, i) => (
               <div className={`abt-tl-row ${i % 2 !== 0 ? 'abt-tl-alt' : ''}`} key={i}>
                 <div className="abt-tl-side">{m.year}</div>
@@ -330,10 +328,10 @@ export default function About() {
           </div>
           <div className="abt-leaders">
             {[
-              { name: 'Dr. Ramesh Agarwal', role: 'Founder & Chairman', initial: 'R', color: '#C9A84C', desc: 'Visionary educationist with 45+ years of experience in building institutions of national repute.' },
-              { name: 'Mrs. Kavita Sharma', role: 'Principal', initial: 'K', color: '#4776e6', desc: 'Award-winning educator and former IIT professor with a passion for innovative pedagogy.' },
-              { name: 'Dr. Arjun Reddy', role: 'Academic Director', initial: 'A', color: '#11998e', desc: 'Oxford alumnus leading curriculum design, faculty training, and global partnerships.' },
-              { name: 'Ms. Priya Menon', role: 'Head of Student Affairs', initial: 'P', color: '#8E2DE2', desc: 'Champion of student well-being, co-curricular excellence, and community engagement.' },
+              { name: 'Dr. Ramesh Agarwal', role: 'Founder & Chairman', initial: 'R', color: '#C9A84C', desc: 'Visionary social worker dedicated to bringing economic transformation through education.' },
+              { name: 'Mrs. Sudha Sharma', role: 'Principal', initial: 'S', color: '#4776e6', desc: 'Experienced educator leading the academic and character development programs at St. Stephen\'s.' },
+              { name: 'Dr. Arjun Reddy', role: 'Academic Director', initial: 'A', color: '#11998e', desc: 'Oxford alumnus leading curriculum design for first-generation learners and local clubs.' },
+              { name: 'Ms. Priya Menon', role: 'Head of Student Affairs', initial: 'P', color: '#8E2DE2', desc: 'Champion of student well-being, co-curricular activities, and community outreach in Bowbazar.' },
             ].map((l, i) => (
               <div className="abt-leader" key={i}>
                 <div className="abt-leader-av" style={{ background: `linear-gradient(135deg, ${l.color}, ${l.color}66)` }}>{l.initial}</div>
@@ -352,8 +350,8 @@ export default function About() {
       <section className="abt-cta">
         <div className="abt-cta-inner">
           <span className="abt-chip light">Join Us</span>
-          <h2 className="abt-cta-h">Ready to Be Part of the <span className="abt-accent">Greenfield Family</span>?</h2>
-          <p className="abt-cta-p">Schedule a visit, speak with our team, or apply online today.</p>
+          <h2 className="abt-cta-h">Ready to Be Part of the <span className="abt-accent">St. Stephen's Family</span>?</h2>
+          <p className="abt-cta-p">Get in touch with us to support our cause, enroll a child, or visit our Bowbazar school.</p>
           <div className="abt-cta-btns">
             <a href="/#contact" className="btn-gold large">Apply for Admission</a>
             <a href="/the-school" className="btn-ghost large" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>Virtual Tour <Play size={18} /></a>
@@ -365,8 +363,16 @@ export default function About() {
       <footer className="footer">
         <div className="footer-top">
           <div className="footer-brand">
-            <div className="footer-logo"><span className="logo-crest"><GraduationCap size={32} /></span><div><div className="logo-name">Greenfield</div><div className="logo-tagline">ACADEMY</div></div></div>
-            <p>Nurturing young minds and shaping tomorrow's leaders since 1985.</p>
+            <div className="footer-logo">
+              <div className="logo-crest-wrapper">
+                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              </div>
+              <div>
+                <div className="logo-name">St. Stephen's</div>
+                <div className="logo-tagline">SCHOOL</div>
+              </div>
+            </div>
+            <p>Nurturing young minds and shaping tomorrow's leaders since 2001. A tradition of excellence, a promise of a better future.</p>
             <div className="socials">{['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>)}</div>
           </div>
           {[
@@ -381,7 +387,7 @@ export default function About() {
           ))}
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Greenfield Academy. All rights reserved.</span>
+          <span>© 2026 St. Stephen's School. All rights reserved.</span>
           <span>Privacy Policy · Terms of Use · Sitemap</span>
         </div>
       </footer>

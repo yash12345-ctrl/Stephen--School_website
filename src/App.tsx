@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef, MouseEvent } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import type { MouseEvent } from 'react'
 import './App.css'
 import ProgramTop, { ProgramMegaMenu } from './program_top'
 const testimonials = [
@@ -94,7 +95,7 @@ export default function App() {
         <div className="hero-glow g1" /><div className="hero-glow g2" />
         <div className="hero-body">
           <div className="hero-pill">
-            <span className="pulse-dot"></span> Est. 1985 &nbsp;·&nbsp; Excellence in Education
+            <span className="pulse-dot"></span> Est. 2001 &nbsp;·&nbsp; Excellence in Education
           </div>
           <h1 className="hero-h1">Shaping<br />Tomorrow's<br />Leaders</h1>
           <p className="hero-p">Where academic brilliance meets character — empowering every student to reach their highest potential in a world-class learning environment.</p>
@@ -122,7 +123,7 @@ export default function App() {
           </aside>
 
           <div className="hero-stats">
-            {[['3,200+', 'Students'], ['98%', 'Pass Rate'], ['150+', 'Faculty'], ['40+', 'Yrs Legacy']].map(([n, l], i) => (
+            {[['500', 'Students'], ['NGO', 'School'], ['L.N. to X', 'Grades'], ['25+', 'Yrs Legacy']].map(([n, l], i) => (
               <div key={i} className="hstat">
                 <span className="hstat-n">{n}</span>
                 <span className="hstat-l">{l}</span>
@@ -148,21 +149,21 @@ export default function App() {
             <div className="aimg aimg-main"><img src="/library.png" alt="Library" /></div>
             <div className="aimg aimg-sec"><img src="/science_lab.png" alt="Science Lab" /></div>
             <div className="about-badge">
-              <div className="ab-num">40+</div>
-              <div className="ab-txt">Years of<br />Excellence</div>
+              <div className="ab-num">25+</div>
+              <div className="ab-txt">Years of<br />Service</div>
             </div>
-            <div className="about-award">🏅 National Best School Award</div>
+            <div className="about-award">📍 Bowbazar, Kolkata</div>
           </div>
           <div className="about-body">
             <div className="s-tag">About Us</div>
-            <h2 className="s-title">A Legacy of <span className="gold">Academic Excellence</span></h2>
-            <p className="s-lead">Founded in 1985, St. Stephen's School has been a beacon of quality education, nurturing over 50,000 alumni who are now leaders across the globe.</p>
-            <p className="s-body">Our holistic approach combines rigorous academics with character development, producing graduates who excel in every field of human endeavour — from science and technology to arts and public service.</p>
+            <h2 className="s-title">Empowering Lives Through <span className="gold">Education</span></h2>
+            <p className="s-lead">St Stephen's School is an NGO based school situated in Bowbazar, Kolkata. It started in 2001 and now has 500 students on its rolls. We envision bringing social and economic transformation by educating the less fortunate and underprivileged children of different communities of Kolkata.</p>
+            <p className="s-body">Our school provides opportunities through education to some of the most vulnerable children from the streets and slums of our locality. We are committed to delivering service without any discrimination of any form, believing in spreading the power of education amongst all.</p>
             <div className="pillars">
               {[
-                { icon: '🏅', h: 'Award-Winning Faculty', p: 'Nationally recognized educators dedicated to student success' },
-                { icon: '🌍', h: 'Global Curriculum', p: 'International standards aligned with CBSE & IB frameworks' },
-                { icon: '💡', h: 'Innovation-Driven', p: 'Cutting-edge labs, tech-enabled classrooms & maker spaces' },
+                { icon: '🎓', h: 'Madhyamik Syllabus', p: 'A secondary school following the Madhyamik syllabus from class Lower Nursery to class X.' },
+                { icon: '⚽', h: 'Extracurricular Activities', p: 'Focusing on sports, art, and social work through our interactive clubs to ensure holistic growth.' },
+                { icon: '🤝', h: 'First Generation Learners', p: 'Supporting children whose parents fall in extremely low income brackets, enabling social mobility.' },
               ].map((f, i) => (
                 <div className="pillar" key={i}>
                   <div className="pillar-icon">{f.icon}</div>
@@ -170,7 +171,7 @@ export default function App() {
                 </div>
               ))}
             </div>
-            <a href="#contact" className="btn-gold">Discover Our Story</a>
+            <a href="/about" className="btn-gold">Discover Our Story</a>
           </div>
         </div>
       </section>
@@ -398,7 +399,7 @@ export default function App() {
                 <div className="logo-tagline">SCHOOL</div>
               </div>
             </div>
-            <p>Nurturing young minds and shaping tomorrow's leaders since 1985. A tradition of excellence, a promise of a better future.</p>
+            <p>Nurturing young minds and shaping tomorrow's leaders since 2001. A tradition of excellence, a promise of a better future.</p>
             <div className="socials">{['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>)}</div>
           </div>
           {[
