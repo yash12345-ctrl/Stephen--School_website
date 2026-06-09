@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 import { useState, useEffect, useRef } from 'react'
 import type { MouseEvent } from 'react'
-=======
-import { useState, useEffect, useRef, type MouseEvent } from 'react'
->>>>>>> 179d585596e94e6800e5e33c69f3ef18e3a7db76
 import './App.css'
 import ProgramTop, { ProgramMegaMenu } from './program_top'
 const testimonials = [
@@ -153,23 +149,6 @@ export default function App() {
             <div className="aimg aimg-main"><img src="/v3.png" alt="Campus Life" /></div>
             <div className="aimg aimg-sec"><img src="/v4.jpeg" alt="Students" /></div>
             <div className="about-badge">
-<<<<<<< HEAD
-              <div className="ab-num">25+</div>
-              <div className="ab-txt">Years of<br />Service</div>
-            </div>
-            <div className="about-award">📍 Bowbazar, Kolkata</div>
-          </div>
-          <div className="about-body">
-            <div className="s-tag">About Us</div>
-            <h2 className="s-title">Empowering Lives Through <span className="gold">Education</span></h2>
-            <p className="s-lead">St Stephen's School is an NGO based school situated in Bowbazar, Kolkata. It started in 2001 and now has 500 students on its rolls. We envision bringing social and economic transformation by educating the less fortunate and underprivileged children of different communities of Kolkata.</p>
-            <p className="s-body">Our school provides opportunities through education to some of the most vulnerable children from the streets and slums of our locality. We are committed to delivering service without any discrimination of any form, believing in spreading the power of education amongst all.</p>
-            <div className="pillars">
-              {[
-                { icon: '🎓', h: 'Madhyamik Syllabus', p: 'A secondary school following the Madhyamik syllabus from class Lower Nursery to class X.' },
-                { icon: '⚽', h: 'Extracurricular Activities', p: 'Focusing on sports, art, and social work through our interactive clubs to ensure holistic growth.' },
-                { icon: '🤝', h: 'First Generation Learners', p: 'Supporting children whose parents fall in extremely low income brackets, enabling social mobility.' },
-=======
               <div className="ab-num">20+</div>
               <div className="ab-txt">Years of<br />Service</div>
             </div>
@@ -187,7 +166,6 @@ export default function App() {
                 { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>, h: 'Our Vision', p: 'Building strong connections to help students achieve independence and academic confidence.' },
                 { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>, h: 'Our Mission', p: 'Providing a valued haven where staff and families partner for every student\'s success.' },
                 { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>, h: 'Holistic Growth', p: 'Following the Madhyamik syllabus alongside sports, arts, and interactive social clubs.' },
->>>>>>> 179d585596e94e6800e5e33c69f3ef18e3a7db76
               ].map((f, i) => (
                 <div className="pillar" key={i}>
                   <div className="pillar-icon">{f.icon}</div>
