@@ -179,7 +179,6 @@ export default function App() {
       <section className="section testi-section">
         <div className="container">
           <div className="sec-head">
-            <div className="s-tag">Community Voices</div>
             <h2 className="s-title">Words <span className="gold">From</span> Diginitories</h2>
           </div>
           <div className="dignitary-card">
@@ -242,9 +241,9 @@ export default function App() {
       <section className="cta-section">
         <div className="cta-glow" />
         <div className="cta-body">
-          <div className="cta-badge">🎓 Admissions Open 2026–27</div>
-          <h2 className="cta-h">Begin Your Child's <span className="gold">Journey</span> with Us</h2>
-          <p className="cta-p">Join thousands of families who trust St. Stephen's School for a world-class, values-driven education that lasts a lifetime.</p>
+          <div className="cta-badge">🤝 Support Our Mission</div>
+          <h2 className="cta-h">Help Shape a Child's <span className="gold">Future</span></h2>
+          <p className="cta-p">Your contribution can provide quality education, brighter opportunities, and a better tomorrow for deserving students.</p>
           <div className="cta-btns">
             <a href="/#donate" className="btn-gold large">Donate</a>
             <a href="tel:+911234567890" className="btn-ghost large">📞 Call Us</a>

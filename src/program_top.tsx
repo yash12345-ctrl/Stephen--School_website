@@ -84,6 +84,28 @@ export default function ProgramTop() {
           <p className="sec-desc">A structured journey of holistic growth and academic excellence, custom-tailored for different developmental milestones.</p>
         </div>
 
+        {/* Shift Timings */}
+        <div className="shift-banner-container">
+          <div className="shift-banner">
+            <div className="shift-banner-item">
+              <div className="shift-tag">Session 01</div>
+              <div className="shift-details">
+                <h4 className="shift-name">Morning Shift</h4>
+                <p className="shift-time">6:30 AM <span className="gold">—</span> 11:30 AM</p>
+              </div>
+            </div>
+            <div className="shift-divider"></div>
+            <div className="shift-banner-item">
+              <div className="shift-tag">Session 02</div>
+              <div className="shift-details">
+                <h4 className="shift-name">Evening Shift</h4>
+                <p className="shift-time">11:45 AM <span className="gold">—</span> 4:45 PM</p>
+              </div>
+            </div>
+          </div>
+          <div className="shift-banner-connector"></div>
+        </div>
+
         {/* Dashboard Grid */}
         <div className="prog-dashboard">
           
