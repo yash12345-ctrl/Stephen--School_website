@@ -39,12 +39,12 @@ export default function App() {
               <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
-              <div className="logo-name">St. Stephen's</div>
-              <div className="logo-tagline">SCHOOL</div>
+              <div className="logo-name">St. Stephen's School</div>
+              <div className="logo-tagline">BOWBAZAR</div>
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
+            {['Home', 'About', 'Programs', 'Gallery', 'News', 'Contact'].map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
@@ -73,13 +73,13 @@ export default function App() {
                 )}
               </li>
             ))}
-            {/* Mobile-only Apply Button */}
+            {/* Mobile-only Donate Button */}
             <li className="mobile-only-nav-apply">
-              <a href="/apply">Apply Now</a>
+              <a href="/#donate">Donate</a>
             </li>
           </ul>
           <div className="nav-actions">
-            <a href="/apply" className="nav-cta">Apply Now →</a>
+            <a href="/#donate" className="nav-cta">Donate Now  →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -106,7 +106,7 @@ export default function App() {
 
         <div className="hero-right">
           <aside className="hero-admissions-card" aria-label="Admissions information">
-            <div className="hac-image" style={{ backgroundImage: "url('/library.png')" }}>
+            <div className="hac-image" style={{ backgroundImage: "url('/v5.jpeg')" }}>
               <div className="hac-badge">
                 <span className="pulse-dot-red"></span> Now Open
               </div>
@@ -115,7 +115,6 @@ export default function App() {
               <h3>Admissions 2026–27</h3>
               <p>Discover our world-class campus and innovative curriculum. Schedule a personalized family tour today.</p>
               <div className="hac-actions">
-                <a href="#apply" className="hac-btn-main">Apply Now</a>
                 <a href="/the-school" className="hac-link">Campus Tour →</a>
               </div>
             </div>
@@ -154,7 +153,7 @@ export default function App() {
           </div>
           <div className="about-body">
             <div className="s-tag" style={{ display: 'inline-flex', alignItems: 'center' }}>
-              <svg style={{ marginRight: '6px', marginTop: '-2px' }} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <svg style={{ marginRight: '6px', marginTop: '-2px' }} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
               NGO Based Education
             </div>
             <h2 className="s-title">Building Leaders Beyond <span className="gold">Circumstances</span></h2>
@@ -162,9 +161,9 @@ export default function App() {
             <p className="s-body">With over 500 students from Lower Nursery to Class X, we provide a haven of learning for first-generation learners. We deliver quality education and extracurricular opportunities without discrimination.</p>
             <div className="pillars">
               {[
-                { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>, h: 'Our Vision', p: 'Building strong connections to help students achieve independence and academic confidence.' },
-                { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>, h: 'Our Mission', p: 'Providing a valued haven where staff and families partner for every student\'s success.' },
-                { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>, h: 'Holistic Growth', p: 'Following the Madhyamik syllabus alongside sports, arts, and interactive social clubs.' },
+                { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" /></svg>, h: 'Our Vision', p: 'Building strong connections to help students achieve independence and academic confidence.' },
+                { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>, h: 'Our Mission', p: 'Providing a valued haven where staff and families partner for every student\'s success.' },
+                { icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>, h: 'Holistic Growth', p: 'Following the Madhyamik syllabus alongside sports, arts, and interactive social clubs.' },
               ].map((f, i) => (
                 <div className="pillar" key={i}>
                   <div className="pillar-icon">{f.icon}</div>
@@ -239,7 +238,7 @@ export default function App() {
           <h2 className="cta-h">Begin Your Child's <span className="gold">Journey</span> with Us</h2>
           <p className="cta-p">Join thousands of families who trust St. Stephen's School for a world-class, values-driven education that lasts a lifetime.</p>
           <div className="cta-btns">
-            <a href="#contact" className="btn-gold large">Apply for Admission</a>
+            <a href="/#donate" className="btn-gold large">Donate</a>
             <a href="tel:+911234567890" className="btn-ghost large">📞 Call Us</a>
           </div>
         </div>
@@ -293,8 +292,8 @@ export default function App() {
                 <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
-                <div className="logo-name">St. Stephen's</div>
-                <div className="logo-tagline">SCHOOL</div>
+                <div className="logo-name">St. Stephen's School</div>
+                <div className="logo-tagline">BOWBAZAR</div>
               </div>
             </div>
             <p>Nurturing young minds and shaping tomorrow's leaders since 1985. A tradition of excellence, a promise of a better future.</p>

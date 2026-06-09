@@ -100,13 +100,13 @@ export default function About() {
                 )}
               </li>
             ))}
-            {/* Mobile-only Apply Button */}
+            {/* Mobile-only Donate Button */}
             <li className="mobile-only-nav-apply">
-              <a href="/apply">Apply Now</a>
+              <a href="/#donate">Donate</a>
             </li>
           </ul>
           <div className="nav-actions">
-            <a href="/apply" className="nav-cta">Apply Now →</a>
+            <a href="/#donate" className="nav-cta">Donate →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -353,9 +353,9 @@ export default function About() {
         <div className="abt-cta-inner">
           <span className="abt-chip light">Join Us</span>
           <h2 className="abt-cta-h">Ready to Be Part of the <span className="abt-accent">Greenfield Family</span>?</h2>
-          <p className="abt-cta-p">Schedule a visit, speak with our team, or apply online today.</p>
+          <p className="abt-cta-p">Schedule a visit, speak with our team, or support us today.</p>
           <div className="abt-cta-btns">
-            <a href="/#contact" className="btn-gold large">Apply for Admission</a>
+            <a href="/#donate" className="btn-gold large">Donate</a>
             <a href="/the-school" className="btn-ghost large" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>Virtual Tour <Play size={18} /></a>
           </div>
         </div>

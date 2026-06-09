@@ -205,13 +205,13 @@ export default function News() {
                 {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} />}
               </li>
             ))}
-            {/* Mobile-only Apply Button */}
+            {/* Mobile-only Donate Button */}
             <li className="mobile-only-nav-apply">
-              <a href="/apply">Apply Now</a>
+              <a href="/#donate">Donate</a>
             </li>
           </ul>
           <div className="nav-actions">
-            <a href="/#contact" className="nav-cta">Apply Now →</a>
+            <a href="/#donate" className="nav-cta">Donate →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>

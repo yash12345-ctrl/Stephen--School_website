@@ -166,13 +166,13 @@ export default function School() {
                 )}
               </li>
             ))}
-            {/* Mobile-only Apply Button */}
+            {/* Mobile-only Donate Button */}
             <li className="mobile-only-nav-apply">
-              <a href="/apply">Apply Now</a>
+              <a href="/#donate">Donate</a>
             </li>
           </ul>
           <div className="nav-actions">
-            <a href="/#contact" className="nav-cta">Apply Now →</a>
+            <a href="/#donate" className="nav-cta">Donate →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -471,15 +471,15 @@ export default function School() {
       {/* ── ADMISSIONS CTA ── */}
       <section className="sch-cta">
         <div className="sch-cta-inner">
-          <span className="sch-chip light">Apply Today</span>
+          <span className="sch-chip light">Support Us</span>
           <h2 className="sch-section-h2" style={{ color: '#fff', marginBottom: '1.5rem' }}>
             Ready to Discover the <span>Greenfield Advantage</span>?
           </h2>
           <p className="sch-section-p" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '3rem' }}>
-            Admissions for the academic session 2026–27 are open. Schedule a campus tour, request a prospectus, or submit your online application today.
+            Admissions for the academic session 2026–27 are open. Schedule a campus tour, request a prospectus, or support us today.
           </p>
           <div className="sch-hero-btns">
-            <a href="/#contact" className="sch-btn-gold">Apply Online Now</a>
+            <a href="/#donate" className="sch-btn-gold">Donate Now</a>
             <a href="/about" className="sch-btn-ghost">Learn About Us</a>
           </div>
         </div>
