@@ -41,7 +41,7 @@ export default function App() {
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'Gallery', 'News', 'Contact'].map(l => (
+            {['Home', 'About', 'Programs', 'School', 'News', 'Gallery'].map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => {
@@ -56,9 +56,10 @@ export default function App() {
                 <a
                   href={
                     l === 'About' ? '/about' :
-                    l === 'News'  ? '/news' :
-                    l === 'Programs' ? '/#programs' :
-                    `#${l.toLowerCase().replace(/\s+/g, '-')}`
+                      l === 'News' ? '/news' :
+                        l === 'Programs' ? '/#programs' :
+                          l === 'School' ? '/the-school' :
+                            `#${l.toLowerCase().replace(/\s+/g, '-')}`
                   }
                   onClick={() => setMobileMenuOpen(false)}
                   className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
