@@ -24,6 +24,7 @@ export default function AnnualConcert() {
     { emoji: '🎭', title: 'Drama Interlude', desc: 'Short theatrical performances between musical acts add depth, humour, and storytelling to the evening programme.', tag: 'Theatre' },
   ];
 
+  /*
   const schedule = [
     { emoji: '🎵', time: '5:00 PM', title: 'Welcome & Lamp Lighting', desc: 'The Principal and distinguished guests formally open the Annual Concert with a lamp lighting ceremony.' },
     { emoji: '🎹', time: '5:20 PM', title: 'Classical Music Act', desc: 'Pre-Primary and Primary students perform classical Indian and Western instrumental pieces.' },
@@ -32,6 +33,7 @@ export default function AnnualConcert() {
     { emoji: '🏆', time: '7:20 PM', title: 'Awards & Recognition', desc: 'Outstanding performers and contributors are honoured with certificates and trophies.' },
     { emoji: '💃', time: '7:45 PM', title: 'Grand Finale & Closing', desc: 'A spectacular cultural fusion finale followed by the vote of thanks and refreshments.' },
   ];
+  */
 
 
   return (
@@ -106,20 +108,13 @@ export default function AnnualConcert() {
             An enchanting evening of music, rhythm, and artistry — where every student finds their voice and the whole school celebrates together.
           </p>
           <div className="ac-hero-meta">
-            {[
-              { icon: '📅', label: 'Date', value: 'December 2026' },
-              { icon: '🕔', label: 'Time', value: '5:00 PM Onwards' },
-              { icon: '📍', label: 'Venue', value: 'School Auditorium' },
-              { icon: '🎟️', label: 'Entry', value: 'Open to All' },
-            ].map((m, i) => (
-              <div className="ac-meta-item" key={i}>
-                <div className="ac-meta-icon">{m.icon}</div>
-                <div>
-                  <div style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '1px' }}>{m.label}</div>
-                  <div style={{ fontWeight: 700 }}>{m.value}</div>
-                </div>
+            <div className="ac-meta-item">
+              <div className="ac-meta-icon">📍</div>
+              <div>
+                <div className="ac-meta-label">Venue</div>
+                <div style={{ fontWeight: 700 }}>School Auditorium</div>
               </div>
-            ))}
+            </div>
           </div>
           <div className="ac-hero-btns">
             <a href="#schedule" className="ac-btn-gold">View Schedule →</a>
@@ -138,8 +133,9 @@ export default function AnnualConcert() {
         <div className="ac-wrap">
           <div className="ac-about-grid">
             <div className="ac-about-visual">
-              <div className="ac-about-img-wrap">
-                <img src="/k5.png" alt="Annual Concert performance" />
+              <div className="ac-about-collage">
+                <img src="/k5.png" alt="Annual Concert Performance" className="ac-collage-img-main" />
+                <img src="/k6.jpg" alt="Annual Concert Rehearsal" className="ac-collage-img-sec" />
               </div>
               <div className="ac-about-badge">
                 <div className="ac-about-badge-num">🎵</div>
@@ -195,27 +191,7 @@ export default function AnnualConcert() {
         </div>
       </section>
 
-      {/* ── SCHEDULE ── */}
-      <section className="ac-section ac-schedule" id="schedule">
-        <div className="ac-wrap">
-          <div className="ac-schedule-head">
-            <div className="ac-chip">Programme</div>
-            <h2 className="ac-h2">Evening <span>Schedule</span></h2>
-          </div>
-          <div className="ac-timeline">
-            {schedule.map((s, i) => (
-              <div className="ac-tl-item" key={i}>
-                <div className="ac-tl-dot">{s.emoji}</div>
-                <div className="ac-tl-content">
-                  <div className="ac-tl-time">{s.time}</div>
-                  <div className="ac-tl-h">{s.title}</div>
-                  <div className="ac-tl-p">{s.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
 
       {/* ── CTA ── */}

@@ -1,0 +1,800 @@
+/* ── EID MILAN STYLES & VARIABLES ── */
+.eid-page-container {
+  --eid-emerald: #0b4528;
+  --eid-emerald-light: #126038;
+  --eid-emerald-dark: #072d1a;
+  --eid-gold: #cfa847;
+  --eid-gold-light: #f7d070;
+  --eid-white: #ffffff;
+  --eid-light: #f3f9f5;
+  --eid-dark: #0d1a12;
+  --eid-gray: #718096;
+
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--eid-light);
+  color: var(--eid-dark);
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.eid-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--eid-white);
+  padding: 8rem 2rem 4rem 2rem;
+}
+
+.eid-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transform: scale(1.02);
+  transition: transform 10s ease;
+}
+
+.eid-hero:hover .eid-hero-bg {
+  transform: scale(1.06);
+}
+
+.eid-hero-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(7, 45, 26, 0.9) 0%, rgba(13, 26, 18, 0.85) 60%, rgba(207, 168, 71, 0.25) 100%);
+  z-index: 1;
+}
+
+.eid-hero-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  text-align: center;
+}
+
+.eid-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  color: var(--eid-gold-light);
+}
+
+.gold-crescent {
+  color: var(--eid-gold-light);
+}
+
+.eid-hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 1.5rem;
+}
+
+.eid-hero-h1 span {
+  color: var(--eid-gold-light);
+  background: linear-gradient(to right, var(--eid-gold-light), #fff8e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(207, 168, 71, 0.3);
+}
+
+.eid-hero-sub {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+}
+
+.eid-hero-meta {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+  background: rgba(7, 45, 26, 0.6);
+  padding: 1.5rem 2.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.eid-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.eid-meta-icon {
+  color: var(--eid-gold-light);
+}
+
+.eid-meta-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
+.eid-hero-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.eid-btn-gold {
+  background: linear-gradient(135deg, var(--eid-gold), var(--eid-gold-light));
+  color: var(--eid-dark);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(207, 168, 71, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.eid-btn-gold.large {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.05rem;
+}
+
+.eid-btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(207, 168, 71, 0.5);
+}
+
+.eid-btn-ghost {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--eid-white);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.eid-btn-ghost:hover {
+  background: var(--eid-white);
+  color: var(--eid-dark);
+  transform: translateY(-3px);
+}
+
+.eid-hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.eid-hero-scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--eid-white), transparent);
+  animation: scrollDown 2s infinite ease-in-out;
+}
+
+/* ── COMMON SECTIONS ── */
+.eid-section {
+  padding: 6.5rem 0;
+}
+
+.eid-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.eid-chip {
+  display: inline-block;
+  background: rgba(11, 69, 40, 0.07);
+  border: 1px solid rgba(11, 69, 40, 0.12);
+  color: var(--eid-emerald);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  margin-bottom: 1.2rem;
+}
+
+.eid-h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--eid-emerald);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.eid-h2 span {
+  color: var(--eid-gold);
+}
+
+.eid-lead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #3b4e42;
+  margin-bottom: 1.5rem;
+}
+
+.eid-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--eid-gray);
+  margin-bottom: 2rem;
+}
+
+/* ── INTERACTIVE EIDI SECTION ── */
+.eid-interactive {
+  background: var(--eid-white);
+  border-bottom: 1px solid rgba(11, 69, 40, 0.05);
+}
+
+.envelope-animation-container {
+  max-width: 450px;
+  margin: 0 auto;
+  position: relative;
+  padding: 4rem 0 2rem 0;
+}
+
+/* 3D Envelope Styling */
+.eidi-envelope-box {
+  width: 320px;
+  height: 200px;
+  position: relative;
+  background: var(--eid-emerald-light);
+  border-radius: 0 0 12px 12px;
+  margin: 0 auto;
+  cursor: pointer;
+  box-shadow: 0 20px 45px rgba(7, 45, 38, 0.15);
+}
+
+/* Envelope Back Side */
+.envelope-back {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Envelope Triangle Flap */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 110px solid var(--eid-emerald);
+  transform-origin: top;
+  transition: transform 0.4s ease, z-index 0.2s;
+  z-index: 5;
+}
+
+.eidi-envelope-box.open .envelope-flap {
+  transform: rotateX(180deg);
+  border-top-color: var(--eid-emerald-dark);
+  z-index: 2; /* behind the letter when opened */
+}
+
+/* Envelope Pocket Body (Front Overlay) */
+.envelope-front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid rgba(18, 96, 56, 0.95);
+  border-right: 160px solid rgba(18, 96, 56, 0.95);
+  border-bottom: 110px solid var(--eid-emerald);
+  border-top: 90px solid transparent;
+  border-radius: 0 0 12px 12px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* The blessing letter inside the envelope */
+.envelope-letter {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  width: 290px;
+  height: 180px;
+  background: #fffdf5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 3;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid rgba(207, 168, 71, 0.15);
+  opacity: 0.8;
+}
+
+.eidi-envelope-box.open .envelope-letter {
+  transform: translateY(-120px);
+  z-index: 6; /* displays on top of envelope flap */
+  opacity: 1;
+  box-shadow: 0 15px 35px rgba(7, 45, 38, 0.12);
+}
+
+.letter-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 0.8rem;
+  color: var(--eid-emerald);
+}
+
+.letter-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.letter-crescent {
+  color: var(--eid-gold);
+}
+
+.blessing-ar {
+  font-family: serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--eid-gold);
+  margin-bottom: 0.4rem;
+}
+
+.blessing-en {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--eid-gray);
+  margin: 0 0 0.8rem 0;
+}
+
+.letter-sign {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--eid-emerald);
+}
+
+/* Floating Gold Coins Animation */
+.eidi-coin {
+  position: absolute;
+  bottom: 60px;
+  font-size: 2rem;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  animation: floatGoldCoin 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes floatGoldCoin {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-360px) rotate(540deg) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ── ABOUT SECTION ── */
+.eid-about {
+  background: var(--eid-white);
+}
+
+.eid-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.eid-about-visual {
+  position: relative;
+}
+
+.eid-about-collage {
+  position: relative;
+  height: 480px;
+}
+
+.eid-collage-img-main {
+  width: 80%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border: 4px solid var(--eid-white);
+}
+
+.eid-collage-img-sec {
+  position: absolute;
+  width: 55%;
+  height: 240px;
+  object-fit: cover;
+  bottom: 0;
+  right: 0;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  border: 6px solid var(--eid-white);
+}
+
+.eid-about-badge {
+  position: absolute;
+  top: 2rem;
+  right: 10%;
+  background: var(--eid-gold);
+  color: var(--eid-white);
+  padding: 1.2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(207, 168, 71, 0.25);
+  z-index: 2;
+  transform: rotate(-8deg);
+  transition: transform 0.3s ease;
+}
+
+.eid-about-badge:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.eid-about-badge-num {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+.eid-about-badge-txt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.eid-about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding-top: 2rem;
+}
+
+/* ── HIGHLIGHTS SECTION ── */
+.eid-highlights {
+  background: #f1f7f3;
+  border-top: 1px solid rgba(11, 69, 40, 0.04);
+  border-bottom: 1px solid rgba(11, 69, 40, 0.04);
+}
+
+.eid-highlights-head {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem auto;
+}
+
+.eid-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.eid-card {
+  background: var(--eid-white);
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(11, 69, 40, 0.02);
+  border: 1px solid rgba(11, 69, 40, 0.04);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.eid-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(11, 69, 40, 0.06);
+}
+
+.eid-card-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(207, 168, 71, 0.08);
+  color: var(--eid-gold);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.eid-card:hover .eid-card-icon-wrap {
+  background: var(--eid-gold);
+  color: var(--eid-white);
+  transform: scale(1.1);
+}
+
+.eid-card-h {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--eid-emerald);
+}
+
+.eid-card-p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--eid-gray);
+  margin-bottom: 1.5rem;
+}
+
+.eid-card-tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  color: var(--eid-emerald);
+  background: rgba(11, 69, 40, 0.08);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+}
+
+/* ── TIMELINE ── */
+.eid-schedule {
+  background: var(--eid-white);
+}
+
+.eid-timeline {
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.eid-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 140px;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(11, 69, 40, 0.1) 10%, rgba(11, 69, 40, 0.1) 90%, transparent);
+}
+
+.eid-timeline-item {
+  display: flex;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.eid-timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.eid-time-col {
+  width: 110px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--eid-gold);
+  text-align: right;
+  padding-top: 4px;
+}
+
+.eid-dot-col {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.eid-timeline-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--eid-emerald);
+  border: 3px solid var(--eid-white);
+  box-shadow: 0 4px 10px rgba(11, 69, 40, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--eid-white);
+}
+
+.eid-content-col {
+  flex: 1;
+  background: #fbfcfa;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(11, 69, 40, 0.04);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+  transition: all 0.3s ease;
+}
+
+.eid-timeline-item:hover .eid-content-col {
+  background: var(--eid-white);
+  border-color: rgba(11, 69, 40, 0.1);
+  box-shadow: 0 8px 25px rgba(11, 69, 40, 0.05);
+}
+
+.eid-timeline-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--eid-emerald);
+  margin-bottom: 0.5rem;
+}
+
+.eid-timeline-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--eid-gray);
+}
+
+/* ── CTA ── */
+.eid-cta {
+  position: relative;
+  background: linear-gradient(135deg, var(--eid-emerald) 0%, var(--eid-emerald-dark) 100%);
+  color: var(--eid-white);
+  padding: 7rem 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.eid-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 80% 20%, rgba(207, 168, 71, 0.15), transparent 50%);
+  pointer-events: none;
+}
+
+.eid-cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.eid-cta-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.eid-cta-p {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  opacity: 0.85;
+  margin-bottom: 2.5rem;
+}
+
+.eid-cta-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.eid-cta-btns .eid-btn-gold {
+  box-shadow: 0 4px 25px rgba(207, 168, 71, 0.2);
+}
+
+.eid-cta-btns .eid-btn-gold:hover {
+  box-shadow: 0 6px 30px rgba(207, 168, 71, 0.4);
+}
+
+/* ── RESPONSIVENESS ── */
+@media (max-width: 992px) {
+  .eid-about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .eid-about-collage {
+    height: 380px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .eid-collage-img-main {
+    height: 300px;
+  }
+  .eid-collage-img-sec {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .eid-hero-meta {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.2rem 2rem;
+    align-items: flex-start;
+  }
+  .eid-hero-btns, .eid-cta-btns {
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .eid-timeline::before {
+    left: 20px;
+  }
+  .eid-timeline-item {
+    flex-direction: column;
+    padding-left: 45px;
+  }
+  .eid-time-col {
+    text-align: left;
+    width: auto;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  .eid-dot-col {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: auto;
+    justify-content: flex-start;
+  }
+}
+
+/* ── PAST EVENT SPOTLIGHT ── */
+.eid-spotlight-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .eid-spotlight-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
