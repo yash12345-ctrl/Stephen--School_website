@@ -201,7 +201,7 @@ export default function News() {
                     </svg>
                   )}
                 </a>
-                {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} />}
+                {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
               </li>
             ))}
             {/* Mobile-only Donate Button */}
