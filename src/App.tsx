@@ -25,6 +25,19 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (e: globalThis.MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.has-mega') && !target.closest('.mega-menu')) {
+        setMegaMenuOpen(false);
+      }
+    };
+    if (megaMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [megaMenuOpen]);
+
   return (
     <div className="site">
 
@@ -48,9 +61,6 @@ export default function App() {
                   if (closeTimer.current) clearTimeout(closeTimer.current);
                   setMegaMenuOpen(true);
                 } : undefined}
-                onMouseLeave={l === 'Programs' ? () => {
-                  closeTimer.current = setTimeout(() => setMegaMenuOpen(false), 200);
-                } : undefined}
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a
@@ -61,7 +71,14 @@ export default function App() {
                           l === 'School' ? '/the-school' :
                             `#${l.toLowerCase().replace(/\s+/g, '-')}`
                   }
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    if (l === 'Programs') {
+                      e.preventDefault();
+                      setMegaMenuOpen(!megaMenuOpen);
+                    } else {
+                      setMobileMenuOpen(false);
+                    }
+                  }}
                   className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
                 >
                   {l}

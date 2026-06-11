@@ -25,6 +25,19 @@ export default function School() {
   }, []);
 
   useEffect(() => {
+    const handleClickOutside = (e: globalThis.MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.has-mega') && !target.closest('.mega-menu')) {
+        setMegaMenuOpen(false);
+      }
+    };
+    if (megaMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [megaMenuOpen]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setHeroImageIdx(prev => (prev + 1) % heroImages.length);
     }, 4000);
@@ -96,7 +109,6 @@ export default function School() {
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
-                onMouseLeave={l === 'Programs' ? () => setMegaMenuOpen(false) : undefined}
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a

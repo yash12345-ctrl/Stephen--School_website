@@ -148,6 +148,19 @@ export default function News() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (e: globalThis.MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.has-mega') && !target.closest('.mega-menu')) {
+        setMegaMenuOpen(false);
+      }
+    };
+    if (megaMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [megaMenuOpen]);
+
   const featured = allNews[0];
   const gridNews = allNews.filter(n =>
     !n.featured && (activeCategory === 'All' || n.category === activeCategory)
@@ -176,7 +189,6 @@ export default function News() {
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
-                onMouseLeave={l === 'Programs' ? () => setMegaMenuOpen(false) : undefined}
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a
