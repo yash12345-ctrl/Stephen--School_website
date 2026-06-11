@@ -8,6 +8,7 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleHeroMouseMove = (e: MouseEvent<HTMLElement>) => {
     if (!heroRef.current) return;
@@ -43,20 +44,23 @@ export default function App() {
             {['Home', 'About', 'Programs', 'Gallery', 'News', 'Contact'].map(l => (
               <li
                 key={l}
-                onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
-                onMouseLeave={l === 'Programs' ? () => setMegaMenuOpen(false) : undefined}
+                onMouseEnter={l === 'Programs' ? () => {
+                  if (closeTimer.current) clearTimeout(closeTimer.current);
+                  setMegaMenuOpen(true);
+                } : undefined}
+                onMouseLeave={l === 'Programs' ? () => {
+                  closeTimer.current = setTimeout(() => setMegaMenuOpen(false), 200);
+                } : undefined}
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a
-                  href={l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `#${l.toLowerCase().replace(/\\s+/g, '-')}`}
-                  onClick={(e) => {
-                    if (l === 'Programs') {
-                      e.preventDefault();
-                      setMegaMenuOpen(!megaMenuOpen);
-                    } else {
-                      setMobileMenuOpen(false);
-                    }
-                  }}
+                  href={
+                    l === 'About' ? '/about' :
+                    l === 'News'  ? '/news' :
+                    l === 'Programs' ? '/#programs' :
+                    `#${l.toLowerCase().replace(/\s+/g, '-')}`
+                  }
+                  onClick={() => setMobileMenuOpen(false)}
                   className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
                 >
                   {l}
@@ -65,7 +69,7 @@ export default function App() {
                   )}
                 </a>
                 {l === 'Programs' && (
-                  <ProgramMegaMenu open={megaMenuOpen} />
+                  <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />
                 )}
               </li>
             ))}

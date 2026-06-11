@@ -44,6 +44,7 @@ export default function About() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -70,26 +71,23 @@ export default function About() {
             {['Home', 'About', 'Programs', 'Gallery', 'News', 'Contact'].map(l => (
               <li
                 key={l}
-                onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
-                onMouseLeave={l === 'Programs' ? () => setMegaMenuOpen(false) : undefined}
-                className={l === 'Programs' ? 'has-mega' : ''}
-              >
+                onMouseEnter={l === 'Programs' ? () => {
+                  if (closeTimer.current) clearTimeout(closeTimer.current);
+                  setMegaMenuOpen(true);
+                } : undefined}
+                onMouseLeave={l === 'Programs' ? () => {
+                  closeTimer.current = setTimeout(() => setMegaMenuOpen(false), 200);
+                } : undefined}
+                className={l === 'Programs' ? 'has-mega' : ''}>
                 <a
                   href={
-                    l === 'Home' ? '/' :
-                      l === 'About' ? '/about' :
-                        l === 'News' ? '/news' :
-                          l === 'School' ? '/the-school' :
-                            `/#${l.toLowerCase().replace(/\s+/g, '-')}`
+                    l === 'Home'     ? '/' :
+                    l === 'About'    ? '/about' :
+                    l === 'News'     ? '/news' :
+                    l === 'Programs' ? '/#programs' :
+                    `/#${l.toLowerCase().replace(/\s+/g, '-')}`
                   }
-                  onClick={(e) => {
-                    if (l === 'Programs') {
-                      e.preventDefault();
-                      setMegaMenuOpen(!megaMenuOpen);
-                    } else {
-                      setMobileMenuOpen(false);
-                    }
-                  }}
+                  onClick={() => setMobileMenuOpen(false)}
                   className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
                 >
                   {l}
@@ -98,7 +96,7 @@ export default function About() {
                   )}
                 </a>
                 {l === 'Programs' && (
-                  <ProgramMegaMenu open={megaMenuOpen} />
+                  <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />
                 )}
               </li>
             ))}
@@ -140,10 +138,7 @@ export default function About() {
           <div className="abt-hero-img-stack">
             <img src="/st_stephen_group_2.jpg" alt="St. Stephen's School Community" className="abt-hero-img1" />
             <img src="/st_stephen_group_1.jpg" alt="St. Stephen's School Group" className="abt-hero-img2" />
-            <div className="abt-hero-float-card">
-              <span className="abt-float-emoji"><Award size={28} /></span>
-              <span className="abt-float-text">National Best<br />School Award</span>
-            </div>
+
           </div>
         </div>
       </section>
@@ -162,8 +157,10 @@ export default function About() {
         <div className="abt-wrap">
           <div className="abt-editorial">
             <div className="abt-editorial-images">
-              <img src="/st_stephen_group_1.jpg" alt="St. Stephen's School Group" className="abt-editorial-img-main" />
-              <img src="/st_stephen_group_2.jpg" alt="St. Stephen's School Community" className="abt-editorial-img-sec" />
+              <img src="/k1.png" alt="St. Stephen's School – Empowering Students" />
+              <img src="/k2.png" alt="St. Stephen's School – Community Impact" />
+              <img src="/k3.jpg" alt="St. Stephen's School – Interactive Learning" />
+              <img src="/k4.jpg" alt="St. Stephen's School – Classroom Activities" />
             </div>
             <div className="abt-editorial-content">
               <h2 className="abt-section-h2">Our Story: Empowering the <span className="abt-accent">Underprivileged</span></h2>
