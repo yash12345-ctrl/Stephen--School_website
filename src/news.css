@@ -357,8 +357,8 @@
 ══════════════════════════════════════════ */
 .np-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 1.8rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 2rem;
   margin-bottom: 2.5rem;
   padding-bottom: 2.5rem;
   border-bottom: 2px solid var(--border);
@@ -390,6 +390,7 @@
 .np-card-img.tall { aspect-ratio: 4/5; }
 .np-card-img.med  { aspect-ratio: 16/9; }
 .np-card-img.sm   { aspect-ratio: 3/2; }
+.np-card-img.uniform { aspect-ratio: 3/2; }
 
 .np-card-cat {
   font-size: .66rem;
