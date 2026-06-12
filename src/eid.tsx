@@ -394,6 +394,8 @@ export default function Eid() {
               <li><a href="/annual-concert">Annual Concert</a></li>
               <li><a href="/eid">Eid Celebration</a></li>
               <li><a href="/christmas">Christmas Celebration</a></li>
+              <li><a href="/rabindrajayanti">Rabindra Jayanti</a></li>
+              <li><a href="/indep">Independence Day</a></li>
             </ul>
           </div>
 

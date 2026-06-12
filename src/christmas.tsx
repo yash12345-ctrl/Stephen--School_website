@@ -172,6 +172,49 @@ export default function Christmas() {
         </div>
       </section>
 
+      {/* ── PAST EVENT SPOTLIGHT ── */}
+      <section className="xm-section xm-spotlight" style={{ background: '#fdf9f9', borderTop: '1px solid rgba(156, 37, 41, 0.04)', borderBottom: '1px solid rgba(156, 37, 41, 0.04)' }}>
+        <div className="xm-wrap">
+          <div className="xm-spotlight-card" style={{
+            background: 'var(--xm-white)',
+            padding: '3rem',
+            borderRadius: '24px',
+            boxShadow: '0 15px 35px rgba(156, 37, 41, 0.04)',
+            border: '1px solid rgba(156, 37, 41, 0.04)'
+          }}>
+            <div className="xm-spotlight-grid">
+              <div>
+                <div className="xm-chip" style={{ background: 'rgba(156, 37, 41, 0.08)', color: 'var(--xm-red)' }}>Event Spotlight</div>
+                <h3 className="xm-h2" style={{ fontSize: '2rem', marginBottom: '1.2rem' }}>A Magical <span>Cathedral Visit</span></h3>
+                <p className="xm-lead" style={{ fontSize: '1.05rem', lineHeight: '1.7', color: 'var(--xm-dark)' }}>
+                  <strong>December 25, 2024</strong> was a day filled with absolute happiness for the students of St. Stephen's School when they visited the historic <strong>St. Paul's Cathedral</strong> and received wonderful Christmas gifts.
+                </p>
+                <p className="xm-body" style={{ margin: 0, fontSize: '0.95rem' }}>
+                  The students sang carols in the serene cathedral gardens and received winter gifts, making this holiday excursion a truly unforgettable experience of warmth and cheer.
+                </p>
+              </div>
+              <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '240px' }}>
+                <img src="/v3.png" alt="St. Paul's Cathedral Visit on December 25, 2024" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{
+                  position: 'absolute',
+                  bottom: '1rem',
+                  left: '1rem',
+                  background: 'rgba(156, 37, 41, 0.85)',
+                  color: '#fff',
+                  padding: '0.4rem 1rem',
+                  borderRadius: '50px',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  backdropFilter: 'blur(4px)'
+                }}>
+                  📅 Dec 25, 2024
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── HIGHLIGHTS SECTION ── */}
       <section className="xm-section xm-highlights">
         <div className="xm-wrap">
@@ -276,6 +319,8 @@ export default function Christmas() {
               <li><a href="/annual-concert">Annual Concert</a></li>
               <li><a href="/eid">Eid Celebration</a></li>
               <li><a href="/christmas">Christmas Celebration</a></li>
+              <li><a href="/rabindrajayanti">Rabindra Jayanti</a></li>
+              <li><a href="/indep">Independence Day</a></li>
             </ul>
           </div>
 

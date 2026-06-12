@@ -9,6 +9,8 @@ import School from './school.tsx'
 import Christmas from './christmas.tsx';
 import Eid from './eid.tsx';
 import AnnualConcert from './annual_concert.tsx';
+import Rabindrajayanti from './rabindrajayanti.tsx';
+import Indep from './indep.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -21,6 +23,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/annual-concert" element={<AnnualConcert />} />
         <Route path="/christmas" element={<Christmas />} />
         <Route path="/eid" element={<Eid />} />
+        <Route path="/rabindrajayanti" element={<Rabindrajayanti />} />
+        <Route path="/indep" element={<Indep />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

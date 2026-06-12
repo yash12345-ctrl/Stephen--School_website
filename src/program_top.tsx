@@ -14,8 +14,8 @@ const events = [
   { name: 'Annual Art & Craft Exhibition', emoji: '🎨', desc: 'Students display their finest artwork, sculptures, and handcrafted creations in a vibrant gallery setting.', color1: '#f7971e', color2: '#ffd200', link: '/#events' },
   { name: 'Eid Celebration',           emoji: '🌙', desc: 'A joyful community celebration of Eid with traditional food, performances, and cultural activities for all.', color1: '#11998e', color2: '#38ef7d', link: '/eid' },
   { name: 'Christmas Celebration',     emoji: '🎄', desc: 'Festive carols, decoration contests, gift exchanges, and a warm holiday program uniting the school family.', color1: '#eb3349', color2: '#f45c43', link: '/christmas' },
-  { name: 'Rabindra Jayanti',          emoji: '📖', desc: 'Honouring the legacy of Rabindranath Tagore through poetry recitations, dance, and cultural presentations.', color1: '#4776e6', color2: '#8e54e9', link: '/#events' },
-  { name: 'Independence Day',          emoji: '🇮🇳', desc: 'A patriotic celebration with flag hoisting, cultural programmes, and inspiring speeches by students and staff.', color1: '#ff9800', color2: '#f44336', link: '/#events' },
+  { name: 'Rabindra Jayanti',          emoji: '📖', desc: 'Honouring the legacy of Rabindranath Tagore through poetry recitations, dance, and cultural presentations.', color1: '#4776e6', color2: '#8e54e9', link: '/rabindrajayanti' },
+  { name: 'Independence Day',          emoji: '🇮🇳', desc: 'A patriotic celebration with flag hoisting, cultural programmes, and inspiring speeches by students and staff.', color1: '#ff9800', color2: '#f44336', link: '/indep' },
   { name: 'Educational Day Out',       emoji: '🚌', desc: 'Enriching field trips to museums, science centres, and historical sites to bring learning alive beyond the classroom.', color1: '#00b09b', color2: '#96c93d', link: '/#events' },
   { name: 'Annual School Picnic',      emoji: '🌳', desc: 'A fun-filled day of outdoor games, team activities, and picnic lunches that strengthen bonds across the school community.', color1: '#C9A84C', color2: '#F0C96B', link: '/#events' },
 ];
