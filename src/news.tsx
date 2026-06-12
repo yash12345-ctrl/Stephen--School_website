@@ -1,12 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
+import type { ReactNode, ForwardedRef } from 'react';
 import './news.css';
 import { ProgramMegaMenu } from './program_top';
+// @ts-ignore
+import HTMLFlipBook from 'react-pageflip';
 
+const FlipBook: any = HTMLFlipBook;
+interface BookPageProps {
+  children: ReactNode;
+  density?: 'soft' | 'hard';
+}
+
+const BookPage = forwardRef((props: BookPageProps, ref: ForwardedRef<HTMLDivElement>) => {
+  return (
+    <div className="book-page" ref={ref} data-density={props.density || 'soft'}>
+      <div className="book-page-content" style={{ height: '100%' }}>
+        {props.children}
+      </div>
+    </div>
+  );
+});
 
 /* ══════════════════════════════════════════
    DATA
 ══════════════════════════════════════════ */
-type Category = 'All' | 'Governor' | 'Diplomat' | 'Principal' | 'Academics';
+
 
 const allNews = [
   {
@@ -14,48 +32,69 @@ const allNews = [
     date: 'May 4, 2017', readTime: '2 min read',
     title: 'Shri Keshari Nath Tripathi — Governor of West Bengal',
     excerpt: 'Visit by His Excellency Shri Keshari Nath Tripathi, the Governor of West Bengal and Brother Brendan Mac Carthaigh on 4th May, 2017.',
-    image: '/v19.png', featured: true, hot: true,
+    image: '/v19.png', image2: '/v20.png', featured: true, hot: true,
   },
   {
     id: 2, category: 'Diplomat' as const,
     date: 'April 17, 2018', readTime: '2 min read',
     title: 'Mrs. Iris Schrod & Mr. Jurgen Thomas Schrod — Deputy Consul General of Germany',
     excerpt: 'On April 17, 2018, Mrs. Iris Schrod and Mr. Jurgen Thomas Schrod, Deputy Consul General of Germany, visited St. Stephen\'s School Bowbazar.',
-    image: '/v6.jpg', featured: false, hot: true,
+    image: '/v21.png', image2: '/v22.png', featured: false, hot: true,
   },
   {
-    id: 3, category: 'Principal' as const,
-    date: 'June 2026', readTime: '4 min read',
-    title: 'Dignitary Name 3 — "Holistic Development"',
-    excerpt: 'Please provide the exact words for the third dignitary from your image. This is a placeholder text that will be replaced once you share the real content. We focus on the all-round development of every child.',
-    image: '/v7.jpg', featured: false, hot: false,
+    id: 3, category: 'Diplomat' as const,
+    date: 'December 4, 2018', readTime: '2 min read',
+    title: 'Consul General of Japan',
+    excerpt: 'Mr. Masayuki Taga, Consul General of Japan, Kolkata paid a visit to our school in the Art and Craft Exhibition on 4th of December, 2018.',
+    image: '/v23.png', featured: false, hot: false,
   },
   {
-    id: 4, category: 'Academics' as const,
-    date: 'June 2026', readTime: '3 min read',
-    title: 'Dignitary Name 4 — "Innovation in Teaching"',
-    excerpt: 'Please provide the exact words for the fourth dignitary from your image. This is a placeholder text that will be replaced once you share the real content. Embracing modern methodologies to make learning joyful.',
-    image: '/v8.jpg', featured: false, hot: false,
+    id: 4, category: 'Diplomat' as const,
+    date: 'June 29, 2022', readTime: '3 min read',
+    title: 'Consul General of People Republic of China',
+    excerpt: 'Mr. Zha Liyou, Consul General of People Republic of China, paid a visit to our school on 29th of June, 2022 and interacted warmly with our school teachers and students. He also graciously attended the monitor selection ceremony, witnessing the oath-taking and encouraging the young leaders.',
+    image: '/v24.png', image2: '/v25.png', image3: '/v26.png', image4: '/v4.jpeg', featured: false, hot: false,
   },
   {
-    id: 5, category: 'Academics' as const,
-    date: 'June 2026', readTime: '3 min read',
-    title: 'Dignitary Name 5 — "Empowering Students"',
-    excerpt: 'Please provide the exact words for the fifth dignitary from your image. This is a placeholder text that will be replaced once you share the real content. Giving wings to the aspirations of our youth.',
-    image: '/v9.png', featured: false, hot: false,
+    id: 5, category: 'Diplomat' as const,
+    date: 'July 19, 2022', readTime: '2 min read',
+    title: 'Director of the American Center',
+    excerpt: 'Mr. Adrian Pratt, Director of the American Center visited St. Stephens School and interacted with the kids on July 19, 2022.',
+    image: '/v27.png', image2: '/v28.png', featured: true, hot: true,
+  },
+  {
+    id: 6, category: 'Dignitary' as const,
+    date: '7th September', readTime: '2 min read',
+    title: 'Embassy of the United States of America',
+    excerpt: 'On September 7th, 2022, Ms. Ruth Goode, representing the Embassy of the United States of America.',
+    image: '/v29.png', featured: false, hot: false,
+  },
+  {
+    id: 7, category: 'Dignitary' as const,
+    date: '8th July', readTime: '2 min read',
+    title: 'Director of Alliance Francaise',
+    excerpt: 'Mr. Nicolas Facino, Director of Alliance Francaise visited our school on 8th July, 2022. He provided insights on the importance of education, skill development. He encouraged the students to pursue their dreams with determination.',
+    image: '/v30.png', featured: false, hot: false,
+  },
+  {
+    id: 8, category: 'Dignitary' as const,
+    date: '7th September', readTime: '2 min read',
+    title: 'Embassy of the United States of Americas',
+    excerpt: 'On September 7th, 2022, Ms. Ruth Goode, representing the Embassy of the United States of America.',
+    image: '/v31.png', image2: '/v32.png', featured: true, hot: true,
+  },
+  {
+    id: 9, category: 'Dignitary' as const,
+    date: '8th July', readTime: '2 min read',
+    title: 'Mr. Nicolas Facino, Director of Alliance  Francaise',
+    excerpt: 'Mr. Nicolas Facino, Director of Alliance Francaise visited our school on 8th July, 2022. He provided insights on the importance of education, skill development. He encouraged the students to pursue their dreams with determination.',
+    image: '/v30.png', featured: false, hot: false,
   }
 ];
 
 
 
-const CATEGORIES: Category[] = ['All', 'Governor', 'Diplomat', 'Principal', 'Academics'];
-const CATEGORY_COUNTS: Record<string, number> = {
-  Governor: 1, Diplomat: 1, Principal: 1, Academics: 2,
-};
 
-const today = new Date().toLocaleDateString('en-IN', {
-  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-});
 
 /* ══════════════════════════════════════════
    COMPONENT
@@ -64,7 +103,7 @@ export default function News() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<Category>('All');
+  const [isClosed, setIsClosed] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -85,9 +124,7 @@ export default function News() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [megaMenuOpen]);
 
-  const visibleNews = allNews.filter(n =>
-    activeCategory === 'All' || n.category === activeCategory
-  );
+  const visibleNews = allNews;
 
   return (
     <div className="news-page">
@@ -176,145 +213,132 @@ export default function News() {
         </div>
       </div>
 
-      {/* ── MASTHEAD ── */}
-      <div className="np-masthead">
-        <div className="np-masthead-inner">
-          <div className="np-masthead-top">
-            <div style={{ fontSize: '.75rem', color: 'var(--slate)' }}>{today}</div>
-            <div className="np-masthead-brand">
-              <div className="np-masthead-title">Dignitaries' Voices</div>
-              <div className="np-masthead-sub">Official Messages · St. Stephen's School</div>
-            </div>
-            <div className="np-masthead-meta">
-              <strong>Est. 1985</strong>
-              Bowbazar, Kolkata
-            </div>
-          </div>
-
-          {/* Category nav */}
-          <nav className="np-cat-nav">
-            {CATEGORIES.map(cat => (
-              <button
-                key={cat}
-                className={`np-cat-btn ${activeCategory === cat ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat)}
-              >
-                {cat}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </div>
-
-      {/* ── MAIN LAYOUT ── */}
-      <div className="np-layout">
-
-        {/* ════ MAIN COLUMN ════ */}
-        <main>
-
-          {/* ── DIGNITARIES LIST ── */}
-          <div className="np-section-head">
-            <div className="np-section-title">Official Messages</div>
-            <div className="np-section-line" />
-          </div>
-
-          <div className="np-dignitaries-list">
-            {visibleNews.map((item) => (
-              <div className="np-featured" key={item.id}>
-                <div className="np-featured-inner">
-                  <div className="np-feat-img-wrap">
-                    <img src={item.image} alt={item.title} />
-                    {item.featured && <div className="np-feat-label">⭐ Featured</div>}
+      {/* ── FLIPBOOK LAYOUT ── */}
+      <div className="flipbook-wrapper" style={{ minHeight: '100vh', paddingTop: '140px', paddingBottom: '60px', paddingLeft: '5vw', paddingRight: '5vw', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+        <div style={{
+          width: '100%',
+          maxWidth: '1000px',
+          display: 'flex',
+          justifyContent: 'center',
+          transition: 'transform 0.6s ease',
+          transform: isClosed ? 'translateX(-25%)' : 'translateX(0)',
+        }}>
+          <FlipBook
+            width={500}
+            height={700}
+            size="stretch"
+            minWidth={300}
+            maxWidth={500}
+            minHeight={400}
+            maxHeight={700}
+            maxShadowOpacity={0.5}
+            showCover={true}
+            mobileScrollSupport={true}
+            className="my-flipbook"
+            onFlip={(e: any) => setIsClosed(e.data === 0)}
+            style={{ margin: '0 auto', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}
+          >
+            {/* Right Cover / Title Page (Page 1) */}
+            <BookPage density="hard">
+              <div className="book-cover" style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                height: '100%', padding: '1.5rem', boxSizing: 'border-box', backgroundColor: '#eaddcf'
+              }}>
+                <div style={{
+                  width: '100%', height: '100%',
+                  border: '2px solid #1a1a1a',
+                  outline: '4px double #1a1a1a', outlineOffset: '-12px',
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                  padding: '2rem', boxSizing: 'border-box'
+                }}>
+                  <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem' }}>
+                    <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '80px', filter: 'grayscale(100%) sepia(50%) contrast(1.2)' }} />
                   </div>
-                  <div className="np-feat-body">
-                    <div className="np-feat-category">🏆 {item.category}</div>
-                    <h1 className="np-feat-h">{item.title}</h1>
-                    <p className="np-feat-excerpt">{item.excerpt}</p>
-                    <div className="np-feat-meta">
-                      <span>📅 {item.date}</span>
-                      <span className="np-feat-meta-sep">·</span>
-                      <span>{item.readTime}</span>
-                      <span className="np-feat-meta-sep">·</span>
-                      <span>St. Stephen's School</span>
-                    </div>
-                    <a href="#" className="np-read-more">
-                      Continue Reading
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                      </svg>
-                    </a>
+
+                  <h1 className="np-paper-title" style={{ fontSize: '4.5rem', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>The Dignitary<br />Voice</h1>
+
+                  <div style={{ width: '80%', margin: '2.5rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
+                    <img src="/v6.jpg" alt="Cover Image" style={{ width: '100%', height: '220px', objectFit: 'cover', filter: 'grayscale(100%) sepia(30%) contrast(1.1)', display: 'block' }} />
+                  </div>
+
+                  <p className="subtitle" style={{ textAlign: 'center', margin: 0, fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '1.2rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>St. Stephen's School</p>
+                  <div style={{ width: '40px', height: '2px', background: '#0f1115', margin: '1rem auto' }}></div>
+                  <p style={{ textAlign: 'center', margin: '0', fontStyle: 'italic', fontSize: '1.1rem', color: '#333', fontFamily: '"Merriweather", serif' }}>Special Dignitaries Edition</p>
+
+                  <div style={{ marginTop: 'auto', textAlign: 'center' }}>
+                    <p style={{ fontSize: '0.85rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#0f1115', margin: 0 }}>Est. 1971 &mdash; Vol. I</p>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </BookPage>
 
+            {/* Content Pages */}
+            {visibleNews.flatMap((item) => {
+              const pages = [];
 
+              if (item.image) {
+                // Page for Full Image
+                pages.push(
+                  <BookPage key={`${item.id}-img`}>
+                    <div style={{
+                      width: '100%', height: '100%',
+                      padding: '2.5rem',
+                      display: 'grid',
+                      gridTemplateColumns: (item.image3 || item.image4) ? '1fr 1fr' : '1fr',
+                      gridTemplateRows: (item.image2 || item.image3 || item.image4) ? '1fr 1fr' : '1fr',
+                      backgroundColor: '#f4f0e6',
+                      boxSizing: 'border-box',
+                      gap: '1.5rem'
+                    }}>
+                      {[item.image, item.image2, item.image3, item.image4].filter(Boolean).map((imgSrc, idx) => (
+                        <div key={idx} style={{
+                          width: '100%',
+                          height: '100%',
+                          border: '2px solid #1a1a1a',
+                          padding: '4px',
+                          backgroundColor: '#fff',
+                          boxSizing: 'border-box',
+                          minHeight: 0
+                        }}>
+                          <img src={imgSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(100%) sepia(20%) contrast(1.15)', display: 'block' }} />
+                        </div>
+                      ))}
+                    </div>
+                  </BookPage>
+                );
+              }
 
-          {/* ── AS SEEN IN ── */}
-          <div className="np-press">
-            <div className="np-section-head" style={{ justifyContent: 'center' }}>
-              <div className="np-section-title">As Seen In</div>
-              <div className="np-section-line" />
-            </div>
-            <div className="np-press-logos">
-              {['The Hindu', 'Times of India', 'NDTV Education', 'Hindustan Times', 'Deccan Herald', 'India Today Edu'].map(pub => (
-                <div className="np-press-pill" key={pub}>{pub}</div>
-              ))}
-            </div>
-          </div>
+              // Page for Text Content
+              pages.push(
+                <BookPage key={`${item.id}-txt`}>
+                  <div className="book-story" style={{ padding: '0', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', backgroundColor: '#f4f0e6' }}>
+                    <div style={{ padding: '3.5rem', flex: 1 }}>
+                      <h2 className="np-paper-h-small" style={{ fontSize: '2.4rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>{item.title}</h2>
+                      <div className="book-meta" style={{ borderBottom: '1px solid #1a1a1a', paddingBottom: '15px', marginBottom: '25px', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>{item.category} • {item.date}</div>
 
-        </main>
-
-        {/* ════ SIDEBAR ════ */}
-        <aside className="np-sidebar">
-
-          {/* Most Read */}
-          <div className="np-sidebar-box">
-            <div className="np-sidebar-box-title">Most Read</div>
-            <div className="np-sb-list">
-              {allNews.map((item, i) => (
-                <div className="np-sb-item" key={item.id}>
-                  <div className="np-sb-num">0{i + 1}</div>
-                  <div className="np-sb-body">
-                    <div className="np-sb-cat">{item.category}</div>
-                    <div className="np-sb-h">{item.title}</div>
-                    <div className="np-sb-date">{item.date}</div>
+                      <div className="book-text" style={{ fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'justify', color: '#1a1a1a' }}>
+                        <p><span className="np-drop-cap" style={{ float: 'left', fontSize: '5rem', lineHeight: '0.8', paddingRight: '0.15em', paddingTop: '0.1em', fontFamily: '"Playfair Display", serif', fontWeight: 900 }}>{item.excerpt.charAt(0)}</span>{item.excerpt.slice(1)}</p>
+                      </div>
+                    </div>
+                    <div className="book-page-number" style={{ paddingBottom: '20px', width: '100%', textAlign: 'center', fontSize: '0.9rem', color: '#1a1a1a', fontWeight: 'bold' }}>- {item.id} -</div>
                   </div>
+                </BookPage>
+              );
+
+              return pages;
+            })}
+            {/* Back Cover */}
+            <BookPage density="hard">
+              <div className="book-back-cover" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '3rem' }}>
+                <div className="logo-crest-wrapper" style={{ margin: '0 auto 2rem', opacity: 0.5 }}>
+                  <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '80px', filter: 'grayscale(100%) sepia(30%)' }} />
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Categories */}
-          <div className="np-sidebar-box">
-            <div className="np-sidebar-box-title">Categories</div>
-            <div className="np-sb-cats">
-              {Object.entries(CATEGORY_COUNTS).map(([cat, count]) => (
-                <div
-                  className="np-sb-cat-row"
-                  key={cat}
-                  onClick={() => setActiveCategory(cat as Category)}
-                >
-                  <span>{cat}</span>
-                  <span className="np-sb-cat-count">{count}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Newsletter widget */}
-          <div className="np-sb-newsletter">
-            <div className="np-sb-nl-icon">📬</div>
-            <div className="np-sb-nl-h">Stay Informed</div>
-            <p className="np-sb-nl-p">Get the latest school news delivered to your inbox every week.</p>
-            <form onSubmit={e => e.preventDefault()}>
-              <input className="np-sb-nl-input" type="email" placeholder="Your email address" />
-              <button className="np-sb-nl-btn" type="submit">Subscribe →</button>
-            </form>
-          </div>
-
-        </aside>
+                <h3 style={{ fontFamily: '"Playfair Display", serif', fontSize: '2rem', marginBottom: '1rem', textAlign: 'center' }}>St. Stephen's School</h3>
+                <p style={{ fontSize: '1rem', color: '#555' }}>Established 1971</p>
+              </div>
+            </BookPage>
+          </FlipBook>
+        </div>
       </div>
 
       {/* ── FOOTER ── */}
