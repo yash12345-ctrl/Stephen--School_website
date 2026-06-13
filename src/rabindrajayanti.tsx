@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import './rabindrajayanti.css';
 import { ProgramMegaMenu } from './program_top';
-import { BookOpen, Music, Heart, Calendar, MapPin, Sparkles, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BookOpen, Music, Heart, MapPin, Sparkles, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Rabindrajayanti() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -387,10 +387,12 @@ export default function Rabindrajayanti() {
             <div className="footer-col-h">Events</div>
             <ul>
               <li><a href="/annual-concert">Annual Concert</a></li>
+              <li><a href="/art-and-craft-exhibition">Art & Craft Exhibition</a></li>
               <li><a href="/eid">Eid Celebration</a></li>
               <li><a href="/christmas">Christmas Celebration</a></li>
               <li><a href="/rabindrajayanti">Rabindra Jayanti</a></li>
-              <li><a href="/indep">Independence Day</a></li>
+              <li><a href="/educational-day-out">Educational Day Out</a></li>
+              <li><a href="/annual-picnic">Annual School Picnic</a></li>
             </ul>
           </div>
 

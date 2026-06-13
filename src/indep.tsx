@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import './indep.css';
 import { ProgramMegaMenu } from './program_top';
-import { Flag, Music, Heart, Calendar, MapPin, Sparkles, Star, Award, Shield, BookOpen } from 'lucide-react';
+import { Flag, Music, MapPin, Sparkles, Star, Award, Shield } from 'lucide-react';
 
 interface Petal {
   id: number;
@@ -434,10 +434,12 @@ export default function Indep() {
             <div className="footer-col-h">Events</div>
             <ul>
               <li><a href="/annual-concert">Annual Concert</a></li>
+              <li><a href="/art-and-craft-exhibition">Art & Craft Exhibition</a></li>
               <li><a href="/eid">Eid Celebration</a></li>
               <li><a href="/christmas">Christmas Celebration</a></li>
               <li><a href="/rabindrajayanti">Rabindra Jayanti</a></li>
-              <li><a href="/indep">Independence Day</a></li>
+              <li><a href="/educational-day-out">Educational Day Out</a></li>
+              <li><a href="/annual-picnic">Annual School Picnic</a></li>
             </ul>
           </div>
 

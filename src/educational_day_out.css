@@ -1,0 +1,639 @@
+/* ── EDUCATIONAL DAY OUT DESIGN SYSTEM ── */
+:root {
+  --trip-teal-grad: linear-gradient(135deg, #00b09b, #96c93d);
+  --trip-cyan-grad: linear-gradient(135deg, #00f2fe, #4facfe);
+  --trip-dark-bg: #0b0f19;
+  --trip-card-bg: rgba(30, 41, 59, 0.45);
+  --trip-border: rgba(255, 255, 255, 0.04);
+  --trip-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  --trip-accent: #00b09b;
+}
+
+.trip-page {
+  background-color: var(--trip-dark-bg);
+  color: #f3f4f6;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.trip-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.trip-section {
+  padding: 6.5rem 0;
+  position: relative;
+}
+
+/* ── UTILITY COMPONENTS ── */
+.trip-chip {
+  display: inline-block;
+  background: rgba(0, 176, 155, 0.1);
+  border: 1px solid rgba(0, 176, 155, 0.25);
+  color: #00f2fe;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.trip-h2 {
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.trip-h2 span {
+  background: var(--trip-teal-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.trip-lead {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+/* ── BUTTON SYSTEM ── */
+.trip-btn-teal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--trip-teal-grad);
+  color: #0b0f19;
+  font-weight: 700;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 176, 155, 0.3);
+}
+
+.trip-btn-teal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 176, 155, 0.5);
+  filter: brightness(1.1);
+}
+
+.trip-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.trip-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* ── HERO SECTION ── */
+.trip-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 10rem 1.5rem 6rem;
+  background: #060913;
+  overflow: hidden;
+}
+
+.trip-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.28;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.trip-hero-veil {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(6, 9, 19, 0.8) 0%, 
+    rgba(6, 9, 19, 0.95) 70%, 
+    #0b0f19 100%
+  );
+  z-index: 1;
+}
+
+.trip-hero-glow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 176, 155, 0.15) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.trip-hero-glow.g1 {
+  top: 10%;
+  right: 5%;
+}
+
+.trip-hero-glow.g2 {
+  bottom: 5%;
+  left: -5%;
+}
+
+.trip-hero-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.trip-hero-h1 {
+  font-size: clamp(3rem, 7.5vw, 5.25rem);
+  font-weight: 950;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.trip-hero-h1 span {
+  background: var(--trip-teal-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.trip-hero-sub {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: #9ca3af;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.trip-hero-meta {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3.5rem;
+}
+
+.trip-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.85rem 1.75rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.trip-meta-icon {
+  color: #00f2fe;
+}
+
+.trip-meta-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 3px;
+}
+
+.trip-hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+/* ── GALLERY SECTION ── */
+.trip-gallery-section {
+  background: #0b0f19;
+}
+
+.trip-gallery-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 3.5rem;
+}
+
+.trip-filter-tab {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #9ca3af;
+  padding: 0.65rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trip-filter-tab:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border-color: rgba(0, 176, 155, 0.25);
+}
+
+.trip-filter-tab.active {
+  background: var(--trip-teal-grad);
+  color: #0b0f19;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(0, 176, 155, 0.25);
+}
+
+.trip-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.trip-gallery-card {
+  background: var(--trip-card-bg);
+  border: 1px solid var(--trip-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-gallery-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 176, 155, 0.2);
+  box-shadow: var(--trip-shadow);
+}
+
+.trip-card-img-wrap {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.trip-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trip-gallery-card:hover .trip-card-img {
+  transform: scale(1.08);
+}
+
+.trip-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 40%, rgba(11, 15, 25, 0.9) 100%);
+}
+
+.trip-card-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 176, 155, 0.85);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.trip-card-body {
+  padding: 1.75rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.trip-card-desc {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.trip-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.25rem;
+}
+
+.trip-card-outcome {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #00f2fe;
+  font-weight: 600;
+}
+
+.trip-card-date {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* ── OUTCOME HIGHLIGHTS ── */
+.trip-highlights-section {
+  background: #090c14;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.trip-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.25rem;
+  margin-top: 4rem;
+}
+
+.trip-highlight-card {
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.trip-highlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--trip-teal-grad);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.trip-highlight-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 176, 155, 0.15);
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.trip-highlight-card:hover::before {
+  opacity: 1;
+}
+
+.trip-highlight-icon-wrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(0, 176, 155, 0.1);
+  color: #00f2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.trip-highlight-card:hover .trip-highlight-icon-wrap {
+  transform: scale(1.1);
+  background: var(--trip-teal-grad);
+  color: #0b0f19;
+}
+
+.trip-highlight-h {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.trip-highlight-p {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+/* ── STUDENT JOURNAL CAROUSEL ── */
+.trip-carousel-section {
+  background: #0b0f19;
+}
+
+.trip-carousel-container {
+  max-width: 800px;
+  margin: 3.5rem auto 0;
+}
+
+.trip-carousel-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+}
+
+.trip-quote-icon {
+  font-size: 4.5rem;
+  line-height: 1;
+  color: rgba(0, 176, 155, 0.15);
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  font-family: serif;
+}
+
+.trip-quote-content {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.trip-quote-content.fade-out {
+  opacity: 0;
+}
+
+.trip-quote-text {
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+.trip-student-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.trip-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--trip-teal-grad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #0b0f19;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.trip-meta-info h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.trip-meta-info p {
+  font-size: 0.85rem;
+  color: #00f2fe;
+  font-weight: 600;
+}
+
+.trip-carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.trip-ctrl-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.trip-ctrl-btn:hover {
+  background: var(--trip-teal-grad);
+  color: #0b0f19;
+  border-color: transparent;
+  transform: scale(1.05);
+}
+
+.trip-ctrl-indicator {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* ── CTA SECTION ── */
+.trip-cta {
+  position: relative;
+  background: linear-gradient(135deg, #060913, #0b0f19);
+  padding: 8rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.trip-cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.trip-cta-h {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.trip-cta-p {
+  color: #9ca3af;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.trip-cta-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* ── FOOTER STYLE PARITY ── */
+.trip-footer {
+  background: #090c14 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ── MEDIA QUERIES ── */
+@media (max-width: 768px) {
+  .trip-hero {
+    padding: 8rem 1.25rem 4rem;
+  }
+  .trip-h2 {
+    font-size: 2.2rem;
+  }
+  .trip-carousel-card {
+    padding: 2rem 1.5rem;
+  }
+  .trip-quote-text {
+    font-size: 1.15rem;
+  }
+  .trip-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
