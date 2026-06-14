@@ -11,14 +11,14 @@ export const programs = [
 ];
 
 const events = [
-  { name: 'Annual Concert',            emoji: '🎵', desc: 'A grand musical evening showcasing student talent across classical, folk, and contemporary performances.', color1: '#e040fb', color2: '#7c4dff', link: '/annual-concert' },
-  { name: 'Annual Art & Craft Exhibition', emoji: '🎨', desc: 'Students display their finest artwork, sculptures, and handcrafted creations in a vibrant gallery setting.', color1: '#f7971e', color2: '#ffd200', link: '/art-and-craft-exhibition' },
-  { name: 'Eid Celebration',           emoji: '🌙', desc: 'A joyful community celebration of Eid with traditional food, performances, and cultural activities for all.', color1: '#11998e', color2: '#38ef7d', link: '/eid' },
-  { name: 'Christmas Celebration',     emoji: '🎄', desc: 'Festive carols, decoration contests, gift exchanges, and a warm holiday program uniting the school family.', color1: '#eb3349', color2: '#f45c43', link: '/christmas' },
-  { name: 'Rabindra Jayanti',          emoji: '📖', desc: 'Honouring the legacy of Rabindranath Tagore through poetry recitations, dance, and cultural presentations.', color1: '#4776e6', color2: '#8e54e9', link: '/rabindrajayanti' },
-  { name: 'Independence Day',          emoji: '🇮🇳', desc: 'A patriotic celebration with flag hoisting, cultural programmes, and inspiring speeches by students and staff.', color1: '#ff9800', color2: '#f44336', link: '/indep' },
-  { name: 'Educational Day Out',       emoji: '🚌', desc: 'Enriching field trips to museums, science centres, and historical sites to bring learning alive beyond the classroom.', color1: '#00b09b', color2: '#96c93d', link: '/educational-day-out' },
-  { name: 'Annual School Picnic',      emoji: '🌳', desc: 'A fun-filled day of outdoor games, team activities, and picnic lunches that strengthen bonds across the school community.', color1: '#C9A84C', color2: '#F0C96B', link: '/annual-picnic' },
+  { name: 'Annual Concert',            img: '/news_annual_day.webp', desc: 'A grand musical evening showcasing student talent across classical, folk, and contemporary performances.', color1: '#e040fb', color2: '#7c4dff', link: '/annual-concert' },
+  { name: 'Annual Art & Craft Exhibition', img: '/art_exhibition_hero.webp', desc: 'Students display their finest artwork, sculptures, and handcrafted creations in a vibrant gallery setting.', color1: '#f7971e', color2: '#ffd200', link: '/art-and-craft-exhibition' },
+  { name: 'Eid Celebration',           img: '/eid_hero.webp', desc: 'A joyful community celebration of Eid with traditional food, performances, and cultural activities for all.', color1: '#11998e', color2: '#38ef7d', link: '/eid' },
+  { name: 'Christmas Celebration',     img: '/christmas_hero.webp', desc: 'Festive carols, decoration contests, gift exchanges, and a warm holiday program uniting the school family.', color1: '#eb3349', color2: '#f45c43', link: '/christmas' },
+  { name: 'Rabindra Jayanti',          img: '/rabindrajayanti_hero.webp', desc: 'Honouring the legacy of Rabindranath Tagore through poetry recitations, dance, and cultural presentations.', color1: '#4776e6', color2: '#8e54e9', link: '/rabindrajayanti' },
+  { name: 'Independence Day',          img: '/indep_hero.webp', desc: 'A patriotic celebration with flag hoisting, cultural programmes, and inspiring speeches by students and staff.', color1: '#ff9800', color2: '#f44336', link: '/indep' },
+  { name: 'Educational Day Out',       img: '/educational_day_out_hero.webp', desc: 'Enriching field trips to museums, science centres, and historical sites to bring learning alive beyond the classroom.', color1: '#00b09b', color2: '#96c93d', link: '/educational-day-out' },
+  { name: 'Annual School Picnic',      img: '/annual_picnic_hero.webp', desc: 'A fun-filled day of outdoor games, team activities, and picnic lunches that strengthen bonds across the school community.', color1: '#C9A84C', color2: '#F0C96B', link: '/annual-picnic' },
 ];
 
 const displayData = [
@@ -50,6 +50,18 @@ export function ProgramMegaMenu({ open, onClose }: { open: boolean; onClose: () 
           <div className="mega-left-tag">✦ Events & Activities</div>
           <h3 className="mega-h3">Celebrations & enriching school experiences</h3>
           <p className="mega-sub">Cultural events, festive celebrations, and memorable experiences that make every school year special.</p>
+          
+          <div className="mega-left-stats">
+            <div className="mega-stat">
+              <span className="mega-stat-num">25+</span>
+              <span className="mega-stat-lbl">Annual Events</span>
+            </div>
+            <div className="mega-stat">
+              <span className="mega-stat-num">500+</span>
+              <span className="mega-stat-lbl">Participants</span>
+            </div>
+          </div>
+
           <a href="/#events" className="mega-btn" onClick={onClose}>View All Events →</a>
         </div>
         <div className="mega-right">
@@ -64,8 +76,8 @@ export function ProgramMegaMenu({ open, onClose }: { open: boolean; onClose: () 
                 onClick={onClose}
               >
                 <div className="mega-card-accent"/>
-                <div className="mega-card-head">
-                  <span className="mega-card-icon">{ev.emoji}</span>
+                <div className="mega-card-photo-wrap">
+                  <img src={ev.img} alt={ev.name} className="mega-card-photo" />
                 </div>
                 <div className="mega-card-title">{ev.name}</div>
                 <div className="mega-card-desc">{ev.desc.slice(0, 70)}…</div>
