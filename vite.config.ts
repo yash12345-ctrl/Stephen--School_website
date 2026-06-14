@@ -9,8 +9,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'three': ['three', '@react-three/fiber', '@react-three/drei'],
-          'pdf': ['jspdf', 'jspdf-autotable', 'html2canvas'],
           'vendor': ['react', 'react-dom', 'react-router-dom']
         }
       }
