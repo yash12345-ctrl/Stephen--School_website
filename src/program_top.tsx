@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Sun, Moon } from 'lucide-react';
 import './program_top.css';
 
 export const programs = [
@@ -22,28 +23,19 @@ const events = [
 
 const displayData = [
   {
-    grade: 'Pre-Primary & Kindergarten',
-    range: 'Ages 3–5',
-    emoji: '🧸',
-    desc: 'Fostering early cognitive and social development through play-based learning, sensory exploration, and creative storytelling in a warm, nurturing environment.',
+    grade: 'Morning Shift',
+    range: 'Lower Nursery to Class V',
+    emoji: <Sun size={28} strokeWidth={2.5} color="#11998e" />,
+    desc: 'A nurturing environment where early learners and primary students build strong foundational skills in literacy, numeracy, and character development through interactive, holistic education.',
     color1: '#11998e',
     color2: '#38ef7d',
-    img: '/v6.jpg'
-  },
-  {
-    grade: 'Primary School',
-    range: 'Grades 1–5',
-    emoji: '📚',
-    desc: 'Nurturing curiosity and building strong foundational skills in literacy, mathematical concepts, and inquiry-based science while encouraging positive self-expression.',
-    color1: '#4776e6',
-    color2: '#8e54e9',
     img: '/v7.jpg'
   },
   {
-    grade: 'Secondary School',
-    range: 'Grades 6–10',
-    emoji: '🎓',
-    desc: 'Comprehensive academic rigor focused on board examinations, character development, and practical skills, empowering students to excel in their secondary education.',
+    grade: 'Evening Shift',
+    range: 'Class VI to Class X',
+    emoji: <Moon size={28} strokeWidth={2.5} color="#eb3349" />,
+    desc: 'Comprehensive academic preparation focused on advanced coursework, critical thinking, and board examination readiness, empowering senior students for future success.',
     color1: '#eb3349',
     color2: '#f45c43',
     img: '/v8.jpg'

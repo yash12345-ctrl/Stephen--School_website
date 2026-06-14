@@ -142,14 +142,14 @@ export default function News() {
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {(['Home', 'About', 'Programs', 'School', 'News', 'Contact'] as const).map(l => (
+            {(['Home', 'About', 'Programs', 'School', 'News', 'Gallery'] as const).map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a
-                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `/#${l.toLowerCase().replace(/\\s+/g, '-')}`}
+                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : l === 'Gallery' ? '/gallery' : `/#${l.toLowerCase().replace(/\s+/g, '-')}`}
                   onClick={e => {
                     if (l === 'Programs') {
                       e.preventDefault();
@@ -214,7 +214,7 @@ export default function News() {
       </div>
 
       {/* ── FLIPBOOK LAYOUT ── */}
-      <div className="flipbook-wrapper" style={{ minHeight: '100vh', paddingTop: '140px', paddingBottom: '60px', paddingLeft: '5vw', paddingRight: '5vw', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+      <div className="flipbook-wrapper" style={{ minHeight: '100vh', paddingTop: '60px', paddingBottom: '60px', paddingLeft: '5vw', paddingRight: '5vw', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
         <div style={{
           width: '100%',
           maxWidth: '1000px',

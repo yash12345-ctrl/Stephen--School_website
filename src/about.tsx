@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './about.css';
 import { ProgramMegaMenu } from './program_top';
-import { Award, Target, Telescope, Gem, Globe, Lightbulb, Building2, Handshake, BarChart, Play } from 'lucide-react';
+import { Award, Target, Telescope, Gem, Globe, Lightbulb, Building2, Handshake, BarChart } from 'lucide-react';
 
 const AnimatedBoxContent = ({ contents }: { contents: string[] }) => {
   const [idx, setIdx] = useState(0);
@@ -14,7 +14,7 @@ const AnimatedBoxContent = ({ contents }: { contents: string[] }) => {
     return () => clearInterval(interval);
   }, [contents]);
 
-  if (contents.length === 1) return <p className="abt-mvv-text">{contents[0]}</p>;
+
 
   return (
     <div className="abt-mvv-slider-wrap">
@@ -81,7 +81,7 @@ export default function About() {
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
+            {['Home', 'About', 'Programs', 'School', 'News', 'Gallery'].map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => {
@@ -96,7 +96,8 @@ export default function About() {
                         l === 'News' ? '/news' :
                           l === 'Programs' ? '/#programs' :
                             l === 'School' ? '/the-school' :
-                              `/#${l.toLowerCase().replace(/\s+/g, '-')}`
+                              l === 'Gallery' ? '/gallery' :
+                                `/#${l.toLowerCase().replace(/\s+/g, '-')}`
                   }
                   onClick={(e) => {
                     if (l === 'Programs') {
@@ -206,11 +207,13 @@ export default function About() {
             {[
               {
                 icon: <Target size={36} />, title: 'Our Mission', color1: '#11998e', color2: '#38ef7d', shadow: 'rgba(17,153,142,0.25)', light: 'rgba(17,153,142,0.1)', texts: [
+                  'To provide a haven where everyone is valued and all staff, in partnership with parents and families, is committed to doing what it takes for students to achieve academic success, as guided by state standards.',
                   'To provide a haven where everyone is valued and all staff, in partnership with parents and families, is committed to doing what it takes for students to achieve academic success, as guided by state standards.'
                 ]
               },
               {
                 icon: <Telescope size={36} />, title: 'Our Vision', color1: '#4776e6', color2: '#8e54e9', shadow: 'rgba(71,118,230,0.25)', light: 'rgba(71,118,230,0.1)', texts: [
+                  'To build strong, positive connections with students privileged and under-privileged, so they can achieve independence, confidence and academic knowledge.',
                   'To build strong, positive connections with students privileged and under-privileged, so they can achieve independence, confidence and academic knowledge.'
                 ]
               },
@@ -250,32 +253,32 @@ export default function About() {
               <div className="abt-bento-carousel">
                 {[
                   {
-                    icon: <Award size={32} />, title: 'Dedicated Faculty',
+                    img: '/k1.png', icon: <Award size={32} />, title: 'Dedicated Faculty',
                     desc: 'Compassionate educators specializing in supporting first-generation learners, helping them adapt and thrive in an academic setup.',
                     colors: { bg: 'rgba(201,168,76,0.12)', color: '#C9A84C', shadow: 'rgba(201,168,76,0.25)', grad: 'radial-gradient(circle at right, rgba(201,168,76,0.08), transparent 60%)' }
                   },
                   {
-                    icon: <Globe size={32} />, title: 'Madhyamik Syllabus',
+                    img: '/k2.png', icon: <Globe size={32} />, title: 'Madhyamik Syllabus',
                     desc: 'A structured secondary school curriculum from class Lower Nursery to class X, fully aligned with the West Bengal Madhyamik board.',
                     colors: { bg: 'rgba(71,118,230,0.12)', color: '#4776e6', shadow: 'rgba(71,118,230,0.25)', grad: 'radial-gradient(circle at right, rgba(71,118,230,0.08), transparent 60%)' }
                   },
                   {
-                    icon: <Lightbulb size={32} />, title: 'Interactive Clubs',
+                    img: '/k3.jpg', icon: <Lightbulb size={32} />, title: 'Interactive Clubs',
                     desc: 'Focusing on sports, art, and social work to discover and nurture creative talent and physical health beyond textbooks.',
                     colors: { bg: 'rgba(255,152,0,0.12)', color: '#FF9800', shadow: 'rgba(255,152,0,0.25)', grad: 'radial-gradient(circle at right, rgba(255,152,0,0.08), transparent 60%)' }
                   },
                   {
-                    icon: <Building2 size={32} />, title: 'Bowbazar Location',
+                    img: '/k4.jpg', icon: <Building2 size={32} />, title: 'Bowbazar Location',
                     desc: 'Conveniently situated in Bowbazar, Kolkata, serving underprivileged families in our surrounding local street and slum areas.',
                     colors: { bg: 'rgba(76,175,80,0.12)', color: '#4CAF50', shadow: 'rgba(76,175,80,0.25)', grad: 'radial-gradient(circle at right, rgba(76,175,80,0.08), transparent 60%)' }
                   },
                   {
-                    icon: <Handshake size={32} />, title: 'Inclusive Service',
+                    img: '/k5.png', icon: <Handshake size={32} />, title: 'Inclusive Service',
                     desc: 'We are committed to delivering educational service to all communities of Kolkata without any discrimination of any form.',
                     colors: { bg: 'rgba(156,39,176,0.12)', color: '#9C27B0', shadow: 'rgba(156,39,176,0.25)', grad: 'radial-gradient(circle at right, rgba(156,39,176,0.08), transparent 60%)' }
                   },
                   {
-                    icon: <BarChart size={32} />, title: 'NGO Foundation',
+                    img: '/k6.jpg', icon: <BarChart size={32} />, title: 'NGO Foundation',
                     desc: 'A non-profit educational institution providing low-cost or free opportunities for children in low-income brackets.',
                     colors: { bg: 'rgba(33,150,243,0.12)', color: '#2196F3', shadow: 'rgba(33,150,243,0.25)', grad: 'radial-gradient(circle at right, rgba(33,150,243,0.08), transparent 60%)' }
                   },
@@ -284,6 +287,7 @@ export default function About() {
                     className="abt-bento-card-3d"
                     key={i}
                     style={{
+                      '--bg-img': `url(${p.img})`,
                       '--card-grad': p.colors.grad,
                       '--card-shadow': p.colors.shadow,
                       '--icon-bg': p.colors.bg,
@@ -341,19 +345,40 @@ export default function About() {
             <span className="abt-chip">Leadership</span>
             <h2 className="abt-section-h2">Meet Our <span className="abt-accent">Leaders</span></h2>
           </div>
-          <div className="abt-leaders">
+          <div className="abt-leaders-tree">
+            <svg className="abt-tree-svg" width="100%" height="100%">
+              {/* Base Connections */}
+              <line x1="50%" y1="50%" x2="15%" y2="25%" className="abt-tree-line" />
+              <line x1="50%" y1="50%" x2="85%" y2="25%" className="abt-tree-line" />
+              <line x1="50%" y1="50%" x2="15%" y2="75%" className="abt-tree-line" />
+              <line x1="50%" y1="50%" x2="85%" y2="75%" className="abt-tree-line" />
+              {/* Glowing Data Packets */}
+              <line x1="50%" y1="50%" x2="15%" y2="25%" className="abt-tree-packet" style={{ animationDelay: '0s' }} />
+              <line x1="50%" y1="50%" x2="85%" y2="25%" className="abt-tree-packet" style={{ animationDelay: '1.2s' }} />
+              <line x1="50%" y1="50%" x2="15%" y2="75%" className="abt-tree-packet" style={{ animationDelay: '2.5s' }} />
+              <line x1="50%" y1="50%" x2="85%" y2="75%" className="abt-tree-packet" style={{ animationDelay: '0.8s' }} />
+            </svg>
+
+            <div className="abt-tree-center">
+              <div className="abt-tree-center-img" />
+              <div className="abt-tree-ring abt-tree-ring-1" />
+              <div className="abt-tree-ring abt-tree-ring-2" />
+              <div className="abt-tree-ring abt-tree-ring-3" />
+              <div className="abt-tree-center-label">St. Stephen's Core</div>
+            </div>
+
             {[
-              { name: 'Imran Zaki', role: 'Hony. Secretary', initial: 'IZ', color: '#C9A84C', desc: 'Dedicated leader committed to the social and economic transformation of underprivileged children in Kolkata.' },
-              { name: 'Ayesha Siddiqui', role: 'HeadMistress', initial: 'AS', color: '#7c6b99', desc: 'Experienced educator guiding the academic excellence and holistic development of every student at St. Stephen\'s.' },
-              { name: 'Ajay Paul', role: 'Administrator & Advisory Board', initial: 'AP', color: '#2d6a6a', desc: 'Overseeing school operations and providing strategic advisory support to strengthen the institution\'s mission.' },
-              { name: 'Rajesh Arora', role: 'Advisory Board', initial: 'RA', color: '#5a4a7a', desc: 'Providing expert guidance and community leadership to support St. Stephen\'s long-term educational goals.' },
+              { name: 'Imran Zaki', role: 'Hony. Secretary', img: '/v9.png', color: '#C9A84C', desc: 'Dedicated leader committed to the social and economic transformation of underprivileged children in Kolkata.' },
+              { name: 'Ayesha Siddiqui', role: 'HeadMistress', img: '/v10.png', color: '#7c6b99', desc: 'Experienced educator guiding the academic excellence and holistic development of every student at St. Stephen\'s.' },
+              { name: 'Ajay Paul', role: 'Administrator & Advisory Board', img: '/v33.png', color: '#2d6a6a', desc: 'Overseeing school operations and providing strategic advisory support to strengthen the institution\'s mission.' },
+              { name: 'Rajesh Arora', role: 'Advisory Board', img: '/v34.png', color: '#5a4a7a', desc: 'Providing expert guidance and community leadership to support St. Stephen\'s long-term educational goals.' },
             ].map((l, i) => (
-              <div className="abt-leader" key={i}>
-                <div className="abt-leader-av" style={{ background: `linear-gradient(135deg, ${l.color}, ${l.color}66)` }}>{l.initial}</div>
-                <div className="abt-leader-info">
-                  <h4 className="abt-leader-name">{l.name}</h4>
-                  <span className="abt-leader-role">{l.role}</span>
-                  <p className="abt-leader-desc">{l.desc}</p>
+              <div className={`abt-tree-card node-${i} ${i % 2 === 0 ? 'left-node' : 'right-node'}`} key={i} style={{ '--leader-color': l.color } as React.CSSProperties}>
+                <div className="abt-tree-card-img" style={{ backgroundImage: `url(${l.img})` }} />
+                <div className="abt-tree-card-info">
+                  <span className="abt-tree-role">{l.role}</span>
+                  <h4 className="abt-tree-name">{l.name}</h4>
+                  <p className="abt-tree-desc">{l.desc}</p>
                 </div>
               </div>
             ))}
@@ -365,11 +390,10 @@ export default function About() {
       <section className="abt-cta">
         <div className="abt-cta-inner">
           <span className="abt-chip light">Join Us</span>
-          <h2 className="abt-cta-h">Ready to Be Part of the <span className="abt-accent">Greenfield Family</span>?</h2>
+          <h2 className="abt-cta-h">Ready to Be Part of the <span className="abt-accent">St.Stephen's Family</span>?</h2>
           <p className="abt-cta-p">Schedule a visit, speak with our team, or support us today.</p>
           <div className="abt-cta-btns">
             <a href="/#donate" className="btn-gold large">Donate</a>
-            <a href="/the-school" className="btn-ghost large" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>Virtual Tour <Play size={18} /></a>
           </div>
         </div>
       </section>

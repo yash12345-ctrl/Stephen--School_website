@@ -40,7 +40,7 @@ export default function School() {
   useEffect(() => {
     const interval = setInterval(() => {
       setHeroImageIdx(prev => (prev + 1) % heroImages.length);
-    }, 4000);
+    }, 2700);
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
@@ -105,14 +105,14 @@ export default function School() {
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {(['Home', 'About', 'Programs', 'School', 'News', 'Contact'] as const).map(l => (
+            {(['Home', 'About', 'Programs', 'School', 'News', 'Gallery'] as const).map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
                 className={l === 'Programs' ? 'has-mega' : ''}
               >
                 <a
-                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `/#${l.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : l === 'Gallery' ? '/gallery' : `/#${l.toLowerCase().replace(/\s+/g, '-')}`}
                   onClick={e => {
                     if (l === 'Programs') {
                       e.preventDefault();
@@ -188,14 +188,11 @@ export default function School() {
       {/* ── INFRASTRUCTURE & CAMPUS LIFE ── */}
       <section className="sch-section" id="infra">
         <div className="sch-container">
-          <div className="sch-center-head">
-            <span className="sch-chip">World-Class Infrastructure</span>
-            <h2 className="sch-section-h2">Designed to Inspire <span>Excellence</span></h2>
-            <p className="sch-section-p">
-              We believe in creating a supportive learning environment. Every space at St. Stephen's School is designed to encourage discovery, safety, and creative growth.
-            </p>
+          <div className="sch-center-head" style={{ marginBottom: '3rem' }}>
+            <span className="sch-chip" style={{ fontSize: '1.1rem', padding: '12px 36px', letterSpacing: '3px' }}>
+              School with Top Class Facilities
+            </span>
           </div>
-
           <div className="sch-pipeline-container">
             <div className="sch-pipeline-bus">
               <div className="sch-pipeline-data"></div>
@@ -245,7 +242,7 @@ export default function School() {
                 "We don't just teach curricula; we cultivate an environment where students learn to identify problems, build creative models, and test them with scientific rigor."
               </div>
               <p className="sch-msg-text">
-                At St. Stephen's School, education is a pathway to transformation. We combine the Madhyamik syllabus with hands-on interactive clubs focusing on sports, art, and social work, ensuring students achieve academic milestones while developing character and collaboration.
+                At St. Stephen's School, education is a pathway to transformation. We combine the  update curriculum with hands-on interactive clubs focusing on sports, art, and social work, ensuring students achieve academic milestones while developing character and collaboration.
               </p>
               <p className="sch-msg-text">
                 As you walk through our hallways, you'll see engaged children, creative art projects, and lively club activities. We welcome supporters and families to visit our school and join us in our mission to spread education to all.
@@ -264,7 +261,7 @@ export default function School() {
         <div className="sch-cta-inner">
           <span className="sch-chip light">Support Us</span>
           <h2 className="sch-section-h2" style={{ color: '#fff', marginBottom: '1.5rem' }}>
-            Ready to Discover the <span>St. Stephen's Advantage</span>?
+            Donate to make a Child’s <span>Future Bright</span>
           </h2>
           <p className="sch-section-p" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '3rem' }}>
             Admissions for the academic session 2026–27 are open. Connect with us to support our cause, enroll a child, or submit your online application today.
@@ -299,9 +296,9 @@ export default function School() {
           <div className="footer-col">
             <div className="footer-col-h">Quick Links</div>
             <ul>
-              {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
+              {['Home', 'About', 'Programs', 'School', 'News', 'Gallery'].map(l => (
                 <li key={l}>
-                  <a href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `/#${l.toLowerCase().replace(/\s+/g, '-')}`}>
+                  <a href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : l === 'Gallery' ? '/gallery' : `/#${l.toLowerCase().replace(/\s+/g, '-')}`}>
                     {l}
                   </a>
                 </li>

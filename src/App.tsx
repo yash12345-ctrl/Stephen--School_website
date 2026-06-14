@@ -69,7 +69,8 @@ export default function App() {
                       l === 'News' ? '/news' :
                         l === 'Programs' ? '/#programs' :
                           l === 'School' ? '/the-school' :
-                            `#${l.toLowerCase().replace(/\s+/g, '-')}`
+                            l === 'Gallery' ? '/gallery' :
+                              `#${l.toLowerCase().replace(/\s+/g, '-')}`
                   }
                   onClick={(e) => {
                     if (l === 'Programs') {
@@ -116,10 +117,7 @@ export default function App() {
           </div>
           <h1 className="hero-h1">Shaping<br />Tomorrow's<br />Leaders</h1>
           <p className="hero-p">Where academic brilliance meets character — empowering every student to reach their highest potential in a world-class learning environment.</p>
-          <div className="hero-btns">
-            <a href="#programs" className="btn-gold">Explore Programs</a>
-            <a href="/the-school" className="btn-ghost">Virtual Tour ▶</a>
-          </div>
+
         </div>
 
         <div className="hero-right">
@@ -130,10 +128,10 @@ export default function App() {
               </div>
             </div>
             <div className="hac-content">
-              <h3>Admissions 2026–27</h3>
+              <h3>Campus Tour</h3>
               <p>Discover our world-class campus and innovative curriculum. Schedule a personalized family tour today.</p>
               <div className="hac-actions">
-                <a href="/the-school" className="hac-link">Campus Tour →</a>
+                <a href="/the-school" className="hac-link">Click Here →</a>
               </div>
             </div>
           </aside>
@@ -150,12 +148,7 @@ export default function App() {
         <div className="scroll-hint"><div className="scroll-wheel" /><span>Scroll</span></div>
       </section>
 
-      {/* ── TICKER ── */}
-      <div className="ticker">
-        <div className="ticker-run">
-          <span>🏆 National Science Olympiad Champions 2026 &nbsp;·&nbsp; 📅 Admissions Open 2026–27 &nbsp;·&nbsp; 🎓 Annual Day — June 15 &nbsp;·&nbsp; ⚽ Inter-School Finals: We Advance! &nbsp;·&nbsp; 🔬 New STEM Lab Opening Soon &nbsp;·&nbsp; 📚 Board Results: 96% Distinction &nbsp;·&nbsp; 🏆 National Science Olympiad Champions 2026 &nbsp;·&nbsp; 📅 Admissions Open 2026–27 &nbsp;·&nbsp; 🎓 Annual Day — June 15 &nbsp;·&nbsp;</span>
-        </div>
-      </div>
+
 
       {/* ── ABOUT ── */}
       <section className="section about-section" id="about">
@@ -275,44 +268,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── CONTACT ── */}
-      <section className="section contact-section" id="contact">
-        <div className="container contact-grid">
-          <div className="contact-info">
-            <div className="s-tag">Contact Us</div>
-            <h2 className="s-title">We'd Love to <span className="gold">Hear</span> From You</h2>
-            <p className="s-body" style={{ marginBottom: '2.5rem' }}>Have questions about admissions, programs, or campus life? Our friendly team is ready to help every step of the way.</p>
-            {[
-              { icon: '📍', lbl: 'Address', val: '42 Knowledge Park, Sector 12, New Delhi – 110045' },
-              { icon: '📞', lbl: 'Phone', val: '+91 12345 67890' },
-              { icon: '✉️', lbl: 'Email', val: 'info@ststephens.edu.in' },
-              { icon: '🕐', lbl: 'Office Hours', val: 'Monday – Saturday: 8:00 AM – 4:00 PM' },
-            ].map((d, i) => (
-              <div className="ci" key={i}>
-                <div className="ci-icon">{d.icon}</div>
-                <div><div className="ci-lbl">{d.lbl}</div><div className="ci-val">{d.val}</div></div>
-              </div>
-            ))}
-          </div>
-          <form className="contact-form" onSubmit={e => e.preventDefault()}>
-            <div className="form-head">Send Us a Message</div>
-            <div className="form-row">
-              <div className="fg"><label>Parent / Guardian Name</label><input type="text" placeholder="Your full name" /></div>
-              <div className="fg"><label>Phone Number</label><input type="tel" placeholder="+91 00000 00000" /></div>
-            </div>
-            <div className="fg"><label>Email Address</label><input type="email" placeholder="your@email.com" /></div>
-            <div className="fg">
-              <label>Grade Applying For</label>
-              <select>
-                <option value="">Select grade</option>
-                {['Pre-Primary', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'].map(g => <option key={g}>{g}</option>)}
-              </select>
-            </div>
-            <div className="fg"><label>Message</label><textarea rows={4} placeholder="Your questions or message..." /></div>
-            <button type="submit" className="btn-gold full">Send Message 🚀</button>
-          </form>
-        </div>
-      </section>
+
 
       {/* ── FOOTER ── */}
       <footer className="footer">
