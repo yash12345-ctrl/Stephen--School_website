@@ -16,6 +16,7 @@ import EducationalDayOut from './educational_day_out.tsx';
 import AnnualPicnic from './annual_picnic.tsx';
 
 import Gallery from './gallery.tsx';
+import Donate from './donate.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/news" element={<News />} />
         <Route path="/the-school" element={<School />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/donate" element={<Donate />} />
         <Route path="/annual-concert" element={<AnnualConcert />} />
         <Route path="/christmas" element={<Christmas />} />
         <Route path="/eid" element={<Eid />} />

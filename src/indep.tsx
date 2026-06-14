@@ -155,10 +155,10 @@ export default function Indep() {
                 {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
               </li>
             ))}
-            <li className="mobile-only-nav-apply"><a href="/#donate">Donate</a></li>
+            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now →</a>
+            <a href="/donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>

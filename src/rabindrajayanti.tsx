@@ -111,10 +111,10 @@ export default function Rabindrajayanti() {
                 {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
               </li>
             ))}
-            <li className="mobile-only-nav-apply"><a href="/#donate">Donate</a></li>
+            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now →</a>
+            <a href="/donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -343,7 +343,7 @@ export default function Rabindrajayanti() {
             Your contributions help purchase musical instruments, traditional dance costumes, and books for our school library, keeping the light of Tagore's teachings alive.
           </p>
           <div className="rj-cta-btns">
-            <a href="/#donate" className="rj-btn-gold">Support Our Cultural Fund →</a>
+            <a href="/donate" className="rj-btn-gold">Support Our Cultural Fund →</a>
             <a href="/about" className="rj-btn-ghost">Learn About Us</a>
           </div>
         </div>

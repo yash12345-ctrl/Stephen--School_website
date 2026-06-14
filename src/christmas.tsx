@@ -73,10 +73,10 @@ export default function Christmas() {
                 {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
               </li>
             ))}
-            <li className="mobile-only-nav-apply"><a href="/#donate">Donate</a></li>
+            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now →</a>
+            <a href="/donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -120,7 +120,7 @@ export default function Christmas() {
 
           <div className="xm-hero-btns">
             <a href="#about" className="xm-btn-gold">Explore Event Details</a>
-            <a href="/#donate" className="xm-btn-ghost">Support our Drive</a>
+            <a href="/donate" className="xm-btn-ghost">Support our Drive</a>
           </div>
         </div>
 
@@ -273,7 +273,7 @@ export default function Christmas() {
             Help us buy school supplies, warm sweaters, and holiday cakes for underprivileged children. Your small contribution can light up a child's festive season.
           </p>
           <div className="xm-cta-btns">
-            <a href="/#donate" className="xm-btn-gold">Sponsor a Gift Pack →</a>
+            <a href="/donate" className="xm-btn-gold">Sponsor a Gift Pack →</a>
             <a href="/about" className="xm-btn-ghost">Learn About St. Stephen's</a>
           </div>
         </div>

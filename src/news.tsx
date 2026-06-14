@@ -175,11 +175,11 @@ export default function News() {
             ))}
             {/* Mobile-only Donate Button */}
             <li className="mobile-only-nav-apply">
-              <a href="/#donate">Donate</a>
+              <a href="/donate">Donate</a>
             </li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate →</a>
+            <a href="/donate" className="nav-cta">Donate →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>

@@ -3,7 +3,7 @@ import './gallery.css';
 import { ProgramMegaMenu } from './program_top';
 
 // ── DATA ──────────────────────────────────────────────────────────────
-const MEMBERS = {
+const GOVERNING_MEMBERS = {
   root: {
     id: 'root',
     name: 'Imran Zaki',
@@ -48,7 +48,7 @@ const MEMBERS = {
       id: 'l2-2',
       name: 'Rajender Singh',
       role: 'Advisory Board',
-      img: '/k6.jpg',
+      img: '/v36.png',
       parentId: 'l1-1',
       bio: `Oversees legal compliance, institutional policies, and governance frameworks for the school.`,
     },
@@ -56,11 +56,130 @@ const MEMBERS = {
       id: 'l2-3',
       name: 'Asif Iqbal',
       role: 'Advisory Board',
-      img: '/v4.jpeg',
+      img: '/v37.png',
       parentId: 'l1-1',
       bio: `Leads financial planning, budgeting, and audit oversight to ensure responsible fund management.`,
     },
   ],
+};
+
+const MANAGEMENT_MEMBERS = {
+  root: {
+    id: 'root',
+    name: 'Imran Zaki',
+    role: 'Hony. Secretary',
+    img: '/v9.png',
+    bio: `Guides the Management Team with strategic vision and ensures smooth operations.`,
+  },
+  level1: [
+    {
+      id: 'ml1-0',
+      name: 'Ayesha Iqbal Siddiqui',
+      role: 'Headmistress',
+      img: '/v10.png',
+      bio: `Leads the management team and oversees all academic and administrative activities.`,
+    },
+    {
+      id: 'ml1-1',
+      name: 'Ajoy Paul',
+      role: 'Administrator',
+      img: '/v33.png',
+      bio: `Manages school operations, logistics, and resource allocation.`,
+    },
+  ],
+  level2: [
+    { id: 'ml2-0', name: 'Falaq Qaiyum', role: 'Management Team', img: '/logo.png', parentId: 'ml1-0', bio: 'Supports management and administrative operations.' },
+    { id: 'ml2-1', name: 'Shagufta Gulnar', role: 'Management Team', img: '/logo.png', parentId: 'ml1-0', bio: 'Handles day-to-day coordination and planning.' },
+    { id: 'ml2-2', name: 'Tabassum Rashid', role: 'Management Team', img: '/logo.png', parentId: 'ml1-0', bio: 'Ensures efficient management of school programs.' },
+    { id: 'ml2-3', name: 'Tabassum Rashid', role: 'Management Team', img: '/logo.png', parentId: 'ml1-1', bio: 'Assists with operational oversight and management.' },
+    { id: 'ml2-4', name: 'Zikra Salim', role: 'Management Team', img: '/logo.png', parentId: 'ml1-1', bio: 'Contributes to strategic planning and execution.' },
+    { id: 'ml2-5', name: 'ifra Rehman', role: 'Management Team', img: '/logo.png', parentId: 'ml1-1', bio: 'Coordinates team efforts and resource management.' },
+    { id: 'ml2-6', name: 'Rumsha Nehal', role: 'Management Team', img: '/logo.png', parentId: 'ml1-1', bio: 'Manages communications and staff relations.' },
+  ],
+};
+
+const MORNING_FACULTY = {
+  root: {
+    id: 'root',
+    name: 'Morning Faculty',
+    role: 'Academic Department',
+    img: '',
+    bio: 'The dedicated educators of the morning session.',
+  },
+  level1: [
+    { id: 'mf-0', name: 'Neeta Mukherjee', role: 'Morning Faculty', img: '/v38.png', bio: 'Educator for morning session.' },
+    { id: 'mf-1', name: 'Resham Nahed', role: 'Morning Faculty', img: '/v39.png', bio: 'Educator for morning session.' },
+    { id: 'mf-2', name: 'Tabinda Salim', role: 'Morning Faculty', img: '/v40.png', bio: 'Educator for morning session.' },
+    { id: 'mf-3', name: 'Insha Rehman', role: 'Morning Faculty', img: '/v41.png', bio: 'Educator for morning session.' },
+    { id: 'mf-4', name: 'Falaq Qaiyum', role: 'Morning Faculty', img: '/v42.png', bio: 'Educator for morning session.' },
+    { id: 'mf-5', name: 'Shagufta Gulnar', role: 'Morning Faculty', img: '/v43.png', bio: 'Educator for morning session.' },
+    { id: 'mf-6', name: 'Tabassum Rashid', role: 'Morning Faculty', img: '/v44.png', bio: 'Educator for morning session.' },
+    { id: 'mf-7', name: 'Zikra Salim', role: 'Morning Faculty', img: '/v45.png', bio: 'Educator for morning session.' },
+    { id: 'mf-8', name: 'ifra Rehman', role: 'Morning Faculty', img: '/v46.png', bio: 'Educator for morning session.' },
+    { id: 'mf-9', name: 'Rumsha Nehal', role: 'Morning Faculty', img: '/v47.png', bio: 'Educator for morning session.' },
+  ],
+  level2: [],
+};
+
+const AFTERNOON_FACULTY = {
+  root: {
+    id: 'root',
+    name: 'Afternoon Faculty',
+    role: 'Academic Department',
+    img: '',
+    bio: 'The dedicated educators of the afternoon session.',
+  },
+  level1: [
+    { id: 'af-0', name: 'Rina Das', role: 'Afternoon Faculty', img: '/logo.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-1', name: 'Piyali Mnna', role: 'Afternoon Faculty', img: '/v48.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-2', name: 'Shrinjini Saha', role: 'Afternoon Faculty', img: '/v49.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-3', name: 'Kriti Arora', role: 'Afternoon Faculty', img: '/v50.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-4', name: 'Nikhat Ara', role: 'Afternoon Faculty', img: '/v51.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-5', name: 'Obaid Ahmed', role: 'Afternoon Faculty', img: '/v52.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-6', name: 'Uday Shankar', role: 'Afternoon Faculty', img: '/logo.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-7', name: 'Hamidur Rehman', role: 'Afternoon Faculty', img: '/v53.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-8', name: 'Pappu Roy', role: 'Afternoon Faculty', img: '/logo.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-9', name: 'Md. Rafay Ali', role: 'Afternoon Faculty', img: '/v54.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-10', name: 'Md Tabrez', role: 'Afternoon Faculty', img: '/v55.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-11', name: 'Mashira Zakir', role: 'Afternoon Faculty', img: '/v56.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-12', name: 'Saleha Parveen', role: 'Afternoon Faculty', img: '/v57.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-13', name: 'Sirajuddaula', role: 'Afternoon Faculty', img: '/logo.png', bio: 'Educator for afternoon session.' },
+  ],
+  level2: [],
+};
+
+const NON_TEACHING_STAFF = {
+  root: {
+    id: 'root',
+    name: 'Non-Teaching Staff',
+    role: 'Administration & Support',
+    img: '',
+    bio: 'The essential backbone supporting our school operations.',
+  },
+  level1: [
+    { id: 'nts-0', name: 'Mushtaque', role: 'Advisory Board', img: '/v58.png', bio: 'Supports the operational and administrative functions.' },
+    { id: 'nts-1', name: 'Humaira', role: 'Advisory Board', img: '/v59.png', bio: 'Supports the operational and administrative functions.' },
+  ],
+  level2: [],
+};
+
+const CARE_TAKERS = {
+  root: {
+    id: 'root',
+    name: 'Care-Takers',
+    role: 'Maintenance & Support',
+    img: '',
+    bio: 'Dedicated personnel ensuring campus maintenance and student care.',
+  },
+  level1: [
+    { id: 'ct-0', name: 'Rehan Misbah', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-1', name: 'Rajender Singh', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-2', name: 'Asif Iqbal', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-3', name: 'Rehan Misbah', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-4', name: 'Rajender Singh', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-5', name: 'Asif Iqbal', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
+  ],
+  level2: [],
 };
 
 // ── CONNECTOR SVG ──────────────────────────────────────────────────────
@@ -82,6 +201,9 @@ function makeCurvedPath(x1: number, y1: number, x2: number, y2: number) {
 // ── MAIN COMPONENT ─────────────────────────────────────────────────────
 export default function Gallery() {
   const [activeTab, setActiveTab] = useState('GOVERNING BODY');
+
+  const isTreeTab = activeTab === 'GOVERNING BODY' || activeTab === 'MANAGEMENT TEAM' || activeTab === 'MORNING FACULTY' || activeTab === 'AFTERNOON FACULTY' || activeTab === 'NON-TEACHING STAFF' || activeTab === 'CARE-TAKERS';
+  const currentMembers = activeTab === 'CARE-TAKERS' ? CARE_TAKERS : activeTab === 'NON-TEACHING STAFF' ? NON_TEACHING_STAFF : activeTab === 'AFTERNOON FACULTY' ? AFTERNOON_FACULTY : activeTab === 'MORNING FACULTY' ? MORNING_FACULTY : activeTab === 'MANAGEMENT TEAM' ? MANAGEMENT_MEMBERS : GOVERNING_MEMBERS;
 
   const tabInfo: Record<string, { title: string, subtitle: string }> = {
     'GOVERNING BODY': { title: 'Governing Body', subtitle: "Leadership structure of St. Stephen's School" },
@@ -151,7 +273,7 @@ export default function Gallery() {
       const newPaths: { d: string; key: string }[] = [];
 
       // root → each level-1 node
-      MEMBERS.level1.forEach((m) => {
+      currentMembers.level1.forEach((m) => {
         const from = nodeRefs.current['root'];
         const to = nodeRefs.current[m.id];
         if (!from || !to || !c) return;
@@ -160,8 +282,8 @@ export default function Gallery() {
         newPaths.push({ key: `root-${m.id}`, d: makeCurvedPath(fc.x, fc.bottom, tc.x, tc.top) });
       });
 
-      // l1-1 (Ajay Paul) → each level-2 node
-      MEMBERS.level2.forEach((m) => {
+      // level-1 → each level-2 node
+      currentMembers.level2.forEach((m) => {
         const from = nodeRefs.current[m.parentId];
         const to = nodeRefs.current[m.id];
         if (!from || !to || !c) return;
@@ -216,10 +338,10 @@ export default function Gallery() {
                 )}
               </li>
             ))}
-            <li className="mobile-only-nav-apply"><a href="/#donate">Donate</a></li>
+            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now →</a>
+            <a href="/donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span /><span /><span />
             </div>
@@ -259,14 +381,14 @@ export default function Gallery() {
       </div>
 
       {/* ── TAB CONTENT ── */}
-      {activeTab === 'GOVERNING BODY' ? (
+      {isTreeTab ? (
         <div className="org-canvas-wrap">
           {!treeStarted ? (
             <div className="start-tree-container">
               <button className="start-tree-btn" onClick={() => setTreeStarted(true)}>
-                <span className="btn-glow"></span>
-                <span className="btn-text">View Governance Structure</span>
-                <svg className="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" /></svg>
+                <span className="btn-text">
+                  {activeTab === 'CARE-TAKERS' ? 'View Care-Takers' : activeTab === 'NON-TEACHING STAFF' ? 'View Non-Teaching Staff' : activeTab === 'AFTERNOON FACULTY' ? 'View Afternoon Faculty' : activeTab === 'MORNING FACULTY' ? 'View Morning Faculty' : activeTab === 'MANAGEMENT TEAM' ? 'View Management Team' : 'View Governance Structure'}
+                </span>
               </button>
             </div>
           ) : (
@@ -336,19 +458,21 @@ export default function Gallery() {
                   data-delay="0"
                   ref={el => { nodeRefs.current['root'] = el; }}
                 >
-                  <div className="node-avatar">
-                    <img src={MEMBERS.root.img} alt={MEMBERS.root.name} />
-                  </div>
-                  <div className="node-name">{MEMBERS.root.name}</div>
-                  <div className="node-role">{MEMBERS.root.role}</div>
-                  <p className="node-bio">{MEMBERS.root.bio}</p>
+                  {currentMembers.root.img && (
+                    <div className="node-avatar">
+                      <img src={currentMembers.root.img} alt={currentMembers.root.name} />
+                    </div>
+                  )}
+                  <div className="node-name">{currentMembers.root.name}</div>
+                  <div className="node-role">{currentMembers.root.role}</div>
+                  <p className="node-bio">{currentMembers.root.bio}</p>
                   <div className="node-arrow" />
                 </div>
               </div>
 
               {/* ROW 1 — Level 1 */}
               <div className="org-row org-row-1">
-                {MEMBERS.level1.map((m, i) => (
+                {currentMembers.level1.map((m, i) => (
                   <div
                     key={m.id}
                     className="org-node"
@@ -366,24 +490,32 @@ export default function Gallery() {
                 ))}
               </div>
 
-              {/* ROW 2 — Level 2 (Advisory Board) */}
+              {/* ROW 2 — Level 2 */}
               <div className="org-row org-row-2">
-                {MEMBERS.level2.map((m, i) => (
-                  <div
-                    key={m.id}
-                    className="org-node"
-                    data-delay={i + 3}
-                    ref={el => { nodeRefs.current[m.id] = el; }}
-                  >
-                    <div className="node-avatar">
-                      <img src={m.img} alt={m.name} />
+                {currentMembers.level1.map((parent) => {
+                  const children = currentMembers.level2.filter(m => m.parentId === parent.id);
+                  if (children.length === 0) return null;
+                  return (
+                    <div key={`group-${parent.id}`} className="org-group">
+                      {children.map((m, i) => (
+                        <div
+                          key={m.id}
+                          className="org-node"
+                          data-delay={i + 3}
+                          ref={el => { nodeRefs.current[m.id] = el; }}
+                        >
+                          <div className="node-avatar">
+                            <img src={m.img} alt={m.name} />
+                          </div>
+                          <div className="node-name">{m.name}</div>
+                          <div className="node-role">{m.role}</div>
+                          <p className="node-bio">{m.bio}</p>
+                          <div className="node-arrow" />
+                        </div>
+                      ))}
                     </div>
-                    <div className="node-name">{m.name}</div>
-                    <div className="node-role">{m.role}</div>
-                    <p className="node-bio">{m.bio}</p>
-                    <div className="node-arrow" />
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
             </div>

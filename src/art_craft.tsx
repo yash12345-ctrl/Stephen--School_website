@@ -182,10 +182,10 @@ export default function ArtCraftExhibition() {
                 {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
               </li>
             ))}
-            <li className="mobile-only-nav-apply"><a href="/#donate">Donate</a></li>
+            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now →</a>
+            <a href="/donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -384,7 +384,7 @@ export default function ArtCraftExhibition() {
             Many of our talented student creators are first-generation learners. Your kind contributions help fund paints, brushes, canvas boards, clay modeling kits, and craft tools, keeping their creative flame burning bright.
           </p>
           <div className="art-cta-btns">
-            <a href="/#donate" className="art-btn-gold">Support Our Art Fund →</a>
+            <a href="/donate" className="art-btn-gold">Support Our Art Fund →</a>
             <a href="/about" className="art-btn-ghost">Learn About St. Stephen's</a>
           </div>
         </div>

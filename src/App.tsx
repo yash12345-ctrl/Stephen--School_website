@@ -94,11 +94,11 @@ export default function App() {
             ))}
             {/* Mobile-only Donate Button */}
             <li className="mobile-only-nav-apply">
-              <a href="/#donate">Donate</a>
+              <a href="/donate">Donate</a>
             </li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now  →</a>
+            <a href="/donate" className="nav-cta">Donate Now  →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -262,7 +262,7 @@ export default function App() {
           <h2 className="cta-h">Help Shape a Child's <span className="gold">Future</span></h2>
           <p className="cta-p">Your contribution can provide quality education, brighter opportunities, and a better tomorrow for deserving students.</p>
           <div className="cta-btns">
-            <a href="/#donate" className="btn-gold large">Donate</a>
+            <a href="/donate" className="btn-gold large">Donate</a>
             <a href="tel:+911234567890" className="btn-ghost large">📞 Call Us</a>
           </div>
         </div>

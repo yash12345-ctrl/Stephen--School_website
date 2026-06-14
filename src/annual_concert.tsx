@@ -78,10 +78,10 @@ export default function AnnualConcert() {
                 {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
               </li>
             ))}
-            <li className="mobile-only-nav-apply"><a href="/#donate">Donate</a></li>
+            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now →</a>
+            <a href="/donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -118,7 +118,7 @@ export default function AnnualConcert() {
           </div>
           <div className="ac-hero-btns">
             <a href="#schedule" className="ac-btn-gold">View Schedule →</a>
-            <a href="/#donate" className="ac-btn-ghost">Support the Event</a>
+            <a href="/donate" className="ac-btn-ghost">Support the Event</a>
           </div>
         </div>
 
@@ -200,7 +200,7 @@ export default function AnnualConcert() {
           <h2 className="ac-cta-h">Be Part of the<br />Magic This Year</h2>
           <p className="ac-cta-p">Come watch our students shine, support our school, or help us make this year's Annual Concert our most memorable one yet.</p>
           <div className="ac-cta-btns">
-            <a href="/#donate" className="ac-btn-gold">Donate & Support →</a>
+            <a href="/donate" className="ac-btn-gold">Donate & Support →</a>
             <a href="/about" className="ac-btn-ghost">Learn About Us</a>
           </div>
         </div>

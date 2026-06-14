@@ -182,10 +182,10 @@ export default function EducationalDayOut() {
                 {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
               </li>
             ))}
-            <li className="mobile-only-nav-apply"><a href="/#donate">Donate</a></li>
+            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now →</a>
+            <a href="/donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -358,7 +358,7 @@ export default function EducationalDayOut() {
             Many of our children come from disadvantaged backgrounds. Your generous contributions fund transport rentals, museum entry passes, planetarium tickets, and learning materials, ensuring no child is left behind inside the classroom.
           </p>
           <div className="trip-cta-btns">
-            <a href="/#donate" className="trip-btn-teal">Support Field Trips →</a>
+            <a href="/donate" className="trip-btn-teal">Support Field Trips →</a>
             <a href="/about" className="trip-btn-ghost">Learn About Our Vision</a>
           </div>
         </div>

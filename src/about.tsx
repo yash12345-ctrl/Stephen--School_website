@@ -121,11 +121,11 @@ export default function About() {
             ))}
             {/* Mobile-only Donate Button */}
             <li className="mobile-only-nav-apply">
-              <a href="/#donate">Donate</a>
+              <a href="/donate">Donate</a>
             </li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now →</a>
+            <a href="/donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -393,7 +393,7 @@ export default function About() {
           <h2 className="abt-cta-h">Ready to Be Part of the <span className="abt-accent">St.Stephen's Family</span>?</h2>
           <p className="abt-cta-p">Schedule a visit, speak with our team, or support us today.</p>
           <div className="abt-cta-btns">
-            <a href="/#donate" className="btn-gold large">Donate</a>
+            <a href="/donate" className="btn-gold large">Donate</a>
           </div>
         </div>
       </section>

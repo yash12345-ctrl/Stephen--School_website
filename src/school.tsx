@@ -140,11 +140,11 @@ export default function School() {
             ))}
             {/* Mobile-only Donate Button */}
             <li className="mobile-only-nav-apply">
-              <a href="/#donate">Donate</a>
+              <a href="/donate">Donate</a>
             </li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now →</a>
+            <a href="/donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -267,7 +267,7 @@ export default function School() {
             Admissions for the academic session 2026–27 are open. Connect with us to support our cause, enroll a child, or submit your online application today.
           </p>
           <div className="sch-hero-btns" style={{ justifyContent: 'center' }}>
-            <a href="/#donate" className="sch-btn-gold">Donate Now</a>
+            <a href="/donate" className="sch-btn-gold">Donate Now</a>
           </div>
         </div>
       </section>

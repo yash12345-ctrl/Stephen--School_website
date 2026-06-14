@@ -152,10 +152,10 @@ export default function AnnualPicnic() {
                 {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
               </li>
             ))}
-            <li className="mobile-only-nav-apply"><a href="/#donate">Donate</a></li>
+            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now →</a>
+            <a href="/donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -198,7 +198,7 @@ export default function AnnualPicnic() {
 
           <div className="pk-hero-btns">
             <a href="#activities" className="pk-btn-gold">Explore Activities</a>
-            <a href="/#donate" className="pk-btn-ghost">Sponsor Outings</a>
+            <a href="/donate" className="pk-btn-ghost">Sponsor Outings</a>
           </div>
         </div>
 
@@ -398,7 +398,7 @@ export default function AnnualPicnic() {
             Sponsor travel bus rentals, picnic meals, activity items, and special snacks for our school children. Your support ensures we can continue this annual tradition of joy and social bonding for underprivileged learners.
           </p>
           <div className="pk-cta-btns">
-            <a href="/#donate" className="pk-btn-gold">Sponsor a Child's Picnic →</a>
+            <a href="/donate" className="pk-btn-gold">Sponsor a Child's Picnic →</a>
             <a href="/about" className="pk-btn-ghost">Learn About St. Stephen's</a>
           </div>
         </div>

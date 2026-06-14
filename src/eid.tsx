@@ -94,10 +94,10 @@ export default function Eid() {
                 {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
               </li>
             ))}
-            <li className="mobile-only-nav-apply"><a href="/#donate">Donate</a></li>
+            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
           </ul>
           <div className="nav-actions">
-            <a href="/#donate" className="nav-cta">Donate Now →</a>
+            <a href="/donate" className="nav-cta">Donate Now →</a>
             <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span></span><span></span><span></span>
             </div>
@@ -140,7 +140,7 @@ export default function Eid() {
 
           <div className="eid-hero-btns">
             <a href="#interactive-eidi" className="eid-btn-gold">Receive Eidi Blessings</a>
-            <a href="/#donate" className="eid-btn-ghost">Support Eid Drive</a>
+            <a href="/donate" className="eid-btn-ghost">Support Eid Drive</a>
           </div>
         </div>
 
@@ -348,7 +348,7 @@ export default function Eid() {
             Your generous contributions fund the traditional Eid feast, sweet boxes, and customized Eidi gift packs for underprivileged children. Sponsor a pack today.
           </p>
           <div className="eid-cta-btns">
-            <a href="/#donate" className="eid-btn-gold">Sponsor Eidi Packs →</a>
+            <a href="/donate" className="eid-btn-gold">Sponsor Eidi Packs →</a>
             <a href="/about" className="eid-btn-ghost">Learn About Us</a>
           </div>
         </div>
