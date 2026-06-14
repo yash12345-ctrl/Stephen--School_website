@@ -121,7 +121,7 @@ export default function Indep() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -168,7 +168,7 @@ export default function Indep() {
 
       {/* ── HERO ── */}
       <section className="ind-hero">
-        <div className="ind-hero-bg" style={{ backgroundImage: "url('/indep_hero.png')" }} />
+        <div className="ind-hero-bg" style={{ backgroundImage: "url('/indep_hero.webp')" }} />
         <div className="ind-hero-veil" />
         
         <div className="ind-hero-inner">
@@ -298,8 +298,8 @@ export default function Indep() {
           <div className="ind-about-grid">
             <div className="ind-about-visual">
               <div className="ind-about-collage">
-                <img src="/a1.jpg" alt="Students in parade" className="ind-collage-img-main" />
-                <img src="/a2.jpg" alt="Flag hoisting preparation" className="ind-collage-img-sec" />
+                <img loading="lazy" src="/a1.webp" alt="Students in parade" className="ind-collage-img-main" />
+                <img loading="lazy" src="/a2.webp" alt="Flag hoisting preparation" className="ind-collage-img-sec" />
               </div>
               <div className="ind-about-badge">
                 <div className="ind-about-badge-num">🇮🇳</div>
@@ -350,7 +350,7 @@ export default function Indep() {
                 </p>
               </div>
               <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '240px' }}>
-                <img src="/a3.jpg" alt="Independence Day Celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img loading="lazy" src="/a3.webp" alt="Independence Day Celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{
                   position: 'absolute',
                   bottom: '1rem',
@@ -402,7 +402,7 @@ export default function Indep() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

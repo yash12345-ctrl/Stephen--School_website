@@ -77,7 +77,7 @@ export default function Rabindrajayanti() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -124,7 +124,7 @@ export default function Rabindrajayanti() {
 
       {/* ── HERO ── */}
       <section className="rj-hero">
-        <div className="rj-hero-bg" style={{ backgroundImage: "url('/rabindrajayanti_hero.png')" }} />
+        <div className="rj-hero-bg" style={{ backgroundImage: "url('/rabindrajayanti_hero.webp')" }} />
         <div className="rj-hero-glow g1" /><div className="rj-hero-glow g2" />
         <div className="rj-hero-veil" />
         
@@ -161,8 +161,8 @@ export default function Rabindrajayanti() {
           <div className="rj-about-grid">
             <div className="rj-about-visual">
               <div className="rj-about-collage">
-                <img src="/images.jpg" alt="Rabindra Jayanti Preparations" className="rj-collage-img-main" />
-                <img src="/images 2.jpg" alt="Students Performing" className="rj-collage-img-sec" />
+                <img loading="lazy" src="/images.webp" alt="Rabindra Jayanti Preparations" className="rj-collage-img-main" />
+                <img loading="lazy" src="/images 2.webp" alt="Students Performing" className="rj-collage-img-sec" />
               </div>
               <div className="rj-about-badge">
                 <div className="rj-about-badge-num">📖</div>
@@ -260,7 +260,7 @@ export default function Rabindrajayanti() {
                 </p>
               </div>
               <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '220px', marginTop: 'auto' }}>
-                <img src="/images 3.jpg" alt="British Deputy High Commissioner Nick Low visit" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img loading="lazy" src="/images 3.webp" alt="British Deputy High Commissioner Nick Low visit" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{
                   position: 'absolute',
                   bottom: '1rem',
@@ -289,7 +289,7 @@ export default function Rabindrajayanti() {
                 </p>
               </div>
               <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '220px', marginTop: 'auto' }}>
-                <img src="/images4.jpg" alt="Rabindra Jayanti celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img loading="lazy" src="/images4.webp" alt="Rabindra Jayanti celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{
                   position: 'absolute',
                   bottom: '1rem',
@@ -355,7 +355,7 @@ export default function Rabindrajayanti() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

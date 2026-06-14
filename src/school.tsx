@@ -11,11 +11,11 @@ export default function School() {
   const [heroImageIdx, setHeroImageIdx] = useState(0);
 
   const heroImages = [
-    '/st_stephen_group_1.jpg',
-    '/st_stephen_group_2.jpg',
-    '/v4.jpeg',
-    '/v5.jpeg',
-    '/v6.jpg'
+    '/st_stephen_group_1.webp',
+    '/st_stephen_group_2.webp',
+    '/v4.webp',
+    '/v5.webp',
+    '/v6.webp'
   ];
 
   useEffect(() => {
@@ -50,42 +50,42 @@ export default function School() {
       desc: 'The Assembly Hall is equipped with modern audio-visual systems, making it a perfect venue for assemblies, events and guest lectures.',
       tag: 'Events & Gatherings',
       icon: <Sparkles size={24} />,
-      img: '/v13.png'
+      img: '/v13.webp'
     },
     {
       title: 'Playroom',
       desc: 'The playroom, on the other hand, is a safe and stimulating environment for children to engage in physical activities and creative play.',
       tag: 'Enjoy',
       icon: <Play size={24} />,
-      img: '/v14.png'
+      img: '/v14.webp'
     },
     {
       title: 'Smart Classrooms',
       desc: 'Some classrooms are equiped with Projector for efficient method of teaching.',
       tag: 'Innovative',
       icon: <Cpu size={24} />,
-      img: '/v15.png'
+      img: '/v15.webp'
     },
     {
       title: 'Computer Lab',
       desc: 'A modern computer lab equipped with updated systems to provide essential digital learning and technical education for all students.',
       tag: 'Advanced',
       icon: <Atom size={24} />,
-      img: '/v16.png'
+      img: '/v16.webp'
     },
     {
       title: 'School Library',
       desc: 'Library with books for all age groups.',
       tag: 'knowledge',
       icon: <BookOpen size={24} />,
-      img: '/v17.png'
+      img: '/v17.webp'
     },
     {
       title: 'First-Aid & Support',
       desc: 'First-Aid kit available at school office.',
       tag: 'Care',
       icon: <Compass size={24} />,
-      img: '/v18.png'
+      img: '/v18.webp'
     }
   ];
 
@@ -97,7 +97,7 @@ export default function School() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -173,7 +173,7 @@ export default function School() {
           <div className="sch-hero-image-wrap">
             <div className="sch-hero-image-frame">
               {heroImages.map((src, i) => (
-                <img
+                <img loading="lazy"
                   key={i}
                   src={src}
                   alt={`Campus ${i}`}
@@ -205,7 +205,7 @@ export default function School() {
                 </div>
                 <div className="sch-node-card">
                   <div className="sch-node-img-wrapper">
-                    <img src={item.img} alt={item.title} />
+                    <img loading="lazy" src={item.img} alt={item.title} />
                   </div>
                   <div className="sch-node-content">
                     <h3 className="sch-node-title">
@@ -219,7 +219,7 @@ export default function School() {
                 {/* Opposite side child holding card */}
                 <div className="sch-child-connector"></div>
                 <div className="sch-node-child-card">
-                  <img src="/child_holding_card.png" alt="Child holding placard" />
+                  <img loading="lazy" src="/child_holding_card.webp" alt="Child holding placard" />
                   <span className="sch-child-text">{item.tag}</span>
                 </div>
               </div>
@@ -233,7 +233,7 @@ export default function School() {
         <div className="sch-container">
           <div className="sch-msg-grid">
             <div className="sch-msg-photo-wrap">
-              <img src="/k6.jpg" className="sch-msg-photo" alt="Principal Desk" />
+              <img loading="lazy" src="/k6.webp" className="sch-msg-photo" alt="Principal Desk" />
               <div className="sch-msg-frame" />
             </div>
             <div className="sch-msg-body">
@@ -278,7 +278,7 @@ export default function School() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

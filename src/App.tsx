@@ -46,7 +46,7 @@ export default function App() {
         <div className="nav-inner">
           <a href="#home" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's School</div>
@@ -108,7 +108,7 @@ export default function App() {
 
       {/* ── HERO ── */}
       <section className="hero" id="home" ref={heroRef} onMouseMove={handleHeroMouseMove}>
-        <div className="hero-img" style={{ backgroundImage: "url('/img.png')" }} />
+        <div className="hero-img" style={{ backgroundImage: "url('/img.webp')" }} />
         <div className="hero-veil" />
         <div className="hero-glow g1" /><div className="hero-glow g2" />
         <div className="hero-body">
@@ -122,7 +122,7 @@ export default function App() {
 
         <div className="hero-right">
           <aside className="hero-admissions-card" aria-label="Admissions information">
-            <div className="hac-image" style={{ backgroundImage: "url('/v5.jpeg')" }}>
+            <div className="hac-image" style={{ backgroundImage: "url('/v5.webp')" }}>
               <div className="hac-badge">
                 <span className="pulse-dot-red"></span> Now Open
               </div>
@@ -154,8 +154,8 @@ export default function App() {
       <section className="section about-section" id="about">
         <div className="container about-grid">
           <div className="about-imgs">
-            <div className="aimg aimg-main"><img src="/v3.png" alt="Campus Life" /></div>
-            <div className="aimg aimg-sec"><img src="/v4.jpeg" alt="Students" /></div>
+            <div className="aimg aimg-main"><img loading="lazy" src="/v3.webp" alt="Campus Life" /></div>
+            <div className="aimg aimg-sec"><img loading="lazy" src="/v4.webp" alt="Students" /></div>
             <div className="about-badge">
               <div className="ab-num">20+</div>
               <div className="ab-txt">Years of<br />Service</div>
@@ -200,7 +200,7 @@ export default function App() {
           </div>
           <div className="dignitary-card">
             <div className="dignitary-img">
-              <img src="/v9.png" alt="Imran Zaki" />
+              <img loading="lazy" src="/v9.webp" alt="Imran Zaki" />
             </div>
             <div className="dignitary-content">
               <div className="dignitary-quote-icon">❝</div>
@@ -212,7 +212,7 @@ export default function App() {
 
           <div className="dignitary-card" style={{ marginTop: '2rem' }}>
             <div className="dignitary-img">
-              <img src="/v10.png" alt="Ayesha Siddiqui" />
+              <img loading="lazy" src="/v10.webp" alt="Ayesha Siddiqui" />
             </div>
             <div className="dignitary-content">
               <div className="dignitary-quote-icon">❝</div>
@@ -233,15 +233,15 @@ export default function App() {
           </div>
           <div className="news-grid">
             {[
-              { tag: '🎨 Event', date: 'May 20, 2026', h: 'Annual Art & Craft Exhibition', p: 'Join us for a spectacular showcase of creativity as students display their finest artwork, sculptures, and crafts.', hot: true, img: '/v11.png' },
-              { tag: '🎭 Event', date: 'December 15, 2026', h: 'Annual Function 2026', p: 'Experience a grand evening of student performances, award ceremonies, and cultural showcases across all grades.', hot: false, img: '/v12.png' },
-              { tag: '📋 Admissions', date: 'May 1, 2026', h: 'Admissions Open for 2026–27', p: 'Applications now open for all grades. Early registrations receive priority slots and scholarship consideration.', hot: false, img: '/img.png' },
+              { tag: '🎨 Event', date: 'May 20, 2026', h: 'Annual Art & Craft Exhibition', p: 'Join us for a spectacular showcase of creativity as students display their finest artwork, sculptures, and crafts.', hot: true, img: '/v11.webp' },
+              { tag: '🎭 Event', date: 'December 15, 2026', h: 'Annual Function 2026', p: 'Experience a grand evening of student performances, award ceremonies, and cultural showcases across all grades.', hot: false, img: '/v12.webp' },
+              { tag: '📋 Admissions', date: 'May 1, 2026', h: 'Admissions Open for 2026–27', p: 'Applications now open for all grades. Early registrations receive priority slots and scholarship consideration.', hot: false, img: '/img.webp' },
             ].map((n, i) => (
               <div className={`news-card${n.hot ? ' news-hot' : ''}`} key={i}>
                 {n.hot && <div className="news-ribbon">Featured</div>}
                 {n.img && (
                   <div style={{ height: '200px', margin: '-2.5rem -2.5rem 1.5rem -2.5rem', overflow: 'hidden' }}>
-                    <img src={n.img} alt={n.h} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img loading="lazy" src={n.img} alt={n.h} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                 )}
                 <div className="news-tag">{n.tag}</div>
@@ -276,7 +276,7 @@ export default function App() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's School</div>

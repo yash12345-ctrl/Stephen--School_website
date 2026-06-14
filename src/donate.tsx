@@ -39,7 +39,7 @@ export default function Donate() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -98,7 +98,7 @@ export default function Donate() {
           <div className="donate-left">
             <div className="donate-hero-top-visual">
               <div className="donate-hero-img-wrapper">
-                <img src="/v4.jpeg" alt="Students of St. Stephen's" />
+                <img loading="lazy" src="/v4.webp" alt="Students of St. Stephen's" />
               </div>
               <div className="donate-hero-stats">
                 <div className="dh-stat">
@@ -248,7 +248,7 @@ export default function Donate() {
                       <div className="qr-wrapper">
                         {/* A dynamic, professional looking QR box */}
                         <div className="qr-corners">
-                          <img src="/img.png" alt="NGO Logo" className="qr-center-logo" />
+                          <img loading="lazy" src="/img.webp" alt="NGO Logo" className="qr-center-logo" />
                         </div>
                         <div className="qr-scan-line"></div>
                       </div>
@@ -333,7 +333,7 @@ export default function Donate() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

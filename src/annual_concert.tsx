@@ -44,7 +44,7 @@ export default function AnnualConcert() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -134,8 +134,8 @@ export default function AnnualConcert() {
           <div className="ac-about-grid">
             <div className="ac-about-visual">
               <div className="ac-about-collage">
-                <img src="/k5.png" alt="Annual Concert Performance" className="ac-collage-img-main" />
-                <img src="/k6.jpg" alt="Annual Concert Rehearsal" className="ac-collage-img-sec" />
+                <img loading="lazy" src="/k5.webp" alt="Annual Concert Performance" className="ac-collage-img-main" />
+                <img loading="lazy" src="/k6.webp" alt="Annual Concert Rehearsal" className="ac-collage-img-sec" />
               </div>
               <div className="ac-about-badge">
                 <div className="ac-about-badge-num">🎵</div>
@@ -212,7 +212,7 @@ export default function AnnualConcert() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

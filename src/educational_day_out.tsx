@@ -28,7 +28,7 @@ export default function EducationalDayOut() {
       title: "Interactive Physics Journey",
       desc: "Students explore hands-on exhibits, demonstrating the laws of motion, optical illusions, and mechanical principles at Science City.",
       category: "science",
-      image: "/trip_science.png",
+      image: "/trip_science.webp",
       tag: "Science City",
       outcome: "Cognitive Inquiry",
       date: "Jan 12, 2026"
@@ -37,7 +37,7 @@ export default function EducationalDayOut() {
       title: "Stargazing at the Planetarium",
       desc: "A majestic journey through our solar system, nebulae, and constellations projected inside the astronomical dome theater.",
       category: "planetarium",
-      image: "/trip_planetarium.png",
+      image: "/trip_planetarium.webp",
       tag: "Birla Planetarium",
       outcome: "Space Sciences",
       date: "Feb 18, 2026"
@@ -46,7 +46,7 @@ export default function EducationalDayOut() {
       title: "Victoria Memorial Exploration",
       desc: "A guided educational tour of Bowbazar's colonial history, architectural heritage, and historical archives.",
       category: "historical",
-      image: "/trip_historical.png",
+      image: "/trip_historical.webp",
       tag: "Victoria Memorial",
       outcome: "Heritage Studies",
       date: "Mar 05, 2026"
@@ -55,7 +55,7 @@ export default function EducationalDayOut() {
       title: "Dynamo & Electricity Lab",
       desc: "A thrilling live presentation showcasing Tesla coils, electrostatic charges, and electricity generation basics.",
       category: "science",
-      image: "/trip_science.png",
+      image: "/trip_science.webp",
       tag: "Science City",
       outcome: "Inquiry Lab",
       date: "Jan 12, 2026"
@@ -64,7 +64,7 @@ export default function EducationalDayOut() {
       title: "Galactic Origins Presentation",
       desc: "An interactive presentation about black holes, star lifecycles, and cosmic evolution led by expert astronomers.",
       category: "planetarium",
-      image: "/trip_planetarium.png",
+      image: "/trip_planetarium.webp",
       tag: "Birla Planetarium",
       outcome: "Cosmology Basics",
       date: "Feb 18, 2026"
@@ -73,7 +73,7 @@ export default function EducationalDayOut() {
       title: "Indian Museum Archives",
       desc: "Students study ancient relics, archaeological findings, and natural history galleries, compiling field journals.",
       category: "historical",
-      image: "/trip_historical.png",
+      image: "/trip_historical.webp",
       tag: "Indian Museum",
       outcome: "Archaeology",
       date: "Mar 06, 2026"
@@ -148,7 +148,7 @@ export default function EducationalDayOut() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -195,7 +195,7 @@ export default function EducationalDayOut() {
 
       {/* ── HERO SECTION ── */}
       <section className="trip-hero">
-        <div className="trip-hero-bg" style={{ backgroundImage: "url('/educational_day_out_hero.png')" }} />
+        <div className="trip-hero-bg" style={{ backgroundImage: "url('/educational_day_out_hero.webp')" }} />
         <div className="trip-hero-glow g1" /><div className="trip-hero-glow g2" />
         <div className="trip-hero-veil" />
         
@@ -261,7 +261,7 @@ export default function EducationalDayOut() {
             {filteredDestinations.map((item, idx) => (
               <div className="trip-gallery-card" key={idx}>
                 <div className="trip-card-img-wrap">
-                  <img src={item.image} alt={item.title} className="trip-card-img" />
+                  <img loading="lazy" src={item.image} alt={item.title} className="trip-card-img" />
                   <div className="trip-card-overlay" />
                   <span className="trip-card-tag">{item.tag}</span>
                 </div>
@@ -370,7 +370,7 @@ export default function EducationalDayOut() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

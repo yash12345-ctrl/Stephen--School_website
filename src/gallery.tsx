@@ -8,7 +8,7 @@ const GOVERNING_MEMBERS = {
     id: 'root',
     name: 'Imran Zaki',
     role: 'Hony. Secretary',
-    img: '/v9.png',
+    img: '/v9.webp',
     bio: `Oversees the governance of St. Stephen's School and leads the management body with vision and dedication.`,
   },
   level1: [
@@ -16,14 +16,14 @@ const GOVERNING_MEMBERS = {
       id: 'l1-0',
       name: 'Ayesha Siddiqui',
       role: 'Head-Mistress',
-      img: '/v10.png',
+      img: '/v10.webp',
       bio: `Leads academic excellence, student welfare, and day-to-day operations of the school with 15+ years of experience.`,
     },
     {
       id: 'l1-1',
       name: 'Ajay Paul',
       role: 'Administrator & Advisory Board',
-      img: '/v33.png',
+      img: '/v33.webp',
       bio: `Manages administrative affairs and bridges the gap between the governing body and teaching staff effectively.`,
     },
   ],
@@ -32,7 +32,7 @@ const GOVERNING_MEMBERS = {
       id: 'l2-0',
       name: 'Rajesh Arora',
       role: 'Advisory Board',
-      img: '/v34.png',
+      img: '/v34.webp',
       parentId: 'l1-1',
       bio: `Provides strategic guidance on infrastructure and resource development for the school's growth.`,
     },
@@ -40,7 +40,7 @@ const GOVERNING_MEMBERS = {
       id: 'l2-1',
       name: 'Rehan Misbah',
       role: 'Advisory Board',
-      img: '/v35.png',
+      img: '/v35.webp',
       parentId: 'l1-1',
       bio: `Advises on community outreach initiatives and minority scholarship programs for underprivileged students.`,
     },
@@ -48,7 +48,7 @@ const GOVERNING_MEMBERS = {
       id: 'l2-2',
       name: 'Rajender Singh',
       role: 'Advisory Board',
-      img: '/v36.png',
+      img: '/v36.webp',
       parentId: 'l1-1',
       bio: `Oversees legal compliance, institutional policies, and governance frameworks for the school.`,
     },
@@ -56,7 +56,7 @@ const GOVERNING_MEMBERS = {
       id: 'l2-3',
       name: 'Asif Iqbal',
       role: 'Advisory Board',
-      img: '/v37.png',
+      img: '/v37.webp',
       parentId: 'l1-1',
       bio: `Leads financial planning, budgeting, and audit oversight to ensure responsible fund management.`,
     },
@@ -68,7 +68,7 @@ const MANAGEMENT_MEMBERS = {
     id: 'root',
     name: 'Imran Zaki',
     role: 'Hony. Secretary',
-    img: '/v9.png',
+    img: '/v9.webp',
     bio: `Guides the Management Team with strategic vision and ensures smooth operations.`,
   },
   level1: [
@@ -76,25 +76,25 @@ const MANAGEMENT_MEMBERS = {
       id: 'ml1-0',
       name: 'Ayesha Iqbal Siddiqui',
       role: 'Headmistress',
-      img: '/v10.png',
+      img: '/v10.webp',
       bio: `Leads the management team and oversees all academic and administrative activities.`,
     },
     {
       id: 'ml1-1',
       name: 'Ajoy Paul',
       role: 'Administrator',
-      img: '/v33.png',
+      img: '/v33.webp',
       bio: `Manages school operations, logistics, and resource allocation.`,
     },
   ],
   level2: [
-    { id: 'ml2-0', name: 'Falaq Qaiyum', role: 'Management Team', img: '/logo.png', parentId: 'ml1-0', bio: 'Supports management and administrative operations.' },
-    { id: 'ml2-1', name: 'Shagufta Gulnar', role: 'Management Team', img: '/logo.png', parentId: 'ml1-0', bio: 'Handles day-to-day coordination and planning.' },
-    { id: 'ml2-2', name: 'Tabassum Rashid', role: 'Management Team', img: '/logo.png', parentId: 'ml1-0', bio: 'Ensures efficient management of school programs.' },
-    { id: 'ml2-3', name: 'Tabassum Rashid', role: 'Management Team', img: '/logo.png', parentId: 'ml1-1', bio: 'Assists with operational oversight and management.' },
-    { id: 'ml2-4', name: 'Zikra Salim', role: 'Management Team', img: '/logo.png', parentId: 'ml1-1', bio: 'Contributes to strategic planning and execution.' },
-    { id: 'ml2-5', name: 'ifra Rehman', role: 'Management Team', img: '/logo.png', parentId: 'ml1-1', bio: 'Coordinates team efforts and resource management.' },
-    { id: 'ml2-6', name: 'Rumsha Nehal', role: 'Management Team', img: '/logo.png', parentId: 'ml1-1', bio: 'Manages communications and staff relations.' },
+    { id: 'ml2-0', name: 'Falaq Qaiyum', role: 'Management Team', img: '/logo.webp', parentId: 'ml1-0', bio: 'Supports management and administrative operations.' },
+    { id: 'ml2-1', name: 'Shagufta Gulnar', role: 'Management Team', img: '/logo.webp', parentId: 'ml1-0', bio: 'Handles day-to-day coordination and planning.' },
+    { id: 'ml2-2', name: 'Tabassum Rashid', role: 'Management Team', img: '/logo.webp', parentId: 'ml1-0', bio: 'Ensures efficient management of school programs.' },
+    { id: 'ml2-3', name: 'Tabassum Rashid', role: 'Management Team', img: '/logo.webp', parentId: 'ml1-1', bio: 'Assists with operational oversight and management.' },
+    { id: 'ml2-4', name: 'Zikra Salim', role: 'Management Team', img: '/logo.webp', parentId: 'ml1-1', bio: 'Contributes to strategic planning and execution.' },
+    { id: 'ml2-5', name: 'ifra Rehman', role: 'Management Team', img: '/logo.webp', parentId: 'ml1-1', bio: 'Coordinates team efforts and resource management.' },
+    { id: 'ml2-6', name: 'Rumsha Nehal', role: 'Management Team', img: '/logo.webp', parentId: 'ml1-1', bio: 'Manages communications and staff relations.' },
   ],
 };
 
@@ -107,16 +107,16 @@ const MORNING_FACULTY = {
     bio: 'The dedicated educators of the morning session.',
   },
   level1: [
-    { id: 'mf-0', name: 'Neeta Mukherjee', role: 'Morning Faculty', img: '/v38.png', bio: 'Educator for morning session.' },
-    { id: 'mf-1', name: 'Resham Nahed', role: 'Morning Faculty', img: '/v39.png', bio: 'Educator for morning session.' },
-    { id: 'mf-2', name: 'Tabinda Salim', role: 'Morning Faculty', img: '/v40.png', bio: 'Educator for morning session.' },
-    { id: 'mf-3', name: 'Insha Rehman', role: 'Morning Faculty', img: '/v41.png', bio: 'Educator for morning session.' },
-    { id: 'mf-4', name: 'Falaq Qaiyum', role: 'Morning Faculty', img: '/v42.png', bio: 'Educator for morning session.' },
-    { id: 'mf-5', name: 'Shagufta Gulnar', role: 'Morning Faculty', img: '/v43.png', bio: 'Educator for morning session.' },
-    { id: 'mf-6', name: 'Tabassum Rashid', role: 'Morning Faculty', img: '/v44.png', bio: 'Educator for morning session.' },
-    { id: 'mf-7', name: 'Zikra Salim', role: 'Morning Faculty', img: '/v45.png', bio: 'Educator for morning session.' },
-    { id: 'mf-8', name: 'ifra Rehman', role: 'Morning Faculty', img: '/v46.png', bio: 'Educator for morning session.' },
-    { id: 'mf-9', name: 'Rumsha Nehal', role: 'Morning Faculty', img: '/v47.png', bio: 'Educator for morning session.' },
+    { id: 'mf-0', name: 'Neeta Mukherjee', role: 'Morning Faculty', img: '/v38.webp', bio: 'Educator for morning session.' },
+    { id: 'mf-1', name: 'Resham Nahed', role: 'Morning Faculty', img: '/v39.webp', bio: 'Educator for morning session.' },
+    { id: 'mf-2', name: 'Tabinda Salim', role: 'Morning Faculty', img: '/v40.webp', bio: 'Educator for morning session.' },
+    { id: 'mf-3', name: 'Insha Rehman', role: 'Morning Faculty', img: '/v41.webp', bio: 'Educator for morning session.' },
+    { id: 'mf-4', name: 'Falaq Qaiyum', role: 'Morning Faculty', img: '/v42.webp', bio: 'Educator for morning session.' },
+    { id: 'mf-5', name: 'Shagufta Gulnar', role: 'Morning Faculty', img: '/v43.webp', bio: 'Educator for morning session.' },
+    { id: 'mf-6', name: 'Tabassum Rashid', role: 'Morning Faculty', img: '/v44.webp', bio: 'Educator for morning session.' },
+    { id: 'mf-7', name: 'Zikra Salim', role: 'Morning Faculty', img: '/v45.webp', bio: 'Educator for morning session.' },
+    { id: 'mf-8', name: 'ifra Rehman', role: 'Morning Faculty', img: '/v46.webp', bio: 'Educator for morning session.' },
+    { id: 'mf-9', name: 'Rumsha Nehal', role: 'Morning Faculty', img: '/v47.webp', bio: 'Educator for morning session.' },
   ],
   level2: [],
 };
@@ -130,20 +130,20 @@ const AFTERNOON_FACULTY = {
     bio: 'The dedicated educators of the afternoon session.',
   },
   level1: [
-    { id: 'af-0', name: 'Rina Das', role: 'Afternoon Faculty', img: '/logo.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-1', name: 'Piyali Mnna', role: 'Afternoon Faculty', img: '/v48.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-2', name: 'Shrinjini Saha', role: 'Afternoon Faculty', img: '/v49.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-3', name: 'Kriti Arora', role: 'Afternoon Faculty', img: '/v50.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-4', name: 'Nikhat Ara', role: 'Afternoon Faculty', img: '/v51.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-5', name: 'Obaid Ahmed', role: 'Afternoon Faculty', img: '/v52.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-6', name: 'Uday Shankar', role: 'Afternoon Faculty', img: '/logo.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-7', name: 'Hamidur Rehman', role: 'Afternoon Faculty', img: '/v53.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-8', name: 'Pappu Roy', role: 'Afternoon Faculty', img: '/logo.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-9', name: 'Md. Rafay Ali', role: 'Afternoon Faculty', img: '/v54.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-10', name: 'Md Tabrez', role: 'Afternoon Faculty', img: '/v55.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-11', name: 'Mashira Zakir', role: 'Afternoon Faculty', img: '/v56.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-12', name: 'Saleha Parveen', role: 'Afternoon Faculty', img: '/v57.png', bio: 'Educator for afternoon session.' },
-    { id: 'af-13', name: 'Sirajuddaula', role: 'Afternoon Faculty', img: '/logo.png', bio: 'Educator for afternoon session.' },
+    { id: 'af-0', name: 'Rina Das', role: 'Afternoon Faculty', img: '/logo.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-1', name: 'Piyali Mnna', role: 'Afternoon Faculty', img: '/v48.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-2', name: 'Shrinjini Saha', role: 'Afternoon Faculty', img: '/v49.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-3', name: 'Kriti Arora', role: 'Afternoon Faculty', img: '/v50.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-4', name: 'Nikhat Ara', role: 'Afternoon Faculty', img: '/v51.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-5', name: 'Obaid Ahmed', role: 'Afternoon Faculty', img: '/v52.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-6', name: 'Uday Shankar', role: 'Afternoon Faculty', img: '/logo.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-7', name: 'Hamidur Rehman', role: 'Afternoon Faculty', img: '/v53.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-8', name: 'Pappu Roy', role: 'Afternoon Faculty', img: '/logo.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-9', name: 'Md. Rafay Ali', role: 'Afternoon Faculty', img: '/v54.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-10', name: 'Md Tabrez', role: 'Afternoon Faculty', img: '/v55.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-11', name: 'Mashira Zakir', role: 'Afternoon Faculty', img: '/v56.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-12', name: 'Saleha Parveen', role: 'Afternoon Faculty', img: '/v57.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-13', name: 'Sirajuddaula', role: 'Afternoon Faculty', img: '/logo.webp', bio: 'Educator for afternoon session.' },
   ],
   level2: [],
 };
@@ -157,8 +157,8 @@ const NON_TEACHING_STAFF = {
     bio: 'The essential backbone supporting our school operations.',
   },
   level1: [
-    { id: 'nts-0', name: 'Mushtaque', role: 'Advisory Board', img: '/v58.png', bio: 'Supports the operational and administrative functions.' },
-    { id: 'nts-1', name: 'Humaira', role: 'Advisory Board', img: '/v59.png', bio: 'Supports the operational and administrative functions.' },
+    { id: 'nts-0', name: 'Mushtaque', role: 'Advisory Board', img: '/v58.webp', bio: 'Supports the operational and administrative functions.' },
+    { id: 'nts-1', name: 'Humaira', role: 'Advisory Board', img: '/v59.webp', bio: 'Supports the operational and administrative functions.' },
   ],
   level2: [],
 };
@@ -172,12 +172,12 @@ const CARE_TAKERS = {
     bio: 'Dedicated personnel ensuring campus maintenance and student care.',
   },
   level1: [
-    { id: 'ct-0', name: 'Rehan Misbah', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-1', name: 'Rajender Singh', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-2', name: 'Asif Iqbal', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-3', name: 'Rehan Misbah', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-4', name: 'Rajender Singh', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-5', name: 'Asif Iqbal', role: 'Advisory Board', img: '/logo.png', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-0', name: 'Rehan Misbah', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-1', name: 'Rajender Singh', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-2', name: 'Asif Iqbal', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-3', name: 'Rehan Misbah', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-4', name: 'Rajender Singh', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-5', name: 'Asif Iqbal', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
   ],
   level2: [],
 };
@@ -309,7 +309,7 @@ export default function Gallery() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -460,7 +460,7 @@ export default function Gallery() {
                 >
                   {currentMembers.root.img && (
                     <div className="node-avatar">
-                      <img src={currentMembers.root.img} alt={currentMembers.root.name} />
+                      <img loading="lazy" src={currentMembers.root.img} alt={currentMembers.root.name} />
                     </div>
                   )}
                   <div className="node-name">{currentMembers.root.name}</div>
@@ -480,7 +480,7 @@ export default function Gallery() {
                     ref={el => { nodeRefs.current[m.id] = el; }}
                   >
                     <div className="node-avatar">
-                      <img src={m.img} alt={m.name} />
+                      <img loading="lazy" src={m.img} alt={m.name} />
                     </div>
                     <div className="node-name">{m.name}</div>
                     <div className="node-role">{m.role}</div>
@@ -505,7 +505,7 @@ export default function Gallery() {
                           ref={el => { nodeRefs.current[m.id] = el; }}
                         >
                           <div className="node-avatar">
-                            <img src={m.img} alt={m.name} />
+                            <img loading="lazy" src={m.img} alt={m.name} />
                           </div>
                           <div className="node-name">{m.name}</div>
                           <div className="node-role">{m.role}</div>
@@ -539,7 +539,7 @@ export default function Gallery() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

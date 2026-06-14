@@ -73,7 +73,7 @@ export default function About() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -155,8 +155,8 @@ export default function About() {
         </div>
         <div className="abt-hero-right">
           <div className="abt-hero-img-stack">
-            <img src="/st_stephen_group_2.jpg" alt="St. Stephen's School Community" className="abt-hero-img1" />
-            <img src="/st_stephen_group_1.jpg" alt="St. Stephen's School Group" className="abt-hero-img2" />
+            <img loading="lazy" src="/st_stephen_group_2.webp" alt="St. Stephen's School Community" className="abt-hero-img1" />
+            <img loading="lazy" src="/st_stephen_group_1.webp" alt="St. Stephen's School Group" className="abt-hero-img2" />
 
           </div>
         </div>
@@ -176,10 +176,10 @@ export default function About() {
         <div className="abt-wrap">
           <div className="abt-editorial">
             <div className="abt-editorial-images">
-              <img src="/k1.png" alt="St. Stephen's School – Empowering Students" />
-              <img src="/k2.png" alt="St. Stephen's School – Community Impact" />
-              <img src="/k3.jpg" alt="St. Stephen's School – Interactive Learning" />
-              <img src="/k4.jpg" alt="St. Stephen's School – Classroom Activities" />
+              <img loading="lazy" src="/k1.webp" alt="St. Stephen's School – Empowering Students" />
+              <img loading="lazy" src="/k2.webp" alt="St. Stephen's School – Community Impact" />
+              <img loading="lazy" src="/k3.webp" alt="St. Stephen's School – Interactive Learning" />
+              <img loading="lazy" src="/k4.webp" alt="St. Stephen's School – Classroom Activities" />
             </div>
             <div className="abt-editorial-content">
               <h2 className="abt-section-h2">Our Story: Empowering the <span className="abt-accent">Underprivileged</span></h2>
@@ -253,32 +253,32 @@ export default function About() {
               <div className="abt-bento-carousel">
                 {[
                   {
-                    img: '/k1.png', icon: <Award size={32} />, title: 'Dedicated Faculty',
+                    img: '/k1.webp', icon: <Award size={32} />, title: 'Dedicated Faculty',
                     desc: 'Compassionate educators specializing in supporting first-generation learners, helping them adapt and thrive in an academic setup.',
                     colors: { bg: 'rgba(201,168,76,0.12)', color: '#C9A84C', shadow: 'rgba(201,168,76,0.25)', grad: 'radial-gradient(circle at right, rgba(201,168,76,0.08), transparent 60%)' }
                   },
                   {
-                    img: '/k2.png', icon: <Globe size={32} />, title: 'Madhyamik Syllabus',
+                    img: '/k2.webp', icon: <Globe size={32} />, title: 'Madhyamik Syllabus',
                     desc: 'A structured secondary school curriculum from class Lower Nursery to class X, fully aligned with the West Bengal Madhyamik board.',
                     colors: { bg: 'rgba(71,118,230,0.12)', color: '#4776e6', shadow: 'rgba(71,118,230,0.25)', grad: 'radial-gradient(circle at right, rgba(71,118,230,0.08), transparent 60%)' }
                   },
                   {
-                    img: '/k3.jpg', icon: <Lightbulb size={32} />, title: 'Interactive Clubs',
+                    img: '/k3.webp', icon: <Lightbulb size={32} />, title: 'Interactive Clubs',
                     desc: 'Focusing on sports, art, and social work to discover and nurture creative talent and physical health beyond textbooks.',
                     colors: { bg: 'rgba(255,152,0,0.12)', color: '#FF9800', shadow: 'rgba(255,152,0,0.25)', grad: 'radial-gradient(circle at right, rgba(255,152,0,0.08), transparent 60%)' }
                   },
                   {
-                    img: '/k4.jpg', icon: <Building2 size={32} />, title: 'Bowbazar Location',
+                    img: '/k4.webp', icon: <Building2 size={32} />, title: 'Bowbazar Location',
                     desc: 'Conveniently situated in Bowbazar, Kolkata, serving underprivileged families in our surrounding local street and slum areas.',
                     colors: { bg: 'rgba(76,175,80,0.12)', color: '#4CAF50', shadow: 'rgba(76,175,80,0.25)', grad: 'radial-gradient(circle at right, rgba(76,175,80,0.08), transparent 60%)' }
                   },
                   {
-                    img: '/k5.png', icon: <Handshake size={32} />, title: 'Inclusive Service',
+                    img: '/k5.webp', icon: <Handshake size={32} />, title: 'Inclusive Service',
                     desc: 'We are committed to delivering educational service to all communities of Kolkata without any discrimination of any form.',
                     colors: { bg: 'rgba(156,39,176,0.12)', color: '#9C27B0', shadow: 'rgba(156,39,176,0.25)', grad: 'radial-gradient(circle at right, rgba(156,39,176,0.08), transparent 60%)' }
                   },
                   {
-                    img: '/k6.jpg', icon: <BarChart size={32} />, title: 'NGO Foundation',
+                    img: '/k6.webp', icon: <BarChart size={32} />, title: 'NGO Foundation',
                     desc: 'A non-profit educational institution providing low-cost or free opportunities for children in low-income brackets.',
                     colors: { bg: 'rgba(33,150,243,0.12)', color: '#2196F3', shadow: 'rgba(33,150,243,0.25)', grad: 'radial-gradient(circle at right, rgba(33,150,243,0.08), transparent 60%)' }
                   },
@@ -368,10 +368,10 @@ export default function About() {
             </div>
 
             {[
-              { name: 'Imran Zaki', role: 'Hony. Secretary', img: '/v9.png', color: '#C9A84C', desc: 'Dedicated leader committed to the social and economic transformation of underprivileged children in Kolkata.' },
-              { name: 'Ayesha Siddiqui', role: 'HeadMistress', img: '/v10.png', color: '#7c6b99', desc: 'Experienced educator guiding the academic excellence and holistic development of every student at St. Stephen\'s.' },
-              { name: 'Ajay Paul', role: 'Administrator & Advisory Board', img: '/v33.png', color: '#2d6a6a', desc: 'Overseeing school operations and providing strategic advisory support to strengthen the institution\'s mission.' },
-              { name: 'Rajesh Arora', role: 'Advisory Board', img: '/v34.png', color: '#5a4a7a', desc: 'Providing expert guidance and community leadership to support St. Stephen\'s long-term educational goals.' },
+              { name: 'Imran Zaki', role: 'Hony. Secretary', img: '/v9.webp', color: '#C9A84C', desc: 'Dedicated leader committed to the social and economic transformation of underprivileged children in Kolkata.' },
+              { name: 'Ayesha Siddiqui', role: 'HeadMistress', img: '/v10.webp', color: '#7c6b99', desc: 'Experienced educator guiding the academic excellence and holistic development of every student at St. Stephen\'s.' },
+              { name: 'Ajay Paul', role: 'Administrator & Advisory Board', img: '/v33.webp', color: '#2d6a6a', desc: 'Overseeing school operations and providing strategic advisory support to strengthen the institution\'s mission.' },
+              { name: 'Rajesh Arora', role: 'Advisory Board', img: '/v34.webp', color: '#5a4a7a', desc: 'Providing expert guidance and community leadership to support St. Stephen\'s long-term educational goals.' },
             ].map((l, i) => (
               <div className={`abt-tree-card node-${i} ${i % 2 === 0 ? 'left-node' : 'right-node'}`} key={i} style={{ '--leader-color': l.color } as React.CSSProperties}>
                 <div className="abt-tree-card-img" style={{ backgroundImage: `url(${l.img})` }} />
@@ -404,7 +404,7 @@ export default function About() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

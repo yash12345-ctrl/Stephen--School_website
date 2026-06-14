@@ -39,7 +39,7 @@ export default function Christmas() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -86,7 +86,7 @@ export default function Christmas() {
 
       {/* ── HERO ── */}
       <section className="xm-hero">
-        <div className="xm-hero-bg" style={{ backgroundImage: "url('/christmas_hero.png')" }} />
+        <div className="xm-hero-bg" style={{ backgroundImage: "url('/christmas_hero.webp')" }} />
         <div className="xm-snow-overlay" />
         <div className="xm-hero-veil" />
         
@@ -136,8 +136,8 @@ export default function Christmas() {
           <div className="xm-about-grid">
             <div className="xm-about-visual">
               <div className="xm-about-collage">
-                <img src="/v3.png" alt="Christmas Celebration Prep" className="xm-collage-img-main" />
-                <img src="/v4.jpeg" alt="Students Joy" className="xm-collage-img-sec" />
+                <img loading="lazy" src="/v3.webp" alt="Christmas Celebration Prep" className="xm-collage-img-main" />
+                <img loading="lazy" src="/v4.webp" alt="Students Joy" className="xm-collage-img-sec" />
               </div>
               <div className="xm-about-badge">
                 <div className="xm-about-badge-num">🎄</div>
@@ -194,7 +194,7 @@ export default function Christmas() {
                 </p>
               </div>
               <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '240px' }}>
-                <img src="/v3.png" alt="St. Paul's Cathedral Visit on December 25, 2024" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img loading="lazy" src="/v3.webp" alt="St. Paul's Cathedral Visit on December 25, 2024" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{
                   position: 'absolute',
                   bottom: '1rem',
@@ -285,7 +285,7 @@ export default function Christmas() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

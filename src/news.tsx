@@ -32,63 +32,63 @@ const allNews = [
     date: 'May 4, 2017', readTime: '2 min read',
     title: 'Shri Keshari Nath Tripathi — Governor of West Bengal',
     excerpt: 'Visit by His Excellency Shri Keshari Nath Tripathi, the Governor of West Bengal and Brother Brendan Mac Carthaigh on 4th May, 2017.',
-    image: '/v19.png', image2: '/v20.png', featured: true, hot: true,
+    image: '/v19.webp', image2: '/v20.webp', featured: true, hot: true,
   },
   {
     id: 2, category: 'Diplomat' as const,
     date: 'April 17, 2018', readTime: '2 min read',
     title: 'Mrs. Iris Schrod & Mr. Jurgen Thomas Schrod — Deputy Consul General of Germany',
     excerpt: 'On April 17, 2018, Mrs. Iris Schrod and Mr. Jurgen Thomas Schrod, Deputy Consul General of Germany, visited St. Stephen\'s School Bowbazar.',
-    image: '/v21.png', image2: '/v22.png', featured: false, hot: true,
+    image: '/v21.webp', image2: '/v22.webp', featured: false, hot: true,
   },
   {
     id: 3, category: 'Diplomat' as const,
     date: 'December 4, 2018', readTime: '2 min read',
     title: 'Consul General of Japan',
     excerpt: 'Mr. Masayuki Taga, Consul General of Japan, Kolkata paid a visit to our school in the Art and Craft Exhibition on 4th of December, 2018.',
-    image: '/v23.png', featured: false, hot: false,
+    image: '/v23.webp', featured: false, hot: false,
   },
   {
     id: 4, category: 'Diplomat' as const,
     date: 'June 29, 2022', readTime: '3 min read',
     title: 'Consul General of People Republic of China',
     excerpt: 'Mr. Zha Liyou, Consul General of People Republic of China, paid a visit to our school on 29th of June, 2022 and interacted warmly with our school teachers and students. He also graciously attended the monitor selection ceremony, witnessing the oath-taking and encouraging the young leaders.',
-    image: '/v24.png', image2: '/v25.png', image3: '/v26.png', image4: '/v4.jpeg', featured: false, hot: false,
+    image: '/v24.webp', image2: '/v25.webp', image3: '/v26.webp', image4: '/v4.webp', featured: false, hot: false,
   },
   {
     id: 5, category: 'Diplomat' as const,
     date: 'July 19, 2022', readTime: '2 min read',
     title: 'Director of the American Center',
     excerpt: 'Mr. Adrian Pratt, Director of the American Center visited St. Stephens School and interacted with the kids on July 19, 2022.',
-    image: '/v27.png', image2: '/v28.png', featured: true, hot: true,
+    image: '/v27.webp', image2: '/v28.webp', featured: true, hot: true,
   },
   {
     id: 6, category: 'Dignitary' as const,
     date: '7th September', readTime: '2 min read',
     title: 'Embassy of the United States of America',
     excerpt: 'On September 7th, 2022, Ms. Ruth Goode, representing the Embassy of the United States of America.',
-    image: '/v29.png', featured: false, hot: false,
+    image: '/v29.webp', featured: false, hot: false,
   },
   {
     id: 7, category: 'Dignitary' as const,
     date: '8th July', readTime: '2 min read',
     title: 'Director of Alliance Francaise',
     excerpt: 'Mr. Nicolas Facino, Director of Alliance Francaise visited our school on 8th July, 2022. He provided insights on the importance of education, skill development. He encouraged the students to pursue their dreams with determination.',
-    image: '/v30.png', featured: false, hot: false,
+    image: '/v30.webp', featured: false, hot: false,
   },
   {
     id: 8, category: 'Dignitary' as const,
     date: '7th September', readTime: '2 min read',
     title: 'Embassy of the United States of Americas',
     excerpt: 'On September 7th, 2022, Ms. Ruth Goode, representing the Embassy of the United States of America.',
-    image: '/v31.png', image2: '/v32.png', featured: true, hot: true,
+    image: '/v31.webp', image2: '/v32.webp', featured: true, hot: true,
   },
   {
     id: 9, category: 'Dignitary' as const,
     date: '8th July', readTime: '2 min read',
     title: 'Mr. Nicolas Facino, Director of Alliance  Francaise',
     excerpt: 'Mr. Nicolas Facino, Director of Alliance Francaise visited our school on 8th July, 2022. He provided insights on the importance of education, skill development. He encouraged the students to pursue their dreams with determination.',
-    image: '/v30.png', featured: false, hot: false,
+    image: '/v30.webp', featured: false, hot: false,
   }
 ];
 
@@ -134,7 +134,7 @@ export default function News() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -252,13 +252,13 @@ export default function News() {
                   padding: '2rem', boxSizing: 'border-box'
                 }}>
                   <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem' }}>
-                    <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '80px', filter: 'grayscale(100%) sepia(50%) contrast(1.2)' }} />
+                    <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '80px', filter: 'grayscale(100%) sepia(50%) contrast(1.2)' }} />
                   </div>
 
                   <h1 className="np-paper-title" style={{ fontSize: '4.5rem', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>The Dignitary<br />Voice</h1>
 
                   <div style={{ width: '80%', margin: '2.5rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
-                    <img src="/v6.jpg" alt="Cover Image" style={{ width: '100%', height: '220px', objectFit: 'cover', filter: 'grayscale(100%) sepia(30%) contrast(1.1)', display: 'block' }} />
+                    <img loading="lazy" src="/v6.webp" alt="Cover Image" style={{ width: '100%', height: '220px', objectFit: 'cover', filter: 'grayscale(100%) sepia(30%) contrast(1.1)', display: 'block' }} />
                   </div>
 
                   <p className="subtitle" style={{ textAlign: 'center', margin: 0, fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '1.2rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>St. Stephen's School</p>
@@ -300,7 +300,7 @@ export default function News() {
                           boxSizing: 'border-box',
                           minHeight: 0
                         }}>
-                          <img src={imgSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(100%) sepia(20%) contrast(1.15)', display: 'block' }} />
+                          <img loading="lazy" src={imgSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(100%) sepia(20%) contrast(1.15)', display: 'block' }} />
                         </div>
                       ))}
                     </div>
@@ -331,7 +331,7 @@ export default function News() {
             <BookPage density="hard">
               <div className="book-back-cover" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '3rem' }}>
                 <div className="logo-crest-wrapper" style={{ margin: '0 auto 2rem', opacity: 0.5 }}>
-                  <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '80px', filter: 'grayscale(100%) sepia(30%)' }} />
+                  <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '80px', filter: 'grayscale(100%) sepia(30%)' }} />
                 </div>
                 <h3 style={{ fontFamily: '"Playfair Display", serif', fontSize: '2rem', marginBottom: '1rem', textAlign: 'center' }}>St. Stephen's School</h3>
                 <p style={{ fontSize: '1rem', color: '#555' }}>Established 1971</p>
@@ -347,7 +347,7 @@ export default function News() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

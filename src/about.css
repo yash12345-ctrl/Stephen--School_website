@@ -952,7 +952,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: url('/img.png') center/cover no-repeat;
+  background: url('/img.webp') center/cover no-repeat;
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.9), 0 20px 50px rgba(0, 0, 0, 0.15);
   z-index: 5;
 }

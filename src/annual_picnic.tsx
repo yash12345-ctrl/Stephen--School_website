@@ -29,25 +29,25 @@ export default function AnnualPicnic() {
       title: "Friendly Tournaments & Games",
       desc: "From classic tug-of-war and sack races to exciting cricket and badminton matches, the spacious greens of Eco Park turn into a arena of laughter, teamwork, and healthy competition.",
       bullet: "Builds teamwork & confidence",
-      image: "/v13.png"
+      image: "/v13.webp"
     },
     magic: {
       title: "Puppet & Magic Show",
       desc: "Middle schoolers and primary children gather around for a spectacular live magic show featuring interactive illusionists, puppet storytelling, and balloon artists that bring sheer amazement.",
       bullet: "Encourages creative imagination",
-      image: "/v14.png"
+      image: "/v14.webp"
     },
     feast: {
       title: "Fresh Open-Air Feast",
       desc: "A hot, delicious picnic lunch cooked fresh on-site by our teachers and parent volunteers. Sharing a meal under the warm winter sun forms a key highlight of our community bonding.",
       bullet: "Prepared with love & hygiene",
-      image: "/v15.png"
+      image: "/v15.webp"
     },
     music: {
       title: "Music & Jam Sessions",
       desc: "A cozy circle of guitars, dhols, and choir singers. Students perform unplugged patriotic songs, folk tunes, and popular melodies while the entire school joins in chorus.",
       bullet: "Fosters self-expression",
-      image: "/v16.png"
+      image: "/v16.webp"
     }
   };
 
@@ -118,7 +118,7 @@ export default function AnnualPicnic() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -165,7 +165,7 @@ export default function AnnualPicnic() {
 
       {/* ── HERO ── */}
       <section className="pk-hero">
-        <div className="pk-hero-bg" style={{ backgroundImage: "url('/annual_picnic_hero.png')" }} />
+        <div className="pk-hero-bg" style={{ backgroundImage: "url('/annual_picnic_hero.webp')" }} />
         <div className="pk-hero-veil" />
         
         <div className="pk-hero-inner">
@@ -214,8 +214,8 @@ export default function AnnualPicnic() {
           <div className="pk-about-grid">
             <div className="pk-about-visual">
               <div className="pk-about-collage">
-                <img src="/v17.png" alt="Happy Picnic Group" className="pk-collage-img-main" />
-                <img src="/v18.png" alt="Students Playing Tug of War" className="pk-collage-img-sec" />
+                <img loading="lazy" src="/v17.webp" alt="Happy Picnic Group" className="pk-collage-img-main" />
+                <img loading="lazy" src="/v18.webp" alt="Students Playing Tug of War" className="pk-collage-img-sec" />
               </div>
               <div className="pk-about-badge">
                 <div className="pk-about-badge-num">🌳</div>
@@ -281,7 +281,7 @@ export default function AnnualPicnic() {
           <div className="pk-tab-content-panel">
             <div className={`pk-tab-grid ${tabFade ? 'fade-out' : ''}`}>
               <div className="pk-tab-img-wrap">
-                <img src={activities[activeTab as keyof typeof activities].image} alt={activities[activeTab as keyof typeof activities].title} />
+                <img loading="lazy" src={activities[activeTab as keyof typeof activities].image} alt={activities[activeTab as keyof typeof activities].title} />
               </div>
               <div className="pk-tab-text">
                 <h3>{activities[activeTab as keyof typeof activities].title}</h3>
@@ -410,7 +410,7 @@ export default function AnnualPicnic() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

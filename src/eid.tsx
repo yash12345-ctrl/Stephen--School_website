@@ -60,7 +60,7 @@ export default function Eid() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -107,7 +107,7 @@ export default function Eid() {
 
       {/* ── HERO ── */}
       <section className="eid-hero">
-        <div className="eid-hero-bg" style={{ backgroundImage: "url('/eid_hero.png')" }} />
+        <div className="eid-hero-bg" style={{ backgroundImage: "url('/eid_hero.webp')" }} />
         <div className="eid-hero-veil" />
         
         <div className="eid-hero-inner">
@@ -211,8 +211,8 @@ export default function Eid() {
           <div className="eid-about-grid">
             <div className="eid-about-visual">
               <div className="eid-about-collage">
-                <img src="/v4.jpeg" alt="Eid Milan Prep" className="eid-collage-img-main" />
-                <img src="/v3.png" alt="Children Smiling" className="eid-collage-img-sec" />
+                <img loading="lazy" src="/v4.webp" alt="Eid Milan Prep" className="eid-collage-img-main" />
+                <img loading="lazy" src="/v3.webp" alt="Children Smiling" className="eid-collage-img-sec" />
               </div>
               <div className="eid-about-badge">
                 <div className="eid-about-badge-num">🌙</div>
@@ -269,7 +269,7 @@ export default function Eid() {
                 </p>
               </div>
               <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '240px' }}>
-                <img src="/v4.jpeg" alt="Gifts Distribution on May 6, 2022" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img loading="lazy" src="/v4.webp" alt="Gifts Distribution on May 6, 2022" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{
                   position: 'absolute',
                   bottom: '1rem',
@@ -360,7 +360,7 @@ export default function Eid() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

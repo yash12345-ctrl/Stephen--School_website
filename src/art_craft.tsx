@@ -28,7 +28,7 @@ export default function ArtCraftExhibition() {
       title: "Hues of Bowbazar",
       desc: "A stunning watercolor painting depicting the lively streets, vintage trams, and heritage architecture of Kolkata under a warm golden sunset.",
       category: "paintings",
-      image: "/art_painting.png",
+      image: "/art_painting.webp",
       artist: "Rahul Das",
       grade: "Grade 9",
       tag: "Watercolor"
@@ -37,7 +37,7 @@ export default function ArtCraftExhibition() {
       title: "Majestic Clay Trunk",
       desc: "A beautifully molded and hand-painted clay elephant showcasing intricate traditional patterns and vibrant decorative ornaments.",
       category: "sculptures",
-      image: "/art_sculpture.png",
+      image: "/art_sculpture.webp",
       artist: "Sneha Sen",
       grade: "Grade 7",
       tag: "Clay Modeling"
@@ -46,7 +46,7 @@ export default function ArtCraftExhibition() {
       title: "Eco Windmill Model",
       desc: "An innovative, fully operational toy windmill crafted entirely from recycled newspapers, discarded plastics, and ice cream sticks.",
       category: "crafts",
-      image: "/art_recycled.png",
+      image: "/art_recycled.webp",
       artist: "Ayan Roy",
       grade: "Grade 8",
       tag: "Recycled Art"
@@ -55,7 +55,7 @@ export default function ArtCraftExhibition() {
       title: "Ganges in Springtime",
       desc: "A rich acrylic on canvas masterpiece displaying country boats sailing on the Ganges River with vibrant spring blossoms along the banks.",
       category: "paintings",
-      image: "/art_painting.png",
+      image: "/art_painting.webp",
       artist: "Pooja Gupta",
       grade: "Grade 10",
       tag: "Acrylic"
@@ -64,7 +64,7 @@ export default function ArtCraftExhibition() {
       title: "Guardian of the Jungle",
       desc: "A stylized clay sculpture representing a roaring Bengal Tiger, glazed with organic colors made from flowers and leaves.",
       category: "sculptures",
-      image: "/art_sculpture.png",
+      image: "/art_sculpture.webp",
       artist: "Vikram Malhotra",
       grade: "Grade 6",
       tag: "Glazed Terracotta"
@@ -73,7 +73,7 @@ export default function ArtCraftExhibition() {
       title: "Cardboard Castle Estate",
       desc: "A highly detailed fantasy castle featuring towers, drawbridges, and outer walls constructed from waste shipping cartons.",
       category: "crafts",
-      image: "/art_recycled.png",
+      image: "/art_recycled.webp",
       artist: "Ananya Bose",
       grade: "Grade 5",
       tag: "Cardboard Craft"
@@ -148,7 +148,7 @@ export default function ArtCraftExhibition() {
         <div className="nav-inner">
           <a href="/" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's</div>
@@ -195,7 +195,7 @@ export default function ArtCraftExhibition() {
 
       {/* ── HERO ── */}
       <section className="art-hero">
-        <div className="art-hero-bg" style={{ backgroundImage: "url('/art_exhibition_hero.png')" }} />
+        <div className="art-hero-bg" style={{ backgroundImage: "url('/art_exhibition_hero.webp')" }} />
         <div className="art-hero-glow g1" /><div className="art-hero-glow g2" />
         <div className="art-hero-veil" />
         
@@ -261,7 +261,7 @@ export default function ArtCraftExhibition() {
             {filteredItems.map((item, idx) => (
               <div className="art-gallery-card" key={idx}>
                 <div className="art-card-img-wrap">
-                  <img src={item.image} alt={item.title} className="art-card-img" />
+                  <img loading="lazy" src={item.image} alt={item.title} className="art-card-img" />
                   <div className="art-card-overlay" />
                   <span className="art-card-tag">{item.tag}</span>
                 </div>
@@ -289,7 +289,7 @@ export default function ArtCraftExhibition() {
           <div className="art-dignitary-grid">
             <div className="art-dignitary-visual" style={{ position: 'relative' }}>
               <div className="art-dignitary-visual-wrapper">
-                <img src="/v11.png" alt="Consul General of Japan Visit" />
+                <img loading="lazy" src="/v11.webp" alt="Consul General of Japan Visit" />
               </div>
               <div className="art-card-tag" style={{ top: 'auto', bottom: '1.5rem', left: '1.5rem', right: 'auto', background: 'rgba(255, 107, 107, 0.9)', color: '#fff' }}>
                 🇯🇵 Distinguished Guest Visit
@@ -396,7 +396,7 @@ export default function ArtCraftExhibition() {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="logo-crest-wrapper">
-                <img src="/v2.png" className="logo-crest-img" alt="St. Stephen's Crest" />
+                <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
                 <div className="logo-name">St. Stephen's</div>

@@ -29,7 +29,7 @@ const displayData = [
     desc: 'A nurturing environment where early learners and primary students build strong foundational skills in literacy, numeracy, and character development through interactive, holistic education.',
     color1: '#11998e',
     color2: '#38ef7d',
-    img: '/v7.jpg'
+    img: '/v7.webp'
   },
   {
     grade: 'Evening Shift',
@@ -38,7 +38,7 @@ const displayData = [
     desc: 'Comprehensive academic preparation focused on advanced coursework, critical thinking, and board examination readiness, empowering senior students for future success.',
     color1: '#eb3349',
     color2: '#f45c43',
-    img: '/v8.jpg'
+    img: '/v8.webp'
   }
 ];
 
@@ -170,7 +170,7 @@ export default function ProgramTop() {
 
               {/* Program Image */}
               <div className="prog-showcase-image" style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}>
-                <img src={activeProg.img} alt={activeProg.grade} style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
+                <img loading="lazy" src={activeProg.img} alt={activeProg.grade} style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
               </div>
 
               {/* Learn More CTA */}
