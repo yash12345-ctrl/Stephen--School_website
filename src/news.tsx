@@ -5,13 +5,13 @@ import { ProgramMegaMenu } from './program_top';
 // @ts-ignore
 import HTMLFlipBook from 'react-pageflip';
 
-const FlipBook: any = HTMLFlipBook;
-interface BookPageProps {
+export const FlipBook: any = HTMLFlipBook;
+export interface BookPageProps {
   children: ReactNode;
   density?: 'soft' | 'hard';
 }
 
-const BookPage = forwardRef((props: BookPageProps, ref: ForwardedRef<HTMLDivElement>) => {
+export const BookPage = forwardRef((props: BookPageProps, ref: ForwardedRef<HTMLDivElement>) => {
   return (
     <div className="book-page" ref={ref} data-density={props.density || 'soft'}>
       <div className="book-page-content" style={{ height: '100%' }}>
@@ -26,7 +26,7 @@ const BookPage = forwardRef((props: BookPageProps, ref: ForwardedRef<HTMLDivElem
 ══════════════════════════════════════════ */
 
 
-const allNews = [
+export const allNews = [
   {
     id: 1, category: 'Governor' as const,
     date: 'May 4, 2017', readTime: '2 min read',

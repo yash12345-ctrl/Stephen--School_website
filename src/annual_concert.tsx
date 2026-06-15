@@ -14,7 +14,7 @@ export default function AnnualConcert() {
   const playClassicalMelody = () => {
     if (isPlayingMelody) return;
     setIsPlayingMelody(true);
-    
+
     try {
       const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
       if (!AudioContext) return;
@@ -28,16 +28,16 @@ export default function AnnualConcert() {
         [440.00, 523.25, 659.25, 880.00]  // A Min
       ];
 
-      const duration = 10; 
+      const duration = 10;
       const noteLength = 0.18; // fast arpeggios
       let startTime = ctx.currentTime;
-      
+
       // We will pick a random chord progression.
       const shuffledChords = [...chords].sort(() => Math.random() - 0.5);
 
       for (let i = 0; i < duration / noteLength; i++) {
         const chord = shuffledChords[Math.floor((i / 8)) % shuffledChords.length];
-        
+
         // Add random variation to note order to make every click unique
         const isRandom = Math.random() > 0.5;
         const noteIndex = isRandom ? Math.floor(Math.random() * chord.length) : (i % chord.length);
@@ -80,21 +80,21 @@ export default function AnnualConcert() {
       const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
       if (!AudioContext) return;
       const audioCtx = new AudioContext();
-      
+
       // Main oscillator
       const osc1 = audioCtx.createOscillator();
       const gainNode = audioCtx.createGain();
 
       // Sub oscillator for richness
       const osc2 = audioCtx.createOscillator();
-      
+
       // Pentatonic scale: C4, D4, E4, G4, A4, C5
       const frequencies = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
       const freq = frequencies[index % frequencies.length];
 
       osc1.type = 'sine';
       osc1.frequency.setValueAtTime(freq, audioCtx.currentTime);
-      
+
       osc2.type = 'triangle'; // adds warm harmonics
       osc2.frequency.setValueAtTime(freq / 2, audioCtx.currentTime); // one octave lower
 
@@ -153,7 +153,7 @@ export default function AnnualConcert() {
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'Gallery', 'News', 'Contact'].map(l => (
+            {['Home', 'About', 'Programs', 'School', 'News', 'Gallery'].map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaMenuOpen(true); } : undefined}
@@ -274,15 +274,15 @@ export default function AnnualConcert() {
               </div>
 
             </div>
-            
-            <button 
+
+            <button
               className={`ac-magic-btn ${isPlayingMelody ? 'playing' : ''}`}
               onClick={playClassicalMelody}
               disabled={isPlayingMelody}
             >
               {isPlayingMelody ? '✨ Playing...' : '🎵 Listen to Magic'}
             </button>
-            
+
           </div>
         </div>
 

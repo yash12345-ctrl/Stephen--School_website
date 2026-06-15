@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import './gallery.css';
+import './news.css'; // ensure news styles are available
 import { ProgramMegaMenu } from './program_top';
+import { allNews } from './news';
 
 // ── DATA ──────────────────────────────────────────────────────────────
 const GOVERNING_MEMBERS = {
@@ -201,6 +203,7 @@ function makeCurvedPath(x1: number, y1: number, x2: number, y2: number) {
 // ── MAIN COMPONENT ─────────────────────────────────────────────────────
 export default function Gallery() {
   const [activeTab, setActiveTab] = useState('GOVERNING BODY');
+  const [viewMode, setViewMode] = useState<'selection' | 'governance' | 'dignitaries'>('selection');
 
   const isTreeTab = activeTab === 'GOVERNING BODY' || activeTab === 'MANAGEMENT TEAM' || activeTab === 'MORNING FACULTY' || activeTab === 'AFTERNOON FACULTY' || activeTab === 'NON-TEACHING STAFF' || activeTab === 'CARE-TAKERS';
   const currentMembers = activeTab === 'CARE-TAKERS' ? CARE_TAKERS : activeTab === 'NON-TEACHING STAFF' ? NON_TEACHING_STAFF : activeTab === 'AFTERNOON FACULTY' ? AFTERNOON_FACULTY : activeTab === 'MORNING FACULTY' ? MORNING_FACULTY : activeTab === 'MANAGEMENT TEAM' ? MANAGEMENT_MEMBERS : GOVERNING_MEMBERS;
@@ -228,11 +231,9 @@ export default function Gallery() {
   const [svgH, setSvgH] = useState(0);
 
   const [, setRevealed] = useState(false);
-  const [treeStarted, setTreeStarted] = useState(false);
 
   // reset tree state when tab changes
   useEffect(() => {
-    setTreeStarted(false);
     setRevealed(false);
   }, [activeTab]);
 
@@ -245,11 +246,9 @@ export default function Gallery() {
 
   // trigger float loop after all cards have revealed (longest delay ~1.2s + 0.9s anim)
   useEffect(() => {
-    if (treeStarted) {
-      const t = setTimeout(() => setRevealed(true), 2200);
-      return () => clearTimeout(t);
-    }
-  }, [treeStarted]);
+    const t = setTimeout(() => setRevealed(true), 2200);
+    return () => clearTimeout(t);
+  }, [activeTab]);
 
   // mega-menu close on outside click
   useEffect(() => {
@@ -264,7 +263,6 @@ export default function Gallery() {
 
   // compute SVG connector paths after layout
   useLayoutEffect(() => {
-    if (!treeStarted) return;
     const compute = () => {
       const c = containerRef.current;
       if (!c) return;
@@ -299,7 +297,7 @@ export default function Gallery() {
     const id = setTimeout(compute, 100);
     window.addEventListener('resize', compute);
     return () => { clearTimeout(id); window.removeEventListener('resize', compute); };
-  }, [activeTab, treeStarted]);
+  }, [activeTab, viewMode]);
 
   return (
     <div className="gallery-page">
@@ -349,11 +347,43 @@ export default function Gallery() {
         </div>
       </nav>
 
-      {/* ── HEADER ── */}
-      <div className="gallery-header">
-        <div className="gallery-header-inner">
-          <div className="header-left">
-            <div className="title-watermark">{currentTabInfo.title.substring(0, 2).toUpperCase()}</div>
+      {/* ── MAIN CONTENT ── */}
+      {viewMode === 'selection' && (
+        <div className="gallery-selection-view">
+          <div className="selection-split left" onClick={() => setViewMode('governance')}>
+            <img src="/st_stephen_group_1.webp" alt="Governance" className="bg-img" />
+            <div className="overlay"></div>
+            <div className="content">
+              <span className="selection-label">Leadership</span>
+              <h2>Governing Body</h2>
+              <p>Explore the leadership and administrative structure of St. Stephen's School.</p>
+              <button>View Structure</button>
+            </div>
+          </div>
+          <div className="selection-split right" onClick={() => setViewMode('dignitaries')}>
+            <img src="/v6.webp" alt="Dignitaries" className="bg-img" />
+            <div className="overlay"></div>
+            <div className="content">
+              <span className="selection-label">Visits & Events</span>
+              <h2>Dignitaries</h2>
+              <p>Voices, visits, and memories from our esteemed guests and dignitaries.</p>
+              <button>View Dignitaries</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {viewMode === 'governance' && (
+        <>
+          {/* ── HEADER ── */}
+          <div className="gallery-header">
+            <div className="gallery-header-inner">
+              <div className="header-left">
+                <button className="gallery-back-btn" onClick={() => setViewMode('selection')}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                  Back to Gallery
+                </button>
+                <div className="title-watermark">{currentTabInfo.title.substring(0, 2).toUpperCase()}</div>
             <span className="gallery-chip">
               <span className="chip-dot"></span>
               Administration
@@ -383,16 +413,7 @@ export default function Gallery() {
       {/* ── TAB CONTENT ── */}
       {isTreeTab ? (
         <div className="org-canvas-wrap">
-          {!treeStarted ? (
-            <div className="start-tree-container">
-              <button className="start-tree-btn" onClick={() => setTreeStarted(true)}>
-                <span className="btn-text">
-                  {activeTab === 'CARE-TAKERS' ? 'View Care-Takers' : activeTab === 'NON-TEACHING STAFF' ? 'View Non-Teaching Staff' : activeTab === 'AFTERNOON FACULTY' ? 'View Afternoon Faculty' : activeTab === 'MORNING FACULTY' ? 'View Morning Faculty' : activeTab === 'MANAGEMENT TEAM' ? 'View Management Team' : 'View Governance Structure'}
-                </span>
-              </button>
-            </div>
-          ) : (
-            <div className="org-canvas-inner" ref={containerRef}>
+          <div className="org-canvas-inner" ref={containerRef}>
 
               {/* SVG overlay — animated lines + flowing particles */}
               <svg className="org-svg" style={{ height: svgH || '100%' }} aria-hidden="true">
@@ -518,8 +539,7 @@ export default function Gallery() {
                 })}
               </div>
 
-            </div>
-          )}
+          </div>
         </div>
       ) : (
         <div className="tab-placeholder">
@@ -529,6 +549,51 @@ export default function Gallery() {
             </div>
             <h2>{currentTabInfo.title}</h2>
             <p>{currentTabInfo.subtitle}</p>
+          </div>
+        </div>
+      )}
+        </>
+      )}
+
+      {viewMode === 'dignitaries' && (
+        <div className="gallery-dignitaries-view">
+          <div className="dig-header">
+            <button className="gallery-back-btn dig-back-btn" onClick={() => setViewMode('selection')}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+              Back to Gallery
+            </button>
+            <div className="dig-header-content">
+              <span className="dig-meta">The Archives</span>
+              <h1 className="dig-title">Dignitary Voices</h1>
+              <p className="dig-subtitle">Honored guests and distinguished leaders who have shaped our institutional journey.</p>
+            </div>
+          </div>
+          
+          <div className="dig-feed">
+            {allNews.map((item, index) => (
+              <article className={`dig-article ${index % 2 === 0 ? 'image-left' : 'image-right'}`} key={item.id}>
+                <div className="dig-images">
+                  <div className="dig-img-main-wrap">
+                    <img loading="lazy" src={item.image} alt={item.title} className="dig-img-main" />
+                  </div>
+                  {item.image2 && (
+                    <div className="dig-img-secondary-wrap">
+                      <img loading="lazy" src={item.image2} alt={item.title} className="dig-img-sec" />
+                    </div>
+                  )}
+                </div>
+                <div className="dig-content">
+                  <div className="dig-item-meta">
+                    <span className="dig-category">{item.category}</span>
+                    <span className="dig-date">{item.date}</span>
+                  </div>
+                  <h2 className="dig-item-title">{item.title}</h2>
+                  <div className="dig-item-excerpt">
+                    <p><span className="dig-drop-cap">{item.excerpt.charAt(0)}</span>{item.excerpt.slice(1)}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       )}

@@ -61,8 +61,6 @@ export function ProgramMegaMenu({ open, onClose }: { open: boolean; onClose: () 
               <span className="mega-stat-lbl">Participants</span>
             </div>
           </div>
-
-          <a href="/#events" className="mega-btn" onClick={onClose}>View All Events →</a>
         </div>
         <div className="mega-right">
           <div className="mega-section-label">🎉 Events & Activities</div>
