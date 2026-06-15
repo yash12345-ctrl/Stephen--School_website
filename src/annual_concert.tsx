@@ -16,9 +16,9 @@ export default function AnnualConcert() {
     setIsPlayingMelody(true);
 
     try {
-      const AudioContext = window.AudioContext || (window as typeof window & { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      if (!AudioContext) return;
-      const ctx = new AudioContext();
+      const AudioCtx = window.AudioContext || (window as typeof window & { webkitAudioContext: typeof window.AudioContext }).webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
 
       // C Major, F Major, G Major, A Minor
       const chords = [
@@ -77,9 +77,9 @@ export default function AnnualConcert() {
 
   const playNote = (index: number) => {
     try {
-      const AudioContext = window.AudioContext || (window as typeof window & { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      if (!AudioContext) return;
-      const audioCtx = new AudioContext();
+      const AudioCtx = window.AudioContext || (window as typeof window & { webkitAudioContext: typeof window.AudioContext }).webkitAudioContext;
+      if (!AudioCtx) return;
+      const audioCtx = new AudioCtx();
 
       // Main oscillator
       const osc1 = audioCtx.createOscillator();
