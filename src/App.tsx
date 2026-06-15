@@ -204,7 +204,7 @@ export default function App() {
             </div>
             <div className="dignitary-content">
               <div className="dignitary-quote-icon">❝</div>
-              <p className="dignitary-quote">"To build strong, positive connections with students privileged and under-privileged, so they can achieve independence, confidence and academic knowledge."</p>
+              <p className="dignitary-quote">"Education is the foundation upon which a progressive and empowered society is built. At St. Stephen’s School, our commitment extends beyond academics—we are dedicated to making quality education accessible and affordable for every child, regardless of their background. We strive to bridge the gap between aspiration and opportunity by providing modern facilities, a safe learning environment, and holistic development programs that match the standards of leading educational institutions. Our goal is to nurture responsible, confident, and compassionate individuals who will contribute positively to society and become the leaders of tomorrow."</p>
               <h4 className="dignitary-name">Imran Zaki</h4>
               <p className="dignitary-role">Hony. Secretary</p>
             </div>
@@ -216,7 +216,7 @@ export default function App() {
             </div>
             <div className="dignitary-content">
               <div className="dignitary-quote-icon">❝</div>
-              <p className="dignitary-quote">"To build strong, positive connections with students privileged and under-privileged, so they can achieve independence, confidence and academic knowledge."</p>
+              <p className="dignitary-quote">"At St. Stephen’s School, we firmly believe that quality education should not be a privilege reserved for a few, but a right accessible to every child. Our mission is to provide affordable, value-based education to children from all sections of society, especially those who may otherwise be deprived of opportunities. We work tirelessly to create a nurturing environment equipped with modern facilities, experienced educators, and holistic learning experiences comparable to the finest schools in Kolkata. Our vision is not merely to educate young minds, but to empower them with knowledge, confidence, and values that will help them build a brighter future for themselves and their communities."</p>
               <h4 className="dignitary-name">Ayesha Siddiqui</h4>
               <p className="dignitary-role">HeadMistress</p>
             </div>
