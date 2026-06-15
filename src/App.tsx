@@ -46,7 +46,7 @@ export default function App() {
         <div className="nav-inner">
           <a href="#home" className="nav-logo">
             <div className="logo-crest-wrapper">
-              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
+              <img src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
               <div className="logo-name">St. Stephen's School</div>
