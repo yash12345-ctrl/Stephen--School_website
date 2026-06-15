@@ -2,16 +2,15 @@ import { useState, useEffect, forwardRef } from 'react';
 import type { ReactNode, ForwardedRef } from 'react';
 import './news.css';
 import { ProgramMegaMenu } from './program_top';
-// @ts-ignore
 import HTMLFlipBook from 'react-pageflip';
 
-export const FlipBook: any = HTMLFlipBook;
-export interface BookPageProps {
+const FlipBook = HTMLFlipBook as React.ElementType;
+interface BookPageProps {
   children: ReactNode;
   density?: 'soft' | 'hard';
 }
 
-export const BookPage = forwardRef((props: BookPageProps, ref: ForwardedRef<HTMLDivElement>) => {
+const BookPage = forwardRef((props: BookPageProps, ref: ForwardedRef<HTMLDivElement>) => {
   return (
     <div className="book-page" ref={ref} data-density={props.density || 'soft'}>
       <div className="book-page-content" style={{ height: '100%' }}>
@@ -26,7 +25,7 @@ export const BookPage = forwardRef((props: BookPageProps, ref: ForwardedRef<HTML
 ══════════════════════════════════════════ */
 
 
-export const allNews = [
+const allNews = [
   {
     id: 1, category: 'Governor' as const,
     date: 'May 4, 2017', readTime: '2 min read',
@@ -235,7 +234,7 @@ export default function News() {
             showCover={true}
             mobileScrollSupport={true}
             className="my-flipbook"
-            onFlip={(e: any) => setIsClosed(e.data === 0)}
+            onFlip={(e: { data: number }) => setIsClosed(e.data === 0)}
             style={{ margin: '0 auto', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}
           >
             {/* Right Cover / Title Page (Page 1) */}

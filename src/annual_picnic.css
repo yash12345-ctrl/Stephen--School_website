@@ -91,6 +91,7 @@
   color: var(--pk-yellow-light);
   background: linear-gradient(to right, var(--pk-yellow-light), #fffdf0);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 30px rgba(221, 161, 94, 0.3);
 }

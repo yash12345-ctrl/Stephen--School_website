@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import './gallery.css';
 import './news.css'; // ensure news styles are available
 import { ProgramMegaMenu } from './program_top';
-import { allNews } from './news';
 
 // ── DATA ──────────────────────────────────────────────────────────────
 const GOVERNING_MEMBERS = {
@@ -230,12 +229,7 @@ export default function Gallery() {
   const [paths, setPaths] = useState<{ d: string; key: string }[]>([]);
   const [svgH, setSvgH] = useState(0);
 
-  const [, setRevealed] = useState(false);
 
-  // reset tree state when tab changes
-  useEffect(() => {
-    setRevealed(false);
-  }, [activeTab]);
 
   // scroll effect
   useEffect(() => {
@@ -244,11 +238,7 @@ export default function Gallery() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // trigger float loop after all cards have revealed (longest delay ~1.2s + 0.9s anim)
-  useEffect(() => {
-    const t = setTimeout(() => setRevealed(true), 2200);
-    return () => clearTimeout(t);
-  }, [activeTab]);
+
 
   // mega-menu close on outside click
   useEffect(() => {
@@ -297,7 +287,7 @@ export default function Gallery() {
     const id = setTimeout(compute, 100);
     window.addEventListener('resize', compute);
     return () => { clearTimeout(id); window.removeEventListener('resize', compute); };
-  }, [activeTab, viewMode]);
+  }, [activeTab, viewMode, currentMembers.level1, currentMembers.level2]);
 
   return (
     <div className="gallery-page">
@@ -384,215 +374,314 @@ export default function Gallery() {
                   Back to Gallery
                 </button>
                 <div className="title-watermark">{currentTabInfo.title.substring(0, 2).toUpperCase()}</div>
-            <span className="gallery-chip">
-              <span className="chip-dot"></span>
-              Administration
-            </span>
-            <h1 className="gallery-title">{currentTabInfo.title}</h1>
-          </div>
-          <div className="header-right">
-            <p className="gallery-subtitle">{currentTabInfo.subtitle}</p>
-          </div>
-        </div>
-
-        <div className="gallery-tabs-container">
-          <div className="gallery-tabs">
-            {Object.keys(tabInfo).map(tab => (
-              <button
-                key={tab}
-                className={`gallery-tab ${activeTab === tab ? 'active' : ''}`}
-                onClick={() => setActiveTab(tab)}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ── TAB CONTENT ── */}
-      {isTreeTab ? (
-        <div className="org-canvas-wrap">
-          <div className="org-canvas-inner" ref={containerRef}>
-
-              {/* SVG overlay — animated lines + flowing particles */}
-              <svg className="org-svg" style={{ height: svgH || '100%' }} aria-hidden="true">
-                <defs>
-                  {/* Glowing gold filter */}
-                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                    <feMerge>
-                      <feMergeNode in="coloredBlur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                  {/* Sharper glow for dot */}
-                  <filter id="dotGlow" x="-100%" y="-100%" width="300%" height="300%">
-                    <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
-                    <feMerge>
-                      <feMergeNode in="coloredBlur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
-
-                {paths.map(({ key, d }, i) => (
-                  <g key={key}>
-                    {/* Base line — draw-on animation */}
-                    <path
-                      d={d}
-                      className="org-path-base"
-                      style={{ animationDelay: `${0.2 + i * 0.15}s` }}
-                    />
-                    {/* Shimmer overlay line */}
-                    <path
-                      d={d}
-                      className="org-path-shimmer"
-                      style={{ animationDelay: `${0.5 + i * 0.2}s` }}
-                    />
-                    {/* Flowing dot 1 */}
-                    <circle r="4" fill="#D4AF37" filter="url(#dotGlow)" opacity="0.9">
-                      <animateMotion
-                        dur={`${2.2 + i * 0.3}s`}
-                        repeatCount="indefinite"
-                        begin={`${0.8 + i * 0.4}s`}
-                        path={d}
-                      />
-                    </circle>
-                    {/* Flowing dot 2 (offset) */}
-                    <circle r="2.5" fill="#fff" opacity="0.7">
-                      <animateMotion
-                        dur={`${2.2 + i * 0.3}s`}
-                        repeatCount="indefinite"
-                        begin={`${1.8 + i * 0.4}s`}
-                        path={d}
-                      />
-                    </circle>
-                  </g>
-                ))}
-              </svg>
-
-              {/* ROW 0 — Root */}
-              <div className="org-row org-row-0">
-                <div
-                  className="org-node is-root"
-                  data-delay="0"
-                  ref={el => { nodeRefs.current['root'] = el; }}
-                >
-                  {currentMembers.root.img && (
-                    <div className="node-avatar">
-                      <img loading="lazy" src={currentMembers.root.img} alt={currentMembers.root.name} />
-                    </div>
-                  )}
-                  <div className="node-name">{currentMembers.root.name}</div>
-                  <div className="node-role">{currentMembers.root.role}</div>
-                  <p className="node-bio">{currentMembers.root.bio}</p>
-                  <div className="node-arrow" />
-                </div>
+                <span className="gallery-chip">
+                  <span className="chip-dot"></span>
+                  Administration
+                </span>
+                <h1 className="gallery-title">{currentTabInfo.title}</h1>
               </div>
+              <div className="header-right">
+                <p className="gallery-subtitle">{currentTabInfo.subtitle}</p>
+              </div>
+            </div>
 
-              {/* ROW 1 — Level 1 */}
-              <div className="org-row org-row-1">
-                {currentMembers.level1.map((m, i) => (
-                  <div
-                    key={m.id}
-                    className="org-node"
-                    data-delay={i + 1}
-                    ref={el => { nodeRefs.current[m.id] = el; }}
+            <div className="gallery-tabs-container">
+              <div className="gallery-tabs">
+                {Object.keys(tabInfo).map(tab => (
+                  <button
+                    key={tab}
+                    className={`gallery-tab ${activeTab === tab ? 'active' : ''}`}
+                    onClick={() => setActiveTab(tab)}
                   >
-                    <div className="node-avatar">
-                      <img loading="lazy" src={m.img} alt={m.name} />
-                    </div>
-                    <div className="node-name">{m.name}</div>
-                    <div className="node-role">{m.role}</div>
-                    <p className="node-bio">{m.bio}</p>
+                    {tab}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* ── TAB CONTENT ── */}
+          {isTreeTab ? (
+            <div className="org-canvas-wrap">
+              <div className="org-canvas-inner" ref={containerRef}>
+
+                {/* SVG overlay — animated lines + flowing particles */}
+                <svg className="org-svg" style={{ height: svgH || '100%' }} aria-hidden="true">
+                  <defs>
+                    {/* Glowing gold filter */}
+                    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                      <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                      <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                    {/* Sharper glow for dot */}
+                    <filter id="dotGlow" x="-100%" y="-100%" width="300%" height="300%">
+                      <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
+                      <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  {paths.map(({ key, d }, i) => (
+                    <g key={key}>
+                      {/* Base line — draw-on animation */}
+                      <path
+                        d={d}
+                        className="org-path-base"
+                        style={{ animationDelay: `${0.2 + i * 0.15}s` }}
+                      />
+                      {/* Shimmer overlay line */}
+                      <path
+                        d={d}
+                        className="org-path-shimmer"
+                        style={{ animationDelay: `${0.5 + i * 0.2}s` }}
+                      />
+                      {/* Flowing dot 1 */}
+                      <circle r="4" fill="#D4AF37" filter="url(#dotGlow)" opacity="0.9">
+                        <animateMotion
+                          dur={`${2.2 + i * 0.3}s`}
+                          repeatCount="indefinite"
+                          begin={`${0.8 + i * 0.4}s`}
+                          path={d}
+                        />
+                      </circle>
+                      {/* Flowing dot 2 (offset) */}
+                      <circle r="2.5" fill="#fff" opacity="0.7">
+                        <animateMotion
+                          dur={`${2.2 + i * 0.3}s`}
+                          repeatCount="indefinite"
+                          begin={`${1.8 + i * 0.4}s`}
+                          path={d}
+                        />
+                      </circle>
+                    </g>
+                  ))}
+                </svg>
+
+                {/* ROW 0 — Root */}
+                <div className="org-row org-row-0">
+                  <div
+                    className="org-node is-root"
+                    data-delay="0"
+                    ref={el => { nodeRefs.current['root'] = el; }}
+                  >
+                    {currentMembers.root.img && (
+                      <div className="node-avatar">
+                        <img loading="lazy" src={currentMembers.root.img} alt={currentMembers.root.name} />
+                      </div>
+                    )}
+                    <div className="node-name">{currentMembers.root.name}</div>
+                    <div className="node-role">{currentMembers.root.role}</div>
+                    <p className="node-bio">{currentMembers.root.bio}</p>
                     <div className="node-arrow" />
                   </div>
-                ))}
-              </div>
+                </div>
 
-              {/* ROW 2 — Level 2 */}
-              <div className="org-row org-row-2">
-                {currentMembers.level1.map((parent) => {
-                  const children = currentMembers.level2.filter(m => m.parentId === parent.id);
-                  if (children.length === 0) return null;
-                  return (
-                    <div key={`group-${parent.id}`} className="org-group">
-                      {children.map((m, i) => (
-                        <div
-                          key={m.id}
-                          className="org-node"
-                          data-delay={i + 3}
-                          ref={el => { nodeRefs.current[m.id] = el; }}
-                        >
-                          <div className="node-avatar">
-                            <img loading="lazy" src={m.img} alt={m.name} />
-                          </div>
-                          <div className="node-name">{m.name}</div>
-                          <div className="node-role">{m.role}</div>
-                          <p className="node-bio">{m.bio}</p>
-                          <div className="node-arrow" />
-                        </div>
-                      ))}
+                {/* ROW 1 — Level 1 */}
+                <div className="org-row org-row-1">
+                  {currentMembers.level1.map((m, i) => (
+                    <div
+                      key={m.id}
+                      className="org-node"
+                      data-delay={i + 1}
+                      ref={el => { nodeRefs.current[m.id] = el; }}
+                    >
+                      <div className="node-avatar">
+                        <img loading="lazy" src={m.img} alt={m.name} />
+                      </div>
+                      <div className="node-name">{m.name}</div>
+                      <div className="node-role">{m.role}</div>
+                      <p className="node-bio">{m.bio}</p>
+                      <div className="node-arrow" />
                     </div>
-                  );
-                })}
-              </div>
+                  ))}
+                </div>
 
-          </div>
-        </div>
-      ) : (
-        <div className="tab-placeholder">
-          <div className="placeholder-glass">
-            <div className="placeholder-icon">
-              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                {/* ROW 2 — Level 2 */}
+                <div className="org-row org-row-2">
+                  {currentMembers.level1.map((parent) => {
+                    const children = currentMembers.level2.filter(m => m.parentId === parent.id);
+                    if (children.length === 0) return null;
+                    return (
+                      <div key={`group-${parent.id}`} className="org-group">
+                        {children.map((m, i) => (
+                          <div
+                            key={m.id}
+                            className="org-node"
+                            data-delay={i + 3}
+                            ref={el => { nodeRefs.current[m.id] = el; }}
+                          >
+                            <div className="node-avatar">
+                              <img loading="lazy" src={m.img} alt={m.name} />
+                            </div>
+                            <div className="node-name">{m.name}</div>
+                            <div className="node-role">{m.role}</div>
+                            <p className="node-bio">{m.bio}</p>
+                            <div className="node-arrow" />
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })}
+                </div>
+
+              </div>
             </div>
-            <h2>{currentTabInfo.title}</h2>
-            <p>{currentTabInfo.subtitle}</p>
-          </div>
-        </div>
-      )}
+          ) : (
+            <div className="tab-placeholder">
+              <div className="placeholder-glass">
+                <div className="placeholder-icon">
+                  <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h2>{currentTabInfo.title}</h2>
+                <p>{currentTabInfo.subtitle}</p>
+              </div>
+            </div>
+          )}
         </>
       )}
 
       {viewMode === 'dignitaries' && (
-        <div className="gallery-dignitaries-view">
-          <div className="dig-header">
-            <button className="gallery-back-btn dig-back-btn" onClick={() => setViewMode('selection')}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-              Back to Gallery
-            </button>
-            <div className="dig-header-content">
-              <span className="dig-meta">The Archives</span>
-              <h1 className="dig-title">Dignitary Voices</h1>
-              <p className="dig-subtitle">Honored guests and distinguished leaders who have shaped our institutional journey.</p>
+        <div className="eminent-dignitaries-view">
+          <div className="eminent-hero">
+            <div className="eminent-hero-bg" style={{ backgroundImage: 'url(/v4.webp)' }}></div>
+            <div className="eminent-hero-veil"></div>
+
+            <div className="eminent-hero-content">
+              <div className="eminent-hero-text">
+                <span>VISITS OF DISTINGUISHED LEADERS</span>
+                <h1>Eminent Dignitaries</h1>
+                <p>Celebrating the inspiring visits of leaders, educators, policymakers, and changemakers.</p>
+              </div>
             </div>
           </div>
-          
-          <div className="dig-feed">
-            {allNews.map((item, index) => (
-              <article className={`dig-article ${index % 2 === 0 ? 'image-left' : 'image-right'}`} key={item.id}>
-                <div className="dig-images">
-                  <div className="dig-img-main-wrap">
-                    <img loading="lazy" src={item.image} alt={item.title} className="dig-img-main" />
-                  </div>
-                  {item.image2 && (
-                    <div className="dig-img-secondary-wrap">
-                      <img loading="lazy" src={item.image2} alt={item.title} className="dig-img-sec" />
-                    </div>
-                  )}
+
+          <div className="dignitary-grid-container">
+            {[
+              // Page 24 (Existing)
+              { id: 1, name: 'Shri Keshari Nath Tripathi', role: 'Governor of West Bengal', image: '/t1.jpeg' },
+              { id: 2, name: 'Dr. Abdus Sattar', role: 'West Bengal Minority Affair Minister', image: '/t2.jpeg' },
+              { id: 3, name: 'Dinesh Bajaj', role: 'Politician', image: '/v21.webp' },
+              { id: 4, name: 'Mohammed Salim', role: 'Ex MP Lok Sabha', image: '/t4.jpeg' },
+              { id: 5, name: 'Md. Nadimul Haque', role: 'M.P Rajya Sabha', image: '/v23.webp' },
+              { id: 6, name: 'Kathy Giles-Diaz', role: 'Consul General Of U.S.A', image: '/v24.webp' },
+              { id: 7, name: 'Jeffrey K. Reneau', role: 'Director, American Center.', image: '/v25.webp' },
+              { id: 8, name: 'Adrian Pratt', role: 'Director, American Center', image: '/v27.webp' },
+              { id: 9, name: 'Cory Wilcox', role: 'US Consulate', image: '/v28.webp' },
+              { id: 10, name: 'Idris Ali', role: 'MP', image: '/v29.webp' },
+              { id: 11, name: 'Lesego Motsumi', role: 'Botswana High Commission', image: '/v30.webp' },
+              { id: 12, name: 'Nicolas Facino', role: 'Director of Alliance Francaise', image: '/v31.webp' },
+
+              // Page 27
+              { id: 13, name: 'Shri Jag Mohan', role: 'IPS', image: '/v2.webp' },
+              { id: 14, name: 'Ranjit Kumar Pachnanda', role: 'IPS', image: '/v3.webp' },
+              { id: 15, name: 'Debasish Roy', role: 'IPS', image: '/v4.webp' },
+              { id: 16, name: 'Damayanti Sen', role: 'IPS', image: '/v5.webp' },
+              { id: 17, name: 'Gautam Mohan Chakraborty', role: 'IPS', image: '/v6.webp' },
+              { id: 18, name: 'Ajay Mukund Ranade', role: 'IPS', image: '/v7.webp' },
+              { id: 19, name: 'Sudhir Misra', role: 'IPS', image: '/v8.webp' },
+              { id: 20, name: 'Tripurari Atharv', role: 'IPS', image: '/v9.webp' },
+              { id: 21, name: 'Sanjay Singh', role: 'IPS', image: '/v10.webp' },
+              { id: 22, name: 'Manoj Kr. Verma', role: 'IPS, Commissioner Of Police, Kolkata', image: '/v11.webp' },
+              { id: 23, name: 'Nevendera Singh', role: 'Joint Commisioner', image: '/v12.webp' },
+              { id: 24, name: 'Rajiv Mishra', role: 'IPS', image: '/v13.webp' },
+
+              // Page 28
+              { id: 25, name: 'Melinda Pavek', role: 'US Consul General', image: '/v14.webp' },
+              { id: 26, name: 'Beth Payne', role: 'US Consul General', image: '/v15.webp' },
+              { id: 27, name: 'Dean Richard Thompson', role: 'US Consul General', image: '/v16.webp' },
+              { id: 28, name: 'Nick Low', role: 'British Deputy High Commisioner', image: '/v17.webp' },
+              { id: 29, name: 'Damian Syed', role: 'Consul General of France', image: '/v18.webp' },
+              { id: 30, name: 'Nehat Emini', role: 'Embassy of North Macedonia', image: '/v19.webp' },
+              { id: 31, name: 'Damiano Francovigh', role: 'Consul General of Italy', image: '/v20.webp' },
+              { id: 32, name: 'Cesare Bieller', role: 'Consul General of Italy', image: '/v21.webp' },
+              { id: 33, name: 'Zha Liyou', role: 'Consul General of People\'s Republic of China', image: '/v22.webp' },
+              { id: 34, name: 'Ma Zhanwu', role: 'Consul General of People\'s Republic of China', image: '/v23.webp' },
+              { id: 35, name: 'Olaf Iversen', role: 'Consul General of Germany', image: '/v24.webp' },
+              { id: 36, name: 'Jurgen Thomas Schrod', role: 'German Deputy Consul General', image: '/v25.webp' },
+
+              // Page 27/29 (Principals & Educationists)
+              { id: 37, name: 'Masayuki Taga', role: 'Consul General of Japan', image: '/v26.webp' },
+              { id: 38, name: 'Father George Ponodath', role: 'SJ Rector, St Xavier\'s College', image: '/v27.webp' },
+              { id: 39, name: 'Father P.C. Mathews', role: 'Principal, St Xavier\'s College', image: '/v28.webp' },
+              { id: 40, name: 'Sunirmal Chakravarthi', role: 'Principal, La Martiniere for Boys', image: '/v29.webp' },
+              { id: 41, name: 'Rupkatha Sarkar', role: 'Principal, La Martiniere for Girls', image: '/v30.webp' },
+              { id: 42, name: 'Lorraine Mirza', role: 'Principal, La Martiniere for Girls', image: '/v31.webp' },
+              { id: 43, name: 'Sister Christine', role: 'Principal, Loreto College', image: '/v32.webp' },
+              { id: 44, name: 'Indrani Ganguly', role: 'Principal, Loreto Day Bowbazar', image: '/v33.webp' },
+              { id: 45, name: 'Sister Mercy', role: 'Principal, Loreto Dharamtala', image: '/v34.webp' },
+              { id: 46, name: 'Basanti Biswas', role: 'Principal, Calcutta Girls\' High School', image: '/v35.webp' },
+              { id: 47, name: 'Dr. M.P Rozario', role: 'Principal, St. Sebastian School', image: '/v36.webp' },
+              { id: 48, name: 'Terence Ireland', role: 'Principal, St James\' School', image: '/v37.webp' },
+
+              // Page 27 (Other Dignitaries)
+              { id: 49, name: 'Brother Brendan MacCarthaigh', role: 'Educationist', image: '/v38.webp' },
+              { id: 50, name: 'Swati Sarawagi', role: 'Principal, Swarnim International School', image: '/v39.webp' },
+              { id: 51, name: 'Taranjit Singh', role: 'Chairman, JIS Group', image: '/v40.webp' },
+              { id: 52, name: 'Bishop Samuel', role: 'Raju CNI', image: '/v41.webp' },
+              { id: 53, name: 'Agnimitra Paul', role: 'Fashion Designer', image: '/v42.webp' },
+              { id: 54, name: 'Richa Sharma', role: 'Actress', image: '/v43.webp' },
+              { id: 55, name: 'Roopa Ganguly', role: 'Actress', image: '/v44.webp' },
+              { id: 56, name: 'Ramanjit Kaur', role: 'Theatre actor', image: '/v45.webp' },
+              { id: 57, name: 'Nita Bajoria', role: 'Author', image: '/v46.webp' },
+              { id: 58, name: 'Kanchan Datta', role: 'Founder & CEO Inner Circle', image: '/v47.webp' },
+              { id: 59, name: 'Hena Nafis', role: 'Nutritionist', image: '/v48.webp' },
+              { id: 60, name: 'Namit Bajoria', role: 'Kutchina Foundation', image: '/v49.webp' },
+
+              // Page 28 / 30
+              { id: 61, name: 'Debanjan Chakrabarti', role: 'Director, British Council', image: '/v2.webp' },
+              { id: 62, name: 'Anandita Tamta Banerjee', role: 'NGO', image: '/v3.webp' },
+              { id: 63, name: 'Shahenshah Mirza', role: 'Dignitary', image: '/v4.webp' },
+              { id: 64, name: 'Hari Prasad Kanoria', role: 'Chairman, SREI Group', image: '/v5.webp' },
+              { id: 65, name: 'Neeta Kanoria', role: 'Educationist', image: '/v6.webp' },
+              { id: 66, name: 'Pawan Kumar Patodia', role: 'Industrialist', image: '/v7.webp' },
+              { id: 67, name: 'Wasim Kapoor', role: 'Artist', image: '/v8.webp' },
+              { id: 68, name: 'Jennifer Heemstra', role: 'Pianist', image: '/v9.webp' },
+              { id: 69, name: 'Mary Gerardy', role: 'Professor, USA', image: '/v10.webp' },
+              { id: 70, name: 'Rev. Fr. Dominic Gomes', role: 'Vicar General Archbishop House', image: '/v11.webp' },
+              { id: 71, name: 'Rajendra Khandelwal', role: 'Hony. Consul Of Mauritius', image: '/v12.webp' },
+              { id: 72, name: 'Elizabeth Lee', role: 'Director, American Center', image: '/v13.webp' },
+
+              // Page 32
+              { id: 73, name: 'Rajlakshmi Syam', role: 'Pianist', image: '/v14.webp' },
+              { id: 74, name: 'Utpal Chatterjee', role: 'Sheriff', image: '/v15.webp' },
+              { id: 75, name: 'Rehana Khatoon', role: 'Councillor, Ward no.44', image: '/v16.webp' },
+              { id: 76, name: 'Tanvir Afzal', role: 'W.B.C.S. (exe.)', image: '/v17.webp' },
+              { id: 77, name: 'Adolina Ganguly', role: 'Image Consultant', image: '/v18.webp' },
+              { id: 78, name: 'Indira Mukherjee', role: 'IPS', image: '/v19.webp' },
+              { id: 79, name: 'Nizam Shamim', role: 'IPS', image: '/v20.webp' },
+              { id: 80, name: 'Vishal Jhajharia', role: 'Hon. Consul of Kazakhstan', image: '/v21.webp' },
+              { id: 81, name: 'Dr. Rahul Varma', role: 'Vice Chairman & CEO, Acid Survivors', image: '/v22.webp' },
+              { id: 82, name: 'Gargi Das Gupta', role: 'Clinical Psychologist', image: '/v23.webp' },
+              { id: 83, name: 'Farheen Bushra Rahman', role: 'Fashion Designer', image: '/v24.webp' },
+              { id: 84, name: 'Dr Syed Ali Mujtaba', role: 'Educationist & Journalist', image: '/v25.webp' },
+
+              // Page 30 / 32
+              { id: 85, name: 'Shiv Chopra', role: 'Businessman', image: '/v26.webp' },
+              { id: 86, name: 'Sonu Chopra', role: 'Entrepreneur', image: '/v27.webp' },
+              { id: 87, name: 'Upasana Arora', role: 'Founder-YES', image: '/v28.webp' },
+              { id: 88, name: 'Jaivir Singh', role: 'Founder-YES', image: '/v29.webp' },
+              { id: 89, name: 'Saira Shah Halim', role: 'Educator, Politician, TX Speaker', image: '/v30.webp' },
+              { id: 90, name: 'Marc Boudin', role: 'Director, Alliance Française du Bengale', image: '/v31.webp' },
+              { id: 91, name: 'Jasmeet Singh Arora', role: 'Entrepreneur, Environmentalist', image: '/v32.webp' },
+              { id: 92, name: 'Dr. Shabnam Agarwal', role: 'Physiotherapist, Belle Vue', image: '/v33.webp' },
+              { id: 93, name: 'Harinder Pal Singh', role: 'Trustee-JIS Group', image: '/v34.webp' },
+              { id: 94, name: 'CA Dilip Jhajharia', role: 'Chairman-Lion Bimal Poddar Eye Hospital', image: '/v35.webp' },
+            ].map((dig) => (
+              <div className="dig-grid-item" key={dig.id}>
+                <div className="dig-grid-avatar">
+                  <img loading="lazy" src={dig.image} alt={dig.name} />
                 </div>
-                <div className="dig-content">
-                  <div className="dig-item-meta">
-                    <span className="dig-category">{item.category}</span>
-                    <span className="dig-date">{item.date}</span>
-                  </div>
-                  <h2 className="dig-item-title">{item.title}</h2>
-                  <div className="dig-item-excerpt">
-                    <p><span className="dig-drop-cap">{item.excerpt.charAt(0)}</span>{item.excerpt.slice(1)}</p>
-                  </div>
+                <div className="dig-grid-info">
+                  <h3 className="dig-grid-name">{dig.name}</h3>
+                  <p className="dig-grid-role">{dig.role}</p>
+                  <span className="dig-grid-link">View Gallery <span className="arrow">&rarr;</span></span>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
         </div>

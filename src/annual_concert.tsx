@@ -16,7 +16,7 @@ export default function AnnualConcert() {
     setIsPlayingMelody(true);
 
     try {
-      const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+      const AudioContext = window.AudioContext || (window as typeof window & { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       if (!AudioContext) return;
       const ctx = new AudioContext();
 
@@ -30,7 +30,7 @@ export default function AnnualConcert() {
 
       const duration = 10;
       const noteLength = 0.18; // fast arpeggios
-      let startTime = ctx.currentTime;
+      const startTime = ctx.currentTime;
 
       // We will pick a random chord progression.
       const shuffledChords = [...chords].sort(() => Math.random() - 0.5);
@@ -77,7 +77,7 @@ export default function AnnualConcert() {
 
   const playNote = (index: number) => {
     try {
-      const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+      const AudioContext = window.AudioContext || (window as typeof window & { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       if (!AudioContext) return;
       const audioCtx = new AudioContext();
 
@@ -111,7 +111,7 @@ export default function AnnualConcert() {
       osc2.start(audioCtx.currentTime);
       osc1.stop(audioCtx.currentTime + 2.0);
       osc2.stop(audioCtx.currentTime + 2.0);
-    } catch (e) {
+    } catch {
       console.log('Audio not supported');
     }
   };

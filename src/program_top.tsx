@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import './program_top.css';
 
-export const programs = [
-  { grade: 'Pre-Primary & Kindergarten', range: 'Ages 3–5', emoji: '🧸', desc: 'Fostering early cognitive and social development through play-based learning and creative exploration in a safe environment.', color1: '#11998e', color2: '#38ef7d', vid: 'GLcDu24gr98' },
-  { grade: 'Primary School', range: 'Grades 1–5', emoji: '📚', desc: 'Building strong foundational skills in literacy, numeracy, and critical thinking with a focus on holistic child development.', color1: '#4776e6', color2: '#8e54e9', vid: '49fgMBNbX0w' },
-  { grade: 'Middle School', range: 'Grades 6–8', emoji: '🔬', desc: 'Encouraging independent thought and scientific inquiry through an accelerated, interdisciplinary STEM-focused curriculum.', color1: '#f7971e', color2: '#ffd200', vid: 'pjFFMXKb5_M' },
-  { grade: 'Secondary School', range: 'Grades 9–10', emoji: '🎓', desc: 'Comprehensive academic preparation with advanced coursework, empowering students for board examinations and success.', color1: '#eb3349', color2: '#f45c43', vid: 'j-3eArinB7E' },
-  { grade: 'Athletics & The Arts', range: 'All Grades', emoji: '🏆', desc: 'Cultivating exceptional physical and creative talent with state-of-the-art sports facilities and world-class performing arts studios.', color1: '#00b09b', color2: '#96c93d', vid: '49fgMBNbX0w' },
-];
+
 
 const events = [
   { name: 'Annual Concert',            img: '/news_annual_day.webp', desc: 'A grand musical evening showcasing student talent across classical, folk, and contemporary performances.', color1: '#e040fb', color2: '#7c4dff', link: '/annual-concert' },
