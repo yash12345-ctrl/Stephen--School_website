@@ -2,16 +2,14 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import './art_craft.css';
 import { ProgramMegaMenu } from './program_top';
-import { Palette, Scissors, MapPin, Sparkles, Star, ChevronLeft, ChevronRight, Award } from 'lucide-react';
+import { Palette, Scissors, MapPin, Sparkles, Star, ChevronLeft, ChevronRight, Award, Camera, Monitor } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function ArtCraftExhibition() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Gallery Filtering State
-  const [activeCategory, setActiveCategory] = useState('all');
 
   // Spotlight Carousel State
   const [spotlightIdx, setSpotlightIdx] = useState(0);
@@ -23,62 +21,7 @@ export default function ArtCraftExhibition() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const galleryItems = [
-    {
-      title: "Hues of Bowbazar",
-      desc: "A stunning watercolor painting depicting the lively streets, vintage trams, and heritage architecture of Kolkata under a warm golden sunset.",
-      category: "paintings",
-      image: "/art_painting.webp",
-      artist: "Rahul Das",
-      grade: "Grade 9",
-      tag: "Watercolor"
-    },
-    {
-      title: "Majestic Clay Trunk",
-      desc: "A beautifully molded and hand-painted clay elephant showcasing intricate traditional patterns and vibrant decorative ornaments.",
-      category: "sculptures",
-      image: "/art_sculpture.webp",
-      artist: "Sneha Sen",
-      grade: "Grade 7",
-      tag: "Clay Modeling"
-    },
-    {
-      title: "Eco Windmill Model",
-      desc: "An innovative, fully operational toy windmill crafted entirely from recycled newspapers, discarded plastics, and ice cream sticks.",
-      category: "crafts",
-      image: "/art_recycled.webp",
-      artist: "Ayan Roy",
-      grade: "Grade 8",
-      tag: "Recycled Art"
-    },
-    {
-      title: "Ganges in Springtime",
-      desc: "A rich acrylic on canvas masterpiece displaying country boats sailing on the Ganges River with vibrant spring blossoms along the banks.",
-      category: "paintings",
-      image: "/art_painting.webp",
-      artist: "Pooja Gupta",
-      grade: "Grade 10",
-      tag: "Acrylic"
-    },
-    {
-      title: "Guardian of the Jungle",
-      desc: "A stylized clay sculpture representing a roaring Bengal Tiger, glazed with organic colors made from flowers and leaves.",
-      category: "sculptures",
-      image: "/art_sculpture.webp",
-      artist: "Vikram Malhotra",
-      grade: "Grade 6",
-      tag: "Glazed Terracotta"
-    },
-    {
-      title: "Cardboard Castle Estate",
-      desc: "A highly detailed fantasy castle featuring towers, drawbridges, and outer walls constructed from waste shipping cartons.",
-      category: "crafts",
-      image: "/art_recycled.webp",
-      artist: "Ananya Bose",
-      grade: "Grade 5",
-      tag: "Cardboard Craft"
-    }
-  ];
+
 
   const studentQuotes = [
     {
@@ -102,22 +45,38 @@ export default function ArtCraftExhibition() {
     {
       icon: <Palette size={24} />,
       title: 'Live Pottery Workshop',
-      desc: 'Watch and try your hand at the traditional potter\'s wheel under the expert guidance of local traditional clay artisans.'
+      desc: 'Watch and try your hand at the traditional potter\'s wheel under the expert guidance of local traditional clay artisans.',
+      image: '/v3.webp'
     },
     {
       icon: <Scissors size={24} />,
       title: 'Eco-Craft Station',
-      desc: 'A dedicated creative zone where visitors learn to design beautiful flower vases and pen stands using domestic waste.'
+      desc: 'A dedicated creative zone where visitors learn to design beautiful flower vases and pen stands using domestic waste.',
+      image: '/v8.webp'
     },
     {
       icon: <Sparkles size={24} />,
       title: 'Collaborative Wall Canvas',
-      desc: 'All students, parents, and guests are invited to leave their unique handprint brushstrokes on a giant community canvas.'
+      desc: 'All students, parents, and guests are invited to leave their unique handprint brushstrokes on a giant community canvas.',
+      image: '/v11.webp'
     },
     {
       icon: <Award size={24} />,
       title: 'Young Artist Awards',
-      desc: 'Outstanding achievements in creativity and environmental message-driven art will be awarded by the local Academy of Fine Arts.'
+      desc: 'Outstanding achievements in creativity and environmental message-driven art will be awarded by the local Academy of Fine Arts.',
+      image: '/images 2.webp'
+    },
+    {
+      icon: <Monitor size={24} />,
+      title: 'Digital Art Kiosk',
+      desc: 'Explore interactive digital illustrations and 3D animations created by our senior students using industry-standard software.',
+      image: '/v25.webp'
+    },
+    {
+      icon: <Camera size={24} />,
+      title: 'Heritage Photography Display',
+      desc: 'A curated photographic journey capturing the essence of Bowbazar\'s rich cultural history through the lens of young photographers.',
+      image: '/v31.webp'
     }
   ];
 
@@ -137,10 +96,6 @@ export default function ArtCraftExhibition() {
     }, 400);
   };
 
-  const filteredItems = activeCategory === 'all'
-    ? galleryItems
-    : galleryItems.filter(item => item.category === activeCategory);
-
   return (
     <div className="art-page">
       {/* ── NAVBAR ── */}
@@ -151,12 +106,12 @@ export default function ArtCraftExhibition() {
               <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
-              <div className="logo-name">St. Stephen's</div>
-              <div className="logo-tagline">SCHOOL</div>
+              <div className="logo-name">St. Stephen's School</div>
+              <div className="logo-tagline">BOWBAZAR</div>
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
+            {['Home', 'About', 'Programs', 'School', 'News', 'Gallery'].map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaMenuOpen(true); } : undefined}
@@ -165,11 +120,11 @@ export default function ArtCraftExhibition() {
               >
                 <a
                   href={
-                    l === 'Home'     ? '/' :
-                    l === 'About'    ? '/about' :
-                    l === 'News'     ? '/news' :
-                    l === 'Programs' ? '/#programs' :
-                    `/#${l.toLowerCase().replace(/\s+/g, '-')}`
+                    l === 'Home' ? '/' :
+                      l === 'About' ? '/about' :
+                        l === 'News' ? '/news' :
+                          l === 'Programs' ? '/#programs' :
+                            `/#${l.toLowerCase().replace(/\s+/g, '-')}`
                   }
                   onClick={() => setMobileMenuOpen(false)}
                   className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
@@ -198,13 +153,18 @@ export default function ArtCraftExhibition() {
         <div className="art-hero-bg" style={{ backgroundImage: "url('/art_exhibition_hero.webp')" }} />
         <div className="art-hero-glow g1" /><div className="art-hero-glow g2" />
         <div className="art-hero-veil" />
-        
-        <div className="art-hero-inner">
+
+        <motion.div
+          className="art-hero-inner"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="art-hero-tag">
             <Star size={14} className="art-meta-icon animate-pulse" /> Creative Celebration · St. Stephen's School
           </div>
           <h1 className="art-hero-h1">
-            Art & Craft<span> Exhibition</span>
+            Annual Art <span>&</span><br />Craft Exhibition
           </h1>
           <p className="art-hero-sub">
             Welcome to a vibrant gallery of dreams, colors, and innovations crafted by our creative young minds in Bowbazar. Experience student paintings, sculptures, and recycled crafts.
@@ -221,66 +181,9 @@ export default function ArtCraftExhibition() {
           </div>
 
           <div className="art-hero-btns">
-            <a href="#gallery" className="art-btn-gold">Explore Student Gallery</a>
             <a href="#highlights" className="art-btn-ghost">Event Highlights</a>
           </div>
-        </div>
-      </section>
-
-      {/* ── GALLERY SECTION ── */}
-      <section className="art-section art-gallery-section" id="gallery">
-        <div className="art-wrap">
-          <div className="text-center" style={{ marginBottom: '3.5rem' }}>
-            <div className="art-chip">Student Showcases</div>
-            <h2 className="art-h2">Exhibition <span>Gallery</span></h2>
-            <p className="art-lead" style={{ maxWidth: '600px', margin: '0 auto' }}>
-              Filter through our showcase categories to appreciate the dedication and imagination of our student artists.
-            </p>
-          </div>
-
-          {/* Filtering Tabs */}
-          <div className="art-gallery-filters">
-            {[
-              { id: 'all', label: 'All Works' },
-              { id: 'paintings', label: 'Paintings' },
-              { id: 'sculptures', label: 'Clay Sculptures' },
-              { id: 'crafts', label: 'Recycled Crafts' }
-            ].map(tab => (
-              <button
-                key={tab.id}
-                className={`filter-tab ${activeCategory === tab.id ? 'active' : ''}`}
-                onClick={() => setActiveCategory(tab.id)}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Gallery Grid */}
-          <div className="art-gallery-grid">
-            {filteredItems.map((item, idx) => (
-              <div className="art-gallery-card" key={idx}>
-                <div className="art-card-img-wrap">
-                  <img loading="lazy" src={item.image} alt={item.title} className="art-card-img" />
-                  <div className="art-card-overlay" />
-                  <span className="art-card-tag">{item.tag}</span>
-                </div>
-                <div className="art-card-body">
-                  <h3 className="art-card-title">{item.title}</h3>
-                  <p className="art-card-desc">{item.desc}</p>
-                  
-                  <div className="art-card-footer">
-                    <div className="art-card-artist">
-                      <div className="artist-avatar">{item.artist.charAt(0)}</div>
-                      <span className="artist-name">{item.artist}</span>
-                    </div>
-                    <span className="art-card-grade">{item.grade}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* ── HONORED VISITORS SECTION ── */}
@@ -310,8 +213,11 @@ export default function ArtCraftExhibition() {
       </section>
 
       {/* ── EXHIBITION HIGHLIGHTS ── */}
-      <section className="art-section art-highlights-section" id="highlights">
-        <div className="art-wrap">
+      <section className="art-section art-highlights-section" id="highlights" style={{ position: 'relative' }}>
+        {/* Decorative Glow */}
+        <div style={{ position: 'absolute', top: '50px', left: '50%', transform: 'translateX(-50%)', width: '500px', height: '500px', borderRadius: '50%', background: 'rgba(255,180,0,.05)', filter: 'blur(80px)', pointerEvents: 'none', zIndex: 0 }}></div>
+
+        <div className="art-wrap" style={{ position: 'relative', zIndex: 1 }}>
           <div className="text-center">
             <div className="art-chip">Special Attractions</div>
             <h2 className="art-h2">Interactive <span>Showcases & Zones</span></h2>
@@ -322,11 +228,22 @@ export default function ArtCraftExhibition() {
 
           <div className="art-highlights-grid">
             {highlights.map((h, i) => (
-              <div className="art-highlight-card" key={i}>
+              <motion.div
+                className="art-highlight-card"
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column' }}
+              >
+                <div style={{ width: '100%', flex: 1, borderRadius: '16px', overflow: 'hidden', marginBottom: '1.5rem' }}>
+                  <img src={h.image} alt={h.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'} loading="lazy" />
+                </div>
                 <div className="art-highlight-icon-wrap">{h.icon}</div>
                 <h3 className="art-highlight-h">{h.title}</h3>
                 <p className="art-highlight-p">{h.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -348,7 +265,7 @@ export default function ArtCraftExhibition() {
               <div className="spotlight-quote-icon">“</div>
               <div className={`spotlight-content-wrapper ${fade ? 'fade-out' : ''}`}>
                 <p className="spotlight-quote">"{studentQuotes[spotlightIdx].quote}"</p>
-                
+
                 <div className="spotlight-artist-info">
                   <div className="spotlight-avatar">
                     {studentQuotes[spotlightIdx].author.charAt(0)}
@@ -376,22 +293,9 @@ export default function ArtCraftExhibition() {
         </div>
       </section>
 
-      {/* ── CTA SECTION ── */}
-      <section className="art-cta">
-        <div className="art-cta-inner">
-          <h2 className="art-cta-h">Foster Creative Growth & Art Education</h2>
-          <p className="art-cta-p">
-            Many of our talented student creators are first-generation learners. Your kind contributions help fund paints, brushes, canvas boards, clay modeling kits, and craft tools, keeping their creative flame burning bright.
-          </p>
-          <div className="art-cta-btns">
-            <a href="/donate" className="art-btn-gold">Support Our Art Fund →</a>
-            <a href="/about" className="art-btn-ghost">Learn About St. Stephen's</a>
-          </div>
-        </div>
-      </section>
 
       {/* ── FOOTER ── */}
-      <footer className="footer art-footer">
+      <footer className="footer">
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
@@ -399,54 +303,24 @@ export default function ArtCraftExhibition() {
                 <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
-                <div className="logo-name">St. Stephen's</div>
-                <div className="logo-tagline">SCHOOL</div>
+                <div className="logo-name">St. Stephen's School</div>
+                <div className="logo-tagline">BOWBAZAR</div>
               </div>
             </div>
             <p>Nurturing young minds and shaping tomorrow's leaders since 2001. A tradition of excellence, a promise of a better future.</p>
-            <div className="socials">
-              {['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => (
-                <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>
-              ))}
+            <div className="socials">{['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>)}</div>
+          </div>
+          {[
+            { h: 'Quick Links', links: ['About Us', 'Programs', 'Admissions', 'Faculty', 'Alumni', 'Careers'] },
+            { h: 'Academics', links: ['Pre-Primary', 'Primary School', 'Middle School', 'Senior Secondary', 'Sports & Arts', 'Digital Skills'] },
+            { h: 'Resources', links: ['Academic Calendar', 'Exam Schedule', 'Fee Structure', 'Scholarship', 'Downloads', 'Contact'] },
+          ].map(col => (
+            <div className="footer-col" key={col.h}>
+              <div className="footer-col-h">{col.h}</div>
+              <ul>{col.links.map(l => <li key={l}><a href="#">{l}</a></li>)}</ul>
             </div>
-          </div>
-
-          <div className="footer-col">
-            <div className="footer-col-h">Quick Links</div>
-            <ul>
-              {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
-                <li key={l}>
-                  <a href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `/#${l.toLowerCase().replace(/\s+/g, '-')}`}>
-                    {l}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="footer-col">
-            <div className="footer-col-h">Events</div>
-            <ul>
-              <li><a href="/annual-concert">Annual Concert</a></li>
-              <li><a href="/art-and-craft-exhibition">Art & Craft Exhibition</a></li>
-              <li><a href="/eid">Eid Celebration</a></li>
-              <li><a href="/christmas">Christmas Celebration</a></li>
-              <li><a href="/rabindrajayanti">Rabindra Jayanti</a></li>
-              <li><a href="/educational-day-out">Educational Day Out</a></li>
-              <li><a href="/annual-picnic">Annual School Picnic</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-col">
-            <div className="footer-col-h">Contact Info</div>
-            <ul style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.83rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-              <li>📍 Bowbazar, Kolkata, India</li>
-              <li>📞 +91 33 2244 5566</li>
-              <li>✉️ info@ststephenskolkata.org</li>
-            </ul>
-          </div>
+          ))}
         </div>
-
         <div className="footer-bottom">
           <span>© 2026 St. Stephen's School. All rights reserved.</span>
           <span>Privacy Policy · Terms of Use · Sitemap</span>

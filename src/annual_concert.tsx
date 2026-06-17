@@ -9,64 +9,7 @@ export default function AnnualConcert() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [isPlayingMelody, setIsPlayingMelody] = useState(false);
 
-  const playClassicalMelody = () => {
-    if (isPlayingMelody) return;
-    setIsPlayingMelody(true);
-
-    try {
-      const AudioCtx = window.AudioContext || (window as typeof window & { webkitAudioContext: typeof window.AudioContext }).webkitAudioContext;
-      if (!AudioCtx) return;
-      const ctx = new AudioCtx();
-
-      // C Major, F Major, G Major, A Minor
-      const chords = [
-        [261.63, 329.63, 392.00, 523.25], // C Maj
-        [349.23, 440.00, 523.25, 698.46], // F Maj
-        [392.00, 493.88, 587.33, 783.99], // G Maj
-        [440.00, 523.25, 659.25, 880.00]  // A Min
-      ];
-
-      const duration = 10;
-      const noteLength = 0.18; // fast arpeggios
-      const startTime = ctx.currentTime;
-
-      // We will pick a random chord progression.
-      const shuffledChords = [...chords].sort(() => Math.random() - 0.5);
-
-      for (let i = 0; i < duration / noteLength; i++) {
-        const chord = shuffledChords[Math.floor((i / 8)) % shuffledChords.length];
-
-        // Add random variation to note order to make every click unique
-        const isRandom = Math.random() > 0.5;
-        const noteIndex = isRandom ? Math.floor(Math.random() * chord.length) : (i % chord.length);
-        const freq = chord[noteIndex];
-
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, startTime + i * noteLength);
-
-        // Soft piano/harp envelope
-        gain.gain.setValueAtTime(0, startTime + i * noteLength);
-        gain.gain.linearRampToValueAtTime(0.4, startTime + i * noteLength + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.001, startTime + i * noteLength + noteLength * 3);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
-        osc.start(startTime + i * noteLength);
-        osc.stop(startTime + i * noteLength + noteLength * 3.5);
-      }
-
-      setTimeout(() => setIsPlayingMelody(false), duration * 1000);
-    } catch (e) {
-      console.log('Audio not supported', e);
-      setIsPlayingMelody(false);
-    }
-  };
 
 
   useEffect(() => {
@@ -75,46 +18,7 @@ export default function AnnualConcert() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const playNote = (index: number) => {
-    try {
-      const AudioCtx = window.AudioContext || (window as typeof window & { webkitAudioContext: typeof window.AudioContext }).webkitAudioContext;
-      if (!AudioCtx) return;
-      const audioCtx = new AudioCtx();
 
-      // Main oscillator
-      const osc1 = audioCtx.createOscillator();
-      const gainNode = audioCtx.createGain();
-
-      // Sub oscillator for richness
-      const osc2 = audioCtx.createOscillator();
-
-      // Pentatonic scale: C4, D4, E4, G4, A4, C5
-      const frequencies = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
-      const freq = frequencies[index % frequencies.length];
-
-      osc1.type = 'sine';
-      osc1.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-      osc2.type = 'triangle'; // adds warm harmonics
-      osc2.frequency.setValueAtTime(freq / 2, audioCtx.currentTime); // one octave lower
-
-      // Envelope - much louder peak
-      gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-      gainNode.gain.linearRampToValueAtTime(0.7, audioCtx.currentTime + 0.03); // Fast attack, higher volume
-      gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2.0); // Longer decay
-
-      osc1.connect(gainNode);
-      osc2.connect(gainNode);
-      gainNode.connect(audioCtx.destination);
-
-      osc1.start(audioCtx.currentTime);
-      osc2.start(audioCtx.currentTime);
-      osc1.stop(audioCtx.currentTime + 2.0);
-      osc2.stop(audioCtx.currentTime + 2.0);
-    } catch {
-      console.log('Audio not supported');
-    }
-  };
 
   const highlights = [
     { icon: <Music strokeWidth={1.2} size={34} />, title: 'Classical Performances', desc: 'Students trained in classical Indian and Western music take centre stage, performing compositions that reflect months of dedicated practice.', tag: 'Music' },
@@ -224,64 +128,15 @@ export default function AnnualConcert() {
           </div>
 
           <div className="ac-hero-visual">
-            <div className="premium-record-player">
-              <div className="prp-ambient-glow"></div>
-
-              {/* Expanding soundwaves */}
-              <div className="prp-waves">
-                <div className="prp-wave wave-1"></div>
-                <div className="prp-wave wave-2"></div>
-                <div className="prp-wave wave-3"></div>
-              </div>
-
-              {/* The Glass Record */}
-              <div className="prp-record">
-                <div className="prp-record-shadow"></div>
-                <div className="prp-record-glass"></div>
-                <div className="prp-record-grooves"></div>
-                <div className="prp-record-label">
-                  <div className="prp-label-inner"></div>
-                  <div className="prp-spindle"></div>
-                </div>
-              </div>
-
-              {/* The Tonearm */}
-              <div className="prp-tonearm">
-                <div className="prp-arm-base"><div className="prp-base-ring"></div></div>
-                <div className="prp-arm-rod">
-                  <div className="prp-arm-head"></div>
-                </div>
-              </div>
-
-              {/* Orbiting SVG Notes */}
-              <div className="prp-orbit">
-                <div className="prp-orbit-note note-1">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" /></svg>
-                </div>
-                <div className="prp-orbit-note note-2">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 3H9v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h11v8.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V3z" /></svg>
-                </div>
-                <div className="prp-orbit-note note-3">
-                  <svg viewBox="0 0 320 512" fill="currentColor"><path d="M113.8 284c-11.3 11-18.4 26.6-18.4 43.6 0 33.3 26.9 60.3 60.1 60.3 22.8 0 42.6-12.7 52.8-31.3l-20-8.9c-6.8 12.3-19.8 20.7-34.8 20.7-22 0-39.9-18.2-39.9-40.6 0-14.7 7.7-27.4 19.3-34.6l-19.1-9.2zM277.6 195.9c0-42.3-25.6-78.5-62.9-93.5-12.5-49.3-37-102.4-86-102.4-23.7 0-46.7 13.5-46.7 39.8 0 20.7 13.9 34.4 29.4 34.4 13.8 0 26.1-9.8 26.1-25.8 0-6.9-1.9-13-4.9-17.7 5.7-4.4 13.3-6.5 21-6.5 24 0 38.6 34.6 47.9 66.8-16.7 8.3-34.6 22-48.4 39.9-20.7 26.9-30.8 59.4-27.1 92.2L116 270.8c-26.1-23.1-42.4-57.1-42.4-94.7 0-69.7 56.6-126.3 126.3-126.3 35.7 0 68 14.8 91 38.8l-15.6 13.5c-19-20.2-46.3-32.9-76.5-32.9-57.7 0-104.6 46.9-104.6 104.6 0 31.7 14.1 60.1 36.4 79.4l7 5.9-4.8 24.3c-3 15.3-4.5 31-4.5 46.8 0 35.5 8 68.7 21.6 98l-5.6 30.6c-5.7 30.7-20.4 46.5-46.8 46.5-17.4 0-33.1-9.5-41.9-24.8 6.4 1.7 13 2.5 19.8 2.5 35.2 0 63.8-28.6 63.8-63.8 0-18.8-8.2-35.8-21.2-47.5l-12.2 13.4c8.8 8.1 14.3 19.7 14.3 32.5 0 24.8-20.2 45-45 45-12.3 0-23.4-5-31.5-13.1-8.1-8.1-13.1-19.2-13.1-31.5 0-35.3 17.5-66.2 44.5-85l6.3-4.4 3.7 20.3c7.5 41.5 24.6 78 49.3 107.5 18 21.5 45.4 39.6 77.2 39.6 47.9 0 76.5-34.9 85.5-84.5l14-77.5c2.1-12 3.2-24.1 3.2-36.2 0-34.1-12.1-66-33.3-91.1l15.9-12.7c24.6 29.2 38.6 66.1 38.6 105.4 0 14.2-1.3 28.3-3.8 42.4l-14 77.5c-11.4 62.7-50.6 104-108.6 104-40.4 0-75.1-23.1-97-49.4-23.7-28.4-40.1-63.6-47.5-103.9l-3.3-18.4c-32.9 22-54.3 58.9-54.3 100.8 0 16 3.6 31 10.1 44.5 13.4 27.9 42.4 46.1 76.3 46.1 40.4 0 65.5-26 74-72.3l6.5-35.6c13-33.3 19.8-69.5 19.8-106.6 0-16.1-1.3-32.3-3.9-48.4l15.1-6.1c11.5 14.4 18.5 32.6 18.5 52.3 0 46.5-37.8 84.3-84.3 84.3-30.8 0-57.8-16.7-72.1-41.4l-17.7-8.5c18.5 36.3 56.4 60.9 100.2 60.9 61.5 0 111.4-49.9 111.4-111.4 0-25.2-8.3-48.5-22.3-67.1l16.1-11.2c16.3 21.6 26 48.3 26 77.1z" /></svg>
-                </div>
-              </div>
-
-              {/* Floating Sparkles */}
-              <div className="prp-sparkles">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div className="prp-sparkle" key={i} style={{ '--i': i } as React.CSSProperties}>✦</div>
+            <div className="ac-rotating-gallery">
+              <div className="ac-rotating-gallery-inner">
+                {['/k1.webp', '/k2.webp', '/k3.webp', '/k4.webp', '/k5.webp'].map((src, i) => (
+                  <div key={i} className={`ac-gallery-img ac-gallery-img-${i + 1}`}>
+                    <img loading="lazy" src={src} alt={`Concert performance ${i + 1}`} />
+                  </div>
                 ))}
               </div>
-
             </div>
-
-            <button
-              className={`ac-magic-btn ${isPlayingMelody ? 'playing' : ''}`}
-              onClick={playClassicalMelody}
-              disabled={isPlayingMelody}
-            >
-              {isPlayingMelody ? '✨ Playing...' : '🎵 Listen to Magic'}
-            </button>
 
           </div>
         </div>
@@ -341,19 +196,16 @@ export default function AnnualConcert() {
             <p className="ac-lead">
               From classical ragas to energetic band sets — every act is a testament to the talent within our school community.
             </p>
-            <p className="ac-magic-hint">
-              ✨ To see magic, click on any box
-            </p>
+
           </div>
           <div className="ac-cards-grid">
             {highlights.map((h, i) => (
-              <div className={`ac-card ac-card-animated ${i === 1 ? 'ac-card-active' : ''}`} style={{ cursor: 'pointer', '--stagger': i } as React.CSSProperties} onClick={() => playNote(i)} key={i}>
+              <div className={`ac-card ac-card-animated ${i === 1 ? 'ac-card-active' : ''}`} style={{ '--stagger': i } as React.CSSProperties} key={i}>
                 <span className="ac-card-icon">{h.icon}</span>
                 <h3 className="ac-card-h">{h.title}</h3>
                 <p className="ac-card-p">{h.desc}</p>
                 <div className="ac-card-footer">
                   <span className="ac-card-tag">{h.tag}</span>
-                  <span className="ac-card-play-hint">Play Note 🎵</span>
                 </div>
               </div>
             ))}
@@ -364,16 +216,6 @@ export default function AnnualConcert() {
 
 
 
-      {/* ── CTA ── */}
-      <section className="ac-cta">
-        <div className="ac-cta-inner">
-          <h2 className="ac-cta-h">Be Part of the<br />Magic This Year</h2>
-          <p className="ac-cta-p">Come watch our students shine, support our school, or help us make this year's Annual Concert our most memorable one yet.</p>
-          <div className="ac-cta-btns">
-            <a href="/donate" className="ac-btn-gold">Donate & Support →</a>
-          </div>
-        </div>
-      </section>
 
       {/* ── FOOTER ── */}
       <footer className="footer ac-footer">

@@ -140,7 +140,7 @@ export default function App() {
           </aside>
 
           <div className="hero-stats">
-            {[['500', 'Students'], ['NGO', 'School'], ['L.N. to X', 'Grades'], ['25+', 'Yrs Legacy']].map(([n, l], i) => (
+            {[['500', 'Students'], ['NGO', 'School'], ['L.N. to X', 'Grades'], ['20+', 'Yrs Legacy']].map(([n, l], i) => (
               <div key={i} className="hstat">
                 <span className="hstat-n">{n}</span>
                 <span className="hstat-l">{l}</span>
