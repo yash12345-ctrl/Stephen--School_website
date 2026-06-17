@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import './indep.css';
-import { ProgramMegaMenu } from './program_top';
 import { Flag, Music, MapPin, Sparkles, Star, Award, Shield } from 'lucide-react';
 import Navbar from './Navbar';
 
