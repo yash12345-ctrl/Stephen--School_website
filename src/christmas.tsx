@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import './christmas.css';
 import { ProgramMegaMenu } from './program_top';
-import { Gift, Music, Heart, Calendar, MapPin, Sparkles, Star } from 'lucide-react';
+import { Gift, Music, Heart, Sparkles, Star, TreePine, Palette } from 'lucide-react';
 
 export default function Christmas() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -19,18 +19,12 @@ export default function Christmas() {
   const highlights = [
     { icon: <Music className="xm-icon" size={24} />, title: 'Choir & Carols', desc: 'Our student choir fills the winter air with beautiful festive carols and classic hymns, representing weeks of preparation.', tag: 'Music' },
     { icon: <Sparkles className="xm-icon" size={24} />, title: 'The Nativity Play', desc: 'A heartfelt enactment of the Christmas story by middle school students, featuring traditional costumes and songs.', tag: 'Drama' },
-    { icon: <Gift className="xm-icon" size={24} />, title: 'Gift Distribution', desc: 'Santas arrival brings warm blankets, new clothes, school supplies, and special holiday treats for every child.', tag: 'Giving' },
+    { icon: <Gift className="xm-icon" size={24} />, title: 'Gift Distribution', desc: 'Santa\'s arrival brings warm blankets, new clothes, school supplies, and special holiday treats for every child.', tag: 'Giving' },
     { icon: <Heart className="xm-icon" size={24} />, title: 'Community Feast', desc: 'A grand festive lunch prepared by volunteers and teachers, sharing the warmth of a holiday meal together.', tag: 'Feast' },
+    { icon: <TreePine className="xm-icon" size={24} />, title: 'Carol Singing Walk', desc: 'Students walk through the school campus singing carols, spreading festive cheer to every classroom and community corner.', tag: 'Celebration' },
+    { icon: <Palette className="xm-icon" size={24} />, title: 'Winter Craft Fair', desc: 'Children display handmade ornaments, Christmas cards, and art, showcasing their creativity in a vibrant winter showcase.', tag: 'Arts' },
   ];
 
-  const schedule = [
-    { time: '09:30 AM', title: 'Festive Assembly & Carols', desc: 'Opening prayers followed by standard and local Bengali Christmas carols sung by the school choir.' },
-    { time: '10:30 AM', title: 'The Nativity Play', desc: 'Class VI to VIII students perform the story of Christmas, reminding us of hope and love.' },
-    { time: '11:45 AM', title: 'Dance & Recitation', desc: 'Creative performances, poetry, and festive dances by the primary school children.' },
-    { time: '12:45 PM', title: 'Santa Claus & Gifts', desc: 'Santa arrives to hand out Eidi-style Christmas gift packs consisting of warm clothing, cakes, and toys.' },
-    { time: '01:30 PM', title: 'Grand Christmas Lunch', desc: 'A special community lunch served to all 500+ students, staff, and local volunteers.' },
-    { time: '03:00 PM', title: 'Vote of Thanks & Distribution', desc: 'Closing words, sweets distribution, and holiday wishes before winter recess.' },
-  ];
 
   return (
     <div className="xm-page">
@@ -88,39 +82,34 @@ export default function Christmas() {
       <section className="xm-hero">
         <div className="xm-hero-bg" style={{ backgroundImage: "url('/christmas_hero.webp')" }} />
         <div className="xm-snow-overlay" />
+        <div className="xm-snow-overlay-2" />
+        <div className="xm-snow-overlay-3" />
+        <div className="xm-hero-stars" />
         <div className="xm-hero-veil" />
-        
+        <div className="xm-hero-orb" />
+
         <div className="xm-hero-inner">
           <div className="xm-hero-tag">
-            <Star size={14} className="gold-star animate-pulse" /> Annual Festive Celebration · St. Stephen's School
+            <Star size={14} className="gold-star animate-pulse" /> Annual Festive Celebration
+            <span className="xm-hero-tag-dot" />
+            St. Stephen's School
           </div>
+
+          <div className="xm-hero-snowflakes">❅ &nbsp;&nbsp; ❆ &nbsp;&nbsp; ❅ &nbsp;&nbsp; ❆ &nbsp;&nbsp; ❅</div>
+
           <h1 className="xm-hero-h1">
             Christmas<br /><span>Celebration</span>
           </h1>
+
           <p className="xm-hero-sub">
-            Spreading the light of education, warmth, and holiday cheer. A season of hope and sharing dedicated to the children of Bowbazar.
+            Spreading the light of education, warmth, and holiday cheer.<br />
+            A season of hope and sharing for the children of Bowbazar.
           </p>
 
-          <div className="xm-hero-meta">
-            <div className="xm-meta-item">
-              <Calendar size={20} className="xm-meta-icon" />
-              <div>
-                <div className="xm-meta-label">Date</div>
-                <div style={{ fontWeight: 700 }}>December 18, 2026</div>
-              </div>
-            </div>
-            <div className="xm-meta-item">
-              <MapPin size={20} className="xm-meta-icon" />
-              <div>
-                <div className="xm-meta-label">Venue</div>
-                <div style={{ fontWeight: 700 }}>School Campus Hall</div>
-              </div>
-            </div>
-          </div>
-
           <div className="xm-hero-btns">
-            <a href="#about" className="xm-btn-gold">Explore Event Details</a>
-            <a href="/donate" className="xm-btn-ghost">Support our Drive</a>
+            <a href="#about" className="xm-btn-gold xm-btn-shimmer">
+              <span>❄</span> Explore Celebration
+            </a>
           </div>
         </div>
 
@@ -136,8 +125,8 @@ export default function Christmas() {
           <div className="xm-about-grid">
             <div className="xm-about-visual">
               <div className="xm-about-collage">
-                <img loading="lazy" src="/v3.webp" alt="Christmas Celebration Prep" className="xm-collage-img-main" />
-                <img loading="lazy" src="/v4.webp" alt="Students Joy" className="xm-collage-img-sec" />
+                <img loading="lazy" src="/christmas_students.jpg" alt="Students with Santa hats and Christmas gift bags" className="xm-collage-img-main" />
+                <img loading="lazy" src="/b7.jpg" alt="Students at Christmas celebration" className="xm-collage-img-sec" />
               </div>
               <div className="xm-about-badge">
                 <div className="xm-about-badge-num">🎄</div>
@@ -146,27 +135,14 @@ export default function Christmas() {
             </div>
             <div>
               <div className="xm-chip">Our Festive Tradition</div>
-              <h2 className="xm-h2">Spreading Hope and <span>Warmth</span></h2>
+              <h2 className="xm-h2"><span>Spreading Hope and</span> Warmth</h2>
               <p className="xm-lead">
                 At St. Stephen's School, Christmas is a special opportunity to express gratitude and bring smiles to our 500+ students. As an NGO-based school, we host a grand celebration to ensure every first-generation learner is wrapped in warmth and happiness before the winter break. 
               </p>
               <p className="xm-body">
                 Through our annual Christmas Drive, we gather gifts, warm blankets, and support for a community feast. It is a day where barriers vanish, and we celebrate the spirit of giving together.
               </p>
-              <div className="xm-about-stats">
-                <div className="xm-stat">
-                  <span className="xm-stat-num">500+</span>
-                  <span className="xm-stat-lbl">Gifts Distributed</span>
-                </div>
-                <div className="xm-stat">
-                  <span className="xm-stat-num">100%</span>
-                  <span className="xm-stat-lbl">Community Run</span>
-                </div>
-                <div className="xm-stat">
-                  <span className="xm-stat-num">20+</span>
-                  <span className="xm-stat-lbl">Years Legacy</span>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -193,21 +169,18 @@ export default function Christmas() {
                   The students sang carols in the serene cathedral gardens and received winter gifts, making this holiday excursion a truly unforgettable experience of warmth and cheer.
                 </p>
               </div>
-              <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '240px' }}>
-                <img loading="lazy" src="/v3.webp" alt="St. Paul's Cathedral Visit on December 25, 2024" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{
-                  position: 'absolute',
-                  bottom: '1rem',
-                  left: '1rem',
-                  background: 'rgba(156, 37, 41, 0.85)',
-                  color: '#fff',
-                  padding: '0.4rem 1rem',
-                  borderRadius: '50px',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  backdropFilter: 'blur(4px)'
-                }}>
-                  📅 Dec 25, 2024
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+                <div style={{ position: 'relative', borderRadius: '14px', overflow: 'hidden', height: '200px' }}>
+                  <img loading="lazy" src="/b5.jpg" alt="Christmas Celebration at St. Stephen's School" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div style={{
+                    position: 'absolute', bottom: '0.6rem', left: '0.6rem',
+                    background: 'rgba(156, 37, 41, 0.85)', color: '#fff',
+                    padding: '0.25rem 0.7rem', borderRadius: '50px',
+                    fontSize: '0.68rem', fontWeight: 700, backdropFilter: 'blur(4px)'
+                  }}>📅 Dec 25, 2024</div>
+                </div>
+                <div style={{ position: 'relative', borderRadius: '14px', overflow: 'hidden', height: '200px' }}>
+                  <img loading="lazy" src="/b6.jpg" alt="Students with Christmas gifts at St. Stephen's School" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
               </div>
             </div>
@@ -238,44 +211,17 @@ export default function Christmas() {
         </div>
       </section>
 
-      {/* ── SCHEDULE SECTION ── */}
-      <section className="xm-section xm-schedule">
-        <div className="xm-wrap">
-          <div className="xm-highlights-head">
-            <div className="xm-chip">Timeline</div>
-            <h2 className="xm-h2">Program <span>Schedule</span></h2>
-            <p className="xm-lead">
-              An overview of the events taking place during our Christmas Day celebration.
-            </p>
-          </div>
-          <div className="xm-timeline">
-            {schedule.map((s, i) => (
-              <div className={`xm-timeline-item ${i % 2 !== 0 ? 'xm-alt' : ''}`} key={i}>
-                <div className="xm-time-col">{s.time}</div>
-                <div className="xm-dot-col">
-                  <div className="xm-timeline-dot"><Sparkles size={12} className="text-[#ffd700]" /></div>
-                </div>
-                <div className="xm-content-col">
-                  <h4 className="xm-timeline-title">{s.title}</h4>
-                  <p className="xm-timeline-desc">{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA SECTION ── */}
       <section className="xm-cta">
         <div className="xm-cta-inner">
-          <h2 className="xm-cta-h">Spread the Joy of<br />Christmas This Winter</h2>
-          <p className="xm-cta-p">
-            Help us buy school supplies, warm sweaters, and holiday cakes for underprivileged children. Your small contribution can light up a child's festive season.
-          </p>
-          <div className="xm-cta-btns">
-            <a href="/donate" className="xm-btn-gold">Sponsor a Gift Pack →</a>
-            <a href="/about" className="xm-btn-ghost">Learn About St. Stephen's</a>
+          <div className="xm-cta-text">
+            <span className="xm-cta-tag">Make a Difference</span>
+            <h2 className="xm-cta-h">Spread the Joy of <span>Christmas</span></h2>
+            <p className="xm-cta-p">
+              Your contribution lights up a child's festive season.
+            </p>
           </div>
+          <a href="/donate" className="xm-btn-gold xm-cta-donate">Donate Now →</a>
         </div>
       </section>
 

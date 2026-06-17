@@ -113,7 +113,7 @@
 /* ── HERO SECTION ── */
 .trip-hero {
   position: relative;
-  min-height: 85vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   padding: 10rem 1.5rem 6rem;
