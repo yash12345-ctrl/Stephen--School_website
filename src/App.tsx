@@ -115,9 +115,12 @@ export default function App() {
           <div className="hero-pill">
             <span className="pulse-dot"></span> Est. 2001 &nbsp;·&nbsp; Excellence in Education
           </div>
-          <h1 className="hero-h1">Shaping<br />Tomorrow's<br />Leaders</h1>
+          <h1 className="hero-h1">Shaping<br /><span className="gold-text-glow">Tomorrow's</span><br />Leaders</h1>
           <p className="hero-p">Where academic brilliance meets character — empowering every student to reach their highest potential in a world-class learning environment.</p>
-
+          <div className="hero-btns">
+            <a href="/about" className="btn-gold">Explore School →</a>
+            <a href="/donate" className="btn-ghost">Support Us</a>
+          </div>
         </div>
 
         <div className="hero-right">

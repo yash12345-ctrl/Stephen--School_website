@@ -28,8 +28,8 @@
 
 /* ── NAVBAR REMOVED - NOW USING GLOBAL NAVBAR ── */
 .navbar.navbar--about:not(.navbar--fixed) {
-  background: transparent !important;
-  border-bottom: none !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
 .navbar.navbar--about:not(.navbar--fixed) .nav-links a {

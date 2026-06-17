@@ -109,11 +109,11 @@
 /* ── HERO SECTION ── */
 .trip-hero {
   position: relative;
-  min-height: 85vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
-  padding: 10rem 1.5rem 6rem;
-  background: #060913;
+  padding: 12rem 1.5rem 8rem;
+  background: #050811;
   overflow: hidden;
 }
 
@@ -125,8 +125,9 @@
   height: 100%;
   background-size: cover;
   background-position: center;
-  opacity: 0.28;
-  filter: saturate(1.1) contrast(1.05);
+  opacity: 0.52;
+  filter: saturate(1.25) contrast(1.1) brightness(0.85);
+  animation: heroZoom 12s ease-in-out infinite alternate;
 }
 
 .trip-hero-veil {
@@ -136,11 +137,16 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(to bottom, 
-    rgba(6, 9, 19, 0.8) 0%, 
-    rgba(6, 9, 19, 0.95) 70%, 
+    rgba(5, 8, 17, 0.55) 0%, 
+    rgba(5, 8, 17, 0.88) 70%, 
     #0b0f19 100%
   );
   z-index: 1;
+}
+
+@keyframes heroZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
 }
 
 .trip-hero-glow {

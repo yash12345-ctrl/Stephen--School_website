@@ -8,6 +8,7 @@ export default function Eid() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeImage, setActiveImage] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Eidi Envelope Animation State
@@ -38,20 +39,12 @@ export default function Eid() {
   };
 
   const highlights = [
-    { icon: <Moon className="eid-card-icon" size={24} />, title: 'Eid Milan Assembly', desc: 'A beautiful morning gathering where students share speeches on unity, exchange greetings, and recite poetry.', tag: 'Community' },
-    { icon: <Sparkles className="eid-card-icon" size={24} />, title: 'Cultural Mehfil', desc: 'Performances of traditional music, ghazals, and inter-faith dramas demonstrating peace and harmony.', tag: 'Cultural' },
-    { icon: <Gift className="eid-card-icon" size={24} />, title: 'Eidi Distribution', desc: 'Providing educational kits, sweet boxes, and new festive outfits for all 500+ underprivileged students.', tag: 'Sharing' },
-    { icon: <Heart className="eid-card-icon" size={24} />, title: 'The Grand Feast', desc: 'A community feast featuring delicious biryani, traditional sewai, and fruits, shared by students and volunteers.', tag: 'Feast' },
+    { icon: <Moon className="eid-card-icon" size={24} />, title: 'Eid Milan Assembly', desc: 'A beautiful morning gathering of unity, speeches, festive greetings, and poetry sharing.', tag: 'Community' },
+    { icon: <Sparkles className="eid-card-icon" size={24} />, title: 'Cultural Mehfil', desc: 'Performances of traditional music, ghazals, and dramas demonstrating peace and harmony.', tag: 'Cultural' },
+    { icon: <Gift className="eid-card-icon" size={24} />, title: 'Eidi Distribution', desc: 'Providing educational kits, sweet boxes, and festive outfits for 500+ students.', tag: 'Sharing' },
+    { icon: <Heart className="eid-card-icon" size={24} />, title: 'The Grand Feast', desc: 'A community feast featuring delicious biryani, traditional sewai, and fresh fruits.', tag: 'Feast' },
   ];
 
-  const schedule = [
-    { time: '08:30 AM', title: 'Morning Assembly & Eid Greetings', desc: 'Opening assembly starting with prayer, followed by principal address and student greetings.' },
-    { time: '09:15 AM', title: 'Sufi Choir & Poetry Mehfil', desc: 'Students perform devotional melodies and poetry readings on love, unity, and brotherhood.' },
-    { time: '10:30 AM', title: 'Eid Milan Dramatic Skit', desc: 'Middle school students present a play on cultural harmony and inter-faith sharing.' },
-    { time: '11:30 AM', title: 'Eidi & Gift Distribution', desc: 'Distribution of special Eidi gift envelopes containing stationery, sweets, and fresh clothes.' },
-    { time: '12:30 PM', title: 'Grand Community Feast', desc: 'Traditional Eid lunch serving fresh chicken biryani, sheer khurma, and sweets to all children.' },
-    { time: '02:00 PM', title: 'Volunteer Appreciation & Closing', desc: 'Expressing gratitude to sponsors and volunteers before releasing students for holiday break.' },
-  ];
 
   return (
     <div className="eid-page-container">
@@ -121,26 +114,8 @@ export default function Eid() {
             Celebrating peace, generosity, and community harmony. A special day of Eid feasts and Eidi gifts for our 500+ students in Bowbazar.
           </p>
 
-          <div className="eid-hero-meta">
-            <div className="eid-meta-item">
-              <Calendar size={20} className="eid-meta-icon" />
-              <div>
-                <div className="eid-meta-label">Date</div>
-                <div style={{ fontWeight: 700 }}>Upcoming Festival</div>
-              </div>
-            </div>
-            <div className="eid-meta-item">
-              <MapPin size={20} className="eid-meta-icon" />
-              <div>
-                <div className="eid-meta-label">Venue</div>
-                <div style={{ fontWeight: 700 }}>School Central Courtyard</div>
-              </div>
-            </div>
-          </div>
-
           <div className="eid-hero-btns">
             <a href="#interactive-eidi" className="eid-btn-gold">Receive Eidi Blessings</a>
-            <a href="/donate" className="eid-btn-ghost">Support Eid Drive</a>
           </div>
         </div>
 
@@ -177,6 +152,11 @@ export default function Eid() {
                   </div>
                 </div>
                 <div className="envelope-flap"></div>
+                <div className="envelope-seal">
+                  <div className="seal-inner">
+                    <span className="seal-crescent">🌙</span>
+                  </div>
+                </div>
                 <div className="envelope-front"></div>
               </div>
 
@@ -191,7 +171,11 @@ export default function Eid() {
                     transform: `scale(${coin.scale})`
                   }}
                 >
-                  🪙
+                  <div className="gold-coin">
+                    <div className="gold-coin-face">
+                      <span className="gold-coin-crescent">🌙</span>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -211,8 +195,8 @@ export default function Eid() {
           <div className="eid-about-grid">
             <div className="eid-about-visual">
               <div className="eid-about-collage">
-                <img loading="lazy" src="/v4.webp" alt="Eid Milan Prep" className="eid-collage-img-main" />
-                <img loading="lazy" src="/v3.webp" alt="Children Smiling" className="eid-collage-img-sec" />
+                <img loading="lazy" src="/b1.jpg" alt="Eid Milan Celebration Assembly" className="eid-collage-img-main" />
+                <img loading="lazy" src="/b4.jpg" alt="Grand Community Feast" className="eid-collage-img-sec" />
               </div>
               <div className="eid-about-badge">
                 <div className="eid-about-badge-num">🌙</div>
@@ -228,20 +212,7 @@ export default function Eid() {
               <p className="eid-body">
                 Most of our students come from street and slum communities of Bowbazar and are first-generation learners. We celebrate Eid by organizing a massive community feast (delicious chicken biryani and sewai) and distributing "Eidi" (new clothing, storybooks, and hygiene packs) so they can fully participate in the festive spirit.
               </p>
-              <div className="eid-about-stats">
-                <div className="xm-stat">
-                  <span className="xm-stat-num">500+</span>
-                  <span className="xm-stat-lbl">Feast Plates Served</span>
-                </div>
-                <div className="xm-stat">
-                  <span className="xm-stat-num">100%</span>
-                  <span className="xm-stat-lbl">Inclusivity</span>
-                </div>
-                <div className="xm-stat">
-                  <span className="xm-stat-num">NGO</span>
-                  <span className="xm-stat-lbl">Supported Event</span>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -269,7 +240,7 @@ export default function Eid() {
                 </p>
               </div>
               <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '240px' }}>
-                <img loading="lazy" src="/v4.webp" alt="Gifts Distribution on May 6, 2022" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img loading="lazy" src="/b3.jpg" alt="Eid Milan Gift Distribution Drive Poster" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{
                   position: 'absolute',
                   bottom: '1rem',
@@ -303,42 +274,62 @@ export default function Eid() {
           <div className="eid-cards-grid">
             {highlights.map((h, i) => (
               <div className="eid-card" key={i}>
-                <div className="eid-card-icon-wrap">{h.icon}</div>
+                <div className="eid-card-header-row">
+                  <div className="eid-card-icon-wrap">{h.icon}</div>
+                  <span className="eid-card-tag">{h.tag}</span>
+                </div>
                 <h3 className="eid-card-h">{h.title}</h3>
                 <p className="eid-card-p">{h.desc}</p>
-                <span className="eid-card-tag">{h.tag}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── SCHEDULE SECTION ── */}
-      <section className="eid-section eid-schedule">
+      {/* ── CELEBRATION GALLERY ── */}
+      <section className="eid-section eid-gallery">
         <div className="eid-wrap">
           <div className="eid-highlights-head">
-            <div className="eid-chip">Event Timeline</div>
-            <h2 className="eid-h2">Celebration <span>Schedule</span></h2>
+            <div className="eid-chip">Festive Gallery</div>
+            <h2 className="eid-h2">Celebration <span>Moments</span></h2>
             <p className="eid-lead">
-              Timeline of activities scheduled for our festive Eid Milan gathering.
+              A glimpse into the community gathering, magical entertainment, and delicious feast of our Eid Milan.
             </p>
           </div>
-          <div className="eid-timeline">
-            {schedule.map((s, i) => (
-              <div className={`eid-timeline-item ${i % 2 !== 0 ? 'eid-alt' : ''}`} key={i}>
-                <div className="eid-time-col">{s.time}</div>
-                <div className="eid-dot-col">
-                  <div className="eid-timeline-dot"><Sparkles size={12} className="text-[#ffd700]" /></div>
+          <div className="eid-gallery-grid">
+            {[
+              { img: '/b1.jpg', title: 'Community Assembly', desc: 'Students and teachers gather in the hall for Eid Milan greetings.' },
+              { img: '/b2.jpg', title: 'Magical Performance', desc: 'A live magic show bringing wonder and laughter to the children.' },
+              { img: '/b3.jpg', title: 'Gift Distribution Drive', desc: 'The official May 2022 banner inviting community support and Eidi donations.' },
+              { img: '/b4.jpg', title: 'Grand Community Feast', desc: 'A special festive lunch served to all 500+ students and staff.' }
+            ].map((item, index) => (
+              <div className="eid-gallery-card" key={index} onClick={() => setActiveImage(item.img)}>
+                <div className="eid-gallery-img-wrapper">
+                  <img loading="lazy" src={item.img} alt={item.title} />
+                  <div className="eid-gallery-overlay">
+                    <span className="eid-gallery-zoom">View Full Image</span>
+                  </div>
                 </div>
-                <div className="eid-content-col">
-                  <h4 className="eid-timeline-title">{s.title}</h4>
-                  <p className="eid-timeline-desc">{s.desc}</p>
+                <div className="eid-gallery-info">
+                  <h4>{item.title}</h4>
+                  <p>{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* ── LIGHTBOX MODAL ── */}
+      {activeImage && (
+        <div className="eid-lightbox" onClick={() => setActiveImage(null)}>
+          <div className="eid-lightbox-content" onClick={e => e.stopPropagation()}>
+            <img src={activeImage} alt="Enlarged gallery view" />
+            <button className="eid-lightbox-close" onClick={() => setActiveImage(null)}>&times;</button>
+          </div>
+        </div>
+      )}
+
 
       {/* ── CTA SECTION ── */}
       <section className="eid-cta">

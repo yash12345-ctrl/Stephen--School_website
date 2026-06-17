@@ -264,7 +264,7 @@
 
 /* ── INTERACTIVE EIDI SECTION ── */
 .eid-interactive {
-  background: var(--eid-white);
+  background: transparent;
   border-bottom: 1px solid rgba(11, 69, 40, 0.05);
 }
 
@@ -277,14 +277,23 @@
 
 /* 3D Envelope Styling */
 .eidi-envelope-box {
-  width: 320px;
-  height: 200px;
+  width: 340px;
+  height: 220px;
   position: relative;
-  background: var(--eid-emerald-light);
-  border-radius: 0 0 12px 12px;
+  background: radial-gradient(circle at 50% 50%, #166e40 0%, #0b4528 100%);
+  border-radius: 0 0 16px 16px;
   margin: 0 auto;
   cursor: pointer;
-  box-shadow: 0 20px 45px rgba(7, 45, 38, 0.15);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.25), inset 0 -3px 6px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(207, 168, 71, 0.35);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.eidi-envelope-box:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 30px 65px rgba(207, 168, 71, 0.15), 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Envelope Back Side */
@@ -292,6 +301,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  transform-style: preserve-3d;
 }
 
 /* Envelope Triangle Flap */
@@ -301,18 +311,69 @@
   left: 0;
   width: 0;
   height: 0;
-  border-left: 160px solid transparent;
-  border-right: 160px solid transparent;
-  border-top: 110px solid var(--eid-emerald);
+  border-left: 170px solid transparent;
+  border-right: 170px solid transparent;
+  border-top: 120px solid #0b4528;
   transform-origin: top;
-  transition: transform 0.4s ease, z-index 0.2s;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.25s, border-top-color 0.5s;
   z-index: 5;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
 
 .eidi-envelope-box.open .envelope-flap {
   transform: rotateX(180deg);
-  border-top-color: var(--eid-emerald-dark);
+  border-top-color: #072d1a;
   z-index: 2; /* behind the letter when opened */
+  filter: drop-shadow(0 -3px 5px rgba(0,0,0,0.25));
+}
+
+/* Golden Seal / Stamp */
+.envelope-seal {
+  position: absolute;
+  top: 95px;
+  left: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 35% 35%, #ffeaa7 0%, #d4af37 50%, #aa8010 85%, #7a5c05 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 4px 10px rgba(0,0,0,0.4),
+    inset 0 1px 3px rgba(255,255,255,0.6),
+    inset 0 -2px 4px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(207, 168, 71, 0.5);
+  border: 1px dashed rgba(138, 109, 28, 0.4);
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, z-index 0.25s;
+  cursor: pointer;
+  animation: pulseSeal 3s infinite ease-in-out;
+}
+
+.seal-inner {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px double rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.seal-crescent {
+  font-size: 18px;
+  color: #fff6cc;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.6));
+  transform: rotate(-15deg);
+}
+
+.eidi-envelope-box.open .envelope-seal {
+  transform: translateY(-90px) rotateX(180deg) scale(0.9);
+  opacity: 0.95;
+  z-index: 2; /* moves behind the letter */
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.25);
 }
 
 /* Envelope Pocket Body (Front Overlay) */
@@ -322,13 +383,14 @@
   left: 0;
   width: 0;
   height: 0;
-  border-left: 160px solid rgba(18, 96, 56, 0.95);
-  border-right: 160px solid rgba(18, 96, 56, 0.95);
-  border-bottom: 110px solid var(--eid-emerald);
-  border-top: 90px solid transparent;
-  border-radius: 0 0 12px 12px;
+  border-left: 170px solid rgba(18, 96, 56, 0.98);
+  border-right: 170px solid rgba(18, 96, 56, 0.98);
+  border-bottom: 120px solid #093c22;
+  border-top: 100px solid transparent;
+  border-radius: 0 0 16px 16px;
   z-index: 4;
   pointer-events: none;
+  filter: drop-shadow(0 -4px 12px rgba(0,0,0,0.2));
 }
 
 /* The blessing letter inside the envelope */
@@ -336,25 +398,28 @@
   position: absolute;
   bottom: 10px;
   left: 15px;
-  width: 290px;
-  height: 180px;
-  background: #fffdf5;
+  width: 310px;
+  height: 200px;
+  background: #fdfaf2;
+  background-image: radial-gradient(rgba(207, 168, 71, 0.05) 1px, transparent 0), radial-gradient(rgba(207, 168, 71, 0.05) 1px, transparent 0);
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
   border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.06);
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 1.6rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1), inset 0 0 30px rgba(207, 168, 71, 0.06);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
   z-index: 3;
   box-sizing: border-box;
   text-align: center;
-  border: 1px solid rgba(207, 168, 71, 0.15);
-  opacity: 0.8;
+  border: 2px solid #cfa847;
+  opacity: 0.1;
 }
 
 .eidi-envelope-box.open .envelope-letter {
-  transform: translateY(-120px);
+  transform: translateY(-135px);
   z-index: 6; /* displays on top of envelope flap */
   opacity: 1;
-  box-shadow: 0 15px 35px rgba(7, 45, 38, 0.12);
+  box-shadow: 0 20px 45px rgba(7, 45, 38, 0.22);
 }
 
 .letter-header {
@@ -362,41 +427,48 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
   color: var(--eid-emerald);
 }
 
 .letter-header h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.35rem;
+  font-weight: 850;
   margin: 0;
+  background: linear-gradient(135deg, var(--eid-emerald), var(--eid-emerald-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .letter-crescent {
   color: var(--eid-gold);
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
 }
 
 .blessing-ar {
-  font-family: serif;
-  font-size: 1.05rem;
+  font-family: 'Scheherazade New', serif;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--eid-gold);
   margin-bottom: 0.4rem;
+  line-height: 1;
 }
 
 .blessing-en {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   line-height: 1.45;
-  color: var(--eid-gray);
-  margin: 0 0 0.8rem 0;
+  color: #3b4e42;
+  margin: 0 0 0.6rem 0;
+  font-weight: 500;
 }
 
 .letter-sign {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 1.2px;
   color: var(--eid-emerald);
 }
 
@@ -404,16 +476,71 @@
 .eidi-coin {
   position: absolute;
   bottom: 60px;
-  font-size: 2rem;
   z-index: 10;
   pointer-events: none;
   opacity: 0;
-  animation: floatGoldCoin 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: floatGoldCoin 2.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  width: 44px;
+  height: 44px;
 }
 
+/* Premium Gold Coin Styling */
+.gold-coin {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.gold-coin-face {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff1b8 0%, #e5c04f 35%, #bfa02c 70%, #8c6e0c 95%, #594302 100%);
+  border: 2px solid #fce895;
+  box-shadow: 
+    0 5px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.7),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spinCoin 1.8s infinite linear;
+  box-sizing: border-box;
+}
+
+/* Shimmer overlay reflection */
+.gold-coin-face::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: linear-gradient(
+    135deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  animation: coinShimmer 2.2s infinite linear;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.gold-coin-crescent {
+  font-size: 13px;
+  color: #fff9db;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 800;
+  user-select: none;
+}
+
+/* KEYFRAMES */
 @keyframes floatGoldCoin {
   0% {
-    transform: translateY(0) rotate(0deg) scale(0.5);
+    transform: translateY(0) rotate(0deg) scale(0.4);
     opacity: 0;
   }
   15% {
@@ -423,14 +550,43 @@
     opacity: 1;
   }
   100% {
-    transform: translateY(-360px) rotate(540deg) scale(1);
+    transform: translateY(-380px) rotate(540deg) scale(1);
     opacity: 0;
+  }
+}
+
+@keyframes spinCoin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes coinShimmer {
+  0% { transform: translate(-40%, -40%) rotate(45deg); }
+  100% { transform: translate(40%, 40%) rotate(45deg); }
+}
+
+@keyframes pulseSeal {
+  0%, 100% {
+    box-shadow: 
+      0 4px 10px rgba(0,0,0,0.4),
+      inset 0 1px 3px rgba(255,255,255,0.6),
+      inset 0 -2px 4px rgba(0,0,0,0.5),
+      0 0 0 1px rgba(207, 168, 71, 0.5),
+      0 0 0px rgba(207, 168, 71, 0);
+  }
+  50% {
+    box-shadow: 
+      0 4px 12px rgba(0,0,0,0.4),
+      inset 0 1px 3px rgba(255,255,255,0.6),
+      inset 0 -2px 4px rgba(0,0,0,0.5),
+      0 0 0 2px rgba(207, 168, 71, 0.6),
+      0 0 12px rgba(207, 168, 71, 0.35);
   }
 }
 
 /* ── ABOUT SECTION ── */
 .eid-about {
-  background: var(--eid-white);
+  background: transparent;
 }
 
 .eid-about-grid {
@@ -514,76 +670,93 @@
   background: #f1f7f3;
   border-top: 1px solid rgba(11, 69, 40, 0.04);
   border-bottom: 1px solid rgba(11, 69, 40, 0.04);
+  padding: 4.5rem 0 !important;
 }
 
 .eid-highlights-head {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto 3rem auto;
 }
 
 .eid-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .eid-card {
-  background: var(--eid-white);
-  padding: 2.5rem;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(11, 69, 40, 0.02);
-  border: 1px solid rgba(11, 69, 40, 0.04);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1.8rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(11, 69, 40, 0.03);
+  border: 1px solid rgba(11, 69, 40, 0.06);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .eid-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(11, 69, 40, 0.06);
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 36px rgba(11, 69, 40, 0.08), 0 0 0 1px rgba(207, 168, 71, 0.2);
+  border-color: rgba(207, 168, 71, 0.35);
+}
+
+.eid-card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  width: 100%;
 }
 
 .eid-card-icon-wrap {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
   background: rgba(207, 168, 71, 0.08);
   color: var(--eid-gold);
-  margin-bottom: 1.5rem;
   transition: all 0.3s ease;
 }
 
 .eid-card:hover .eid-card-icon-wrap {
   background: var(--eid-gold);
   color: var(--eid-white);
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .eid-card-h {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 750;
+  margin-bottom: 0.5rem;
   color: var(--eid-emerald);
 }
 
 .eid-card-p {
-  font-size: 0.92rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.55;
   color: var(--eid-gray);
-  margin-bottom: 1.5rem;
+  margin: 0;
+  flex-grow: 1;
 }
 
 .eid-card-tag {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   font-weight: 700;
-  color: var(--eid-emerald);
-  background: rgba(11, 69, 40, 0.08);
-  padding: 0.3rem 0.8rem;
+  color: var(--eid-emerald-light);
+  background: rgba(18, 96, 56, 0.08);
+  padding: 0.25rem 0.75rem;
   border-radius: 50px;
 }
 
@@ -798,4 +971,196 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+}
+
+/* ── CELEBRATION GALLERY (CIRCULAR STYLE) ── */
+.eid-gallery {
+  background: var(--eid-white);
+  border-top: 1px solid rgba(11, 69, 40, 0.03);
+  padding: 6.5rem 0;
+}
+
+.eid-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 3.5rem;
+  margin-top: 3.5rem;
+}
+
+.eid-gallery-card {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eid-gallery-card:hover {
+  transform: translateY(-8px);
+}
+
+.eid-gallery-img-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--eid-white);
+  box-shadow: 
+    0 12px 28px rgba(11, 69, 40, 0.15),
+    0 0 0 1px rgba(207, 168, 71, 0.2);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #f4faf7;
+}
+
+.eid-gallery-card:hover .eid-gallery-img-wrapper {
+  border-color: var(--eid-gold);
+  box-shadow: 
+    0 16px 35px rgba(207, 168, 71, 0.3),
+    0 0 15px rgba(207, 168, 71, 0.45);
+}
+
+.eid-gallery-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eid-gallery-card:hover .eid-gallery-img-wrapper img {
+  transform: scale(1.12);
+}
+
+.eid-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 69, 40, 0.68);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 50%;
+}
+
+.eid-gallery-card:hover .eid-gallery-overlay {
+  opacity: 1;
+}
+
+.eid-gallery-zoom {
+  color: var(--eid-white);
+  background: rgba(207, 168, 71, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.55rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(0.9);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eid-gallery-card:hover .eid-gallery-zoom {
+  transform: scale(1);
+}
+
+.eid-gallery-info {
+  margin-top: 1.6rem;
+  max-width: 240px;
+}
+
+.eid-gallery-info h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 850;
+  color: var(--eid-emerald);
+  margin: 0 0 0.45rem 0;
+  transition: color 0.3s ease;
+}
+
+.eid-gallery-card:hover .eid-gallery-info h4 {
+  color: var(--eid-gold);
+}
+
+.eid-gallery-info p {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--eid-gray);
+  margin: 0;
+}
+
+/* ── LIGHTBOX MODAL ── */
+.eid-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 45, 26, 0.9);
+  backdrop-filter: blur(12px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeInLightbox 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.eid-lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.65);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(207, 168, 71, 0.45);
+  background: #000;
+  transform: scale(0.95);
+  animation: zoomInLightbox 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.eid-lightbox-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.eid-lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(11, 69, 40, 0.95);
+  border: 1px solid rgba(207, 168, 71, 0.4);
+  color: var(--eid-white);
+  font-size: 1.8rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10002;
+}
+
+.eid-lightbox-close:hover {
+  background: var(--eid-gold);
+  color: var(--eid-dark);
+  transform: scale(1.08) rotate(90deg);
+}
+
+@keyframes fadeInLightbox {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomInLightbox {
+  from { transform: scale(0.95); }
+  to { transform: scale(1); }
 }

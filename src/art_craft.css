@@ -28,9 +28,9 @@
 
 /* ── NAVBAR CUSTOMIZATION ── */
 .navbar--about {
-  background: rgba(253, 252, 249, 0.75) !important;
+  background: #ffffff !important;
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* ── HERO SECTION ── */
