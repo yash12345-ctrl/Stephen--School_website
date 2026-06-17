@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import './educational_day_out.css';
 import { ProgramMegaMenu } from './program_top';
-import { MapPin, Compass, GraduationCap, Users, Star, ChevronLeft, ChevronRight, BookOpen } from 'lucide-react';
+import { MapPin, Compass, GraduationCap, Users, Star, ChevronLeft, ChevronRight, BookOpen, Route } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function EducationalDayOut() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
@@ -25,58 +26,74 @@ export default function EducationalDayOut() {
 
   const destinations = [
     {
-      title: "Interactive Physics Journey",
-      desc: "Students explore hands-on exhibits, demonstrating the laws of motion, optical illusions, and mechanical principles at Science City.",
-      category: "science",
-      image: "/trip_science.webp",
-      tag: "Science City",
-      outcome: "Cognitive Inquiry",
-      date: "Jan 12, 2026"
-    },
-    {
-      title: "Stargazing at the Planetarium",
-      desc: "A majestic journey through our solar system, nebulae, and constellations projected inside the astronomical dome theater.",
-      category: "planetarium",
-      image: "/trip_planetarium.webp",
+      title: "A Visit to the Birla Planetarium",
+      desc: "Our students visited The Birla Planetarium on 27th August, 2022. The Birla Planetarium is an iconic institution that offers interactive learning experiences on astronomy and space science.",
+      category: "excursion",
+      image: "/y1.png",
+      image2: "/y2.png",
       tag: "Birla Planetarium",
       outcome: "Space Sciences",
-      date: "Feb 18, 2026"
+      date: "Aug 27, 2022"
     },
     {
-      title: "Victoria Memorial Exploration",
-      desc: "A guided educational tour of Bowbazar's colonial history, architectural heritage, and historical archives.",
-      category: "historical",
-      image: "/trip_historical.webp",
-      tag: "Victoria Memorial",
-      outcome: "Heritage Studies",
-      date: "Mar 05, 2026"
-    },
-    {
-      title: "Dynamo & Electricity Lab",
-      desc: "A thrilling live presentation showcasing Tesla coils, electrostatic charges, and electricity generation basics.",
-      category: "science",
-      image: "/trip_science.webp",
-      tag: "Science City",
-      outcome: "Inquiry Lab",
-      date: "Jan 12, 2026"
-    },
-    {
-      title: "Galactic Origins Presentation",
-      desc: "An interactive presentation about black holes, star lifecycles, and cosmic evolution led by expert astronomers.",
-      category: "planetarium",
-      image: "/trip_planetarium.webp",
-      tag: "Birla Planetarium",
-      outcome: "Cosmology Basics",
-      date: "Feb 18, 2026"
-    },
-    {
-      title: "Indian Museum Archives",
-      desc: "Students study ancient relics, archaeological findings, and natural history galleries, compiling field journals.",
-      category: "historical",
-      image: "/trip_historical.webp",
+      title: "A Trip to the Indian Museum",
+      desc: "Our students visited The Indian Museum on 23rd July. This offered a glimpse into the rich cultural heritage and scientific advancements of India.",
+      category: "excursion",
+      image: "/y3.png",
+      image2: "/y4.png",
       tag: "Indian Museum",
-      outcome: "Archaeology",
-      date: "Mar 06, 2026"
+      outcome: "Heritage Studies",
+      date: "Jul 23"
+    },
+    {
+      title: "Workshops by Interns",
+      desc: "The workshops conducted on career counselling, the importance of reading books and techniques to improve public speaking skills by students of St. Xavier's College led by Aalap Roy, Riddhiraj Mukherjee and Samad Zahid.",
+      category: "workshop",
+      image: "/y5.png",
+      image2: "/y6.png",
+      tag: "St. Xavier's Interns",
+      outcome: "Skill Development",
+      date: "Recent"
+    },
+    {
+      title: "Workshops at La Martiniere for Girls",
+      desc: "St Stephen's students were blessed to experience the workshop held at La Martiniere for girls which was filled with fun activities.",
+      category: "workshop",
+      image: "/y7.png",
+      image2: "/y8.png",
+      tag: "La Martiniere",
+      outcome: "Collaborative Learning",
+      date: "Recent"
+    },
+    {
+      title: "Workshop by YES Organisation",
+      desc: "A 2 day workshop conducted by Your English Studio with the children from Class 3-6, emphasizing on English language and its use.",
+      category: "workshop",
+      image: "/y9.png",
+      image2: "/y10.png",
+      tag: "YES Organisation",
+      outcome: "Language Skills",
+      date: "Recent"
+    },
+    {
+      title: "Table Manners Session",
+      desc: "The table manners session conducted by Mr. Ajoy Paul proved to be a transformative experience for the students, equipping them with essential life skills and empowering them to excel in any social or professional setting.",
+      category: "workshop",
+      image: "/y11.png",
+      image2: "/y11.png",
+      tag: "Life Skills",
+      outcome: "Social Etiquette",
+      date: "Recent"
+    },
+    {
+      title: "Summer Camp",
+      desc: "Summer Camp organised for students of Class IV from 19th to 21st May by Mr. Ajoy Paul.",
+      category: "workshop",
+      image: "/y12.png",
+      image2: "/y13.png",
+      tag: "Class IV",
+      outcome: "Skill Building",
+      date: "May 19-21"
     }
   ];
 
@@ -138,7 +155,7 @@ export default function EducationalDayOut() {
   };
 
   const filteredDestinations = activeCategory === 'all'
-    ? destinations
+    ? destinations.filter(item => item.title !== "Summer Camp")
     : destinations.filter(item => item.category === activeCategory);
 
   return (
@@ -151,12 +168,12 @@ export default function EducationalDayOut() {
               <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
             </div>
             <div>
-              <div className="logo-name">St. Stephen's</div>
-              <div className="logo-tagline">SCHOOL</div>
+              <div className="logo-name">St. Stephen's School</div>
+              <div className="logo-tagline">BOWBAZAR</div>
             </div>
           </a>
           <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
+            {['Home', 'About', 'Programs', 'School', 'News', 'Gallery'].map(l => (
               <li
                 key={l}
                 onMouseEnter={l === 'Programs' ? () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaMenuOpen(true); } : undefined}
@@ -165,11 +182,11 @@ export default function EducationalDayOut() {
               >
                 <a
                   href={
-                    l === 'Home'     ? '/' :
-                    l === 'About'    ? '/about' :
-                    l === 'News'     ? '/news' :
-                    l === 'Programs' ? '/#programs' :
-                    `/#${l.toLowerCase().replace(/\s+/g, '-')}`
+                    l === 'Home' ? '/' :
+                      l === 'About' ? '/about' :
+                        l === 'News' ? '/news' :
+                          l === 'Programs' ? '/#programs' :
+                            `/#${l.toLowerCase().replace(/\s+/g, '-')}`
                   }
                   onClick={() => setMobileMenuOpen(false)}
                   className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
@@ -196,21 +213,39 @@ export default function EducationalDayOut() {
       {/* ── HERO SECTION ── */}
       <section className="trip-hero">
         <div className="trip-hero-bg" style={{ backgroundImage: "url('/educational_day_out_hero.webp')" }} />
-        <div className="trip-hero-glow g1" /><div className="trip-hero-glow g2" />
         <div className="trip-hero-veil" />
-        
-        <div className="trip-hero-inner">
-          <div className="trip-chip">
-            <Compass size={14} style={{ marginRight: '6px', verticalAlign: 'middle', display: 'inline-block' }} /> Experiential Learning Journey
-          </div>
-          <h1 className="trip-hero-h1">
-            Educational<span> Day Out</span>
-          </h1>
-          <p className="trip-hero-sub">
-            Bringing academic concepts to life through curated excursions to Science City, astronomical planetariums, and majestic historical monuments across Kolkata.
-          </p>
+        <Route className="trip-float-icon" style={{ top: '10%', left: '40%', width: 300, height: 300, animationDelay: '0s' }} />
+        <Compass className="trip-float-icon" style={{ top: '15%', left: '10%', width: 120, height: 120, animationDelay: '1s' }} />
+        <MapPin className="trip-float-icon" style={{ top: '60%', right: '8%', width: 150, height: 150, animationDelay: '2s' }} />
+        <BookOpen className="trip-float-icon" style={{ bottom: '10%', left: '20%', width: 100, height: 100, animationDelay: '3s' }} />
+        <GraduationCap className="trip-float-icon" style={{ top: '25%', right: '25%', width: 80, height: 80, animationDelay: '4s' }} />
 
-          <div className="trip-hero-meta">
+        <div className="trip-hero-inner">
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}
+            className="trip-chip"
+          >
+            <Compass size={14} style={{ marginRight: '6px', verticalAlign: 'middle', display: 'inline-block' }} /> Experiential Learning Journey
+          </motion.div>
+
+          <motion.h1
+            initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }}
+            className="trip-hero-h1" style={{ maxWidth: '900px' }}
+          >
+            Educational<br /><span>Day Out</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }}
+            className="trip-hero-sub"
+          >
+            Bringing academic concepts to life through curated excursions to Science City, astronomical planetariums, and majestic historical monuments across Kolkata.
+          </motion.p>
+
+          <motion.div
+            initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 0.3 }}
+            className="trip-hero-meta"
+          >
             <div className="trip-meta-item">
               <MapPin size={20} className="trip-meta-icon" />
               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -218,13 +253,23 @@ export default function EducationalDayOut() {
                 <div style={{ fontWeight: 700, lineHeight: '1.2' }}>Science City, Planetarium & Heritage Sites, Kolkata</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="trip-hero-btns">
+          <motion.div
+            initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }}
+            className="trip-hero-btns"
+          >
             <a href="#destinations" className="trip-btn-teal">Explore Excursions</a>
             <a href="#impact" className="trip-btn-ghost">Learning Outcomes</a>
-          </div>
+          </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}
+          className="trip-scroll-cue"
+        >
+          Scroll to Explore <span>↓</span>
+        </motion.div>
       </section>
 
       {/* ── DESTINATIONS SECTION ── */}
@@ -241,10 +286,9 @@ export default function EducationalDayOut() {
           {/* Filtering Tabs */}
           <div className="trip-gallery-filters">
             {[
-              { id: 'all', label: 'All Destinations' },
-              { id: 'science', label: 'Science Exhibits' },
-              { id: 'planetarium', label: 'Planetarium Stars' },
-              { id: 'historical', label: 'Historical Heritage' }
+              { id: 'all', label: 'All Activities' },
+              { id: 'excursion', label: 'Excursions' },
+              { id: 'workshop', label: 'Workshops' }
             ].map(tab => (
               <button
                 key={tab.id}
@@ -261,14 +305,17 @@ export default function EducationalDayOut() {
             {filteredDestinations.map((item, idx) => (
               <div className="trip-gallery-card" key={idx}>
                 <div className="trip-card-img-wrap">
-                  <img loading="lazy" src={item.image} alt={item.title} className="trip-card-img" />
+                  <div className="trip-card-img-container">
+                    <img loading="lazy" src={item.image} alt={item.title} className="trip-card-img trip-card-img-1" style={{ animationDelay: `${idx * 0.8}s` }} />
+                    <img loading="lazy" src={item.image2} alt={`${item.title} alternate`} className="trip-card-img trip-card-img-2" style={{ animationDelay: `${idx * 0.8}s` }} />
+                  </div>
                   <div className="trip-card-overlay" />
                   <span className="trip-card-tag">{item.tag}</span>
                 </div>
                 <div className="trip-card-body">
                   <h3 className="trip-card-title">{item.title}</h3>
                   <p className="trip-card-desc">{item.desc}</p>
-                  
+
                   <div className="trip-card-footer">
                     <div className="trip-card-outcome">
                       <BookOpen size={16} />
@@ -322,7 +369,7 @@ export default function EducationalDayOut() {
               <div className="trip-quote-icon">“</div>
               <div className={`trip-quote-content ${fade ? 'fade-out' : ''}`}>
                 <p className="trip-quote-text">"{studentQuotes[carouselIdx].quote}"</p>
-                
+
                 <div className="trip-student-info">
                   <div className="trip-avatar">
                     {studentQuotes[carouselIdx].author.charAt(0)}
@@ -350,22 +397,10 @@ export default function EducationalDayOut() {
         </div>
       </section>
 
-      {/* ── CTA SECTION ── */}
-      <section className="trip-cta">
-        <div className="trip-cta-inner">
-          <h2 className="trip-cta-h">Fund a Journey of Exploration</h2>
-          <p className="trip-cta-p">
-            Many of our children come from disadvantaged backgrounds. Your generous contributions fund transport rentals, museum entry passes, planetarium tickets, and learning materials, ensuring no child is left behind inside the classroom.
-          </p>
-          <div className="trip-cta-btns">
-            <a href="/donate" className="trip-btn-teal">Support Field Trips →</a>
-            <a href="/about" className="trip-btn-ghost">Learn About Our Vision</a>
-          </div>
-        </div>
-      </section>
+
 
       {/* ── FOOTER ── */}
-      <footer className="footer trip-footer">
+      <footer className="footer">
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
@@ -373,54 +408,24 @@ export default function EducationalDayOut() {
                 <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
               </div>
               <div>
-                <div className="logo-name">St. Stephen's</div>
-                <div className="logo-tagline">SCHOOL</div>
+                <div className="logo-name">St. Stephen's School</div>
+                <div className="logo-tagline">BOWBAZAR</div>
               </div>
             </div>
             <p>Nurturing young minds and shaping tomorrow's leaders since 2001. A tradition of excellence, a promise of a better future.</p>
-            <div className="socials">
-              {['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => (
-                <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>
-              ))}
+            <div className="socials">{['Facebook', 'Instagram', 'Twitter', 'YouTube'].map(s => <a key={s} href="#" className="soc-btn" title={s}>{s[0]}</a>)}</div>
+          </div>
+          {[
+            { h: 'Quick Links', links: ['About Us', 'Programs', 'Admissions', 'Faculty', 'Alumni', 'Careers'] },
+            { h: 'Academics', links: ['Pre-Primary', 'Primary School', 'Middle School', 'Senior Secondary', 'Sports & Arts', 'Digital Skills'] },
+            { h: 'Resources', links: ['Academic Calendar', 'Exam Schedule', 'Fee Structure', 'Scholarship', 'Downloads', 'Contact'] },
+          ].map(col => (
+            <div className="footer-col" key={col.h}>
+              <div className="footer-col-h">{col.h}</div>
+              <ul>{col.links.map(l => <li key={l}><a href="#">{l}</a></li>)}</ul>
             </div>
-          </div>
-
-          <div className="footer-col">
-            <div className="footer-col-h">Quick Links</div>
-            <ul>
-              {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
-                <li key={l}>
-                  <a href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : `/#${l.toLowerCase().replace(/\s+/g, '-')}`}>
-                    {l}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="footer-col">
-            <div className="footer-col-h">Events</div>
-            <ul>
-              <li><a href="/annual-concert">Annual Concert</a></li>
-              <li><a href="/art-and-craft-exhibition">Art & Craft Exhibition</a></li>
-              <li><a href="/eid">Eid Celebration</a></li>
-              <li><a href="/christmas">Christmas Celebration</a></li>
-              <li><a href="/rabindrajayanti">Rabindra Jayanti</a></li>
-              <li><a href="/educational-day-out">Educational Day Out</a></li>
-              <li><a href="/annual-picnic">Annual School Picnic</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-col">
-            <div className="footer-col-h">Contact Info</div>
-            <ul style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.83rem', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-              <li>📍 Bowbazar, Kolkata, India</li>
-              <li>📞 +91 33 2244 5566</li>
-              <li>✉️ info@ststephenskolkata.org</li>
-            </ul>
-          </div>
+          ))}
         </div>
-
         <div className="footer-bottom">
           <span>© 2026 St. Stephen's School. All rights reserved.</span>
           <span>Privacy Policy · Terms of Use · Sitemap</span>
