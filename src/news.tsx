@@ -1,8 +1,8 @@
-import { useState, useEffect, forwardRef } from 'react';
+import { useState, forwardRef } from 'react';
 import type { ReactNode, ForwardedRef } from 'react';
 import './news.css';
-import { ProgramMegaMenu } from './program_top';
 import HTMLFlipBook from 'react-pageflip';
+import Navbar from './Navbar';
 
 const FlipBook = HTMLFlipBook as React.ElementType;
 interface BookPageProps {
@@ -99,29 +99,9 @@ const allNews = [
    COMPONENT
 ══════════════════════════════════════════ */
 export default function News() {
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [isClosed, setIsClosed] = useState(true);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (e: globalThis.MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target.closest('.has-mega') && !target.closest('.mega-menu')) {
-        setMegaMenuOpen(false);
-      }
-    };
-    if (megaMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [megaMenuOpen]);
 
   const visibleNews = allNews;
 
@@ -129,85 +109,30 @@ export default function News() {
     <div className="news-page">
 
       {/* ── NAVBAR ── */}
-      <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
-        <div className="nav-inner">
-          <a href="/" className="nav-logo">
-            <div className="logo-crest-wrapper">
-              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
-            </div>
-            <div>
-              <div className="logo-name">St. Stephen's</div>
-              <div className="logo-tagline">SCHOOL</div>
-            </div>
-          </a>
-          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {(['Home', 'About', 'Programs', 'School', 'News', 'Gallery'] as const).map(l => (
-              <li
-                key={l}
-                onMouseEnter={l === 'Programs' ? () => setMegaMenuOpen(true) : undefined}
-                className={l === 'Programs' ? 'has-mega' : ''}
-              >
-                <a
-                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : l === 'Gallery' ? '/gallery' : `/#${l.toLowerCase().replace(/\s+/g, '-')}`}
-                  onClick={e => {
-                    if (l === 'Programs') {
-                      e.preventDefault();
-                      setMegaMenuOpen(!megaMenuOpen);
-                    } else {
-                      setMobileMenuOpen(false);
-                    }
-                  }}
-                  className={[
-                    l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : '',
-                    l === 'News' ? 'nav-active' : '',
-                  ].join(' ').trim()}
-                >
-                  {l}
-                  {l === 'Programs' && (
-                    <svg className="caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  )}
-                </a>
-                {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
-              </li>
-            ))}
-            {/* Mobile-only Donate Button */}
-            <li className="mobile-only-nav-apply">
-              <a href="/donate">Donate</a>
-            </li>
-          </ul>
-          <div className="nav-actions">
-            <a href="/donate" className="nav-cta">Donate →</a>
-            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar initialVariant="about" />
 
       {/* ── BREAKING NEWS TICKER ── */}
       <div className="np-ticker">
-        <div className="np-ticker-label">🔴 Welcome</div>
+        <div className="np-ticker-label">Welcome</div>
         <div className="np-ticker-track">
           <div className="np-ticker-scroll">
-            <span>🏛️ Guiding Our Institution With Vision and Excellence</span>
-            <span className="np-ticker-dot">◆</span>
-            <span>🎓 Shaping the Leaders of Tomorrow</span>
-            <span className="np-ticker-dot">◆</span>
-            <span>🌟 Empowering Students Every Day</span>
-            <span className="np-ticker-dot">◆</span>
-            <span>💡 Inspiring Innovation in Education</span>
-            <span className="np-ticker-dot">◆</span>
+            <span>Guiding Our Institution With Vision and Excellence</span>
+            <span className="np-ticker-dot">✦</span>
+            <span>Shaping the Leaders of Tomorrow</span>
+            <span className="np-ticker-dot">✦</span>
+            <span>Empowering Students Every Day</span>
+            <span className="np-ticker-dot">✦</span>
+            <span>Inspiring Innovation in Education</span>
+            <span className="np-ticker-dot">✦</span>
             {/* duplicate for seamless loop */}
-            <span>🏛️ Guiding Our Institution With Vision and Excellence</span>
-            <span className="np-ticker-dot">◆</span>
-            <span>🎓 Shaping the Leaders of Tomorrow</span>
-            <span className="np-ticker-dot">◆</span>
-            <span>🌟 Empowering Students Every Day</span>
-            <span className="np-ticker-dot">◆</span>
-            <span>💡 Inspiring Innovation in Education</span>
-            <span className="np-ticker-dot">◆</span>
+            <span>Guiding Our Institution With Vision and Excellence</span>
+            <span className="np-ticker-dot">✦</span>
+            <span>Shaping the Leaders of Tomorrow</span>
+            <span className="np-ticker-dot">✦</span>
+            <span>Empowering Students Every Day</span>
+            <span className="np-ticker-dot">✦</span>
+            <span>Inspiring Innovation in Education</span>
+            <span className="np-ticker-dot">✦</span>
           </div>
         </div>
       </div>

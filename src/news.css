@@ -21,80 +21,79 @@
   width: 100%;
 }
 
-/* ══ NAVBAR — starts at top, sticks on scroll ══ */
-.news-page .navbar {
-  position: absolute;
-  top: 1rem;
-  transition: top 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
 
-/* When user scrolls down — navbar becomes fixed at top */
-.news-page .navbar.navbar--fixed {
-  position: fixed;
-  top: 0;
-  border-radius: 0;
-  width: 100%;
-  left: 0;
-  transform: none;
-  background: rgba(11, 15, 25, 0.97);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-}
 
 
 /* ══════════════════════════════════════════
    BREAKING NEWS TICKER
 ══════════════════════════════════════════ */
 .np-ticker {
-  background: var(--navy);
-  height: 38px;
+  background: transparent;
+  height: 48px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  border-bottom: 2px solid var(--gold);
-  margin-top: 96px;
-  /* space for absolute navbar */
+  border-top: 1px solid #2c2c2c;
+  border-bottom: 1px solid #2c2c2c;
+  margin: 130px auto 0;
+  width: 92vw;
+  max-width: 1600px;
 }
 
 .np-ticker-label {
-  background: var(--gold);
-  color: var(--navy);
-  font-size: .72rem;
-  font-weight: 900;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  padding: 0 1.2rem;
+  background: transparent;
+  color: #1a1a1a;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  padding: 0 1.5rem 0 1rem;
   height: 100%;
   display: flex;
   align-items: center;
   white-space: nowrap;
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  border-right: 1px solid #2c2c2c;
+}
+
+.np-ticker-label::before {
+  content: "✦";
+  margin-right: 10px;
+  font-size: 1.2rem;
+  color: #1a1a1a;
 }
 
 .np-ticker-track {
   overflow: hidden;
   flex: 1;
   min-width: 0;
+  background: transparent;
 }
 
 .np-ticker-scroll {
   display: inline-flex;
   gap: 0;
-  animation: ntick 38s linear infinite;
+  animation: ntick 30s linear infinite;
   white-space: nowrap;
-  font-size: .78rem;
-  color: rgba(255, 255, 255, .85);
-  padding: 0 1.5rem;
+  font-size: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #2c2c2c;
+  text-transform: uppercase;
+  align-items: center;
 }
 
 .np-ticker-scroll span {
-  padding: 0 1.2rem;
+  padding: 0 1.5rem;
 }
 
 .np-ticker-dot {
-  color: var(--gold);
-  font-weight: 900;
+  color: #1a1a1a;
+  font-size: 0.9rem;
 }
 
 @keyframes ntick {

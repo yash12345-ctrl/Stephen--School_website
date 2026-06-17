@@ -1,21 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import './christmas.css';
 import { ProgramMegaMenu } from './program_top';
 import { Gift, Music, Heart, Sparkles, Star, TreePine, Palette } from 'lucide-react';
+import Navbar from './Navbar';
 
 export default function Christmas() {
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+        
+  
   const highlights = [
     { icon: <Music className="xm-icon" size={24} />, title: 'Choir & Carols', desc: 'Our student choir fills the winter air with beautiful festive carols and classic hymns, representing weeks of preparation.', tag: 'Music' },
     { icon: <Sparkles className="xm-icon" size={24} />, title: 'The Nativity Play', desc: 'A heartfelt enactment of the Christmas story by middle school students, featuring traditional costumes and songs.', tag: 'Drama' },
@@ -29,54 +20,7 @@ export default function Christmas() {
   return (
     <div className="xm-page">
       {/* ── NAVBAR ── */}
-      <nav className={`navbar navbar--about${scrolled ? ' navbar--fixed' : ''}`}>
-        <div className="nav-inner">
-          <a href="/" className="nav-logo">
-            <div className="logo-crest-wrapper">
-              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
-            </div>
-            <div>
-              <div className="logo-name">St. Stephen's</div>
-              <div className="logo-tagline">SCHOOL</div>
-            </div>
-          </a>
-          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
-              <li
-                key={l}
-                onMouseEnter={l === 'Programs' ? () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaMenuOpen(true); } : undefined}
-                onMouseLeave={l === 'Programs' ? () => { closeTimer.current = setTimeout(() => setMegaMenuOpen(false), 200); } : undefined}
-                className={l === 'Programs' ? 'has-mega' : ''}
-              >
-                <a
-                  href={
-                    l === 'Home'     ? '/' :
-                    l === 'About'    ? '/about' :
-                    l === 'News'     ? '/news' :
-                    l === 'Programs' ? '/#programs' :
-                    `/#${l.toLowerCase().replace(/\s+/g, '-')}`
-                  }
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
-                >
-                  {l}
-                  {l === 'Programs' && (
-                    <svg className="caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  )}
-                </a>
-                {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
-              </li>
-            ))}
-            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
-          </ul>
-          <div className="nav-actions">
-            <a href="/donate" className="nav-cta">Donate Now →</a>
-            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar initialVariant="about" />
 
       {/* ── HERO ── */}
       <section className="xm-hero">

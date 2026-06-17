@@ -1,26 +1,17 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import './App.css';
 import './eid.css';
-import { ProgramMegaMenu } from './program_top';
-import { Moon, Gift, Heart, Calendar, MapPin, Sparkles, Star } from 'lucide-react';
+import { Moon, Gift, Heart, Sparkles, Star } from 'lucide-react';
+import Navbar from './Navbar';
 
 export default function Eid() {
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeImage, setActiveImage] = useState<string | null>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
+        const [activeImage, setActiveImage] = useState<string | null>(null);
+  
   // Eidi Envelope Animation State
   const [eidiOpen, setEidiOpen] = useState(false);
   const [coins, setCoins] = useState<{ id: number; left: number; delay: number; scale: number }[]>([]);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  
   const handleOpenEidi = () => {
     if (!eidiOpen) {
       // Generate randomized coins
@@ -49,54 +40,7 @@ export default function Eid() {
   return (
     <div className="eid-page-container">
       {/* ── NAVBAR ── */}
-      <nav className={`navbar navbar--about${scrolled ? ' navbar--fixed' : ''}`}>
-        <div className="nav-inner">
-          <a href="/" className="nav-logo">
-            <div className="logo-crest-wrapper">
-              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
-            </div>
-            <div>
-              <div className="logo-name">St. Stephen's</div>
-              <div className="logo-tagline">SCHOOL</div>
-            </div>
-          </a>
-          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
-              <li
-                key={l}
-                onMouseEnter={l === 'Programs' ? () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaMenuOpen(true); } : undefined}
-                onMouseLeave={l === 'Programs' ? () => { closeTimer.current = setTimeout(() => setMegaMenuOpen(false), 200); } : undefined}
-                className={l === 'Programs' ? 'has-mega' : ''}
-              >
-                <a
-                  href={
-                    l === 'Home'     ? '/' :
-                    l === 'About'    ? '/about' :
-                    l === 'News'     ? '/news' :
-                    l === 'Programs' ? '/#programs' :
-                    `/#${l.toLowerCase().replace(/\s+/g, '-')}`
-                  }
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
-                >
-                  {l}
-                  {l === 'Programs' && (
-                    <svg className="caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  )}
-                </a>
-                {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
-              </li>
-            ))}
-            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
-          </ul>
-          <div className="nav-actions">
-            <a href="/donate" className="nav-cta">Donate Now →</a>
-            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar initialVariant="about" />
 
       {/* ── HERO ── */}
       <section className="eid-hero">
@@ -331,19 +275,6 @@ export default function Eid() {
       )}
 
 
-      {/* ── CTA SECTION ── */}
-      <section className="eid-cta">
-        <div className="eid-cta-inner">
-          <h2 className="eid-cta-h">Spread the Joy & Blessings<br />of Eid Milan</h2>
-          <p className="eid-cta-p">
-            Your generous contributions fund the traditional Eid feast, sweet boxes, and customized Eidi gift packs for underprivileged children. Sponsor a pack today.
-          </p>
-          <div className="eid-cta-btns">
-            <a href="/donate" className="eid-btn-gold">Sponsor Eidi Packs →</a>
-            <a href="/about" className="eid-btn-ghost">Learn About Us</a>
-          </div>
-        </div>
-      </section>
 
       {/* ── FOOTER ── */}
       <footer className="footer eid-footer">

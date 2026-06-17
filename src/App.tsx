@@ -1,15 +1,12 @@
-import { useState, useEffect, useRef } from 'react'
+import Navbar from './Navbar';
+import { useRef } from 'react'
 import type { MouseEvent } from 'react'
 import './App.css'
-import ProgramTop, { ProgramMegaMenu } from './program_top'
+import ProgramTop from './program_top'
 
 export default function App() {
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const heroRef = useRef<HTMLElement>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
+        const heroRef = useRef<HTMLElement>(null);
+  
   const handleHeroMouseMove = (e: MouseEvent<HTMLElement>) => {
     if (!heroRef.current) return;
     const { left, top, width, height } = heroRef.current.getBoundingClientRect();
@@ -19,92 +16,13 @@ export default function App() {
     heroRef.current.style.setProperty('--mouse-y', `${y}`);
   };
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleClickOutside = (e: globalThis.MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target.closest('.has-mega') && !target.closest('.mega-menu')) {
-        setMegaMenuOpen(false);
-      }
-    };
-    if (megaMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [megaMenuOpen]);
-
+  
+  
   return (
     <div className="site">
 
       {/* ── NAVBAR ── */}
-      <nav className={`navbar${scrolled ? ' navbar--fixed' : ''}`}>
-        <div className="nav-inner">
-          <a href="#home" className="nav-logo">
-            <div className="logo-crest-wrapper">
-              <img src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
-            </div>
-            <div>
-              <div className="logo-name">St. Stephen's School</div>
-              <div className="logo-tagline">BOWBAZAR</div>
-            </div>
-          </a>
-          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'School', 'News', 'Gallery'].map(l => (
-              <li
-                key={l}
-                onMouseEnter={l === 'Programs' ? () => {
-                  if (closeTimer.current) clearTimeout(closeTimer.current);
-                  setMegaMenuOpen(true);
-                } : undefined}
-                className={l === 'Programs' ? 'has-mega' : ''}
-              >
-                <a
-                  href={
-                    l === 'About' ? '/about' :
-                      l === 'News' ? '/news' :
-                        l === 'Programs' ? '/#programs' :
-                          l === 'School' ? '/the-school' :
-                            l === 'Gallery' ? '/gallery' :
-                              `#${l.toLowerCase().replace(/\s+/g, '-')}`
-                  }
-                  onClick={(e) => {
-                    if (l === 'Programs') {
-                      e.preventDefault();
-                      setMegaMenuOpen(!megaMenuOpen);
-                    } else {
-                      setMobileMenuOpen(false);
-                    }
-                  }}
-                  className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
-                >
-                  {l}
-                  {l === 'Programs' && (
-                    <svg className="caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  )}
-                </a>
-                {l === 'Programs' && (
-                  <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />
-                )}
-              </li>
-            ))}
-            {/* Mobile-only Donate Button */}
-            <li className="mobile-only-nav-apply">
-              <a href="/donate">Donate</a>
-            </li>
-          </ul>
-          <div className="nav-actions">
-            <a href="/donate" className="nav-cta">Donate Now  →</a>
-            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* ── HERO ── */}
       <section className="hero" id="home" ref={heroRef} onMouseMove={handleHeroMouseMove}>

@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import { useState, useRef, useLayoutEffect } from 'react';
 import './gallery.css';
 import './news.css'; // ensure news styles are available
-import { ProgramMegaMenu } from './program_top';
+import Navbar from './Navbar';
 
 // ── DATA ──────────────────────────────────────────────────────────────
 const GOVERNING_MEMBERS = {
@@ -218,10 +218,6 @@ export default function Gallery() {
 
   const currentTabInfo = tabInfo[activeTab] || { title: activeTab, subtitle: 'Directory and structure coming soon.' };
 
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // refs for SVG lines
   const containerRef = useRef<HTMLDivElement>(null);
@@ -231,25 +227,6 @@ export default function Gallery() {
 
 
 
-  // scroll effect
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-
-
-  // mega-menu close on outside click
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (!(e.target as Element).closest('.has-mega') && !(e.target as Element).closest('.mega-menu')) {
-        setMegaMenuOpen(false);
-      }
-    };
-    if (megaMenuOpen) document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, [megaMenuOpen]);
 
   // compute SVG connector paths after layout
   useLayoutEffect(() => {
@@ -293,49 +270,7 @@ export default function Gallery() {
     <div className="gallery-page">
 
       {/* ── NAVBAR ── */}
-      <nav className={`navbar navbar--gallery${scrolled ? ' navbar--fixed' : ''}`}>
-        <div className="nav-inner">
-          <a href="/" className="nav-logo">
-            <div className="logo-crest-wrapper">
-              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
-            </div>
-            <div>
-              <div className="logo-name">St. Stephen's</div>
-              <div className="logo-tagline">SCHOOL</div>
-            </div>
-          </a>
-          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {(['Home', 'About', 'Programs', 'School', 'News', 'Gallery'] as const).map(l => (
-              <li
-                key={l}
-                onMouseEnter={l === 'Programs' ? () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaMenuOpen(true); } : undefined}
-                className={l === 'Programs' ? 'has-mega' : ''}
-              >
-                <a
-                  href={l === 'Home' ? '/' : l === 'About' ? '/about' : l === 'News' ? '/news' : l === 'School' ? '/the-school' : l === 'Gallery' ? '/gallery' : `/#${l.toLowerCase()}`}
-                  onClick={(e) => { if (l === 'Programs') { e.preventDefault(); setMegaMenuOpen(!megaMenuOpen); } else { setMobileMenuOpen(false); } }}
-                  className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
-                >
-                  {l}
-                  {l === 'Programs' && (
-                    <svg className="caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
-                  )}
-                </a>
-                {l === 'Programs' && (
-                  <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />
-                )}
-              </li>
-            ))}
-            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
-          </ul>
-          <div className="nav-actions">
-            <a href="/donate" className="nav-cta">Donate Now →</a>
-            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <span /><span /><span />
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* ── MAIN CONTENT ── */}
       {viewMode === 'selection' && (
