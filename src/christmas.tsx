@@ -1,6 +1,5 @@
 import './App.css';
 import './christmas.css';
-import { ProgramMegaMenu } from './program_top';
 import { Gift, Music, Heart, Sparkles, Star, TreePine, Palette } from 'lucide-react';
 import Navbar from './Navbar';
 
