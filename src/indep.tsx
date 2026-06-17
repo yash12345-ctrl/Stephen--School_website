@@ -228,7 +228,32 @@ export default function Indep() {
                   <div className={`tricolor-flag ${flagHoisted ? 'unfurled' : ''}`}>
                     <div className="flag-stripe saffron" />
                     <div className="flag-stripe white">
-                      <div className="chakra-symbol" />
+                      <svg viewBox="0 0 24 24" className="chakra-svg" style={{
+                        width: 'auto',
+                        height: '85%',
+                        stroke: 'var(--ind-navy)',
+                        strokeWidth: '0.8',
+                        fill: 'none',
+                        display: 'block',
+                        animation: 'chakraSpin 20s linear infinite'
+                      }}>
+                        <circle cx="12" cy="12" r="10" strokeWidth="1" />
+                        <circle cx="12" cy="12" r="1.5" fill="var(--ind-navy)" />
+                        <line x1="12" y1="2" x2="12" y2="22" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+                        <line x1="4.93" y1="19.07" x2="19.07" y2="4.93" />
+                        
+                        <line x1="7" y1="3.3" x2="17" y2="20.7" />
+                        <line x1="17" y1="3.3" x2="7" y2="20.7" />
+                        <line x1="3.3" y1="7" x2="20.7" y2="17" />
+                        <line x1="3.3" y1="17" x2="20.7" y2="7" />
+
+                        <line x1="9.4" y1="2.6" x2="14.6" y2="21.4" />
+                        <line x1="14.6" y1="2.6" x2="9.4" y2="21.4" />
+                        <line x1="2.6" y1="9.4" x2="21.4" y2="14.6" />
+                        <line x1="2.6" y1="14.6" x2="21.4" y2="9.4" />
+                      </svg>
                     </div>
                     <div className="flag-stripe green" />
                   </div>
@@ -298,8 +323,8 @@ export default function Indep() {
           <div className="ind-about-grid">
             <div className="ind-about-visual">
               <div className="ind-about-collage">
-                <img loading="lazy" src="/a1.webp" alt="Students in parade" className="ind-collage-img-main" />
-                <img loading="lazy" src="/a2.webp" alt="Flag hoisting preparation" className="ind-collage-img-sec" />
+                <img loading="lazy" src="/i1.jpg" alt="Students in parade" className="ind-collage-img-main" />
+                <img loading="lazy" src="/i2.jpg" alt="Flag hoisting preparation" className="ind-collage-img-sec" />
               </div>
               <div className="ind-about-badge">
                 <div className="ind-about-badge-num">🇮🇳</div>
@@ -349,21 +374,32 @@ export default function Indep() {
                   Students from primary grades presented a colorful cultural march showcasing traditional attire from diverse states, highlighting "Unity in Diversity". Sweet boxes containing laddoos were distributed to all students and local volunteers.
                 </p>
               </div>
-              <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '240px' }}>
-                <img loading="lazy" src="/a3.webp" alt="Independence Day Celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{
-                  position: 'absolute',
-                  bottom: '1rem',
-                  left: '1rem',
-                  background: 'rgba(18, 136, 7, 0.85)',
-                  color: '#fff',
-                  padding: '0.4rem 1rem',
-                  borderRadius: '50px',
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  backdropFilter: 'blur(4px)'
-                }}>
-                  📅 August 15, 2025
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.65rem', height: '280px' }}>
+                <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden' }}>
+                  <img loading="lazy" src="/i3.jpg" alt="Independence Day Celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden' }}>
+                  <img loading="lazy" src="/i4.jpg" alt="Students parading" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden' }}>
+                  <img loading="lazy" src="/i5.jpg" alt="Cultural performance" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden' }}>
+                  <img loading="lazy" src="/i6.jpg" alt="Choir singing national anthem" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '0.6rem',
+                    left: '0.6rem',
+                    background: 'rgba(18, 136, 7, 0.85)',
+                    color: '#fff',
+                    padding: '0.25rem 0.75rem',
+                    borderRadius: '50px',
+                    fontSize: '0.7rem',
+                    fontWeight: 700,
+                    backdropFilter: 'blur(4px)'
+                  }}>
+                    📅 August 15, 2025
+                  </div>
                 </div>
               </div>
             </div>
@@ -394,9 +430,6 @@ export default function Indep() {
         </div>
       </section>
 
-
-
-      {/* ── FOOTER ── */}
       <footer className="footer ind-footer">
         <div className="footer-top">
           <div className="footer-brand">

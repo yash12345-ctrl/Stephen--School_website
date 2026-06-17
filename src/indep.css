@@ -306,6 +306,8 @@
 .flag-pole-base {
   position: absolute;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 90px;
   height: 25px;
   background: linear-gradient(to bottom, #d2d2d2, #a6a6a6);
@@ -318,7 +320,8 @@
   content: '';
   position: absolute;
   bottom: 25px;
-  left: 15px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 60px;
   height: 15px;
   background: linear-gradient(to bottom, #e2e2e2, #b6b6b6);
@@ -328,6 +331,8 @@
 .flag-pole {
   position: absolute;
   bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 8px;
   height: calc(100% - 60px);
   background: linear-gradient(to right, #e2e2e2, #f5f5f5, #b2b2b2);
@@ -342,9 +347,10 @@
   transform: translateX(-50%);
   width: 18px;
   height: 18px;
-  background: radial-gradient(circle, #ffd700, #c5a000);
+  background: radial-gradient(circle at 35% 35%, #fff6bd 0%, #ffd700 40%, #b89000 80%, #755b00 100%);
   border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  z-index: 5;
 }
 
 /* Flag Rope */
@@ -381,18 +387,51 @@
   transition: all 0.5s ease;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+/* 3D Wave fabric shading overlay */
+.tricolor-flag::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 200%;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 7;
 }
 
 .tricolor-flag.unfurled {
   width: 85px;
   height: 55px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  animation: flagWaving 3s ease-in-out infinite alternate;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.18);
+  animation: flagWaving 3.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+
+.tricolor-flag.unfurled::after {
+  opacity: 1;
+  animation: waveShading 3.5s ease-in-out infinite;
+}
+
+@keyframes waveShading {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Flag Stripes */
 .flag-stripe {
-  flex: 1;
+  height: 33.333%;
   width: 100%;
 }
 
@@ -412,41 +451,27 @@
   background-color: var(--ind-green);
 }
 
-/* Ashoka Chakra */
-.chakra-symbol {
-  width: 28%;
-  height: 80%;
-  border: 1.5px solid var(--ind-navy);
-  border-radius: 50%;
-  position: relative;
-  animation: chakraSpin 15s linear infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Ashoka Chakra SVG custom class styles */
+.chakra-svg {
+  z-index: 5;
 }
 
-.chakra-symbol::before {
-  content: '';
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background-color: var(--ind-navy);
-  border-radius: 50%;
-}
-
-/* Waving keyframe */
+/* Waving keyframe with natural wave physics */
 @keyframes flagWaving {
   0% {
-    transform: rotate(1deg) skewY(1deg);
-    border-radius: 2px 5px 3px 6px;
+    transform: rotate(0deg) translateY(0px) skewY(0deg);
+  }
+  25% {
+    transform: rotate(2deg) translateY(-2px) skewY(1deg);
   }
   50% {
-    transform: rotate(-1deg) skewY(-1.5deg);
-    border-radius: 4px 2px 6px 3px;
+    transform: rotate(-2.5deg) translateY(1.5px) skewY(-1.8deg);
+  }
+  75% {
+    transform: rotate(1.8deg) translateY(-1px) skewY(1deg);
   }
   100% {
-    transform: rotate(2deg) skewY(1deg);
-    border-radius: 2px 6px 4px 5px;
+    transform: rotate(0deg) translateY(0px) skewY(0deg);
   }
 }
 
@@ -637,45 +662,65 @@
   background: #f4f9f5;
   border-top: 1px solid var(--ind-border-light);
   border-bottom: 1px solid var(--ind-border-light);
+  padding: 4.5rem 0; /* Shorter section length */
 }
 
 .ind-highlights-head {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto 2.5rem auto; /* Reduced margin */
 }
 
 .ind-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
+  gap: 1.5rem; /* Reduced gap */
 }
 
 .ind-card {
   background: var(--ind-white);
-  padding: 2.5rem;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(18, 136, 7, 0.01);
-  border: 1px solid rgba(18, 136, 7, 0.04);
-  transition: all 0.3s ease;
+  padding: 1.75rem; /* Reduced padding for shorter height */
+  border-radius: 16px; /* Realigned border radius */
+  box-shadow: 0 10px 30px rgba(18, 136, 7, 0.02);
+  border: 1px solid rgba(18, 136, 7, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
+  overflow: hidden;
+}
+
+/* Premium Tricolor Accent Top Bar */
+.ind-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ind-saffron) 0%, #ffffff 50%, var(--ind-green) 100%);
+  opacity: 0.85;
+  transition: height 0.3s ease;
+}
+
+.ind-card:hover::before {
+  height: 6px;
 }
 
 .ind-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(18, 136, 7, 0.06);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(18, 136, 7, 0.08);
+  border-color: rgba(18, 136, 7, 0.15);
 }
 
 .ind-card-icon-wrap {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 48px; /* Slightly smaller */
+  height: 48px;
+  border-radius: 12px;
   background: var(--ind-saffron-light);
   color: var(--ind-saffron-bright);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; /* Shorter spacing */
   transition: all 0.3s ease;
 }
 
@@ -686,27 +731,27 @@
 }
 
 .ind-card-h {
-  font-size: 1.25rem;
+  font-size: 1.15rem; /* Shrunk slightly */
   font-weight: 700;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
   color: var(--ind-dark);
 }
 
 .ind-card-p {
-  font-size: 0.92rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.55;
   color: var(--ind-gray);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .ind-card-tag {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   font-weight: 700;
   color: var(--ind-green);
   background: var(--ind-green-light);
-  padding: 0.3rem 0.8rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 50px;
 }
 
