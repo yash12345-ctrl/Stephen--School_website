@@ -1,26 +1,17 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import './App.css';
 import './art_craft.css';
-import { ProgramMegaMenu } from './program_top';
 import { Palette, Scissors, MapPin, Sparkles, Star, ChevronLeft, ChevronRight, Award, Camera, Monitor } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Navbar from './Navbar';
 
 export default function ArtCraftExhibition() {
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
+        
   // Spotlight Carousel State
   const [spotlightIdx, setSpotlightIdx] = useState(0);
   const [fade, setFade] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  
 
 
   const studentQuotes = [
@@ -99,54 +90,7 @@ export default function ArtCraftExhibition() {
   return (
     <div className="art-page">
       {/* ── NAVBAR ── */}
-      <nav className={`navbar navbar--about${scrolled ? ' navbar--fixed' : ''}`}>
-        <div className="nav-inner">
-          <a href="/" className="nav-logo">
-            <div className="logo-crest-wrapper">
-              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
-            </div>
-            <div>
-              <div className="logo-name">St. Stephen's School</div>
-              <div className="logo-tagline">BOWBAZAR</div>
-            </div>
-          </a>
-          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'School', 'News', 'Gallery'].map(l => (
-              <li
-                key={l}
-                onMouseEnter={l === 'Programs' ? () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaMenuOpen(true); } : undefined}
-                onMouseLeave={l === 'Programs' ? () => { closeTimer.current = setTimeout(() => setMegaMenuOpen(false), 200); } : undefined}
-                className={l === 'Programs' ? 'has-mega' : ''}
-              >
-                <a
-                  href={
-                    l === 'Home' ? '/' :
-                      l === 'About' ? '/about' :
-                        l === 'News' ? '/news' :
-                          l === 'Programs' ? '/#programs' :
-                            `/#${l.toLowerCase().replace(/\s+/g, '-')}`
-                  }
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
-                >
-                  {l}
-                  {l === 'Programs' && (
-                    <svg className="caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  )}
-                </a>
-                {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
-              </li>
-            ))}
-            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
-          </ul>
-          <div className="nav-actions">
-            <a href="/donate" className="nav-cta">Donate Now →</a>
-            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar initialVariant="about" />
 
       {/* ── HERO ── */}
       <section className="art-hero">

@@ -1,14 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, } from 'react';
 import './App.css';
 import './annual_picnic.css';
-import { ProgramMegaMenu } from './program_top';
 import { MapPin, Calendar, Star, Compass, Music, Users, Shield, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import Navbar from './Navbar';
 
 export default function AnnualPicnic() {
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Interactive Activity Explorer State
   const [activeTab, setActiveTab] = useState('games');
@@ -18,11 +14,6 @@ export default function AnnualPicnic() {
   const [carouselIdx, setCarouselIdx] = useState(0);
   const [carouselFade, setCarouselFade] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const activities = {
     games: {
@@ -114,60 +105,13 @@ export default function AnnualPicnic() {
   return (
     <div className="pk-page">
       {/* ── NAVBAR ── */}
-      <nav className={`navbar navbar--about${scrolled ? ' navbar--fixed' : ''}`}>
-        <div className="nav-inner">
-          <a href="/" className="nav-logo">
-            <div className="logo-crest-wrapper">
-              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
-            </div>
-            <div>
-              <div className="logo-name">St. Stephen's</div>
-              <div className="logo-tagline">SCHOOL</div>
-            </div>
-          </a>
-          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
-              <li
-                key={l}
-                onMouseEnter={l === 'Programs' ? () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaMenuOpen(true); } : undefined}
-                onMouseLeave={l === 'Programs' ? () => { closeTimer.current = setTimeout(() => setMegaMenuOpen(false), 200); } : undefined}
-                className={l === 'Programs' ? 'has-mega' : ''}
-              >
-                <a
-                  href={
-                    l === 'Home'     ? '/' :
-                    l === 'About'    ? '/about' :
-                    l === 'News'     ? '/news' :
-                    l === 'Programs' ? '/#programs' :
-                    `/#${l.toLowerCase().replace(/\s+/g, '-')}`
-                  }
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
-                >
-                  {l}
-                  {l === 'Programs' && (
-                    <svg className="caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  )}
-                </a>
-                {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
-              </li>
-            ))}
-            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
-          </ul>
-          <div className="nav-actions">
-            <a href="/donate" className="nav-cta">Donate Now →</a>
-            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar initialVariant="about" />
 
       {/* ── HERO ── */}
       <section className="pk-hero">
         <div className="pk-hero-bg" style={{ backgroundImage: "url('/annual_picnic_hero.webp')" }} />
         <div className="pk-hero-veil" />
-        
+
         <div className="pk-hero-inner">
           <div className="pk-hero-tag">
             <Star size={14} className="gold-star animate-pulse" /> Annual Recreation Outing · St. Stephen's School
@@ -362,7 +306,7 @@ export default function AnnualPicnic() {
               <div className="pk-quote-icon">“</div>
               <div className={`pk-quote-content ${carouselFade ? 'fade-out' : ''}`}>
                 <p className="pk-quote-text">"{studentQuotes[carouselIdx].quote}"</p>
-                
+
                 <div className="pk-student-info">
                   <div className="pk-avatar">
                     {studentQuotes[carouselIdx].author.charAt(0)}

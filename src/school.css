@@ -22,25 +22,7 @@
   overflow-x: hidden;
 }
 
-/* Navbar overrides */
-.school-page .navbar {
-  position: absolute;
-  top: 1rem;
-  transition: all 0.3s ease;
-}
 
-.school-page .navbar.navbar--fixed {
-  position: fixed;
-  top: 0;
-  border-radius: 0;
-  width: 100%;
-  left: 0;
-  transform: none;
-  background: rgba(11, 15, 25, 0.97);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-}
 
 /* ══════════════════════════════════════════
    HERO SECTION
@@ -183,31 +165,7 @@
   z-index: 1;
 }
 
-/* Navbar styling for light school page */
-.navbar.navbar--school:not(.navbar--fixed) {
-  background: transparent !important;
-  border-bottom: none !important;
-}
-.navbar.navbar--school.navbar--fixed {
-  background: rgba(11, 15, 25, 0.98) !important;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15) !important;
-}
-.navbar.navbar--school:not(.navbar--fixed) .nav-links a {
-  color: var(--navy) !important;
-  font-weight: 600;
-}
-.navbar.navbar--school:not(.navbar--fixed) .nav-links a:hover {
-  color: var(--gold) !important;
-}
-.navbar.navbar--school:not(.navbar--fixed) .logo-name {
-  color: var(--navy) !important;
-}
-.navbar.navbar--school:not(.navbar--fixed) .caret {
-  stroke: var(--navy) !important;
-}
-.navbar.navbar--school:not(.navbar--fixed) .mobile-toggle span {
-  background: var(--navy) !important;
-}
+
 
 .sch-btn-gold {
   background: linear-gradient(135deg, var(--gold), var(--gold2));

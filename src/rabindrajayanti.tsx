@@ -1,24 +1,15 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import './App.css';
 import './rabindrajayanti.css';
-import { ProgramMegaMenu } from './program_top';
 import { BookOpen, Music, Heart, MapPin, Sparkles, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import Navbar from './Navbar';
 
 export default function Rabindrajayanti() {
-  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Interactive Verse Explorer State
   const [quoteIdx, setQuoteIdx] = useState(0);
   const [fade, setFade] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const verses = [
     {
@@ -73,61 +64,14 @@ export default function Rabindrajayanti() {
   return (
     <div className="rj-page">
       {/* ── NAVBAR ── */}
-      <nav className={`navbar navbar--about${scrolled ? ' navbar--fixed' : ''}`}>
-        <div className="nav-inner">
-          <a href="/" className="nav-logo">
-            <div className="logo-crest-wrapper">
-              <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
-            </div>
-            <div>
-              <div className="logo-name">St. Stephen's</div>
-              <div className="logo-tagline">SCHOOL</div>
-            </div>
-          </a>
-          <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-            {['Home', 'About', 'Programs', 'School', 'News', 'Contact'].map(l => (
-              <li
-                key={l}
-                onMouseEnter={l === 'Programs' ? () => { if (closeTimer.current) clearTimeout(closeTimer.current); setMegaMenuOpen(true); } : undefined}
-                onMouseLeave={l === 'Programs' ? () => { closeTimer.current = setTimeout(() => setMegaMenuOpen(false), 200); } : undefined}
-                className={l === 'Programs' ? 'has-mega' : ''}
-              >
-                <a
-                  href={
-                    l === 'Home'     ? '/' :
-                    l === 'About'    ? '/about' :
-                    l === 'News'     ? '/news' :
-                    l === 'Programs' ? '/#programs' :
-                    `/#${l.toLowerCase().replace(/\s+/g, '-')}`
-                  }
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
-                >
-                  {l}
-                  {l === 'Programs' && (
-                    <svg className="caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  )}
-                </a>
-                {l === 'Programs' && <ProgramMegaMenu open={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />}
-              </li>
-            ))}
-            <li className="mobile-only-nav-apply"><a href="/donate">Donate</a></li>
-          </ul>
-          <div className="nav-actions">
-            <a href="/donate" className="nav-cta">Donate Now →</a>
-            <div className={`mobile-toggle ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              <span></span><span></span><span></span>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar initialVariant="about" />
 
       {/* ── HERO ── */}
       <section className="rj-hero">
         <div className="rj-hero-bg" style={{ backgroundImage: "url('/rabindrajayanti_hero.webp')" }} />
         <div className="rj-hero-glow g1" /><div className="rj-hero-glow g2" />
         <div className="rj-hero-veil" />
-        
+
         <div className="rj-hero-inner">
           <div className="rj-hero-tag">
             <Star size={14} className="rj-meta-icon animate-pulse" /> Cultural Anniversary Celebration · St. Stephen's School
@@ -215,7 +159,7 @@ export default function Rabindrajayanti() {
               <div className="parchment-decor bl" />
               <div className="parchment-decor br" />
               <div className="quote-icon-top">“</div>
-              
+
               <div className={`quote-content-wrapper ${fade ? 'fade-out' : ''}`}>
                 <p className="quote-verse">"{verses[quoteIdx].text}"</p>
                 <div className="quote-source">{verses[quoteIdx].source}</div>
