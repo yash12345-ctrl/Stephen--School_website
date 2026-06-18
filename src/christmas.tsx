@@ -23,13 +23,12 @@ export default function Christmas() {
 
       {/* ── HERO ── */}
       <section className="xm-hero">
-        <div className="xm-hero-bg" style={{ backgroundImage: "url('/christmas_hero.webp')" }} />
+        <div className="xm-hero-bg" style={{ backgroundImage: "url('/christmas_students.jpg')" }} />
         <div className="xm-snow-overlay" />
         <div className="xm-snow-overlay-2" />
         <div className="xm-snow-overlay-3" />
         <div className="xm-hero-stars" />
         <div className="xm-hero-veil" />
-        <div className="xm-hero-orb" />
 
         <div className="xm-hero-inner">
           <div className="xm-hero-tag">
@@ -37,8 +36,6 @@ export default function Christmas() {
             <span className="xm-hero-tag-dot" />
             St. Stephen's School
           </div>
-
-          <div className="xm-hero-snowflakes">❅ &nbsp;&nbsp; ❆ &nbsp;&nbsp; ❅ &nbsp;&nbsp; ❆ &nbsp;&nbsp; ❅</div>
 
           <h1 className="xm-hero-h1">
             Christmas<br /><span>Celebration</span>
@@ -56,10 +53,6 @@ export default function Christmas() {
           </div>
         </div>
 
-        <div className="xm-hero-scroll">
-          <span>Scroll</span>
-          <div className="xm-hero-scroll-line" />
-        </div>
       </section>
 
       {/* ── ABOUT SECTION ── */}
@@ -154,19 +147,6 @@ export default function Christmas() {
         </div>
       </section>
 
-      {/* ── CTA SECTION ── */}
-      <section className="xm-cta">
-        <div className="xm-cta-inner">
-          <div className="xm-cta-text">
-            <span className="xm-cta-tag">Make a Difference</span>
-            <h2 className="xm-cta-h">Spread the Joy of <span>Christmas</span></h2>
-            <p className="xm-cta-p">
-              Your contribution lights up a child's festive season.
-            </p>
-          </div>
-          <a href="/donate" className="xm-btn-gold xm-cta-donate">Donate Now →</a>
-        </div>
-      </section>
 
       {/* ── FOOTER ── */}
       <footer className="footer xm-footer">

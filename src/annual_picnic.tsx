@@ -1,7 +1,7 @@
 import { useState, } from 'react';
 import './App.css';
 import './annual_picnic.css';
-import { MapPin, Calendar, Star, Compass, Music, Users, Shield, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, Compass, Music, Users, Shield, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import Navbar from './Navbar';
 
 export default function AnnualPicnic() {
@@ -20,25 +20,25 @@ export default function AnnualPicnic() {
       title: "Friendly Tournaments & Games",
       desc: "From classic tug-of-war and sack races to exciting cricket and badminton matches, the spacious greens of Eco Park turn into a arena of laughter, teamwork, and healthy competition.",
       bullet: "Builds teamwork & confidence",
-      image: "/v13.webp"
+      image: "/y15.png"
     },
     magic: {
-      title: "Puppet & Magic Show",
-      desc: "Middle schoolers and primary children gather around for a spectacular live magic show featuring interactive illusionists, puppet storytelling, and balloon artists that bring sheer amazement.",
+      title: "INTERACTIVE CLUB",
+      desc: "The Interactive Club spearheads a commendable endeavor: the Paper Bag Distribution Initiative. Its purpose is to foster sustainability and environmental consciousness within our school and community.",
       bullet: "Encourages creative imagination",
-      image: "/v14.webp"
+      image: "/y16.png"
     },
     feast: {
-      title: "Fresh Open-Air Feast",
-      desc: "A hot, delicious picnic lunch cooked fresh on-site by our teachers and parent volunteers. Sharing a meal under the warm winter sun forms a key highlight of our community bonding.",
-      bullet: "Prepared with love & hygiene",
-      image: "/v15.webp"
+      title: "Summer Camp",
+      desc: "Summer Camp organised for students of Class IV from 19th to 21st May by Mr. Ajoy Paul.",
+      bullet: "Prepared with love",
+      image: "/y12.png"
     },
     music: {
       title: "Music & Jam Sessions",
-      desc: "A cozy circle of guitars, dhols, and choir singers. Students perform unplugged patriotic songs, folk tunes, and popular melodies while the entire school joins in chorus.",
+      desc: "The eighth Annual Concert of St. Stephen's School took place in the auditorium of Mahajati Sadan on February 8, 2023. It included one of our school students' best interpretations with a group effort.",
       bullet: "Fosters self-expression",
-      image: "/v16.webp"
+      image: "/y17.png"
     }
   };
 
@@ -61,21 +61,12 @@ export default function AnnualPicnic() {
   ];
 
   const highlights = [
-    { icon: <Users className="pk-card-icon" size={24} />, title: '500+ Happy Outings', desc: 'Ensuring every child, regardless of socio-economic background, experiences a wonderful day out with peers.', tag: 'Inclusion' },
-    { icon: <Compass className="pk-card-icon" size={24} />, title: 'Nature Exploration', desc: 'Guided walks through beautiful lake walkways and butterfly gardens, blending environment studies with recreation.', tag: 'Eco-Learning' },
-    { icon: <Music className="pk-card-icon" size={24} />, title: 'School Choir Unplugged', desc: 'Open-air musical performances, student dance circles, and group games that encourage community participation.', tag: 'Recreation' },
-    { icon: <Shield className="pk-card-icon" size={24} />, title: 'Safe & Secure Transit', desc: 'Dedicated school-supervised buses, medical first-aid desks, and volunteer marshals ensuring absolute student safety.', tag: 'Security' },
+    { image: '/y12.png', icon: <Users className="pk-card-icon" size={24} />, title: '500+ Happy Outings', desc: 'Ensuring every child, regardless of socio-economic background, experiences a wonderful day out with peers.', tag: 'Inclusion' },
+    { image: '/y13.png', icon: <Compass className="pk-card-icon" size={24} />, title: 'Nature Exploration', desc: 'Guided walks through beautiful lake walkways and butterfly gardens, blending environment studies with recreation.', tag: 'Eco-Learning' },
+    { image: '/y14.png', icon: <Music className="pk-card-icon" size={24} />, title: 'School Choir Unplugged', desc: 'Open-air musical performances, student dance circles, and group games that encourage community participation.', tag: 'Recreation' },
+    { image: '/v3.webp', icon: <Shield className="pk-card-icon" size={24} />, title: 'Safe & Secure Transit', desc: 'Dedicated school-supervised buses, medical first-aid desks, and volunteer marshals ensuring absolute student safety.', tag: 'Security' },
   ];
 
-  const schedule = [
-    { time: '08:00 AM', title: 'Assembly & Bus Boarding', desc: 'Students gather at the Bowbazar campus for safety roll-call, followed by boarding of school-chartered buses.' },
-    { time: '09:30 AM', title: 'Arrival & Welcome Drinks', desc: 'Arrival at Eco Park, Rajarhat. Light breakfast and fresh fruit juices are served to energize the students.' },
-    { time: '10:15 AM', title: 'Outdoor Sports & Activities', desc: 'Simultaneous tracks for house matches (cricket, badminton) and fun athletic games (sack race, spoon race).' },
-    { time: '12:30 PM', title: 'Magic & Puppet Show Showcase', desc: 'A collective entertainment hour featuring professional magicians and student puppet plays.' },
-    { time: '01:45 PM', title: 'Grand Picnic Lunch', desc: 'A fresh, nutritious feast cooked on-site by staff and parent volunteers, served under shading canopies.' },
-    { time: '03:00 PM', title: 'Acoustic Music Circle', desc: 'Jam session, prize distribution for games, and collective group photos.' },
-    { time: '04:30 PM', title: 'Departure & Return', desc: 'Buses depart from the park, returning to Bowbazar campus for student handovers.' },
-  ];
 
   const handleTabChange = (tabKey: string) => {
     if (tabKey === activeTab) return;
@@ -123,33 +114,14 @@ export default function AnnualPicnic() {
             A joy-filled day of sunlit outdoor games, puppet theatres, fresh open-air food, and school choir jam sessions at Eco Park, Rajarhat.
           </p>
 
-          <div className="pk-hero-meta">
-            <div className="pk-meta-item">
-              <Calendar size={20} className="pk-meta-icon" />
-              <div>
-                <div className="pk-meta-label">Date</div>
-                <div style={{ fontWeight: 700 }}>January 15, 2026</div>
-              </div>
-            </div>
-            <div className="pk-meta-item">
-              <MapPin size={20} className="pk-meta-icon" />
-              <div>
-                <div className="pk-meta-label">Venue</div>
-                <div style={{ fontWeight: 700 }}>Eco Park, Rajarhat, Kolkata</div>
-              </div>
-            </div>
-          </div>
+
 
           <div className="pk-hero-btns">
             <a href="#activities" className="pk-btn-gold">Explore Activities</a>
-            <a href="/donate" className="pk-btn-ghost">Sponsor Outings</a>
           </div>
         </div>
 
-        <div className="pk-hero-scroll">
-          <span>Scroll</span>
-          <div className="pk-hero-scroll-line" />
-        </div>
+
       </section>
 
       {/* ── ABOUT SECTION ── */}
@@ -208,9 +180,9 @@ export default function AnnualPicnic() {
           <div className="pk-selector-tabs">
             {[
               { id: 'games', label: 'Sports & Games', icon: '⚽' },
-              { id: 'magic', label: 'Magic & Puppet Show', icon: '🪄' },
-              { id: 'feast', label: 'Picnic Feast', icon: '🍛' },
-              { id: 'music', label: 'Music & Carols', icon: '🎸' }
+              { id: 'magic', label: 'Activities', icon: '🪄' },
+              { id: 'feast', label: 'Summer Camp', icon: '🍛' },
+              { id: 'music', label: 'Music Show', icon: '🎸' }
             ].map(tab => (
               <button
                 key={tab.id}
@@ -253,42 +225,23 @@ export default function AnnualPicnic() {
           <div className="pk-cards-grid">
             {highlights.map((h, i) => (
               <div className="pk-card" key={i}>
-                <div className="pk-card-icon-wrap">{h.icon}</div>
-                <h3 className="pk-card-h">{h.title}</h3>
-                <p className="pk-card-p">{h.desc}</p>
-                <span className="pk-card-tag">{h.tag}</span>
+                <div className="pk-card-img">
+                  <img loading="lazy" src={h.image} alt={h.title} />
+                  <div className="pk-card-icon-wrap">{h.icon}</div>
+                </div>
+                <div className="pk-card-content">
+                  <div className="pk-card-text-group">
+                    <span className="pk-card-tag">{h.tag}</span>
+                    <h3 className="pk-card-h">{h.title}</h3>
+                    <p className="pk-card-p">{h.desc}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── SCHEDULE SECTION ── */}
-      <section className="pk-section pk-schedule">
-        <div className="pk-wrap">
-          <div className="pk-highlights-head">
-            <div className="pk-chip">Timeline</div>
-            <h2 className="pk-h2">Outing <span>Schedule</span></h2>
-            <p className="pk-lead">
-              An overview of the schedule for our picnic day at Eco Park.
-            </p>
-          </div>
-          <div className="pk-timeline">
-            {schedule.map((s, i) => (
-              <div className={`pk-timeline-item`} key={i}>
-                <div className="pk-time-col">{s.time}</div>
-                <div className="pk-dot-col">
-                  <div className="pk-timeline-dot"><Star size={12} className="text-[#ffd700]" /></div>
-                </div>
-                <div className="pk-content-col">
-                  <h4 className="pk-timeline-title">{s.title}</h4>
-                  <p className="pk-timeline-desc">{s.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── STUDENT TESTIMONIAL CAROUSEL ── */}
       <section className="pk-carousel-section">
@@ -334,19 +287,6 @@ export default function AnnualPicnic() {
         </div>
       </section>
 
-      {/* ── CTA SECTION ── */}
-      <section className="pk-cta">
-        <div className="pk-cta-inner">
-          <h2 className="pk-cta-h">Fund a Day of Outdoor Wonder & Smiles</h2>
-          <p className="pk-cta-p">
-            Sponsor travel bus rentals, picnic meals, activity items, and special snacks for our school children. Your support ensures we can continue this annual tradition of joy and social bonding for underprivileged learners.
-          </p>
-          <div className="pk-cta-btns">
-            <a href="/donate" className="pk-btn-gold">Sponsor a Child's Picnic →</a>
-            <a href="/about" className="pk-btn-ghost">Learn About St. Stephen's</a>
-          </div>
-        </div>
-      </section>
 
       {/* ── FOOTER ── */}
       <footer className="footer pk-footer">

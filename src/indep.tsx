@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import './indep.css';
-import { Flag, Music, MapPin, Sparkles, Star, Award, Shield } from 'lucide-react';
+import { Flag, Music, Sparkles, Award, Shield, Star } from 'lucide-react';
 import Navbar from './Navbar';
 
 interface Petal {
@@ -13,7 +13,7 @@ interface Petal {
 }
 
 export default function Indep() {
-        
+
   // Interactive Flag Hoisting State
   const [hoistProgress, setHoistProgress] = useState(0);
   const [flagHoisted, setFlagHoisted] = useState(false);
@@ -21,22 +21,24 @@ export default function Indep() {
   const [petals, setPetals] = useState<Petal[]>([]);
   const hoistIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  
+
   const triggerPetals = () => {
     const colors = ['#ff9933', '#ffffff', '#128807', '#ffb366', '#a2f599'];
-    const newPetals = Array.from({ length: 45 }).map((_, i) => ({
+    const newPetals = Array.from({ length: 80 }).map((_, i) => ({
       id: i + Date.now(),
       left: Math.random() * 80 + 10, // 10% to 90%
       color: colors[Math.floor(Math.random() * colors.length)],
-      size: Math.random() * 10 + 6, // 6px to 16px
-      delay: Math.random() * 1.5,
+      size: Math.random() * 14 + 8, // 8px to 22px
+      delay: Math.random() * 2,
+      blur: Math.random() > 0.7 ? 3 : 0, // Depth of field effect
+      zIndex: Math.random() > 0.5 ? 20 : 5 // Layering
     }));
     setPetals(newPetals);
 
-    // Clean up petals after animation ends (4s)
+    // Clean up petals after animation ends (6s)
     setTimeout(() => {
       setPetals([]);
-    }, 5500);
+    }, 6000);
   };
 
   const handleHoistFlag = () => {
@@ -78,29 +80,29 @@ export default function Indep() {
   }, []);
 
   const highlights = [
-    { 
-      icon: <Flag className="ind-card-icon" size={24} />, 
-      title: 'Flag Hoisting Ceremony', 
-      desc: 'The unfurling of the national flag by the principal and esteemed guests, followed by a guard of honor.', 
-      tag: 'Patriotic' 
+    {
+      icon: <Flag className="ind-card-icon" size={24} />,
+      title: 'Flag Hoisting Ceremony',
+      desc: 'The unfurling of the national flag by the principal and esteemed guests, followed by a guard of honor.',
+      tag: 'Patriotic'
     },
-    { 
-      icon: <Music className="ind-card-icon" size={24} />, 
-      title: 'National Anthem Choir', 
-      desc: 'A powerful collective chorus of student groups singing the national anthem with pride and absolute discipline.', 
-      tag: 'Anthem' 
+    {
+      icon: <Music className="ind-card-icon" size={24} />,
+      title: 'National Anthem Choir',
+      desc: 'A powerful collective chorus of student groups singing the national anthem with pride and absolute discipline.',
+      tag: 'Anthem'
     },
-    { 
-      icon: <Award className="ind-card-icon" size={24} />, 
-      title: 'March Past Parade', 
-      desc: 'Student houses in complete uniform marching to drumbeats, representing unity, strength, and focus.', 
-      tag: 'Discipline' 
+    {
+      icon: <Award className="ind-card-icon" size={24} />,
+      title: 'March Past Parade',
+      desc: 'Student houses in complete uniform marching to drumbeats, representing unity, strength, and focus.',
+      tag: 'Discipline'
     },
-    { 
-      icon: <Sparkles className="ind-card-icon" size={24} />, 
-      title: 'Cultural Performances', 
-      desc: 'Regional folk dances, patriotic dramatic skits, and speeches honoring the freedom fighters of India.', 
-      tag: 'Diversity' 
+    {
+      icon: <Sparkles className="ind-card-icon" size={24} />,
+      title: 'Cultural Performances',
+      desc: 'Regional folk dances, patriotic dramatic skits, and speeches honoring the freedom fighters of India.',
+      tag: 'Diversity'
     },
   ];
 
@@ -112,36 +114,24 @@ export default function Indep() {
 
       {/* ── HERO ── */}
       <section className="ind-hero">
-        <div className="ind-hero-bg" style={{ backgroundImage: "url('/indep_hero.webp')" }} />
+        <div className="ind-hero-bg" style={{ backgroundImage: "url('/i4.jpg')" }} />
         <div className="ind-hero-veil" />
-        
+
         <div className="ind-hero-inner">
-          <div className="ind-hero-tag">
+          <div className="ind-hero-tag" style={{ marginBottom: '2.5rem' }}>
             <Star size={14} className="animate-pulse" style={{ color: '#ffd700' }} /> National Day Celebration · St. Stephen's School
           </div>
           <h1 className="ind-hero-h1">
-            Independence<span>Day</span>
+            Celebrating India's<br />
+            <span>Independence Day</span>
           </h1>
           <p className="ind-hero-sub">
-            Saluting the spirit of freedom, unity in diversity, and national integrity. Commemorating our independence with our students and community in Bowbazar.
+            Join us as students showcase<br />
+            patriotism, creativity, and unity.
           </p>
-
-          <div className="ind-hero-meta">
-            <div className="ind-meta-item">
-              <MapPin size={20} className="ind-meta-icon" />
-              <div>
-                <div className="ind-meta-label">Venue</div>
-                <div style={{ fontWeight: 700 }}>School Central Playground</div>
-              </div>
-            </div>
+          <div className="ind-hero-btns" style={{ justifyContent: 'flex-start' }}>
+            <a href="#hoist" className="ind-btn-gold">Join Ceremony</a>
           </div>
-
-
-        </div>
-
-        <div className="ind-hero-scroll">
-          <span>Scroll</span>
-          <div className="ind-hero-scroll-line" />
         </div>
       </section>
 
@@ -161,11 +151,11 @@ export default function Indep() {
             <div className="flag-sim-interactive">
               <div className="flag-pole-wrapper">
                 <div className="flag-pole-top" />
-                <div className="flag-rope" />
+                <div className={`flag-rope ${isHoisting ? 'is-hoisting' : ''}`} />
                 <div className="flag-pole" />
-                
+
                 {/* Flag component that rises based on hoistProgress */}
-                <div 
+                <div
                   className="flag-widget-container"
                   style={{ top: `${10 + (100 - hoistProgress) * 0.75}%` }}
                 >
@@ -187,7 +177,7 @@ export default function Indep() {
                         <line x1="2" y1="12" x2="22" y2="12" />
                         <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
                         <line x1="4.93" y1="19.07" x2="19.07" y2="4.93" />
-                        
+
                         <line x1="7" y1="3.3" x2="17" y2="20.7" />
                         <line x1="17" y1="3.3" x2="7" y2="20.7" />
                         <line x1="3.3" y1="7" x2="20.7" y2="17" />
@@ -207,7 +197,7 @@ export default function Indep() {
               </div>
 
               {/* Falling Petals Effect */}
-              {petals.map((p) => (
+              {petals.map((p: any) => (
                 <div
                   key={p.id}
                   className="flower-petal"
@@ -218,6 +208,8 @@ export default function Indep() {
                     backgroundColor: p.color,
                     animationDelay: `${p.delay}s`,
                     top: '20px',
+                    filter: `blur(${p.blur}px)`,
+                    zIndex: p.zIndex
                   }}
                 />
               ))}
@@ -233,8 +225,8 @@ export default function Indep() {
               </p>
 
               <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <button 
-                  className="ind-btn-gold" 
+                <button
+                  className="ind-btn-gold"
                   onClick={handleHoistFlag}
                   disabled={isHoisting}
                   style={{ minWidth: '180px', justifyContent: 'center' }}

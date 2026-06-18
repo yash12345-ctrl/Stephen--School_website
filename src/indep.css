@@ -22,13 +22,13 @@
 /* ── HERO ── */
 .ind-hero {
   position: relative;
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
   color: var(--ind-white);
-  padding: 8rem 2rem 4rem 2rem;
+  padding: 8rem 8%;
 }
 
 .ind-hero-bg {
@@ -48,7 +48,12 @@
 .ind-hero-veil {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(10, 18, 12, 0.9) 0%, rgba(18, 136, 7, 0.4) 50%, rgba(255, 153, 51, 0.4) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
   z-index: 1;
 }
 
@@ -56,33 +61,18 @@
   position: relative;
   z-index: 3;
   max-width: 900px;
-  text-align: center;
-}
-
-.ind-hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  padding: 0.5rem 1.2rem;
-  border-radius: 50px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  color: #ffd700;
+  text-align: left;
 }
 
 .ind-hero-h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3.2rem, 8vw, 6rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -1.5px;
+  font-size: clamp(64px, 7vw, 80px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1px;
   margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .ind-hero-h1 span {
@@ -95,11 +85,15 @@
 }
 
 .ind-hero-sub {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   line-height: 1.6;
   opacity: 0.95;
   max-width: 700px;
-  margin: 0 auto 3rem auto;
+  margin: 0 0 3rem 0;
+  font-weight: 400;
+  color: #f7f9f6;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .ind-hero-meta {
@@ -289,9 +283,22 @@
   justify-content: center;
   position: relative;
   height: 400px;
-  background: linear-gradient(180deg, #eef7f0 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #d3eaf2 0%, #f7faf8 100%);
   border-radius: 16px;
   border: 1px dashed rgba(18, 136, 7, 0.2);
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(255,255,255,0.6);
+}
+
+.flag-sim-interactive::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,245,200,0.8) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 /* Flag Pole */
@@ -359,35 +366,45 @@
   top: 10px;
   bottom: 35px;
   left: calc(50% + 4px);
-  width: 2px;
-  border-left: 1px dashed rgba(0, 0, 0, 0.25);
+  width: 3px;
+  background: repeating-linear-gradient(to bottom, #ddd, #ddd 3px, #999 3px, #999 6px);
   z-index: 3;
+}
+
+.flag-rope.is-hoisting {
+  animation: ropePull 0.5s linear infinite;
+  background-size: 100% 200%;
+}
+
+@keyframes ropePull {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
 }
 
 /* Flag Representation */
 .flag-widget-container {
   position: absolute;
-  left: calc(50% + 6px);
-  width: 100px;
-  height: 60px;
+  left: calc(50% + 4px);
+  width: 140px;
+  height: 90px;
   transform: translateY(-50%);
-  transition: top 3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: top 3s cubic-bezier(0.34, 1.56, 0.64, 1);
   z-index: 6;
 }
 
 /* The actual Flag structure */
 .tricolor-flag {
-  width: 40px;
-  height: 30px;
+  width: 20px;
+  height: 35px;
   background: #eee;
-  border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 2px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 2px 8px 8px 2px;
+  box-shadow: inset 4px 0 8px rgba(0,0,0,0.15), 0 4px 8px rgba(0,0,0,0.1);
   overflow: hidden;
-  transition: all 0.5s ease;
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: flex;
   flex-direction: column;
   position: relative;
+  transform-origin: left center;
 }
 
 /* 3D Wave fabric shading overlay */
@@ -396,14 +413,14 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    45deg,
+    90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.2) 25%,
-    rgba(0, 0, 0, 0.2) 50%,
-    rgba(255, 255, 255, 0.2) 75%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(0, 0, 0, 0.08) 20%,
+    rgba(255, 255, 255, 0.15) 40%,
+    rgba(0, 0, 0, 0.08) 60%,
+    rgba(255, 255, 255, 0) 80%
   );
-  background-size: 200% 200%;
+  background-size: 200% 100%;
   mix-blend-mode: overlay;
   pointer-events: none;
   opacity: 0;
@@ -412,21 +429,20 @@
 }
 
 .tricolor-flag.unfurled {
-  width: 85px;
-  height: 55px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.18);
-  animation: flagWaving 3.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+  width: 140px;
+  height: 95px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+  animation: flagWaving 2s ease-in-out infinite alternate;
 }
 
 .tricolor-flag.unfurled::after {
   opacity: 1;
-  animation: waveShading 3.5s ease-in-out infinite;
+  animation: waveShading 2s ease-in-out infinite alternate;
 }
 
 @keyframes waveShading {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
 }
 
 /* Flag Stripes */
@@ -459,19 +475,10 @@
 /* Waving keyframe with natural wave physics */
 @keyframes flagWaving {
   0% {
-    transform: rotate(0deg) translateY(0px) skewY(0deg);
-  }
-  25% {
-    transform: rotate(2deg) translateY(-2px) skewY(1deg);
-  }
-  50% {
-    transform: rotate(-2.5deg) translateY(1.5px) skewY(-1.8deg);
-  }
-  75% {
-    transform: rotate(1.8deg) translateY(-1px) skewY(1deg);
+    transform: perspective(600px) rotateY(15deg) rotateX(4deg) skewY(2deg);
   }
   100% {
-    transform: rotate(0deg) translateY(0px) skewY(0deg);
+    transform: perspective(600px) rotateY(-12deg) rotateX(-4deg) skewY(-1deg);
   }
 }
 
@@ -483,19 +490,27 @@
 /* Falling Flowers/Petals */
 .flower-petal {
   position: absolute;
-  border-radius: 50%;
+  border-radius: 40% 60% 50% 50%;
   pointer-events: none;
-  animation: fallDown 4s linear forwards;
+  animation: fallDown 4.5s ease-in forwards;
   z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 }
 
 @keyframes fallDown {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate3d(1, 1, 1, 0deg) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translate3d(15px, 30px, 0) rotate3d(1, 0.5, 0.5, 90deg) scale(1);
+  }
+  90% {
     opacity: 1;
   }
   100% {
-    transform: translateY(320px) rotate(360deg);
+    transform: translate3d(-40px, 450px, 0) rotate3d(0.5, 1, 0.5, 720deg) scale(0.8);
     opacity: 0;
   }
 }
