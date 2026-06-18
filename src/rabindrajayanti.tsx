@@ -68,7 +68,7 @@ export default function Rabindrajayanti() {
 
       {/* ── HERO ── */}
       <section className="rj-hero">
-        <div className="rj-hero-bg" style={{ backgroundImage: "url('/rabindrajayanti_hero.webp')" }} />
+        <div className="rj-hero-bg" style={{ backgroundImage: "url('/b9.jpg')" }} />
         <div className="rj-hero-glow g1" /><div className="rj-hero-glow g2" />
         <div className="rj-hero-veil" />
 
@@ -233,7 +233,7 @@ export default function Rabindrajayanti() {
                 </p>
               </div>
               <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '220px', marginTop: 'auto' }}>
-                <img loading="lazy" src="/images4.webp" alt="Rabindra Jayanti celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img loading="lazy" src="/b8.jpg" alt="Rabindra Jayanti celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }} />
                 <div style={{
                   position: 'absolute',
                   bottom: '1rem',
@@ -286,10 +286,7 @@ export default function Rabindrajayanti() {
           <p className="rj-cta-p">
             Your contributions help purchase musical instruments, traditional dance costumes, and books for our school library, keeping the light of Tagore's teachings alive.
           </p>
-          <div className="rj-cta-btns">
-            <a href="/donate" className="rj-btn-gold">Support Our Cultural Fund →</a>
-            <a href="/about" className="rj-btn-ghost">Learn About Us</a>
-          </div>
+
         </div>
       </section>
 
