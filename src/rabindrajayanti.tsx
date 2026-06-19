@@ -279,16 +279,6 @@ export default function Rabindrajayanti() {
 
 
 
-      {/* ── CTA SECTION ── */}
-      <section className="rj-cta">
-        <div className="rj-cta-inner">
-          <h2 className="rj-cta-h">Help Us Nurture Art &<br />Culture in Underprivileged Kids</h2>
-          <p className="rj-cta-p">
-            Your contributions help purchase musical instruments, traditional dance costumes, and books for our school library, keeping the light of Tagore's teachings alive.
-          </p>
-
-        </div>
-      </section>
 
       {/* ── FOOTER ── */}
       <footer className="footer rj-footer">

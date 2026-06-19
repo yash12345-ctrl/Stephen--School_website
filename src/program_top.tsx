@@ -5,19 +5,19 @@ import './program_top.css';
 
 
 const events = [
-  { name: 'Annual Concert',            img: '/news_annual_day.webp', desc: 'A grand musical evening showcasing student talent across classical, folk, and contemporary performances.', color1: '#e040fb', color2: '#7c4dff', link: '/annual-concert' },
+  { name: 'Annual Concert', img: '/news_annual_day.webp', desc: 'A grand musical evening showcasing student talent across classical, folk, and contemporary performances.', color1: '#e040fb', color2: '#7c4dff', link: '/annual-concert' },
   { name: 'Annual Art & Craft Exhibition', img: '/art_exhibition_hero.webp', desc: 'Students display their finest artwork, sculptures, and handcrafted creations in a vibrant gallery setting.', color1: '#f7971e', color2: '#ffd200', link: '/art-and-craft-exhibition' },
-  { name: 'Eid Celebration',           img: '/eid_hero.webp', desc: 'A joyful community celebration of Eid with traditional food, performances, and cultural activities for all.', color1: '#11998e', color2: '#38ef7d', link: '/eid' },
-  { name: 'Christmas Celebration',     img: '/christmas_hero.webp', desc: 'Festive carols, decoration contests, gift exchanges, and a warm holiday program uniting the school family.', color1: '#eb3349', color2: '#f45c43', link: '/christmas' },
-  { name: 'Rabindra Jayanti',          img: '/rabindrajayanti_hero.webp', desc: 'Honouring the legacy of Rabindranath Tagore through poetry recitations, dance, and cultural presentations.', color1: '#4776e6', color2: '#8e54e9', link: '/rabindrajayanti' },
-  { name: 'Independence Day',          img: '/indep_hero.webp', desc: 'A patriotic celebration with flag hoisting, cultural programmes, and inspiring speeches by students and staff.', color1: '#ff9800', color2: '#f44336', link: '/indep' },
-  { name: 'Educational Day Out',       img: '/educational_day_out_hero.webp', desc: 'Enriching field trips to museums, science centres, and historical sites to bring learning alive beyond the classroom.', color1: '#00b09b', color2: '#96c93d', link: '/educational-day-out' },
-  { name: 'Annual School Picnic',      img: '/annual_picnic_hero.webp', desc: 'A fun-filled day of outdoor games, team activities, and picnic lunches that strengthen bonds across the school community.', color1: '#C9A84C', color2: '#F0C96B', link: '/annual-picnic' },
+  { name: 'Eid Celebration', img: '/eid_hero.webp', desc: 'A joyful community celebration of Eid with traditional food, performances, and cultural activities for all.', color1: '#11998e', color2: '#38ef7d', link: '/eid' },
+  { name: 'Christmas Celebration', img: '/christmas_hero.webp', desc: 'Festive carols, decoration contests, gift exchanges, and a warm holiday program uniting the school family.', color1: '#eb3349', color2: '#f45c43', link: '/christmas' },
+  { name: 'Rabindra Jayanti', img: '/rabindrajayanti_hero.webp', desc: 'Honouring the legacy of Rabindranath Tagore through poetry recitations, dance, and cultural presentations.', color1: '#4776e6', color2: '#8e54e9', link: '/rabindrajayanti' },
+  { name: 'Independence Day', img: '/indep_hero.webp', desc: 'A patriotic celebration with flag hoisting, cultural programmes, and inspiring speeches by students and staff.', color1: '#ff9800', color2: '#f44336', link: '/indep' },
+  { name: 'Educational Day Out', img: '/educational_day_out_hero.webp', desc: 'Enriching field trips to museums, science centres, and historical sites to bring learning alive beyond the classroom.', color1: '#00b09b', color2: '#96c93d', link: '/educational-day-out' },
+  { name: 'Annual School Picnic', img: '/annual_picnic_hero.webp', desc: 'A fun-filled day of outdoor games, team activities, and picnic lunches that strengthen bonds across the school community.', color1: '#C9A84C', color2: '#F0C96B', link: '/annual-picnic' },
 ];
 
 const displayData = [
   {
-    grade: 'Morning Shift',
+    grade: 'Morning Session',
     range: 'Lower Nursery to Class V',
     emoji: <Sun size={28} strokeWidth={2.5} color="#11998e" />,
     desc: 'A nurturing environment where early learners and primary students build strong foundational skills in literacy, numeracy, and character development through interactive, holistic education.',
@@ -26,7 +26,7 @@ const displayData = [
     img: '/v7.webp'
   },
   {
-    grade: 'Evening Shift',
+    grade: 'Evening Session',
     range: 'Class VI to Class X',
     emoji: <Moon size={28} strokeWidth={2.5} color="#eb3349" />,
     desc: 'Comprehensive academic preparation focused on advanced coursework, critical thinking, and board examination readiness, empowering senior students for future success.',
@@ -44,7 +44,7 @@ export function ProgramMegaMenu({ open, onClose }: { open: boolean; onClose: () 
           <div className="mega-left-tag">✦ Events & Activities</div>
           <h3 className="mega-h3">Celebrations & enriching school experiences</h3>
           <p className="mega-sub">Cultural events, festive celebrations, and memorable experiences that make every school year special.</p>
-          
+
           <div className="mega-left-stats">
             <div className="mega-stat">
               <span className="mega-stat-num">25+</span>
@@ -64,10 +64,10 @@ export function ProgramMegaMenu({ open, onClose }: { open: boolean; onClose: () 
                 href={ev.link}
                 className="mega-card mega-card--event"
                 key={idx}
-                style={{'--mc1':ev.color1,'--mc2':ev.color2} as React.CSSProperties}
+                style={{ '--mc1': ev.color1, '--mc2': ev.color2 } as React.CSSProperties}
                 onClick={onClose}
               >
-                <div className="mega-card-accent"/>
+                <div className="mega-card-accent" />
                 <div className="mega-card-photo-wrap">
                   <img src={ev.img} alt={ev.name} className="mega-card-photo" />
                 </div>
@@ -89,7 +89,7 @@ export default function ProgramTop() {
   return (
     <section className="section programs-section" id="programs">
       <div className="container">
-        
+
         {/* Section Header */}
         <div className="sec-head">
           <div className="s-tag">Academic Programs</div>
@@ -103,16 +103,16 @@ export default function ProgramTop() {
             <div className="shift-banner-item">
               <div className="shift-tag">Session 01</div>
               <div className="shift-details">
-                <h4 className="shift-name">Morning Shift</h4>
-                <p className="shift-time">6:30 AM <span className="gold">—</span> 11:30 AM</p>
+                <h4 className="shift-name">Morning Session</h4>
+                <p className="shift-time">7:45 AM <span className="gold">—</span> 11:15 AM</p>
               </div>
             </div>
             <div className="shift-divider"></div>
             <div className="shift-banner-item">
               <div className="shift-tag">Session 02</div>
               <div className="shift-details">
-                <h4 className="shift-name">Evening Shift</h4>
-                <p className="shift-time">11:45 AM <span className="gold">—</span> 4:45 PM</p>
+                <h4 className="shift-name">Evening Session</h4>
+                <p className="shift-time">11:30 AM <span className="gold">—</span> 4:00 PM</p>
               </div>
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function ProgramTop() {
 
         {/* Dashboard Grid */}
         <div className="prog-dashboard">
-          
+
           {/* Left: Tab Selectors */}
           <div className="prog-tabs">
             {displayData.map((p, i) => {
@@ -156,16 +156,16 @@ export default function ProgramTop() {
           </div>
 
           {/* Right: Active Showcase Panel */}
-          <div 
+          <div
             className="prog-showcase"
             style={{
-              '--c1': activeProg.color1, 
+              '--c1': activeProg.color1,
               '--c2': activeProg.color2
             } as React.CSSProperties}
           >
             <div className="prog-showcase-bg-glow" />
             <div className="prog-showcase-content">
-              
+
               <div className="prog-showcase-header">
                 <span className="prog-showcase-pill">{activeProg.range} Showcase</span>
                 <h3 className="prog-showcase-title">{activeProg.grade}</h3>

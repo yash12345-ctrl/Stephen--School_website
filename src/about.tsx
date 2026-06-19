@@ -41,9 +41,9 @@ const AnimatedBoxContent = ({ contents }: { contents: string[] }) => {
 };
 
 export default function About() {
-        
-  
-  
+
+
+
   return (
     <div className="abt-page">
 
@@ -58,9 +58,9 @@ export default function About() {
           <p className="abt-hero-p">An NGO-based secondary school in Bowbazar, Kolkata, dedicated to bringing social and economic transformation for underprivileged children since 2001.</p>
           <div className="abt-hero-counters">
             {[
-              { num: '25+', label: 'Years' },
+              { num: '20+', label: 'Years' },
               { num: '500', label: 'Students' },
-              { num: 'L.N. - X', label: 'Grades' },
+              { num: 'Nursery - X', label: 'Grades' },
               { num: '100%', label: 'NGO Commitment' },
             ].map((c, i) => (
               <div className="abt-counter" key={i}>
@@ -265,15 +265,22 @@ export default function About() {
           <div className="abt-leaders-tree">
             <svg className="abt-tree-svg" width="100%" height="100%">
               {/* Base Connections */}
-              <line x1="50%" y1="50%" x2="15%" y2="25%" className="abt-tree-line" />
-              <line x1="50%" y1="50%" x2="85%" y2="25%" className="abt-tree-line" />
-              <line x1="50%" y1="50%" x2="15%" y2="75%" className="abt-tree-line" />
-              <line x1="50%" y1="50%" x2="85%" y2="75%" className="abt-tree-line" />
+              <line x1="50%" y1="50%" x2="15%" y2="12.5%" className="abt-tree-line" />
+              <line x1="50%" y1="50%" x2="85%" y2="12.5%" className="abt-tree-line" />
+              <line x1="50%" y1="50%" x2="15%" y2="37.5%" className="abt-tree-line" />
+              <line x1="50%" y1="50%" x2="85%" y2="37.5%" className="abt-tree-line" />
+              <line x1="50%" y1="50%" x2="15%" y2="62.5%" className="abt-tree-line" />
+              <line x1="50%" y1="50%" x2="85%" y2="62.5%" className="abt-tree-line" />
+              <line x1="50%" y1="50%" x2="50%" y2="85%" className="abt-tree-line" />
+
               {/* Glowing Data Packets */}
-              <line x1="50%" y1="50%" x2="15%" y2="25%" className="abt-tree-packet" style={{ animationDelay: '0s' }} />
-              <line x1="50%" y1="50%" x2="85%" y2="25%" className="abt-tree-packet" style={{ animationDelay: '1.2s' }} />
-              <line x1="50%" y1="50%" x2="15%" y2="75%" className="abt-tree-packet" style={{ animationDelay: '2.5s' }} />
-              <line x1="50%" y1="50%" x2="85%" y2="75%" className="abt-tree-packet" style={{ animationDelay: '0.8s' }} />
+              <line x1="50%" y1="50%" x2="15%" y2="12.5%" className="abt-tree-packet" style={{ animationDelay: '0s' }} />
+              <line x1="50%" y1="50%" x2="85%" y2="12.5%" className="abt-tree-packet" style={{ animationDelay: '1.2s' }} />
+              <line x1="50%" y1="50%" x2="15%" y2="37.5%" className="abt-tree-packet" style={{ animationDelay: '2.5s' }} />
+              <line x1="50%" y1="50%" x2="85%" y2="37.5%" className="abt-tree-packet" style={{ animationDelay: '0.8s' }} />
+              <line x1="50%" y1="50%" x2="15%" y2="62.5%" className="abt-tree-packet" style={{ animationDelay: '1.6s' }} />
+              <line x1="50%" y1="50%" x2="85%" y2="62.5%" className="abt-tree-packet" style={{ animationDelay: '0.4s' }} />
+              <line x1="50%" y1="50%" x2="50%" y2="85%" className="abt-tree-packet" style={{ animationDelay: '2.0s' }} />
             </svg>
 
             <div className="abt-tree-center">
@@ -289,8 +296,11 @@ export default function About() {
               { name: 'Ayesha Siddiqui', role: 'HeadMistress', img: '/v10.webp', color: '#7c6b99', desc: 'Experienced educator guiding the academic excellence and holistic development of every student at St. Stephen\'s.' },
               { name: 'Ajay Paul', role: 'Administrator & Advisory Board', img: '/v33.webp', color: '#2d6a6a', desc: 'Overseeing school operations and providing strategic advisory support to strengthen the institution\'s mission.' },
               { name: 'Rajesh Arora', role: 'Advisory Board', img: '/v34.webp', color: '#5a4a7a', desc: 'Providing expert guidance and community leadership to support St. Stephen\'s long-term educational goals.' },
+              { name: 'Rehan Misbah', role: 'Advisory Board', img: '/v35.webp', color: '#8e54e9', desc: 'Advising on strategic initiatives and community engagement to foster continuous growth and excellence.' },
+              { name: 'Rajender Singh', role: 'Advisory Board', img: '/v36.webp', color: '#11998e', desc: 'Leveraging extensive experience to guide institutional policies and promote educational advancement.' },
+              { name: 'Asif Iqbal', role: 'Advisory Board', img: '/v37.webp', color: '#f45c43', desc: 'Contributing valuable insights to ensure the school\'s vision aligns with modern educational standards.' },
             ].map((l, i) => (
-              <div className={`abt-tree-card node-${i} ${i % 2 === 0 ? 'left-node' : 'right-node'}`} key={i} style={{ '--leader-color': l.color } as React.CSSProperties}>
+              <div className={`abt-tree-card node-${i} ${i === 6 ? 'center-node' : (i % 2 === 0 ? 'left-node' : 'right-node')}`} key={i} style={{ '--leader-color': l.color } as React.CSSProperties}>
                 <div className="abt-tree-card-img" style={{ backgroundImage: `url(${l.img})` }} />
                 <div className="abt-tree-card-info">
                   <span className="abt-tree-role">{l.role}</span>
@@ -303,17 +313,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="abt-cta">
-        <div className="abt-cta-inner">
-          <span className="abt-chip light">Join Us</span>
-          <h2 className="abt-cta-h">Ready to Be Part of the <span className="abt-accent">St.Stephen's Family</span>?</h2>
-          <p className="abt-cta-p">Schedule a visit, speak with our team, or support us today.</p>
-          <div className="abt-cta-btns">
-            <a href="/donate" className="btn-gold large">Donate</a>
-          </div>
-        </div>
-      </section>
 
       {/* ── FOOTER ── */}
       <footer className="footer">

@@ -38,7 +38,7 @@ const allNews = [
     date: 'April 17, 2018', readTime: '2 min read',
     title: 'Mrs. Iris Schrod & Mr. Jurgen Thomas Schrod — Deputy Consul General of Germany',
     excerpt: 'On April 17, 2018, Mrs. Iris Schrod and Mr. Jurgen Thomas Schrod, Deputy Consul General of Germany, visited St. Stephen\'s School Bowbazar.',
-    image: '/v21.webp', image2: '/v22.webp', featured: false, hot: true,
+    image: '/v21.png', image2: '/v22.webp', featured: false, hot: true,
   },
   {
     id: 3, category: 'Diplomat' as const,
@@ -99,10 +99,58 @@ const allNews = [
    COMPONENT
 ══════════════════════════════════════════ */
 export default function News() {
+  const [selectedMagazine, setSelectedMagazine] = useState<'none' | 'dignitary' | 'cuttings'>('none');
   const [isClosed, setIsClosed] = useState(true);
+  const [isClosed2, setIsClosed2] = useState(true);
 
-
-
+  const fakeNewsCuttings: Array<{
+    id: number;
+    category: string;
+    date: string;
+    readTime: string;
+    title: string;
+    excerpt: string;
+    image: string;
+    image2?: string;
+    featured?: boolean;
+    hot?: boolean;
+  }> = [
+    {
+      id: 101, category: 'METRO' as const,
+      date: 'Recent', readTime: '3 min read',
+      title: 'Id gifts for schoolchildren',
+      excerpt: 'Calcutta: Id was celebrated a second time at a school in Bowbazar, where most students are first generation learners. At St Stephen\'s School, which stands in Phears Lane, gifts were distributed among students from Lower Nursery to Class IV. The children assembled in a hall, where they received water bottles, tiffin boxes, toys and fancy hats. Their flowing dresses, bright salwars and smart suits were matched only by their faces as they laid their hands on the goodies.',
+      image: '/c1.png', featured: true, hot: true,
+    },
+    {
+      id: 102, category: 'The Telegraph' as const,
+      date: 'Recent', readTime: '4 min read',
+      title: 'Stress on importance of English',
+      excerpt: 'Calcutta: The American Center director on Tuesday told a group of children, some of them from underprivileged families, the importance of learning English. "We at the American Center focus a lot of effort on teaching English to students who wouldn\'t otherwise have access to that golden opportunity... you can connect with so many other people with whom otherwise you will only have differences," said Adrian Pratt, director, American Center.',
+      image: '/c2.png', featured: false, hot: false,
+    },
+    {
+      id: 103, category: 'Press' as const,
+      date: 'Recent', readTime: '3 min read',
+      title: "'All religions true': Vivekananda speech recited at concert",
+      excerpt: "Calcutta: A Class VII student, Nazeefa Bilal, recited Swami Vivekananda's lines from the World's Parliament of Religions, Chicago, 1893, on stage. 'We believe not only in universal toleration, but we accept all religions as true. I am proud to belong to a nation which has sheltered the persecuted and the refugees of all religions and all nations of the earth.' The 13-year-old was performing at the annual concert of St Stephen's School.",
+      image: '/c3.png', featured: false, hot: false,
+    },
+    {
+      id: 104, category: 'Press' as const,
+      date: 'May 9', readTime: '2 min read',
+      title: 'Rabindra Jayanti Celebration at St. Stephen\'s',
+      excerpt: 'St. Stephen\'s School hosted a celebration on the occasion of Rabindra Jayanti on May 9. The event saw participation from first-generation students and teachers alike who celebrated Rabindranath Tagore with recitations, songs and dances. Nick Low, British Deputy High Commissioner, was the chief guest. "I was really mesmerised by... and the way they were singing with perfection and enjoying.',
+      image: '/c4.png', featured: false, hot: false,
+    },
+    {
+      id: 105, category: 'Press Gallery' as const,
+      date: 'Recent', readTime: '1 min read',
+      title: 'Graceful Performances & Distinguished Guests',
+      excerpt: "Farheen Alam gracefully danced to the Rabindrasangeet 'Hey nutan dekha dikaar' that captivated all. The cultural event was graced by Headmistress Ayesha Iqbal Siddiqui and the honorary secretary of St. Stephen's School, who commended the students for their outstanding cultural presentations and dedication to the arts.",
+      image: '/c5.png', featured: false, hot: false,
+    }
+  ];
   const visibleNews = allNews;
 
   return (
@@ -137,133 +185,304 @@ export default function News() {
         </div>
       </div>
 
-      {/* ── FLIPBOOK LAYOUT ── */}
-      <div className="flipbook-wrapper" style={{ minHeight: '100vh', paddingTop: '60px', paddingBottom: '60px', paddingLeft: '5vw', paddingRight: '5vw', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-        <div style={{
-          width: '100%',
-          maxWidth: '1000px',
-          display: 'flex',
-          justifyContent: 'center',
-          transition: 'transform 0.6s ease',
-          transform: isClosed ? 'translateX(-25%)' : 'translateX(0)',
-        }}>
-          <FlipBook
-            width={500}
-            height={700}
-            size="stretch"
-            minWidth={300}
-            maxWidth={500}
-            minHeight={400}
-            maxHeight={700}
-            maxShadowOpacity={0.5}
-            showCover={true}
-            mobileScrollSupport={true}
-            className="my-flipbook"
-            onFlip={(e: { data: number }) => setIsClosed(e.data === 0)}
-            style={{ margin: '0 auto', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}
-          >
-            {/* Right Cover / Title Page (Page 1) */}
-            <BookPage density="hard">
-              <div className="book-cover" style={{
-                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                height: '100%', padding: '1.5rem', boxSizing: 'border-box', backgroundColor: '#eaddcf'
-              }}>
-                <div style={{
-                  width: '100%', height: '100%',
-                  border: '2px solid #1a1a1a',
-                  outline: '4px double #1a1a1a', outlineOffset: '-12px',
-                  display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                  padding: '2rem', boxSizing: 'border-box'
-                }}>
-                  <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem' }}>
-                    <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '80px', filter: 'grayscale(100%) sepia(50%) contrast(1.2)' }} />
-                  </div>
-
-                  <h1 className="np-paper-title" style={{ fontSize: '4.5rem', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>The Dignitary<br />Voice</h1>
-
-                  <div style={{ width: '80%', margin: '2.5rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
-                    <img loading="lazy" src="/v6.webp" alt="Cover Image" style={{ width: '100%', height: '220px', objectFit: 'cover', filter: 'grayscale(100%) sepia(30%) contrast(1.1)', display: 'block' }} />
-                  </div>
-
-                  <p className="subtitle" style={{ textAlign: 'center', margin: 0, fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '1.2rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>St. Stephen's School</p>
-                  <div style={{ width: '40px', height: '2px', background: '#0f1115', margin: '1rem auto' }}></div>
-                  <p style={{ textAlign: 'center', margin: '0', fontStyle: 'italic', fontSize: '1.1rem', color: '#333', fontFamily: '"Merriweather", serif' }}>Special Dignitaries Edition</p>
-
-                  <div style={{ marginTop: 'auto', textAlign: 'center' }}>
-                    <p style={{ fontSize: '0.85rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#0f1115', margin: 0 }}>Est. 1971 &mdash; Vol. I</p>
-                  </div>
-                </div>
+      {/* ── SELECTION SCREEN OR FLIPBOOK ── */}
+      {selectedMagazine === 'none' ? (
+        <div className="mag-desk-container">
+          <div className="mag-desk-header">
+            <h1>Our Publications</h1>
+            <div className="mag-desk-instruction-box">Please select any image to view the magazine</div>
+          </div>
+          <div className="mag-desk-items">
+            <div className="mag-desk-item item-dignitary" onClick={() => setSelectedMagazine('dignitary')}>
+              <div className="mag-desk-cover">
+                <img loading="lazy" src="/v6.webp" alt="The Dignitary Voice" />
+                <div className="mag-desk-label">The Dignitary Voice</div>
               </div>
-            </BookPage>
+            </div>
+            <div className="mag-desk-item item-cuttings" onClick={() => setSelectedMagazine('cuttings')}>
+              <div className="mag-desk-cover">
+                <img loading="lazy" src="/v4.webp" alt="News Paper Cuttings" />
+                <div className="mag-desk-label">News Paper Cuttings</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="flipbook-wrapper" style={{ position: 'relative', minHeight: '100vh', paddingTop: '60px', paddingBottom: '60px', paddingLeft: '2vw', paddingRight: '2vw', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
 
-            {/* Content Pages */}
-            {visibleNews.flatMap((item) => {
-              const pages = [];
+          <button className="mag-back-btn" onClick={() => {
+            setSelectedMagazine('none');
+            setIsClosed(true);
+            setIsClosed2(true);
+          }}>
+            &larr; Back to Selection
+          </button>
 
-              if (item.image) {
-                // Page for Full Image
-                pages.push(
-                  <BookPage key={`${item.id}-img`}>
+          {/* FIRST BOOK */}
+          {selectedMagazine === 'dignitary' && (
+            <div style={{
+              width: '100%',
+              maxWidth: '800px',
+              display: 'flex',
+              justifyContent: 'center',
+              transition: 'transform 0.6s ease',
+              transform: isClosed ? 'translateX(-25%)' : 'translateX(0)',
+            }}>
+              <FlipBook
+                width={400}
+                height={560}
+                size="stretch"
+                minWidth={300}
+                maxWidth={400}
+                minHeight={400}
+                maxHeight={560}
+                maxShadowOpacity={0.5}
+                showCover={true}
+                mobileScrollSupport={true}
+                className="my-flipbook"
+                onFlip={(e: { data: number }) => setIsClosed(e.data === 0)}
+                style={{ margin: '0 auto', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}
+              >
+                {/* Right Cover / Title Page (Page 1) */}
+                <BookPage density="hard">
+                  <div className="book-cover" style={{
+                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                    height: '100%', padding: '1.5rem', boxSizing: 'border-box', backgroundColor: '#eaddcf'
+                  }}>
                     <div style={{
                       width: '100%', height: '100%',
-                      padding: '2.5rem',
-                      display: 'grid',
-                      gridTemplateColumns: (item.image3 || item.image4) ? '1fr 1fr' : '1fr',
-                      gridTemplateRows: (item.image2 || item.image3 || item.image4) ? '1fr 1fr' : '1fr',
-                      backgroundColor: '#f4f0e6',
-                      boxSizing: 'border-box',
-                      gap: '1.5rem'
+                      border: '2px solid #1a1a1a',
+                      outline: '4px double #1a1a1a', outlineOffset: '-12px',
+                      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                      padding: '2rem', boxSizing: 'border-box'
                     }}>
-                      {[item.image, item.image2, item.image3, item.image4].filter(Boolean).map((imgSrc, idx) => (
-                        <div key={idx} style={{
-                          width: '100%',
-                          height: '100%',
-                          border: '2px solid #1a1a1a',
-                          padding: '4px',
-                          backgroundColor: '#fff',
-                          boxSizing: 'border-box',
-                          minHeight: 0
-                        }}>
-                          <img loading="lazy" src={imgSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(100%) sepia(20%) contrast(1.15)', display: 'block' }} />
-                        </div>
-                      ))}
-                    </div>
-                  </BookPage>
-                );
-              }
+                      <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem' }}>
+                        <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '60px' }} />
+                      </div>
 
-              // Page for Text Content
-              pages.push(
-                <BookPage key={`${item.id}-txt`}>
-                  <div className="book-story" style={{ padding: '0', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', backgroundColor: '#f4f0e6' }}>
-                    <div style={{ padding: '3.5rem', flex: 1 }}>
-                      <h2 className="np-paper-h-small" style={{ fontSize: '2.4rem', marginBottom: '1.5rem', lineHeight: 1.1 }}>{item.title}</h2>
-                      <div className="book-meta" style={{ borderBottom: '1px solid #1a1a1a', paddingBottom: '15px', marginBottom: '25px', fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>{item.category} • {item.date}</div>
+                      <h1 className="np-paper-title" style={{ fontSize: '3.5rem', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>The Dignitary<br />Voice</h1>
 
-                      <div className="book-text" style={{ fontSize: '1.1rem', lineHeight: '1.8', textAlign: 'justify', color: '#1a1a1a' }}>
-                        <p><span className="np-drop-cap" style={{ float: 'left', fontSize: '5rem', lineHeight: '0.8', paddingRight: '0.15em', paddingTop: '0.1em', fontFamily: '"Playfair Display", serif', fontWeight: 900 }}>{item.excerpt.charAt(0)}</span>{item.excerpt.slice(1)}</p>
+                      <div style={{ width: '80%', margin: '1.5rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
+                        <img loading="lazy" src="/v6.webp" alt="Cover Image" style={{ width: '100%', height: '180px', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                      </div>
+
+                      <p className="subtitle" style={{ textAlign: 'center', margin: 0, fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '1rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>St. Stephen's School</p>
+                      <div style={{ width: '40px', height: '2px', background: '#0f1115', margin: '0.5rem auto' }}></div>
+                      <p style={{ textAlign: 'center', margin: '0', fontStyle: 'italic', fontSize: '0.9rem', color: '#333', fontFamily: '"Merriweather", serif' }}>Special Dignitaries Edition</p>
+
+                      <div style={{ marginTop: 'auto', textAlign: 'center' }}>
+                        <p style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#0f1115', margin: 0 }}>Est. 2001 &mdash; Vol. I</p>
                       </div>
                     </div>
-                    <div className="book-page-number" style={{ paddingBottom: '20px', width: '100%', textAlign: 'center', fontSize: '0.9rem', color: '#1a1a1a', fontWeight: 'bold' }}>- {item.id} -</div>
                   </div>
                 </BookPage>
-              );
 
-              return pages;
-            })}
-            {/* Back Cover */}
-            <BookPage density="hard">
-              <div className="book-back-cover" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '3rem' }}>
-                <div className="logo-crest-wrapper" style={{ margin: '0 auto 2rem', opacity: 0.5 }}>
-                  <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '80px', filter: 'grayscale(100%) sepia(30%)' }} />
-                </div>
-                <h3 style={{ fontFamily: '"Playfair Display", serif', fontSize: '2rem', marginBottom: '1rem', textAlign: 'center' }}>St. Stephen's School</h3>
-                <p style={{ fontSize: '1rem', color: '#555' }}>Established 1971</p>
-              </div>
-            </BookPage>
-          </FlipBook>
+                {/* Content Pages */}
+                {visibleNews.flatMap((item) => {
+                  const pages = [];
+
+                  if (item.image) {
+                    // Page for Full Image
+                    pages.push(
+                      <BookPage key={`${item.id}-img`}>
+                        <div className="newspaper-container" style={{
+                          height: '100%',
+                          padding: '2.5rem',
+                          display: 'grid',
+                          gridTemplateColumns: (item.image3 || item.image4) ? '1fr 1fr' : '1fr',
+                          gridTemplateRows: (item.image2 || item.image3 || item.image4) ? '1fr 1fr' : '1fr',
+                          backgroundColor: '#f4f0e6',
+                          boxSizing: 'border-box',
+                          gap: '1rem'
+                        }}>
+                          {[item.image, item.image2, item.image3, item.image4].filter(Boolean).map((imgSrc, idx) => (
+                            <div key={idx} style={{
+                              width: '100%',
+                              height: '100%',
+                              border: '2px solid #1a1a1a',
+                              padding: '3px',
+                              backgroundColor: '#fff',
+                              boxSizing: 'border-box',
+                              minHeight: 0
+                            }}>
+                              <img loading="lazy" src={imgSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                            </div>
+                          ))}
+                        </div>
+                      </BookPage>
+                    );
+                  }
+
+                  // Page for Text Content
+                  pages.push(
+                    <BookPage key={`${item.id}-txt`}>
+                      <div className="book-story" style={{ padding: '0', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', backgroundColor: '#f4f0e6' }}>
+                        <div style={{ padding: '2.5rem', flex: 1 }}>
+                          <h2 className="np-paper-h-small" style={{ fontSize: '1.8rem', marginBottom: '1rem', lineHeight: 1.1 }}>{item.title}</h2>
+
+                          <div className="np-paper-caption" style={{ marginBottom: '1rem' }}>
+                            {item.category} &bull; {item.date}
+                          </div>
+
+                          <p className="np-paper-p" style={{ fontSize: '1.05rem', lineHeight: 1.7, textAlign: 'justify', margin: 0 }}>
+                            <span className="np-paper-dropcap" style={{ fontSize: '4.5rem', float: 'left', marginRight: '6px', marginTop: '6px', lineHeight: 0.8, fontFamily: '"Playfair Display", serif', fontWeight: 900, color: '#1a1a1a' }}>{item.excerpt.charAt(0)}</span>
+                            {item.excerpt.slice(1)}
+                          </p>
+                        </div>
+                      </div>
+                    </BookPage>
+                  );
+
+                  return pages;
+                })}
+
+                {/* Back Cover */}
+                <BookPage density="hard">
+                  <div className="book-back-cover" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '2.5rem', backgroundColor: '#eaddcf' }}>
+                    <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem', opacity: 0.5 }}>
+                      <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '60px' }} />
+                    </div>
+                    <h3 style={{ fontFamily: '"Playfair Display", serif', fontSize: '1.5rem', marginBottom: '0.5rem', textAlign: 'center' }}>St. Stephen's School</h3>
+                    <p style={{ fontSize: '0.9rem', color: '#555' }}>Established 2001</p>
+                  </div>
+                </BookPage>
+              </FlipBook>
+            </div>
+          )}
+
+          {/* SECOND BOOK */}
+          {selectedMagazine === 'cuttings' && (
+            <div style={{
+              width: '100%',
+              maxWidth: '800px',
+              display: 'flex',
+              justifyContent: 'center',
+              transition: 'transform 0.6s ease',
+              transform: isClosed2 ? 'translateX(-25%)' : 'translateX(0)',
+            }}>
+              <FlipBook
+                width={400}
+                height={560}
+                size="stretch"
+                minWidth={300}
+                maxWidth={400}
+                minHeight={400}
+                maxHeight={560}
+                maxShadowOpacity={0.5}
+                showCover={true}
+                mobileScrollSupport={true}
+                className="my-flipbook-2"
+                onFlip={(e: { data: number }) => setIsClosed2(e.data === 0)}
+                style={{ margin: '0 auto', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}
+              >
+                {/* Right Cover / Title Page (Page 1) */}
+                <BookPage density="hard">
+                  <div className="book-cover" style={{
+                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                    height: '100%', padding: '1.5rem', boxSizing: 'border-box', backgroundColor: '#d4c5b0'
+                  }}>
+                    <div style={{
+                      width: '100%', height: '100%',
+                      border: '2px solid #1a1a1a',
+                      outline: '4px double #1a1a1a', outlineOffset: '-12px',
+                      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                      padding: '2rem', boxSizing: 'border-box'
+                    }}>
+                      <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem' }}>
+                        <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '60px' }} />
+                      </div>
+
+                      <h1 className="np-paper-title" style={{ fontSize: '3rem', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>News Paper<br />Cuttings</h1>
+
+                      <div style={{ width: '80%', margin: '1.5rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
+                        <img loading="lazy" src="/v4.webp" alt="Cover Image" style={{ width: '100%', height: '180px', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                      </div>
+
+                      <p className="subtitle" style={{ textAlign: 'center', margin: 0, fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '1rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>Press Releases</p>
+                      <div style={{ width: '40px', height: '2px', background: '#0f1115', margin: '0.5rem auto' }}></div>
+                      <p style={{ textAlign: 'center', margin: '0', fontStyle: 'italic', fontSize: '0.9rem', color: '#333', fontFamily: '"Merriweather", serif' }}>Media & Publications</p>
+
+                      <div style={{ marginTop: 'auto', textAlign: 'center' }}>
+                        <p style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#0f1115', margin: 0 }}>Vol. II</p>
+                      </div>
+                    </div>
+                  </div>
+                </BookPage>
+
+                {/* Content Pages */}
+                {fakeNewsCuttings.flatMap((item) => {
+                  const pages = [];
+
+                  if (item.image) {
+                    pages.push(
+                      <BookPage key={`${item.id}-img`}>
+                        <div className="newspaper-container" style={{
+                          height: '100%',
+                          padding: '2.5rem',
+                          display: 'grid',
+                          gridTemplateColumns: (item.image2) ? '1fr 1fr' : '1fr',
+                          backgroundColor: '#f4f0e6',
+                          boxSizing: 'border-box',
+                          gap: '1rem',
+                          alignItems: 'center',
+                          justifyItems: 'center'
+                        }}>
+                          {[item.image, item.image2].filter(Boolean).map((imgSrc, idx) => (
+                            <div key={idx} style={{
+                              width: '100%',
+                              height: '100%',
+                              padding: '10px',
+                              backgroundColor: '#fff',
+                              boxSizing: 'border-box',
+                              minHeight: 0,
+                              boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
+                            }}>
+                              <img loading="lazy" src={imgSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
+                            </div>
+                          ))}
+                        </div>
+                      </BookPage>
+                    );
+                  }
+
+                  pages.push(
+                    <BookPage key={`${item.id}-txt`}>
+                      <div className="book-story" style={{ padding: '0', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', backgroundColor: '#f4f0e6' }}>
+                        <div style={{ padding: '2.5rem', flex: 1 }}>
+                          <h2 className="np-paper-h-small" style={{ fontSize: '1.8rem', marginBottom: '1rem', lineHeight: 1.1 }}>{item.title}</h2>
+
+                          <div className="np-paper-caption" style={{ marginBottom: '1rem' }}>
+                            {item.category} &bull; {item.date}
+                          </div>
+
+                          <p className="np-paper-p" style={{ fontSize: '1.05rem', lineHeight: 1.7, textAlign: 'justify', margin: 0 }}>
+                            <span className="np-paper-dropcap" style={{ fontSize: '4.5rem', float: 'left', marginRight: '6px', marginTop: '6px', lineHeight: 0.8, fontFamily: '"Playfair Display", serif', fontWeight: 900, color: '#1a1a1a' }}>{item.excerpt.charAt(0)}</span>
+                            {item.excerpt.slice(1)}
+                          </p>
+                        </div>
+                      </div>
+                    </BookPage>
+                  );
+
+                  return pages;
+                })}
+
+                {/* Back Cover */}
+                <BookPage density="hard">
+                  <div className="book-back-cover" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '2.5rem', backgroundColor: '#d4c5b0' }}>
+                    <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem', opacity: 0.5 }}>
+                      <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '60px' }} />
+                    </div>
+                    <h3 style={{ fontFamily: '"Playfair Display", serif', fontSize: '1.5rem', marginBottom: '0.5rem', textAlign: 'center' }}>St. Stephen's School</h3>
+                    <p style={{ fontSize: '0.9rem', color: '#555' }}>Media Records</p>
+                  </div>
+                </BookPage>
+              </FlipBook>
+            </div>
+          )}
+
         </div>
-      </div>
+      )}
 
       {/* ── FOOTER ── */}
       <footer className="footer">

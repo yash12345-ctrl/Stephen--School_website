@@ -270,7 +270,7 @@ export default function Gallery() {
     <div className="gallery-page">
 
       {/* ── NAVBAR ── */}
-      <Navbar />
+      <Navbar initialVariant="gallery" />
 
       {/* ── MAIN CONTENT ── */}
       {viewMode === 'selection' && (
@@ -500,16 +500,16 @@ export default function Gallery() {
               // Page 24 (Existing)
               { id: 1, name: 'Shri Keshari Nath Tripathi', role: 'Governor of West Bengal', image: '/t1.jpeg' },
               { id: 2, name: 'Dr. Abdus Sattar', role: 'West Bengal Minority Affair Minister', image: '/t2.jpeg' },
-              { id: 3, name: 'Dinesh Bajaj', role: 'Politician', image: '/v21.webp' },
+              { id: 3, name: 'Dinesh Bajaj', role: 'Politician', image: '/c6.jpeg' },
               { id: 4, name: 'Mohammed Salim', role: 'Ex MP Lok Sabha', image: '/t4.jpeg' },
-              { id: 5, name: 'Md. Nadimul Haque', role: 'M.P Rajya Sabha', image: '/v23.webp' },
-              { id: 6, name: 'Kathy Giles-Diaz', role: 'Consul General Of U.S.A', image: '/v24.webp' },
-              { id: 7, name: 'Jeffrey K. Reneau', role: 'Director, American Center.', image: '/v25.webp' },
-              { id: 8, name: 'Adrian Pratt', role: 'Director, American Center', image: '/v27.webp' },
-              { id: 9, name: 'Cory Wilcox', role: 'US Consulate', image: '/v28.webp' },
-              { id: 10, name: 'Idris Ali', role: 'MP', image: '/v29.webp' },
-              { id: 11, name: 'Lesego Motsumi', role: 'Botswana High Commission', image: '/v30.webp' },
-              { id: 12, name: 'Nicolas Facino', role: 'Director of Alliance Francaise', image: '/v31.webp' },
+              { id: 5, name: 'Md. Nadimul Haque', role: 'M.P Rajya Sabha', image: '/c7.jpeg' },
+              { id: 6, name: 'Rehana Khatoon', role: 'Councillor and Borough Chairman', image: '/c8.jpeg' },
+              { id: 7, name: 'Jeffrey K. Reneau', role: 'Director, American Center.', image: '/c9.jpeg' },
+              { id: 8, name: 'Adrian Pratt', role: 'Director, American Center', image: '/c10.jpeg' },
+              { id: 9, name: 'Cory Wilcox', role: 'US Consulate', image: '/c11.jpeg' },
+              { id: 10, name: 'Idris Ali', role: 'MP', image: '/c12.jpeg' },
+              { id: 11, name: 'Lesego Motsumi', role: 'Botswana High Commission', image: '/c13.jpeg' },
+              { id: 12, name: 'Nicolas Facino', role: 'Director of Alliance Francaise', image: '/c14.jpeg' },
 
               // Page 27
               { id: 13, name: 'Shri Jag Mohan', role: 'IPS', image: '/v2.webp' },

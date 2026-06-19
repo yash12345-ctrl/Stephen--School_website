@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { ProgramMegaMenu } from './program_top';
 
 interface NavbarProps {
-  initialVariant?: 'about' | 'default';
+  initialVariant?: 'about' | 'gallery' | 'default';
 }
 
 export default function Navbar({ initialVariant = 'default' }: NavbarProps) {
@@ -36,6 +36,8 @@ export default function Navbar({ initialVariant = 'default' }: NavbarProps) {
     navClass += ' navbar--fixed';
   } else if (initialVariant === 'about') {
     navClass += ' navbar--about';
+  } else if (initialVariant === 'gallery') {
+    navClass += ' navbar--gallery';
   }
 
   return (
@@ -46,8 +48,8 @@ export default function Navbar({ initialVariant = 'default' }: NavbarProps) {
             <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" />
           </div>
           <div>
-            <div className="logo-name">St. Stephen's</div>
-            <div className="logo-tagline">SCHOOL</div>
+            <div className="logo-name">St. Stephen's School</div>
+            <div className="logo-tagline">BOWBAZAR</div>
           </div>
         </a>
         <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>

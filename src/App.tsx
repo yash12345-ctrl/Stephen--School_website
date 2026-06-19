@@ -5,8 +5,8 @@ import './App.css'
 import ProgramTop from './program_top'
 
 export default function App() {
-        const heroRef = useRef<HTMLElement>(null);
-  
+  const heroRef = useRef<HTMLElement>(null);
+
   const handleHeroMouseMove = (e: MouseEvent<HTMLElement>) => {
     if (!heroRef.current) return;
     const { left, top, width, height } = heroRef.current.getBoundingClientRect();
@@ -16,8 +16,8 @@ export default function App() {
     heroRef.current.style.setProperty('--mouse-y', `${y}`);
   };
 
-  
-  
+
+
   return (
     <div className="site">
 
@@ -58,7 +58,7 @@ export default function App() {
           </aside>
 
           <div className="hero-stats">
-            {[['500', 'Students'], ['NGO', 'School'], ['L.N. to X', 'Grades'], ['20+', 'Yrs Legacy']].map(([n, l], i) => (
+            {[['500', 'Students'], ['NGO', 'School'], ['Nursery to X', 'Grades'], ['20+', 'Yrs Legacy']].map(([n, l], i) => (
               <div key={i} className="hstat">
                 <span className="hstat-n">{n}</span>
                 <span className="hstat-l">{l}</span>
@@ -121,7 +121,7 @@ export default function App() {
           </div>
           <div className="dignitary-card">
             <div className="dignitary-img">
-              <img loading="lazy" src="/v9.webp" alt="Imran Zaki" />
+              <img loading="lazy" src="/v9.jpeg" alt="Imran Zaki" />
             </div>
             <div className="dignitary-content">
               <div className="dignitary-quote-icon">❝</div>
