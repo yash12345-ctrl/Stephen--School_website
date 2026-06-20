@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import './indep.css';
-import { Flag, Music, Sparkles, Award, Shield, Star } from 'lucide-react';
+import { Shield, Star } from 'lucide-react';
 import Navbar from './Navbar';
 
 interface Petal {
@@ -79,32 +79,7 @@ export default function Indep() {
     };
   }, []);
 
-  const highlights = [
-    {
-      icon: <Flag className="ind-card-icon" size={24} />,
-      title: 'Flag Hoisting Ceremony',
-      desc: 'The unfurling of the national flag by the principal and esteemed guests, followed by a guard of honor.',
-      tag: 'Patriotic'
-    },
-    {
-      icon: <Music className="ind-card-icon" size={24} />,
-      title: 'National Anthem Choir',
-      desc: 'A powerful collective chorus of student groups singing the national anthem with pride and absolute discipline.',
-      tag: 'Anthem'
-    },
-    {
-      icon: <Award className="ind-card-icon" size={24} />,
-      title: 'March Past Parade',
-      desc: 'Student houses in complete uniform marching to drumbeats, representing unity, strength, and focus.',
-      tag: 'Discipline'
-    },
-    {
-      icon: <Sparkles className="ind-card-icon" size={24} />,
-      title: 'Cultural Performances',
-      desc: 'Regional folk dances, patriotic dramatic skits, and speeches honoring the freedom fighters of India.',
-      tag: 'Diversity'
-    },
-  ];
+
 
 
   return (
@@ -343,28 +318,7 @@ export default function Indep() {
         </div>
       </section>
 
-      {/* ── HIGHLIGHTS SECTION ── */}
-      <section className="ind-section ind-highlights">
-        <div className="ind-wrap">
-          <div className="ind-highlights-head">
-            <div className="ind-chip">Celebration Showcases</div>
-            <h2 className="ind-h2">Day of <span>National Pride</span></h2>
-            <p className="ind-lead">
-              A careful compilation of disciplines, melodies, and dramatic presentations.
-            </p>
-          </div>
-          <div className="ind-cards-grid">
-            {highlights.map((h, i) => (
-              <div className="ind-card" key={i}>
-                <div className="ind-card-icon-wrap">{h.icon}</div>
-                <h3 className="ind-card-h">{h.title}</h3>
-                <p className="ind-card-p">{h.desc}</p>
-                <span className="ind-card-tag">{h.tag}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       <footer className="footer ind-footer">
         <div className="footer-top">

@@ -192,6 +192,125 @@
   display: block;
 }
 
+.newspaper-footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #666;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 1rem;
+}
+
+/* Premium Editorial Clipping Page Styles */
+.news-clipping-page {
+  height: 100%;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center;
+  gap: 1.5rem; /* Explicit, tight gaps */
+  background-color: #FAF7F2;
+  background-image: 
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
+    radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.06) 0%, transparent 60%),
+    repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.015) 0px, rgba(0, 0, 0, 0.015) 1px, transparent 1px, transparent 8px);
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.02); /* Soft vignette */
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Premium Concentric Double Border */
+.news-clipping-page::before {
+  content: '';
+  position: absolute;
+  inset: 1rem;
+  border: 3px solid rgba(212, 175, 55, 0.4); /* Stronger, thicker outer frame */
+  pointer-events: none;
+  z-index: 0;
+}
+
+.news-clipping-page::after {
+  content: '';
+  position: absolute;
+  inset: 1.4rem;
+  border: 1.5px solid rgba(212, 175, 55, 0.8); /* Sharper, bolder inner frame */
+  pointer-events: none;
+  z-index: 0;
+}
+
+.news-clipping-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; /* Slightly smaller for long titles */
+  font-weight: 800;
+  color: #111;
+  margin: 0;
+  margin-top: 1.5rem; /* Push down away from the inner top border */
+  padding-bottom: 1rem;
+  text-align: center;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.5px;
+  width: 100%;
+}
+
+.news-clipping-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background-color: #D4AF37;
+}
+
+.news-clipping-image-wrapper {
+  width: auto;
+  max-width: 100%;
+  padding: 10px; /* Slightly wider clean photo mount */
+  background-color: #fff;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.04); /* Deeper default shadow */
+  border-radius: 4px;
+  margin: 0;
+}
+
+.news-clipping-page:hover .news-clipping-image-wrapper {
+  transform: translateY(-8px) scale(1.05); /* Much stronger hover zoom */
+  box-shadow: 0 30px 60px rgba(0,0,0,0.18), 0 12px 24px rgba(0,0,0,0.08); /* Dramatic deep shadow */
+}
+
+.news-clipping-image-wrapper img {
+  max-width: 100%;
+  max-height: 60vh; /* 20% larger height allowance */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.news-clipping-footer {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px; /* Reduced from 2.5px to prevent wrapping */
+  font-size: 0.65rem; /* Slightly smaller to fit the long string */
+  color: #555;
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 1.5rem; /* Push up away from the inner bottom border */
+  width: 100%;
+  white-space: nowrap; /* Prevent ugly widows/wrapping */
+}
+
 .np-paper-caption {
   font-size: 0.7rem;
   font-family: 'Inter', sans-serif;

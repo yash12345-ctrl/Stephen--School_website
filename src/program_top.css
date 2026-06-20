@@ -213,7 +213,7 @@ a.prog-tab-card { text-decoration: none; color: inherit; display: flex; }
   position: relative;
   background: var(--offwhite);
   overflow: hidden;
-  padding: 2rem 0 1rem;
+  padding: 6rem 0 4rem;
 }
 
 .programs-section::before {
@@ -321,8 +321,8 @@ a.prog-tab-card { text-decoration: none; color: inherit; display: flex; }
 @media(max-width: 900px) {
   .shift-banner {
     flex-direction: column;
-    padding: 2rem;
-    gap: 1.5rem;
+    padding: 1.5rem;
+    gap: 1.25rem;
   }
   .shift-divider {
     width: 100%;
@@ -730,21 +730,36 @@ a.prog-tab-card { text-decoration: none; color: inherit; display: flex; }
 @media(max-width: 900px) {
   .prog-dashboard {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
   }
   .prog-tabs {
-    flex-direction: row;
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    justify-content: flex-start;
-    -webkit-overflow-scrolling: touch;
+    flex-direction: column;
+    gap: 1rem;
   }
   .prog-tab-card {
-    flex: 0 0 280px;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
   }
   .prog-showcase {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    padding: 2rem;
+  }
+  .shift-banner-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+@media(max-width: 480px) {
+  .prog-showcase {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
+  .prog-showcase-title {
+    font-size: 1.8rem;
+  }
+  .prog-dashboard {
+    gap: 1.5rem;
   }
 }
 

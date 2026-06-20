@@ -1,19 +1,11 @@
 import './App.css';
 import './christmas.css';
-import { Gift, Music, Heart, Sparkles, Star, TreePine, Palette } from 'lucide-react';
+import { Star } from 'lucide-react';
 import Navbar from './Navbar';
 
 export default function Christmas() {
         
   
-  const highlights = [
-    { icon: <Music className="xm-icon" size={24} />, title: 'Choir & Carols', desc: 'Our student choir fills the winter air with beautiful festive carols and classic hymns, representing weeks of preparation.', tag: 'Music' },
-    { icon: <Sparkles className="xm-icon" size={24} />, title: 'The Nativity Play', desc: 'A heartfelt enactment of the Christmas story by middle school students, featuring traditional costumes and songs.', tag: 'Drama' },
-    { icon: <Gift className="xm-icon" size={24} />, title: 'Gift Distribution', desc: 'Santa\'s arrival brings warm blankets, new clothes, school supplies, and special holiday treats for every child.', tag: 'Giving' },
-    { icon: <Heart className="xm-icon" size={24} />, title: 'Community Feast', desc: 'A grand festive lunch prepared by volunteers and teachers, sharing the warmth of a holiday meal together.', tag: 'Feast' },
-    { icon: <TreePine className="xm-icon" size={24} />, title: 'Carol Singing Walk', desc: 'Students walk through the school campus singing carols, spreading festive cheer to every classroom and community corner.', tag: 'Celebration' },
-    { icon: <Palette className="xm-icon" size={24} />, title: 'Winter Craft Fair', desc: 'Children display handmade ornaments, Christmas cards, and art, showcasing their creativity in a vibrant winter showcase.', tag: 'Arts' },
-  ];
 
 
   return (
@@ -124,28 +116,6 @@ export default function Christmas() {
         </div>
       </section>
 
-      {/* ── HIGHLIGHTS SECTION ── */}
-      <section className="xm-section xm-highlights">
-        <div className="xm-wrap">
-          <div className="xm-highlights-head">
-            <div className="xm-chip">Event Highlights</div>
-            <h2 className="xm-h2">What Makes it <span>Special</span></h2>
-            <p className="xm-lead">
-              A day carefully curated to celebrate community, culture, and care.
-            </p>
-          </div>
-          <div className="xm-cards-grid">
-            {highlights.map((h, i) => (
-              <div className="xm-card" key={i}>
-                <div className="xm-card-icon-wrap">{h.icon}</div>
-                <h3 className="xm-card-h">{h.title}</h3>
-                <p className="xm-card-p">{h.desc}</p>
-                <span className="xm-card-tag">{h.tag}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
       {/* ── FOOTER ── */}

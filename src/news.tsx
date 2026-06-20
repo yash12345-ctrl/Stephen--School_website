@@ -112,45 +112,38 @@ export default function News() {
     excerpt: string;
     image: string;
     image2?: string;
+    title2?: string;
+    date2?: string;
     featured?: boolean;
     hot?: boolean;
   }> = [
-    {
-      id: 101, category: 'METRO' as const,
-      date: 'Recent', readTime: '3 min read',
-      title: 'Id gifts for schoolchildren',
-      excerpt: 'Calcutta: Id was celebrated a second time at a school in Bowbazar, where most students are first generation learners. At St Stephen\'s School, which stands in Phears Lane, gifts were distributed among students from Lower Nursery to Class IV. The children assembled in a hall, where they received water bottles, tiffin boxes, toys and fancy hats. Their flowing dresses, bright salwars and smart suits were matched only by their faces as they laid their hands on the goodies.',
-      image: '/c1.png', featured: true, hot: true,
-    },
-    {
-      id: 102, category: 'The Telegraph' as const,
-      date: 'Recent', readTime: '4 min read',
-      title: 'Stress on importance of English',
-      excerpt: 'Calcutta: The American Center director on Tuesday told a group of children, some of them from underprivileged families, the importance of learning English. "We at the American Center focus a lot of effort on teaching English to students who wouldn\'t otherwise have access to that golden opportunity... you can connect with so many other people with whom otherwise you will only have differences," said Adrian Pratt, director, American Center.',
-      image: '/c2.png', featured: false, hot: false,
-    },
-    {
-      id: 103, category: 'Press' as const,
-      date: 'Recent', readTime: '3 min read',
-      title: "'All religions true': Vivekananda speech recited at concert",
-      excerpt: "Calcutta: A Class VII student, Nazeefa Bilal, recited Swami Vivekananda's lines from the World's Parliament of Religions, Chicago, 1893, on stage. 'We believe not only in universal toleration, but we accept all religions as true. I am proud to belong to a nation which has sheltered the persecuted and the refugees of all religions and all nations of the earth.' The 13-year-old was performing at the annual concert of St Stephen's School.",
-      image: '/c3.png', featured: false, hot: false,
-    },
-    {
-      id: 104, category: 'Press' as const,
-      date: 'May 9', readTime: '2 min read',
-      title: 'Rabindra Jayanti Celebration at St. Stephen\'s',
-      excerpt: 'St. Stephen\'s School hosted a celebration on the occasion of Rabindra Jayanti on May 9. The event saw participation from first-generation students and teachers alike who celebrated Rabindranath Tagore with recitations, songs and dances. Nick Low, British Deputy High Commissioner, was the chief guest. "I was really mesmerised by... and the way they were singing with perfection and enjoying.',
-      image: '/c4.png', featured: false, hot: false,
-    },
-    {
-      id: 105, category: 'Press Gallery' as const,
-      date: 'Recent', readTime: '1 min read',
-      title: 'Graceful Performances & Distinguished Guests',
-      excerpt: "Farheen Alam gracefully danced to the Rabindrasangeet 'Hey nutan dekha dikaar' that captivated all. The cultural event was graced by Headmistress Ayesha Iqbal Siddiqui and the honorary secretary of St. Stephen's School, who commended the students for their outstanding cultural presentations and dedication to the arts.",
-      image: '/c5.png', featured: false, hot: false,
-    }
-  ];
+      {
+        id: 101, category: 'METRO' as const,
+        date: '7 Nov 2024', readTime: '3 min read',
+        date2: '20 Feb 2023',
+        title: 'Envoy from US explains the power of voting',
+        excerpt: '',
+        image: '/c1.png', image2: '/z1.png', featured: true, hot: true,
+      },
+      {
+        id: 102, category: 'Telegraph' as const,
+        date: '23 April 2023', readTime: '4 min read',
+        title: 'Celebrating Id with First Generation learners',
+        excerpt: '',
+        image: '/c2.png', image2: '/z2.png', featured: false, hot: false,
+      },
+      {
+        id: 103, category: '' as const,
+        date: '4 June 2022', readTime: '3 min read',
+        title: "Those Who beat the odds to Excel",
+        title2: "RABINDRA JAYANTI WITH 'MUSIC AND LYRICS",
+        date2: "26 MAY 2022",
+        excerpt: '',
+        image: '/c3.png', image2: '/z3.png', featured: false, hot: false,
+      },
+
+
+    ];
   const visibleNews = allNews;
 
   return (
@@ -388,21 +381,21 @@ export default function News() {
                       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                       padding: '2rem', boxSizing: 'border-box'
                     }}>
-                      <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem' }}>
-                        <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '60px' }} />
+                      <div className="logo-crest-wrapper" style={{ margin: '0 auto 1rem' }}>
+                        <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '50px' }} />
                       </div>
 
-                      <h1 className="np-paper-title" style={{ fontSize: '3rem', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>News Paper<br />Cuttings</h1>
+                      <h1 className="np-paper-title" style={{ fontSize: '2.5rem', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>News Paper<br />Cuttings</h1>
 
-                      <div style={{ width: '80%', margin: '1.5rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
-                        <img loading="lazy" src="/v4.webp" alt="Cover Image" style={{ width: '100%', height: '180px', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                      <div style={{ width: '70%', margin: '1rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
+                        <img loading="lazy" src="/v4.webp" alt="Cover Image" style={{ width: '100%', height: '130px', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                       </div>
 
-                      <p className="subtitle" style={{ textAlign: 'center', margin: 0, fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '1rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>Press Releases</p>
-                      <div style={{ width: '40px', height: '2px', background: '#0f1115', margin: '0.5rem auto' }}></div>
-                      <p style={{ textAlign: 'center', margin: '0', fontStyle: 'italic', fontSize: '0.9rem', color: '#333', fontFamily: '"Merriweather", serif' }}>Media & Publications</p>
+                      <p className="subtitle" style={{ textAlign: 'center', margin: '0', fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.9rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>Press Releases</p>
+                      <div style={{ width: '40px', height: '2px', background: '#0f1115', margin: '0.4rem auto' }}></div>
+                      <p style={{ textAlign: 'center', margin: '0', fontStyle: 'italic', fontSize: '0.85rem', color: '#333', fontFamily: '"Merriweather", serif' }}>Media & Publications</p>
 
-                      <div style={{ marginTop: 'auto', textAlign: 'center' }}>
+                      <div style={{ marginTop: '1rem', textAlign: 'center' }}>
                         <p style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#0f1115', margin: 0 }}>Vol. II</p>
                       </div>
                     </div>
@@ -416,30 +409,18 @@ export default function News() {
                   if (item.image) {
                     pages.push(
                       <BookPage key={`${item.id}-img`}>
-                        <div className="newspaper-container" style={{
-                          height: '100%',
-                          padding: '2.5rem',
-                          display: 'grid',
-                          gridTemplateColumns: (item.image2) ? '1fr 1fr' : '1fr',
-                          backgroundColor: '#f4f0e6',
-                          boxSizing: 'border-box',
-                          gap: '1rem',
-                          alignItems: 'center',
-                          justifyItems: 'center'
-                        }}>
-                          {[item.image, item.image2].filter(Boolean).map((imgSrc, idx) => (
-                            <div key={idx} style={{
-                              width: '100%',
-                              height: '100%',
-                              padding: '10px',
-                              backgroundColor: '#fff',
-                              boxSizing: 'border-box',
-                              minHeight: 0,
-                              boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
-                            }}>
-                              <img loading="lazy" src={imgSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center', display: 'block' }} />
-                            </div>
-                          ))}
+                        <div className="news-clipping-page">
+                          <h2 className="news-clipping-title">
+                            {item.title}
+                          </h2>
+
+                          <div className="news-clipping-image-wrapper">
+                            <img loading="lazy" src={item.image} alt={item.title} />
+                          </div>
+
+                          <div className="news-clipping-footer">
+                            Media Coverage &bull; {item.category ? <>{item.category} &bull; </> : ''}{item.date}
+                          </div>
                         </div>
                       </BookPage>
                     );
@@ -447,20 +428,36 @@ export default function News() {
 
                   pages.push(
                     <BookPage key={`${item.id}-txt`}>
-                      <div className="book-story" style={{ padding: '0', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', backgroundColor: '#f4f0e6' }}>
-                        <div style={{ padding: '2.5rem', flex: 1 }}>
-                          <h2 className="np-paper-h-small" style={{ fontSize: '1.8rem', marginBottom: '1rem', lineHeight: 1.1 }}>{item.title}</h2>
+                      {item.image2 ? (
+                        <div className="news-clipping-page">
+                          <h2 className="news-clipping-title">
+                            {item.title2 || item.title}
+                          </h2>
 
-                          <div className="np-paper-caption" style={{ marginBottom: '1rem' }}>
-                            {item.category} &bull; {item.date}
+                          <div className="news-clipping-image-wrapper">
+                            <img loading="lazy" src={item.image2} alt={item.title} />
                           </div>
 
-                          <p className="np-paper-p" style={{ fontSize: '1.05rem', lineHeight: 1.7, textAlign: 'justify', margin: 0 }}>
-                            <span className="np-paper-dropcap" style={{ fontSize: '4.5rem', float: 'left', marginRight: '6px', marginTop: '6px', lineHeight: 0.8, fontFamily: '"Playfair Display", serif', fontWeight: 900, color: '#1a1a1a' }}>{item.excerpt.charAt(0)}</span>
-                            {item.excerpt.slice(1)}
-                          </p>
+                          <div className="news-clipping-footer">
+                            Media Coverage &bull; {item.category ? <>{item.category} &bull; </> : ''}{item.date2 || item.date}
+                          </div>
                         </div>
-                      </div>
+                      ) : (
+                        <div className="book-story" style={{ padding: '0', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', backgroundColor: '#f4f0e6' }}>
+                          <div style={{ padding: '2.5rem', flex: 1 }}>
+                            <h2 className="np-paper-h-small" style={{ fontSize: '1.8rem', marginBottom: '1rem', lineHeight: 1.1 }}>{item.title}</h2>
+
+                            <div className="np-paper-caption" style={{ marginBottom: '1rem' }}>
+                              {item.category} &bull; {item.date}
+                            </div>
+
+                            <p className="np-paper-p" style={{ fontSize: '1.05rem', lineHeight: 1.7, textAlign: 'justify', margin: 0 }}>
+                              {item.excerpt && <span className="np-paper-dropcap" style={{ fontSize: '4.5rem', float: 'left', marginRight: '6px', marginTop: '6px', lineHeight: 0.8, fontFamily: '"Playfair Display", serif', fontWeight: 900, color: '#1a1a1a' }}>{item.excerpt.charAt(0)}</span>}
+                              {item.excerpt && item.excerpt.slice(1)}
+                            </p>
+                          </div>
+                        </div>
+                      )}
                     </BookPage>
                   );
 

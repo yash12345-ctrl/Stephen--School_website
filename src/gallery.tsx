@@ -176,9 +176,7 @@ const CARE_TAKERS = {
     { id: 'ct-0', name: 'Rehan Misbah', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
     { id: 'ct-1', name: 'Rajender Singh', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
     { id: 'ct-2', name: 'Asif Iqbal', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-3', name: 'Rehan Misbah', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-4', name: 'Rajender Singh', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-5', name: 'Asif Iqbal', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
+
   ],
   level2: [],
 };
@@ -512,100 +510,19 @@ export default function Gallery() {
               { id: 12, name: 'Nicolas Facino', role: 'Director of Alliance Francaise', image: '/c14.jpeg' },
 
               // Page 27
-              { id: 13, name: 'Shri Jag Mohan', role: 'IPS', image: '/v2.webp' },
-              { id: 14, name: 'Ranjit Kumar Pachnanda', role: 'IPS', image: '/v3.webp' },
-              { id: 15, name: 'Debasish Roy', role: 'IPS', image: '/v4.webp' },
-              { id: 16, name: 'Damayanti Sen', role: 'IPS', image: '/v5.webp' },
-              { id: 17, name: 'Gautam Mohan Chakraborty', role: 'IPS', image: '/v6.webp' },
-              { id: 18, name: 'Ajay Mukund Ranade', role: 'IPS', image: '/v7.webp' },
-              { id: 19, name: 'Sudhir Misra', role: 'IPS', image: '/v8.webp' },
-              { id: 20, name: 'Tripurari Atharv', role: 'IPS', image: '/v9.webp' },
-              { id: 21, name: 'Sanjay Singh', role: 'IPS', image: '/v10.webp' },
-              { id: 22, name: 'Manoj Kr. Verma', role: 'IPS, Commissioner Of Police, Kolkata', image: '/v11.webp' },
-              { id: 23, name: 'Nevendera Singh', role: 'Joint Commisioner', image: '/v12.webp' },
-              { id: 24, name: 'Rajiv Mishra', role: 'IPS', image: '/v13.webp' },
+              { id: 13, name: 'Shri Jag Mohan', role: 'IPS', image: '/c15.jpeg' },
+              { id: 14, name: 'Ranjit Kumar Pachnanda', role: 'IPS', image: '/c16.jpeg' },
+              { id: 15, name: 'Debasish Roy', role: 'IPS', image: '/c17.jpeg' },
+              { id: 16, name: 'Damayanti Sen', role: 'IPS', image: '/c18.jpeg' },
+              { id: 17, name: 'Gautam Mohan Chakraborty', role: 'IPS', image: '/c19.jpeg' },
+              { id: 18, name: 'Ajay Mukund Ranade', role: 'IPS', image: '/c20.jpeg' },
+              { id: 19, name: 'Nevendera Singh ', role: 'IPS', image: '/c21.jpeg' },
+              { id: 20, name: 'Tripurari Atharv', role: 'IPS', image: '/c22.jpeg' },
+              { id: 21, name: 'Sanjay Singh', role: 'IPS', image: '/c23.jpeg' },
+              { id: 22, name: 'Nizam Shamim', role: 'IPS', image: '/c24.jpeg' },
 
-              // Page 28
-              { id: 25, name: 'Melinda Pavek', role: 'US Consul General', image: '/v14.webp' },
-              { id: 26, name: 'Beth Payne', role: 'US Consul General', image: '/v15.webp' },
-              { id: 27, name: 'Dean Richard Thompson', role: 'US Consul General', image: '/v16.webp' },
-              { id: 28, name: 'Nick Low', role: 'British Deputy High Commisioner', image: '/v17.webp' },
-              { id: 29, name: 'Damian Syed', role: 'Consul General of France', image: '/v18.webp' },
-              { id: 30, name: 'Nehat Emini', role: 'Embassy of North Macedonia', image: '/v19.webp' },
-              { id: 31, name: 'Damiano Francovigh', role: 'Consul General of Italy', image: '/v20.webp' },
-              { id: 32, name: 'Cesare Bieller', role: 'Consul General of Italy', image: '/v21.webp' },
-              { id: 33, name: 'Zha Liyou', role: 'Consul General of People\'s Republic of China', image: '/v22.webp' },
-              { id: 34, name: 'Ma Zhanwu', role: 'Consul General of People\'s Republic of China', image: '/v23.webp' },
-              { id: 35, name: 'Olaf Iversen', role: 'Consul General of Germany', image: '/v24.webp' },
-              { id: 36, name: 'Jurgen Thomas Schrod', role: 'German Deputy Consul General', image: '/v25.webp' },
 
-              // Page 27/29 (Principals & Educationists)
-              { id: 37, name: 'Masayuki Taga', role: 'Consul General of Japan', image: '/v26.webp' },
-              { id: 38, name: 'Father George Ponodath', role: 'SJ Rector, St Xavier\'s College', image: '/v27.webp' },
-              { id: 39, name: 'Father P.C. Mathews', role: 'Principal, St Xavier\'s College', image: '/v28.webp' },
-              { id: 40, name: 'Sunirmal Chakravarthi', role: 'Principal, La Martiniere for Boys', image: '/v29.webp' },
-              { id: 41, name: 'Rupkatha Sarkar', role: 'Principal, La Martiniere for Girls', image: '/v30.webp' },
-              { id: 42, name: 'Lorraine Mirza', role: 'Principal, La Martiniere for Girls', image: '/v31.webp' },
-              { id: 43, name: 'Sister Christine', role: 'Principal, Loreto College', image: '/v32.webp' },
-              { id: 44, name: 'Indrani Ganguly', role: 'Principal, Loreto Day Bowbazar', image: '/v33.webp' },
-              { id: 45, name: 'Sister Mercy', role: 'Principal, Loreto Dharamtala', image: '/v34.webp' },
-              { id: 46, name: 'Basanti Biswas', role: 'Principal, Calcutta Girls\' High School', image: '/v35.webp' },
-              { id: 47, name: 'Dr. M.P Rozario', role: 'Principal, St. Sebastian School', image: '/v36.webp' },
-              { id: 48, name: 'Terence Ireland', role: 'Principal, St James\' School', image: '/v37.webp' },
 
-              // Page 27 (Other Dignitaries)
-              { id: 49, name: 'Brother Brendan MacCarthaigh', role: 'Educationist', image: '/v38.webp' },
-              { id: 50, name: 'Swati Sarawagi', role: 'Principal, Swarnim International School', image: '/v39.webp' },
-              { id: 51, name: 'Taranjit Singh', role: 'Chairman, JIS Group', image: '/v40.webp' },
-              { id: 52, name: 'Bishop Samuel', role: 'Raju CNI', image: '/v41.webp' },
-              { id: 53, name: 'Agnimitra Paul', role: 'Fashion Designer', image: '/v42.webp' },
-              { id: 54, name: 'Richa Sharma', role: 'Actress', image: '/v43.webp' },
-              { id: 55, name: 'Roopa Ganguly', role: 'Actress', image: '/v44.webp' },
-              { id: 56, name: 'Ramanjit Kaur', role: 'Theatre actor', image: '/v45.webp' },
-              { id: 57, name: 'Nita Bajoria', role: 'Author', image: '/v46.webp' },
-              { id: 58, name: 'Kanchan Datta', role: 'Founder & CEO Inner Circle', image: '/v47.webp' },
-              { id: 59, name: 'Hena Nafis', role: 'Nutritionist', image: '/v48.webp' },
-              { id: 60, name: 'Namit Bajoria', role: 'Kutchina Foundation', image: '/v49.webp' },
-
-              // Page 28 / 30
-              { id: 61, name: 'Debanjan Chakrabarti', role: 'Director, British Council', image: '/v2.webp' },
-              { id: 62, name: 'Anandita Tamta Banerjee', role: 'NGO', image: '/v3.webp' },
-              { id: 63, name: 'Shahenshah Mirza', role: 'Dignitary', image: '/v4.webp' },
-              { id: 64, name: 'Hari Prasad Kanoria', role: 'Chairman, SREI Group', image: '/v5.webp' },
-              { id: 65, name: 'Neeta Kanoria', role: 'Educationist', image: '/v6.webp' },
-              { id: 66, name: 'Pawan Kumar Patodia', role: 'Industrialist', image: '/v7.webp' },
-              { id: 67, name: 'Wasim Kapoor', role: 'Artist', image: '/v8.webp' },
-              { id: 68, name: 'Jennifer Heemstra', role: 'Pianist', image: '/v9.webp' },
-              { id: 69, name: 'Mary Gerardy', role: 'Professor, USA', image: '/v10.webp' },
-              { id: 70, name: 'Rev. Fr. Dominic Gomes', role: 'Vicar General Archbishop House', image: '/v11.webp' },
-              { id: 71, name: 'Rajendra Khandelwal', role: 'Hony. Consul Of Mauritius', image: '/v12.webp' },
-              { id: 72, name: 'Elizabeth Lee', role: 'Director, American Center', image: '/v13.webp' },
-
-              // Page 32
-              { id: 73, name: 'Rajlakshmi Syam', role: 'Pianist', image: '/v14.webp' },
-              { id: 74, name: 'Utpal Chatterjee', role: 'Sheriff', image: '/v15.webp' },
-              { id: 75, name: 'Rehana Khatoon', role: 'Councillor, Ward no.44', image: '/v16.webp' },
-              { id: 76, name: 'Tanvir Afzal', role: 'W.B.C.S. (exe.)', image: '/v17.webp' },
-              { id: 77, name: 'Adolina Ganguly', role: 'Image Consultant', image: '/v18.webp' },
-              { id: 78, name: 'Indira Mukherjee', role: 'IPS', image: '/v19.webp' },
-              { id: 79, name: 'Nizam Shamim', role: 'IPS', image: '/v20.webp' },
-              { id: 80, name: 'Vishal Jhajharia', role: 'Hon. Consul of Kazakhstan', image: '/v21.webp' },
-              { id: 81, name: 'Dr. Rahul Varma', role: 'Vice Chairman & CEO, Acid Survivors', image: '/v22.webp' },
-              { id: 82, name: 'Gargi Das Gupta', role: 'Clinical Psychologist', image: '/v23.webp' },
-              { id: 83, name: 'Farheen Bushra Rahman', role: 'Fashion Designer', image: '/v24.webp' },
-              { id: 84, name: 'Dr Syed Ali Mujtaba', role: 'Educationist & Journalist', image: '/v25.webp' },
-
-              // Page 30 / 32
-              { id: 85, name: 'Shiv Chopra', role: 'Businessman', image: '/v26.webp' },
-              { id: 86, name: 'Sonu Chopra', role: 'Entrepreneur', image: '/v27.webp' },
-              { id: 87, name: 'Upasana Arora', role: 'Founder-YES', image: '/v28.webp' },
-              { id: 88, name: 'Jaivir Singh', role: 'Founder-YES', image: '/v29.webp' },
-              { id: 89, name: 'Saira Shah Halim', role: 'Educator, Politician, TX Speaker', image: '/v30.webp' },
-              { id: 90, name: 'Marc Boudin', role: 'Director, Alliance Française du Bengale', image: '/v31.webp' },
-              { id: 91, name: 'Jasmeet Singh Arora', role: 'Entrepreneur, Environmentalist', image: '/v32.webp' },
-              { id: 92, name: 'Dr. Shabnam Agarwal', role: 'Physiotherapist, Belle Vue', image: '/v33.webp' },
-              { id: 93, name: 'Harinder Pal Singh', role: 'Trustee-JIS Group', image: '/v34.webp' },
-              { id: 94, name: 'CA Dilip Jhajharia', role: 'Chairman-Lion Bimal Poddar Eye Hospital', image: '/v35.webp' },
             ].map((dig) => (
               <div className="dig-grid-item" key={dig.id}>
                 <div className="dig-grid-avatar">
@@ -614,7 +531,6 @@ export default function Gallery() {
                 <div className="dig-grid-info">
                   <h3 className="dig-grid-name">{dig.name}</h3>
                   <p className="dig-grid-role">{dig.role}</p>
-                  <span className="dig-grid-link">View Gallery <span className="arrow">&rarr;</span></span>
                 </div>
               </div>
             ))}

@@ -1,36 +1,12 @@
-import { useState } from 'react';
+
 import './App.css';
 import './art_craft.css';
-import { Palette, Scissors, MapPin, Sparkles, Star, ChevronLeft, ChevronRight, Award, Camera, Monitor } from 'lucide-react';
+import { Palette, Scissors, MapPin, Sparkles, Star, Award, Camera, Monitor } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 
 export default function ArtCraftExhibition() {
         
-  // Spotlight Carousel State
-  const [spotlightIdx, setSpotlightIdx] = useState(0);
-  const [fade, setFade] = useState(false);
-
-  
-
-
-  const studentQuotes = [
-    {
-      quote: "Art is my language when words aren't enough. Painting the sunset makes me forget all my daily struggles and feel completely free.",
-      author: "Rahul Das",
-      grade: "Grade 9 (Painter)"
-    },
-    {
-      quote: "Molding clay is like magic. You start with a simple lump of earth and turn it into a majestic elephant. It makes me feel I can build anything.",
-      author: "Sneha Sen",
-      grade: "Grade 7 (Sculptor)"
-    },
-    {
-      quote: "Making art from trash teaches me that nothing is useless. With some creativity, even discarded plastic bottles can tell a story.",
-      author: "Ayan Roy",
-      grade: "Grade 8 (Craft Artist)"
-    }
-  ];
 
   const highlights = [
     {
@@ -71,21 +47,6 @@ export default function ArtCraftExhibition() {
     }
   ];
 
-  const handleNextSpotlight = () => {
-    setFade(true);
-    setTimeout(() => {
-      setSpotlightIdx((prev) => (prev + 1) % studentQuotes.length);
-      setFade(false);
-    }, 400);
-  };
-
-  const handlePrevSpotlight = () => {
-    setFade(true);
-    setTimeout(() => {
-      setSpotlightIdx((prev) => (prev - 1 + studentQuotes.length) % studentQuotes.length);
-      setFade(false);
-    }, 400);
-  };
 
   return (
     <div className="art-page">
@@ -193,49 +154,6 @@ export default function ArtCraftExhibition() {
         </div>
       </section>
 
-      {/* ── STUDENT SPOTLIGHT CAROUSEL ── */}
-      <section className="art-section art-spotlight-section">
-        <div className="art-wrap">
-          <div className="text-center">
-            <div className="art-chip">Artist Voice</div>
-            <h2 className="art-h2">Words from Our <span>Young Creators</span></h2>
-            <p className="art-lead">
-              Our students share what art and self-expression mean to them.
-            </p>
-          </div>
-
-          <div className="spotlight-container">
-            <div className="spotlight-card">
-              <div className="spotlight-quote-icon">“</div>
-              <div className={`spotlight-content-wrapper ${fade ? 'fade-out' : ''}`}>
-                <p className="spotlight-quote">"{studentQuotes[spotlightIdx].quote}"</p>
-
-                <div className="spotlight-artist-info">
-                  <div className="spotlight-avatar">
-                    {studentQuotes[spotlightIdx].author.charAt(0)}
-                  </div>
-                  <div className="spotlight-meta-info">
-                    <h4>{studentQuotes[spotlightIdx].author}</h4>
-                    <p>{studentQuotes[spotlightIdx].grade}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="spotlight-controls">
-              <button className="spotlight-ctrl-btn" onClick={handlePrevSpotlight} aria-label="Previous quote">
-                <ChevronLeft size={20} />
-              </button>
-              <span className="spotlight-ctrl-indicator">
-                {spotlightIdx + 1} / {studentQuotes.length}
-              </span>
-              <button className="spotlight-ctrl-btn" onClick={handleNextSpotlight} aria-label="Next quote">
-                <ChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
       {/* ── FOOTER ── */}

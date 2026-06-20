@@ -1,58 +1,13 @@
-import { useState } from 'react';
+
 import './App.css';
 import './rabindrajayanti.css';
-import { BookOpen, Music, Heart, MapPin, Sparkles, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BookOpen, Music, Heart, MapPin, Sparkles, Star } from 'lucide-react';
 import Navbar from './Navbar';
 
 export default function Rabindrajayanti() {
 
-  // Interactive Verse Explorer State
-  const [quoteIdx, setQuoteIdx] = useState(0);
-  const [fade, setFade] = useState(false);
 
 
-  const verses = [
-    {
-      text: "Clouds come floating into my life, no longer to carry rain or usher storm, but to add color to my sunset sky.",
-      source: "Stray Birds"
-    },
-    {
-      text: "The butterfly counts not months but moments, and has time enough.",
-      source: "Fireflies"
-    },
-    {
-      text: "I slept and dreamed that life was joy. I awoke and saw that life was service. I acted and behold, service was joy.",
-      source: "Lectures & Essays"
-    },
-    {
-      text: "Faith is the bird that feels the light when the dawn is still dark.",
-      source: "Gitanjali"
-    },
-    {
-      text: "Let me not pray to be sheltered from dangers, but to be fearless in facing them.",
-      source: "Fruit-Gathering"
-    },
-    {
-      text: "Where the mind is without fear and the head is held high; Where knowledge is free; Where the world has not been broken up into fragments by narrow domestic walls...",
-      source: "Gitanjali (Song 35)"
-    }
-  ];
-
-  const handleNextQuote = () => {
-    setFade(true);
-    setTimeout(() => {
-      setQuoteIdx((prev) => (prev + 1) % verses.length);
-      setFade(false);
-    }, 400);
-  };
-
-  const handlePrevQuote = () => {
-    setFade(true);
-    setTimeout(() => {
-      setQuoteIdx((prev) => (prev - 1 + verses.length) % verses.length);
-      setFade(false);
-    }, 400);
-  };
 
   const highlights = [
     { icon: <Music className="rj-card-icon" size={24} />, title: 'Rabindra Sangeet Choir', desc: 'Our student choir performs soul-stirring renditions of Tagore\'s classic songs, celebrating nature, devotion, and love.', tag: 'Music' },
@@ -141,45 +96,6 @@ export default function Rabindrajayanti() {
         </div>
       </section>
 
-      {/* ── INTERACTIVE GITANJALI EXPLORER ── */}
-      <section className="rj-section rj-interactive" id="interactive-gitanjali">
-        <div className="rj-wrap">
-          <div className="text-center" style={{ marginBottom: '3.5rem' }}>
-            <div className="rj-chip">Interactive Journal</div>
-            <h2 className="rj-h2">Gitanjali & <span>Stray Birds</span></h2>
-            <p className="rj-lead" style={{ maxWidth: '600px', margin: '0 auto' }}>
-              Explore beautiful translated verses and philosophical quotes by Rabindranath Tagore on life, nature, and service.
-            </p>
-          </div>
-
-          <div className="parchment-container">
-            <div className="parchment-card">
-              <div className="parchment-decor tl" />
-              <div className="parchment-decor tr" />
-              <div className="parchment-decor bl" />
-              <div className="parchment-decor br" />
-              <div className="quote-icon-top">“</div>
-
-              <div className={`quote-content-wrapper ${fade ? 'fade-out' : ''}`}>
-                <p className="quote-verse">"{verses[quoteIdx].text}"</p>
-                <div className="quote-source">{verses[quoteIdx].source}</div>
-              </div>
-            </div>
-
-            <div className="parchment-controls">
-              <button className="ctrl-btn" onClick={handlePrevQuote} aria-label="Previous quote">
-                <ChevronLeft size={20} />
-              </button>
-              <span className="ctrl-indicator">
-                {quoteIdx + 1} / {verses.length}
-              </span>
-              <button className="ctrl-btn" onClick={handleNextQuote} aria-label="Next quote">
-                <ChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── PAST CELEBRATIONS & HONORED GUESTS ── */}
       <section className="rj-section rj-spotlight" id="spotlight">

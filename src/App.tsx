@@ -175,20 +175,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="cta-section">
-        <div className="cta-glow" />
-        <div className="cta-body">
-          <div className="cta-badge">🤝 Support Our Mission</div>
-          <h2 className="cta-h">Help Shape a Child's <span className="gold">Future</span></h2>
-          <p className="cta-p">Your contribution can provide quality education, brighter opportunities, and a better tomorrow for deserving students.</p>
-          <div className="cta-btns">
-            <a href="/donate" className="btn-gold large">Donate</a>
-            <a href="tel:+911234567890" className="btn-ghost large">📞 Call Us</a>
-          </div>
-        </div>
-      </section>
-
 
 
       {/* ── FOOTER ── */}

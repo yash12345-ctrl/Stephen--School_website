@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import './eid.css';
-import { Moon, Gift, Heart, Sparkles, Star } from 'lucide-react';
+import { Moon, Star } from 'lucide-react';
 import Navbar from './Navbar';
 
 export default function Eid() {
@@ -29,12 +29,6 @@ export default function Eid() {
     }
   };
 
-  const highlights = [
-    { icon: <Moon className="eid-card-icon" size={24} />, title: 'Eid Milan Assembly', desc: 'A beautiful morning gathering of unity, speeches, festive greetings, and poetry sharing.', tag: 'Community' },
-    { icon: <Sparkles className="eid-card-icon" size={24} />, title: 'Cultural Mehfil', desc: 'Performances of traditional music, ghazals, and dramas demonstrating peace and harmony.', tag: 'Cultural' },
-    { icon: <Gift className="eid-card-icon" size={24} />, title: 'Eidi Distribution', desc: 'Providing educational kits, sweet boxes, and festive outfits for 500+ students.', tag: 'Sharing' },
-    { icon: <Heart className="eid-card-icon" size={24} />, title: 'The Grand Feast', desc: 'A community feast featuring delicious biryani, traditional sewai, and fresh fruits.', tag: 'Feast' },
-  ];
 
 
   return (
@@ -205,30 +199,6 @@ export default function Eid() {
         </div>
       </section>
 
-      {/* ── HIGHLIGHTS SECTION ── */}
-      <section className="eid-section eid-highlights">
-        <div className="eid-wrap">
-          <div className="eid-highlights-head">
-            <div className="eid-chip">Celebration Highlights</div>
-            <h2 className="eid-h2">What to <span>Expect</span></h2>
-            <p className="eid-lead">
-              A day of happiness, delicious aromas, and sweet memories.
-            </p>
-          </div>
-          <div className="eid-cards-grid">
-            {highlights.map((h, i) => (
-              <div className="eid-card" key={i}>
-                <div className="eid-card-header-row">
-                  <div className="eid-card-icon-wrap">{h.icon}</div>
-                  <span className="eid-card-tag">{h.tag}</span>
-                </div>
-                <h3 className="eid-card-h">{h.title}</h3>
-                <p className="eid-card-p">{h.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── CELEBRATION GALLERY ── */}
       <section className="eid-section eid-gallery">

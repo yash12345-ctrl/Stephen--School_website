@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import './educational_day_out.css';
-import { MapPin, Compass, GraduationCap, Users, Star, ChevronLeft, ChevronRight, BookOpen, Route } from 'lucide-react';
+import { MapPin, Compass, GraduationCap, ChevronLeft, ChevronRight, BookOpen, Route } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 
@@ -106,28 +106,7 @@ export default function EducationalDayOut() {
     }
   ];
 
-  const pillars = [
-    {
-      icon: <Compass size={24} />,
-      title: 'Experiential Learning',
-      desc: 'Moving curriculum concepts from static textbook diagrams into tactile, real-world interactions.'
-    },
-    {
-      icon: <GraduationCap size={24} />,
-      title: 'Curriculum Integration',
-      desc: 'Every excursion is directly synchronized with syllabus topics in physics, history, and life sciences.'
-    },
-    {
-      icon: <Users size={24} />,
-      title: 'Collaborative Research',
-      desc: 'Students work in peer teams to solve scavenger hunt worksheets, building strong collaborative spirit.'
-    },
-    {
-      icon: <Star size={24} />,
-      title: 'Inspirational Mentorship',
-      desc: 'Guided tours by subject matter experts, scientists, and heritage curators enrich the learning depth.'
-    }
-  ];
+
 
   const handleNextQuote = () => {
     setFade(true);
@@ -274,28 +253,6 @@ export default function EducationalDayOut() {
         </div>
       </section>
 
-      {/* ── EDUCATIONAL OUTCOMES & PILLARS ── */}
-      <section className="trip-section trip-highlights-section" id="impact">
-        <div className="trip-wrap">
-          <div className="text-center" style={{ textAlign: 'center' }}>
-            <div className="trip-chip">Our Methodology</div>
-            <h2 className="trip-h2">Academic <span>Impact & Outcomes</span></h2>
-            <p className="trip-lead" style={{ maxWidth: '650px', margin: '0 auto' }}>
-              We transform school days out into powerful accelerators for student intellect, creativity, and community awareness.
-            </p>
-          </div>
-
-          <div className="trip-highlights-grid">
-            {pillars.map((p, i) => (
-              <div className="trip-highlight-card" key={i}>
-                <div className="trip-highlight-icon-wrap">{p.icon}</div>
-                <h3 className="trip-highlight-h">{p.title}</h3>
-                <p className="trip-highlight-p">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── STUDENT JOURNAL TESTIMONIALS ── */}
       <section className="trip-section trip-carousel-section">
