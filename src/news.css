@@ -753,17 +753,7 @@
     gap: 0.5rem;
   }
 
-  /* Footer */
-  .footer-top {
-    grid-template-columns: 1fr !important;
-    gap: 2rem !important;
-  }
 
-  .footer-bottom {
-    flex-direction: column !important;
-    gap: 0.5rem !important;
-    text-align: center !important;
-  }
 }
 
 /* ─ Small mobile (≤ 480 px) ─ */

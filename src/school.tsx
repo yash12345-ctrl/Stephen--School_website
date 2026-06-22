@@ -4,7 +4,7 @@ import { BookOpen, Atom, Compass, Play, Cpu, Sparkles } from 'lucide-react';
 import Navbar from './Navbar';
 
 export default function School() {
-      
+
   const [heroImageIdx, setHeroImageIdx] = useState(0);
 
   const heroImages = [
@@ -15,7 +15,7 @@ export default function School() {
     '/v6.webp'
   ];
 
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setHeroImageIdx(prev => (prev + 1) % heroImages.length);
@@ -159,19 +159,19 @@ export default function School() {
               <div className="sch-msg-frame" />
             </div>
             <div className="sch-msg-body">
-              <span className="sch-chip" style={{ width: 'fit-content' }}>From the Principal's Desk</span>
+              <span className="sch-chip" style={{ width: 'fit-content' }}>From the Administrator & Advisory Board's Desk</span>
               <div className="sch-msg-quote">
                 "We don't just teach curricula; we cultivate an environment where students learn to identify problems, build creative models, and test them with scientific rigor."
               </div>
               <p className="sch-msg-text">
-                At St. Stephen's School, education is a pathway to transformation. We combine the  update curriculum with hands-on interactive clubs focusing on sports, art, and social work, ensuring students achieve academic milestones while developing character and collaboration.
+                At our school, we believe in nurturing young minds through quality education, strong values, and holistic development. We are committed to creating an environment where every child feels inspired to learn, grow, and achieve their full potential.
               </p>
               <p className="sch-msg-text">
-                As you walk through our hallways, you'll see engaged children, creative art projects, and lively club activities. We welcome supporters and families to visit our school and join us in our mission to spread education to all.
+                Together, let us continue to shape confident, compassionate, and responsible future leaders.
               </p>
               <div className="sch-msg-signature">
-                <div className="sch-msg-name">Mrs. Sudha Sharma</div>
-                <div className="sch-msg-title">Principal, St. Stephen's School</div>
+                <div className="sch-msg-name">Mr. Ajay Pal</div>
+                <div className="sch-msg-title">Administrator & Advisory Board</div>
               </div>
             </div>
           </div>

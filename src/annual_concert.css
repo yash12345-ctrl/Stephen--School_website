@@ -1081,9 +1081,14 @@
 }
 
 @media(max-width: 600px) {
+  .ac-hero {
+    min-height: auto;
+    padding-bottom: 4rem;
+  }
+
   .ac-hero-split {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
     padding-top: 100px;
     text-align: center;
   }
@@ -1093,7 +1098,13 @@
   }
 
   .ac-hero-h1 {
+    font-size: 2.8rem;
     letter-spacing: -1px;
+  }
+
+  .ac-hero-sub {
+    font-size: 1rem;
+    padding: 0 1rem;
   }
 
   .ac-gallery-grid {
@@ -1102,16 +1113,52 @@
 
   .ac-hero-meta {
     flex-direction: column;
+    align-items: center;
     gap: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .ac-hero-btns {
+    width: 100%;
+    max-width: 320px;
+    flex-direction: column;
+  }
+
+  .ac-btn-gold,
+  .ac-btn-ghost {
+    width: 100%;
+    text-align: center;
   }
 
   .ac-hero-visual {
-    height: 350px;
+    height: 320px;
+    overflow: hidden;
   }
 
-  .music-3d-scene,
-  .premium-record-player {
-    transform: scale(0.70);
-    margin-top: -20px;
+  .ac-rotating-gallery {
+    transform: scale(0.65);
+    transform-origin: center center;
+    margin-top: -30px;
+  }
+
+  .ac-notes {
+    opacity: 0.5;
+  }
+
+  .ac-hero-scroll {
+    display: none; /* Hide scroll indicator on very small screens to save space */
+  }
+
+  .ac-cta-btns {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .ac-cta-btns .ac-btn-gold,
+  .ac-cta-btns .ac-btn-ghost {
+    width: 100%;
   }
 }

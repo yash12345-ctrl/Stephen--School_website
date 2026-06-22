@@ -716,6 +716,9 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 968px) {
+  .donate-hero {
+    padding-top: 7.5rem;
+  }
   .donate-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -725,17 +728,113 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .donate-hero {
+    padding: 6.5rem 1.25rem 2rem;
+  }
+  .donate-hero-top-visual {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+  .donate-hero-img-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+  .donate-hero-stats {
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+  .dh-num {
+    font-size: 1.2rem;
+  }
+  .dh-lbl {
+    font-size: 0.65rem;
+  }
   .donate-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+  .donation-calculator {
+    padding: 1.5rem;
+  }
+  .calc-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .payment-tabs {
+    flex-direction: column;
+  }
+  .tab-btn {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 1rem;
+  }
+  .tab-btn.active::after {
+    left: 0;
+    top: 0;
+    bottom: auto;
+    right: auto;
+    width: 4px;
+    height: 100%;
   }
   .payment-content {
+    padding: 1.5rem 1rem;
+  }
+  .bank-detail-item {
+    padding: 0.75rem 1rem;
+  }
+  .detail-value {
+    font-size: 0.95rem;
+    word-break: break-all;
+  }
+  .upi-id-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .upi-id-box .copy-btn {
+    align-self: flex-end;
+    margin-top: -2.5rem;
+  }
+  .student-testimonial {
+    flex-direction: column;
     padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .donate-title {
+    font-size: 2rem;
+  }
+  .donate-hero-stats {
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  .dh-num {
+    font-size: 1.1rem;
+  }
+  .dh-lbl {
+    font-size: 0.6rem;
   }
   .amount-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
   }
-  .detail-value {
-    font-size: 1rem;
+  .amount-btn {
+    font-size: 1.1rem;
+    padding: 1rem 0.5rem;
+  }
+  .emotional-trigger-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  .impact-display {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
   }
 }
