@@ -959,59 +959,202 @@
 }
 
 /* ── RESPONSIVENESS ── */
+
+/* ─ Tablet (≤ 992 px) ─ */
 @media (max-width: 992px) {
+  .pk-section {
+    padding: 4.5rem 0;
+  }
+
+  /* About grid → single column */
   .pk-about-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
   .pk-about-collage {
-    height: 380px;
-    max-width: 500px;
+    height: 340px;
+    max-width: 480px;
     margin: 0 auto;
   }
   .pk-collage-img-main {
-    height: 300px;
+    height: 270px;
   }
   .pk-collage-img-sec {
-    height: 180px;
+    height: 165px;
   }
+
+  /* Activity explorer → stack image above text */
   .pk-tab-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    flex-direction: column;
+    min-height: auto;
   }
   .pk-tab-img-wrap {
-    height: 220px;
+    width: 100%;
+    height: 260px;
   }
-  .pk-tab-content-panel {
-    padding: 2rem;
+  .pk-tab-text {
+    width: 100%;
+    padding: 2.5rem 2.5rem;
+  }
+  .pk-tab-text h3 {
+    font-size: 2rem;
+  }
+
+  /* Selector tabs: allow wrapping on tablet */
+  .pk-selector-tabs {
+    width: auto;
+    border-radius: 16px;
   }
 }
 
+/* ─ Mobile (≤ 768 px) ─ */
 @media (max-width: 768px) {
+  /* Hero */
+  .pk-hero {
+    padding: 6rem 1.2rem 4rem;
+    min-height: 92svh;
+  }
+  .pk-hero-inner {
+    text-align: center;
+  }
+  .pk-hero-tag {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
+    letter-spacing: 0.5px;
+  }
+  .pk-hero-h1 {
+    font-size: clamp(2.4rem, 10vw, 3.8rem);
+    letter-spacing: -1px;
+  }
+  .pk-hero-sub {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
   .pk-hero-meta {
     flex-direction: column;
-    gap: 1.2rem;
-    padding: 1.2rem 2rem;
-    align-items: flex-start;
-  }
-  .pk-hero-btns, .pk-cta-btns {
-    flex-direction: column;
     gap: 1rem;
-    max-width: 320px;
+    padding: 1rem 1.4rem;
+    align-items: flex-start;
+    border-radius: 12px;
+  }
+  .pk-hero-btns,
+  .pk-cta-btns {
+    flex-direction: column;
+    gap: 0.9rem;
+    width: 100%;
+    max-width: 300px;
     margin: 0 auto;
   }
+  .pk-btn-gold,
+  .pk-btn-ghost {
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem 1.4rem;
+  }
+
+  /* Sections */
+  .pk-section {
+    padding: 3.5rem 0;
+  }
+  .pk-wrap {
+    padding: 0 1.2rem;
+  }
+
+  /* About */
+  .pk-about-collage {
+    height: 280px;
+    max-width: 100%;
+  }
+  .pk-collage-img-main {
+    width: 85%;
+    height: 220px;
+  }
+  .pk-collage-img-sec {
+    width: 55%;
+    height: 140px;
+  }
+  .pk-about-badge {
+    top: 1rem;
+    right: 0;
+    padding: 0.8rem;
+    border-radius: 12px;
+  }
+  .pk-about-badge-num {
+    font-size: 1.5rem;
+  }
+  .pk-about-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+  .pk-stat-num {
+    font-size: 1.6rem;
+  }
+
+  /* Activity explorer tabs */
+  .pk-selector-tabs {
+    flex-wrap: wrap;
+    border-radius: 14px;
+    gap: 6px;
+    padding: 6px;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+  .pk-tab-btn {
+    padding: 0.65rem 1rem;
+    font-size: 0.82rem;
+    gap: 6px;
+  }
+  .pk-tab-content-panel {
+    border-radius: 18px;
+    margin: 0;
+  }
+  .pk-tab-grid {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .pk-tab-img-wrap {
+    width: 100%;
+    height: 220px;
+    position: relative;
+  }
+  .pk-tab-img-wrap img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .pk-tab-text {
+    width: 100%;
+    padding: 2rem 1.5rem 2rem 2rem;
+  }
+  .pk-tab-text h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .pk-tab-desc {
+    font-size: 0.97rem;
+    margin-bottom: 1.5rem;
+  }
+  .pk-tab-bullet {
+    font-size: 0.88rem;
+    padding: 0.65rem 1.1rem;
+  }
+
+  /* Timeline */
   .pk-timeline::before {
     left: 20px;
   }
   .pk-timeline-item {
     flex-direction: column;
-    padding-left: 45px;
+    padding-left: 48px;
+    margin-bottom: 2rem;
   }
   .pk-time-col {
     text-align: left;
     width: auto;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
   }
   .pk-dot-col {
     position: absolute;
@@ -1020,4 +1163,71 @@
     width: auto;
     justify-content: flex-start;
   }
+  .pk-content-col {
+    padding: 1.2rem 1.4rem;
+  }
+
+  /* CTA */
+  .pk-cta {
+    padding: 4.5rem 1.2rem;
+  }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+    text-align: center !important;
+  }
 }
+
+/* ─ Small mobile (≤ 480 px) ─ */
+@media (max-width: 480px) {
+  .pk-hero {
+    padding: 5rem 1rem 3.5rem;
+  }
+  .pk-hero-h1 {
+    font-size: clamp(2rem, 12vw, 3rem);
+    letter-spacing: -0.5px;
+  }
+  .pk-hero-sub {
+    font-size: 0.95rem;
+  }
+  .pk-h2 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+  .pk-lead {
+    font-size: 1rem;
+  }
+
+  /* Stats stack to 2-col on very small screens */
+  .pk-about-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .pk-tab-btn {
+    flex: 1 1 calc(50% - 6px);
+    justify-content: center;
+    font-size: 0.78rem;
+    padding: 0.6rem 0.5rem;
+  }
+
+  .pk-tab-text {
+    padding: 1.5rem 1.2rem 1.8rem 1.5rem;
+  }
+  .pk-tab-text h3 {
+    font-size: 1.35rem;
+  }
+
+  .pk-carousel-card {
+    padding: 2rem 1.5rem;
+  }
+  .pk-quote-text {
+    font-size: 1.05rem;
+  }
+}
+

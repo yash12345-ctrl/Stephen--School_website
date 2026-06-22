@@ -183,7 +183,6 @@
 .mega-divider { width: 100%; height: 1px; background: rgba(0,0,0,0.08); margin: 0.5rem 0; }
 
 @media(max-width:1100px) { .mega-grid--events { grid-template-columns: repeat(3, 1fr); } }
-@media(max-width:768px)  { .mega-menu { width: calc(100vw - 32px); left: 16px; transform: none; } .mega-left { display: none; } .mega-grid--events { grid-template-columns: repeat(2,1fr); } }
 
 /* ── PROGRAM TAB CARD — anchor reset ── */
 a.prog-tab-card { text-decoration: none; color: inherit; display: flex; }
@@ -936,3 +935,85 @@ a.prog-tab-card { text-decoration: none; color: inherit; display: flex; }
   .mega-inner--wide { min-height: auto; }
 }
 
+@media(max-width:768px) {
+  .has-mega {
+    position: relative;
+    width: 100%;
+    display: block;
+  }
+  
+  .mega-menu { 
+    display: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    max-width: 100%;
+    transform: none !important; 
+    margin-top: 1rem;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .mega-menu::before {
+    display: none;
+  }
+
+  .mega-menu.open {
+    display: block;
+    transform: none !important;
+  }
+  
+  .mega-left { 
+    display: none; 
+  }
+  
+  .mega-right {
+    padding: 0;
+    background: transparent;
+    background-image: none;
+  }
+  
+  .mega-grid--events { 
+    grid-template-columns: 1fr; 
+    gap: 0.8rem;
+  }
+
+  .mega-card--event {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .mega-card-photo-wrap {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .mega-card--event .mega-card-title {
+    color: #fff !important;
+    font-size: 0.95rem;
+    padding-left: 1rem;
+    text-align: left;
+  }
+
+  .mega-card--event .mega-card-desc {
+    color: rgba(255, 255, 255, 0.6);
+    display: none !important;
+  }
+
+  .mega-section-label {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .mega-divider {
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+}

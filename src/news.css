@@ -199,7 +199,7 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #666;
-  border-top: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 1rem;
 }
 
@@ -209,15 +209,18 @@
   padding: 3rem 2.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
+  justify-content: center;
+  /* Center vertically */
   align-items: center;
-  gap: 1.5rem; /* Explicit, tight gaps */
+  gap: 1.5rem;
+  /* Explicit, tight gaps */
   background-color: #FAF7F2;
-  background-image: 
+  background-image:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
     radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.06) 0%, transparent 60%),
     repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.015) 0px, rgba(0, 0, 0, 0.015) 1px, transparent 1px, transparent 8px);
-  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.02); /* Soft vignette */
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.02);
+  /* Soft vignette */
   box-sizing: border-box;
   position: relative;
 }
@@ -227,7 +230,8 @@
   content: '';
   position: absolute;
   inset: 1rem;
-  border: 3px solid rgba(212, 175, 55, 0.4); /* Stronger, thicker outer frame */
+  border: 3px solid rgba(212, 175, 55, 0.4);
+  /* Stronger, thicker outer frame */
   pointer-events: none;
   z-index: 0;
 }
@@ -236,18 +240,21 @@
   content: '';
   position: absolute;
   inset: 1.4rem;
-  border: 1.5px solid rgba(212, 175, 55, 0.8); /* Sharper, bolder inner frame */
+  border: 1.5px solid rgba(212, 175, 55, 0.8);
+  /* Sharper, bolder inner frame */
   pointer-events: none;
   z-index: 0;
 }
 
 .news-clipping-title {
   font-family: 'Playfair Display', serif;
-  font-size: 1.35rem; /* Slightly smaller for long titles */
+  font-size: 1.35rem;
+  /* Slightly smaller for long titles */
   font-weight: 800;
   color: #111;
   margin: 0;
-  margin-top: 1.5rem; /* Push down away from the inner top border */
+  margin-top: 1.5rem;
+  /* Push down away from the inner top border */
   padding-bottom: 1rem;
   text-align: center;
   line-height: 1.2;
@@ -271,25 +278,30 @@
 .news-clipping-image-wrapper {
   width: auto;
   max-width: 100%;
-  padding: 10px; /* Slightly wider clean photo mount */
+  padding: 10px;
+  /* Slightly wider clean photo mount */
   background-color: #fff;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
   transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.04); /* Deeper default shadow */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+  /* Deeper default shadow */
   border-radius: 4px;
   margin: 0;
 }
 
 .news-clipping-page:hover .news-clipping-image-wrapper {
-  transform: translateY(-8px) scale(1.05); /* Much stronger hover zoom */
-  box-shadow: 0 30px 60px rgba(0,0,0,0.18), 0 12px 24px rgba(0,0,0,0.08); /* Dramatic deep shadow */
+  transform: translateY(-8px) scale(1.05);
+  /* Much stronger hover zoom */
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18), 0 12px 24px rgba(0, 0, 0, 0.08);
+  /* Dramatic deep shadow */
 }
 
 .news-clipping-image-wrapper img {
   max-width: 100%;
-  max-height: 60vh; /* 20% larger height allowance */
+  max-height: 60vh;
+  /* 20% larger height allowance */
   height: auto;
   object-fit: contain;
   display: block;
@@ -299,16 +311,20 @@
   text-align: center;
   font-family: 'Inter', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 1.5px; /* Reduced from 2.5px to prevent wrapping */
-  font-size: 0.65rem; /* Slightly smaller to fit the long string */
+  letter-spacing: 1.5px;
+  /* Reduced from 2.5px to prevent wrapping */
+  font-size: 0.65rem;
+  /* Slightly smaller to fit the long string */
   color: #555;
   position: relative;
   z-index: 1;
   font-weight: 600;
   margin: 0;
-  margin-bottom: 1.5rem; /* Push up away from the inner bottom border */
+  margin-bottom: 1.5rem;
+  /* Push up away from the inner bottom border */
   width: 100%;
-  white-space: nowrap; /* Prevent ugly widows/wrapping */
+  white-space: nowrap;
+  /* Prevent ugly widows/wrapping */
 }
 
 .np-paper-caption {
@@ -427,8 +443,10 @@
 }
 
 /* ══════════════════════════════════════════
-   RESPONSIVE NEWSPAPER LAYOUT
+   RESPONSIVE — NEWSPAPER LAYOUT
 ══════════════════════════════════════════ */
+
+/* ─ Tablet ─ */
 @media (max-width: 1024px) {
   .np-paper-articles {
     column-count: 2;
@@ -440,13 +458,272 @@
   }
 }
 
+/* ─ Mobile (≤ 768 px) ─ */
 @media (max-width: 768px) {
+
+  /* Ticker */
+  .np-ticker {
+    margin-top: 100px;
+    width: 100%;
+    height: 40px;
+  }
+
+  .np-ticker-label {
+    font-size: 0.82rem;
+    padding: 0 0.8rem 0 0.5rem;
+  }
+
+  .np-ticker-scroll {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── Magazine selection desk ── */
+  .mag-desk-container {
+    padding: 5.5rem 0 0;
+    min-height: 100svh;
+    justify-content: flex-start;
+    gap: 0;
+    width: 100%;
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(255, 255, 255, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at center top, #2b3240 0%, #0a0b0e 100%);
+  }
+
+  .mag-desk-header {
+    margin-bottom: 1.5rem;
+    transform: none;
+    padding: 1.5rem 1.2rem 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mag-desk-header h1 {
+    font-size: clamp(1.4rem, 8vw, 2.2rem);
+    margin-bottom: 0.7rem;
+    letter-spacing: 0;
+    line-height: 1.15;
+  }
+
+  .mag-desk-instruction-box {
+    font-size: 0.7rem;
+    padding: 0.45rem 0.9rem;
+    letter-spacing: 1.5px;
+    max-width: 90vw;
+    box-sizing: border-box;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  /* ── Swipe carousel track ── */
+  .mag-carousel {
+    /* Use 100vw so snap math is exact */
+    width: 100vw !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: scroll !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 0 !important;
+    perspective: none !important;
+    position: relative !important;
+    /* padding-bottom gives room for the polaroid label below the card */
+    padding: 2rem 0 4.5rem !important;
+    align-items: center !important;
+    box-sizing: content-box !important;
+    /* Pull flush to viewport edges */
+    margin-left: 0 !important;
+  }
+
+  .mag-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Each snap point = exactly one viewport width */
+  .mag-carousel .mag-desk-item {
+    position: relative !important;
+    flex: 0 0 100vw !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    height: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    box-shadow: none !important;
+    scroll-snap-align: start !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    cursor: pointer;
+  }
+
+  /* Inner polaroid card — properly sized */
+  .mag-carousel .mag-desk-cover {
+    width: min(68vw, 240px) !important;
+    height: calc(min(68vw, 240px) * 1.45) !important;
+    aspect-ratio: unset !important;
+    position: relative !important;
+    inset: auto !important;
+    flex-shrink: 0;
+    border: 8px solid #fff !important;
+    border-bottom-width: 56px !important;
+    border-radius: 3px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    box-shadow:
+      0 24px 56px rgba(0, 0, 0, 0.75),
+      0 6px 16px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255,255,255,0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .mag-carousel .mag-desk-item:active .mag-desk-cover {
+    transform: scale(0.97);
+  }
+
+  /* Image fills the photo area (above the bottom border) */
+  .mag-carousel .mag-desk-cover img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top !important;
+    display: block !important;
+    /* sepia filter for vintage polaroid feel */
+    filter: sepia(0.25) contrast(1.05) brightness(0.95);
+    transition: filter 0.4s ease;
+  }
+
+  .mag-carousel .mag-desk-item:active .mag-desk-cover img {
+    filter: sepia(0) contrast(1) brightness(1);
+  }
+
+  /* Label sits inside the thick white bottom border */
+  .mag-carousel .mag-desk-label {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 56px !important;
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    font-family: 'Playfair Display', serif !important;
+    color: #1a1a1a !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    letter-spacing: 0.3px !important;
+    padding: 0 8px !important;
+  }
+
+  /* ── Dot indicators ── */
+  .mag-carousel-dots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 1.2rem;
+    padding-bottom: 2rem;
+  }
+
+  .mag-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .mag-dot.active {
+    width: 28px;
+    border-radius: 4px;
+    background: #D4AF37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  }
+
+  /* ── Swipe hint ── */
+  @keyframes swipeHint {
+    0%   { opacity: 0.4; transform: translateX(-50%) translateX(0); }
+    40%  { opacity: 0.9; transform: translateX(-50%) translateX(16px); }
+    70%  { opacity: 0.6; transform: translateX(-50%) translateX(-4px); }
+    100% { opacity: 0.4; transform: translateX(-50%) translateX(0); }
+  }
+
+  .mag-carousel::after {
+    content: '\276E\2007swipe\2007\276F';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.58rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    animation: swipeHint 2s ease-in-out 1s 3;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  /* Suppress desktop hover spread on mobile */
+  .mag-carousel:hover .item-dignitary,
+  .mag-carousel:hover .item-cuttings {
+    transform: none !important;
+  }
+
+  /* Flipbook viewer */
+  .flipbook-wrapper {
+    padding: 70px 0 40px;
+    align-items: flex-start;
+  }
+
+  /* On mobile, book is portrait/single-page — no need to offset left */
+  .flipbook-transition-wrapper {
+    max-width: 100%;
+  }
+
+  .flipbook-transition-wrapper.closed,
+  .flipbook-transition-wrapper.open {
+    transform: translateX(0) !important;
+  }
+
+  /* Back button */
+  .mag-back-btn {
+    top: 14px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: max-content;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    color: #eaddcf !important;
+    border-color: #eaddcf !important;
+    background: transparent !important;
+  }
+
+  .mag-back-btn:hover {
+    background: #eaddcf !important;
+    color: #1a1a1a !important;
+  }
+
+  /* Newspaper layout */
   .newspaper-wrapper {
     padding: 5rem 1rem 3rem;
   }
 
   .newspaper-container {
-    padding: 2rem;
+    padding: 2rem 1.2rem;
   }
 
   .np-paper-articles {
@@ -466,18 +743,66 @@
   .np-paper-meta-band {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     text-align: center;
   }
 
   .np-paper-cats {
     gap: 0.5rem;
   }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    text-align: center !important;
+  }
 }
 
+/* ─ Small mobile (≤ 480 px) ─ */
 @media (max-width: 480px) {
+  .np-ticker {
+    margin-top: 84px;
+  }
+
+  .mag-desk-container {
+    padding: 5.5rem 0.8rem 2.5rem;
+  }
+
+  .mag-desk-header h1 {
+    font-size: clamp(1.2rem, 8vw, 1.6rem);
+    letter-spacing: 0;
+  }
+
+  .mag-desk-items {
+    gap: 0.9rem;
+    max-width: 340px;
+  }
+
+  .mag-desk-label {
+    font-size: 0.72rem;
+  }
+
   .newspaper-container {
     padding: 1.5rem 1rem;
+  }
+
+  .np-paper-h-small {
+    font-size: 1.2rem;
+  }
+
+  .news-clipping-title {
+    font-size: 1.1rem;
+  }
+
+  .news-clipping-footer {
+    white-space: normal;
+    font-size: 0.6rem;
   }
 }
 
@@ -485,11 +810,30 @@
    FLIPBOOK STYLES
 ══════════════════════════════════════════ */
 .flipbook-wrapper {
-  padding: 5rem 1rem;
-  background: var(--bg);
+  position: relative;
+  min-height: 100vh;
+  padding: 80px 2vw 60px;
+  background: radial-gradient(circle at center top, #2b3240 0%, #0a0b0e 100%);
   display: flex;
+  align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.flipbook-transition-wrapper {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.6s ease;
+}
+
+.flipbook-transition-wrapper.closed {
+  transform: translateX(-25%);
+}
+
+.flipbook-transition-wrapper.open {
+  transform: translateX(0);
 }
 
 .book-page {
@@ -555,14 +899,21 @@
   margin-bottom: 4rem;
   z-index: 10;
   transform: translateY(-20px);
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .mag-desk-header h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 4rem;
+  font-size: clamp(1.6rem, 6vw, 4rem);
   margin-bottom: 1rem;
   font-weight: 700;
   letter-spacing: 1px;
+  line-height: 1.1;
+  word-break: break-word;
 }
 
 .mag-desk-instruction-box {
@@ -604,20 +955,21 @@
   left: 20px;
   transform: rotate(-10deg) translateY(20px);
   z-index: 2;
-  box-shadow: -15px 20px 40px rgba(0,0,0,0.6);
+  box-shadow: -15px 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .item-cuttings {
   right: 20px;
   transform: rotate(12deg) translateY(-10px);
   z-index: 1;
-  box-shadow: 15px 20px 40px rgba(0,0,0,0.6);
+  box-shadow: 15px 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 /* Subtle spread when hovering container */
 .mag-desk-items:hover .item-dignitary {
   transform: rotate(-15deg) translateY(20px) translateX(-40px);
 }
+
 .mag-desk-items:hover .item-cuttings {
   transform: rotate(18deg) translateY(-10px) translateX(40px);
 }
@@ -626,7 +978,7 @@
 .mag-desk-items .mag-desk-item:hover {
   transform: rotate(0deg) translateY(-40px) scale(1.15) !important;
   z-index: 10;
-  box-shadow: 0 40px 70px rgba(0,0,0,0.8);
+  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.8);
 }
 
 /* Magazine Cover styling */
@@ -635,7 +987,8 @@
   height: 100%;
   background: #eaddcf;
   border: 10px solid #fff;
-  border-bottom-width: 70px; /* Vintage Polaroid / Book label area */
+  border-bottom-width: 70px;
+  /* Vintage Polaroid / Book label area */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -660,7 +1013,8 @@
 .mag-desk-label {
   position: absolute;
   bottom: -70px;
-  left: -10px; /* Counteract the border */
+  left: -10px;
+  /* Counteract the border */
   width: calc(100% + 20px);
   height: 70px;
   display: flex;

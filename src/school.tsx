@@ -110,8 +110,8 @@ export default function School() {
       {/* ── INFRASTRUCTURE & CAMPUS LIFE ── */}
       <section className="sch-section" id="infra">
         <div className="sch-container">
-          <div className="sch-center-head" style={{ marginBottom: '3rem' }}>
-            <span className="sch-chip" style={{ fontSize: '1.1rem', padding: '12px 36px', letterSpacing: '3px' }}>
+          <div className="sch-center-head sch-infra-head">
+            <span className="sch-chip sch-chip-large">
               School with Top Class Facilities
             </span>
           </div>
@@ -174,22 +174,6 @@ export default function School() {
                 <div className="sch-msg-title">Principal, St. Stephen's School</div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── ADMISSIONS CTA ── */}
-      <section className="sch-cta">
-        <div className="sch-cta-inner">
-          <span className="sch-chip light">Support Us</span>
-          <h2 className="sch-section-h2" style={{ color: '#fff', marginBottom: '1.5rem' }}>
-            Donate to make a Child’s <span>Future Bright</span>
-          </h2>
-          <p className="sch-section-p" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '3rem' }}>
-            Admissions for the academic session 2026–27 are open. Connect with us to support our cause, enroll a child, or submit your online application today.
-          </p>
-          <div className="sch-hero-btns" style={{ justifyContent: 'center' }}>
-            <a href="/donate" className="sch-btn-gold">Donate Now</a>
           </div>
         </div>
       </section>

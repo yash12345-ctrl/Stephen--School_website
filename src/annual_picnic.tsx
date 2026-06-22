@@ -1,7 +1,7 @@
 import { useState, } from 'react';
 import './App.css';
 import './annual_picnic.css';
-import { Star, Compass, Music, Users, Shield, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, Sparkles } from 'lucide-react';
 import Navbar from './Navbar';
 
 export default function AnnualPicnic() {
@@ -10,9 +10,7 @@ export default function AnnualPicnic() {
   const [activeTab, setActiveTab] = useState('games');
   const [tabFade, setTabFade] = useState(false);
 
-  // Carousel State
-  const [carouselIdx, setCarouselIdx] = useState(0);
-  const [carouselFade, setCarouselFade] = useState(false);
+
 
 
   const activities = {
@@ -42,30 +40,9 @@ export default function AnnualPicnic() {
     }
   };
 
-  const studentQuotes = [
-    {
-      quote: "The picnic is the best day of the year for me. Playing tug-of-war with my teachers and classmates makes me feel like we are one big happy family.",
-      author: "Priti Shaw",
-      grade: "Grade 8 Student"
-    },
-    {
-      quote: "I loved the live magic show the most! I got to assist the magician on stage. I will never forget how he turned a flower into a banner.",
-      author: "Arif Mallick",
-      grade: "Grade 5 Student"
-    },
-    {
-      quote: "Sitting in a circle, singing Rabindra Sangeet while playing the guitar under the big trees was beautiful. The fresh food tasted amazing.",
-      author: "Deboshri Roy",
-      grade: "Grade 9 Student"
-    }
-  ];
 
-  const highlights = [
-    { image: '/y12.png', icon: <Users className="pk-card-icon" size={24} />, title: '500+ Happy Outings', desc: 'Ensuring every child, regardless of socio-economic background, experiences a wonderful day out with peers.', tag: 'Inclusion' },
-    { image: '/y13.png', icon: <Compass className="pk-card-icon" size={24} />, title: 'Nature Exploration', desc: 'Guided walks through beautiful lake walkways and butterfly gardens, blending environment studies with recreation.', tag: 'Eco-Learning' },
-    { image: '/y14.png', icon: <Music className="pk-card-icon" size={24} />, title: 'School Choir Unplugged', desc: 'Open-air musical performances, student dance circles, and group games that encourage community participation.', tag: 'Recreation' },
-    { image: '/v3.webp', icon: <Shield className="pk-card-icon" size={24} />, title: 'Safe & Secure Transit', desc: 'Dedicated school-supervised buses, medical first-aid desks, and volunteer marshals ensuring absolute student safety.', tag: 'Security' },
-  ];
+
+
 
 
   const handleTabChange = (tabKey: string) => {
@@ -77,21 +54,6 @@ export default function AnnualPicnic() {
     }, 300);
   };
 
-  const handleNextQuote = () => {
-    setCarouselFade(true);
-    setTimeout(() => {
-      setCarouselIdx((prev) => (prev + 1) % studentQuotes.length);
-      setCarouselFade(false);
-    }, 400);
-  };
-
-  const handlePrevQuote = () => {
-    setCarouselFade(true);
-    setTimeout(() => {
-      setCarouselIdx((prev) => (prev - 1 + studentQuotes.length) % studentQuotes.length);
-      setCarouselFade(false);
-    }, 400);
-  };
 
   return (
     <div className="pk-page">
@@ -130,8 +92,8 @@ export default function AnnualPicnic() {
           <div className="pk-about-grid">
             <div className="pk-about-visual">
               <div className="pk-about-collage">
-                <img loading="lazy" src="/v17.webp" alt="Happy Picnic Group" className="pk-collage-img-main" />
-                <img loading="lazy" src="/v18.webp" alt="Students Playing Tug of War" className="pk-collage-img-sec" />
+                <img loading="lazy" src="/y3.png" alt="Happy Picnic Group" className="pk-collage-img-main" />
+                <img loading="lazy" src="/y4.png" alt="Students Playing Tug of War" className="pk-collage-img-sec" />
               </div>
               <div className="pk-about-badge">
                 <div className="pk-about-badge-num">🌳</div>
@@ -212,80 +174,9 @@ export default function AnnualPicnic() {
         </div>
       </section>
 
-      {/* ── HIGHLIGHTS SECTION ── */}
-      <section className="pk-section pk-highlights">
-        <div className="pk-wrap">
-          <div className="pk-highlights-head">
-            <div className="pk-chip">Event Spotlights</div>
-            <h2 className="pk-h2">Why the Picnic <span>Matters</span></h2>
-            <p className="pk-lead">
-              Our picnic isn't just about amusement — it builds essential social and mental wellbeing.
-            </p>
-          </div>
-          <div className="pk-cards-grid">
-            {highlights.map((h, i) => (
-              <div className="pk-card" key={i}>
-                <div className="pk-card-img">
-                  <img loading="lazy" src={h.image} alt={h.title} />
-                  <div className="pk-card-icon-wrap">{h.icon}</div>
-                </div>
-                <div className="pk-card-content">
-                  <div className="pk-card-text-group">
-                    <span className="pk-card-tag">{h.tag}</span>
-                    <h3 className="pk-card-h">{h.title}</h3>
-                    <p className="pk-card-p">{h.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
-      {/* ── STUDENT TESTIMONIAL CAROUSEL ── */}
-      <section className="pk-carousel-section">
-        <div className="pk-wrap">
-          <div className="text-center" style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <div className="pk-chip">Student Diaries</div>
-            <h2 className="pk-h2">Voices <span>from the Green</span></h2>
-            <p className="pk-lead">
-              Hear what our young creators and scholars felt about their annual picnic day out.
-            </p>
-          </div>
 
-          <div className="pk-carousel-container">
-            <div className="pk-carousel-card">
-              <div className="pk-quote-icon">“</div>
-              <div className={`pk-quote-content ${carouselFade ? 'fade-out' : ''}`}>
-                <p className="pk-quote-text">"{studentQuotes[carouselIdx].quote}"</p>
-
-                <div className="pk-student-info">
-                  <div className="pk-avatar">
-                    {studentQuotes[carouselIdx].author.charAt(0)}
-                  </div>
-                  <div className="pk-meta-info">
-                    <h4>{studentQuotes[carouselIdx].author}</h4>
-                    <p>{studentQuotes[carouselIdx].grade}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="pk-carousel-controls">
-              <button className="pk-ctrl-btn" onClick={handlePrevQuote} aria-label="Previous quote">
-                <ChevronLeft size={20} />
-              </button>
-              <span className="pk-ctrl-indicator">
-                {carouselIdx + 1} / {studentQuotes.length}
-              </span>
-              <button className="pk-ctrl-btn" onClick={handleNextQuote} aria-label="Next quote">
-                <ChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
       {/* ── FOOTER ── */}

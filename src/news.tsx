@@ -1,8 +1,9 @@
-import { useState, forwardRef } from 'react';
+import { useState, forwardRef, useRef, useCallback } from 'react';
 import type { ReactNode, ForwardedRef } from 'react';
 import './news.css';
 import HTMLFlipBook from 'react-pageflip';
 import Navbar from './Navbar';
+
 
 const FlipBook = HTMLFlipBook as React.ElementType;
 interface BookPageProps {
@@ -102,6 +103,15 @@ export default function News() {
   const [selectedMagazine, setSelectedMagazine] = useState<'none' | 'dignitary' | 'cuttings'>('none');
   const [isClosed, setIsClosed] = useState(true);
   const [isClosed2, setIsClosed2] = useState(true);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const handleCarouselScroll = useCallback(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const idx = Math.round(el.scrollLeft / el.offsetWidth);
+    setActiveCardIndex(idx);
+  }, []);
 
   const fakeNewsCuttings: Array<{
     id: number;
@@ -183,9 +193,15 @@ export default function News() {
         <div className="mag-desk-container">
           <div className="mag-desk-header">
             <h1>Our Publications</h1>
-            <div className="mag-desk-instruction-box">Please select any image to view the magazine</div>
+            <div className="mag-desk-instruction-box">Swipe to browse · Tap to open</div>
           </div>
-          <div className="mag-desk-items">
+
+          {/* Swipe carousel */}
+          <div
+            className="mag-desk-items mag-carousel"
+            ref={carouselRef}
+            onScroll={handleCarouselScroll}
+          >
             <div className="mag-desk-item item-dignitary" onClick={() => setSelectedMagazine('dignitary')}>
               <div className="mag-desk-cover">
                 <img loading="lazy" src="/v6.webp" alt="The Dignitary Voice" />
@@ -199,9 +215,23 @@ export default function News() {
               </div>
             </div>
           </div>
+
+          {/* Dot indicators */}
+          <div className="mag-carousel-dots">
+            {[0, 1].map(i => (
+              <button
+                key={i}
+                className={`mag-dot ${activeCardIndex === i ? 'active' : ''}`}
+                onClick={() => {
+                  carouselRef.current?.scrollTo({ left: i * (carouselRef.current?.offsetWidth ?? 0), behavior: 'smooth' });
+                }}
+                aria-label={i === 0 ? 'The Dignitary Voice' : 'News Paper Cuttings'}
+              />
+            ))}
+          </div>
         </div>
       ) : (
-        <div className="flipbook-wrapper" style={{ position: 'relative', minHeight: '100vh', paddingTop: '60px', paddingBottom: '60px', paddingLeft: '2vw', paddingRight: '2vw', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+        <div className="flipbook-wrapper">
 
           <button className="mag-back-btn" onClick={() => {
             setSelectedMagazine('none');
@@ -213,14 +243,7 @@ export default function News() {
 
           {/* FIRST BOOK */}
           {selectedMagazine === 'dignitary' && (
-            <div style={{
-              width: '100%',
-              maxWidth: '800px',
-              display: 'flex',
-              justifyContent: 'center',
-              transition: 'transform 0.6s ease',
-              transform: isClosed ? 'translateX(-25%)' : 'translateX(0)',
-            }}>
+            <div className={`flipbook-transition-wrapper ${isClosed ? 'closed' : 'open'}`}>
               <FlipBook
                 width={400}
                 height={560}
@@ -232,6 +255,7 @@ export default function News() {
                 maxShadowOpacity={0.5}
                 showCover={true}
                 mobileScrollSupport={true}
+                usePortrait={true}
                 className="my-flipbook"
                 onFlip={(e: { data: number }) => setIsClosed(e.data === 0)}
                 style={{ margin: '0 auto', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}
@@ -253,7 +277,7 @@ export default function News() {
                         <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '60px' }} />
                       </div>
 
-                      <h1 className="np-paper-title" style={{ fontSize: '3.5rem', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>The Dignitary<br />Voice</h1>
+                      <h1 className="np-paper-title" style={{ fontSize: 'clamp(2.2rem, 10vw, 3.5rem)', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>The Dignitary<br />Voice</h1>
 
                       <div style={{ width: '80%', margin: '1.5rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
                         <img loading="lazy" src="/v6.webp" alt="Cover Image" style={{ width: '100%', height: '180px', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
@@ -345,14 +369,7 @@ export default function News() {
 
           {/* SECOND BOOK */}
           {selectedMagazine === 'cuttings' && (
-            <div style={{
-              width: '100%',
-              maxWidth: '800px',
-              display: 'flex',
-              justifyContent: 'center',
-              transition: 'transform 0.6s ease',
-              transform: isClosed2 ? 'translateX(-25%)' : 'translateX(0)',
-            }}>
+            <div className={`flipbook-transition-wrapper ${isClosed2 ? 'closed' : 'open'}`}>
               <FlipBook
                 width={400}
                 height={560}
@@ -364,6 +381,7 @@ export default function News() {
                 maxShadowOpacity={0.5}
                 showCover={true}
                 mobileScrollSupport={true}
+                usePortrait={true}
                 className="my-flipbook-2"
                 onFlip={(e: { data: number }) => setIsClosed2(e.data === 0)}
                 style={{ margin: '0 auto', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}
@@ -385,7 +403,7 @@ export default function News() {
                         <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '50px' }} />
                       </div>
 
-                      <h1 className="np-paper-title" style={{ fontSize: '2.5rem', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>News Paper<br />Cuttings</h1>
+                      <h1 className="np-paper-title" style={{ fontSize: 'clamp(2rem, 8vw, 2.5rem)', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>News Paper<br />Cuttings</h1>
 
                       <div style={{ width: '70%', margin: '1rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
                         <img loading="lazy" src="/v4.webp" alt="Cover Image" style={{ width: '100%', height: '130px', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />

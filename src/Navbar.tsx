@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ProgramMegaMenu } from './program_top';
+import { Home, Info, Layers, Building2, Newspaper, Image as ImageIcon } from 'lucide-react';
 
 interface NavbarProps {
   initialVariant?: 'about' | 'gallery' | 'default';
@@ -38,6 +39,10 @@ export default function Navbar({ initialVariant = 'default' }: NavbarProps) {
     navClass += ' navbar--about';
   } else if (initialVariant === 'gallery') {
     navClass += ' navbar--gallery';
+  }
+
+  if (mobileMenuOpen) {
+    navClass += ' navbar--menu-open';
   }
 
   return (
@@ -85,7 +90,15 @@ export default function Navbar({ initialVariant = 'default' }: NavbarProps) {
                 }}
                 className={l === 'Programs' ? `nav-dropdown ${megaMenuOpen ? 'active' : ''}` : ''}
               >
-                {l}
+                <span className="mobile-nav-icon">
+                  {l === 'Home' && <Home size={20} strokeWidth={2} />}
+                  {l === 'About' && <Info size={20} strokeWidth={2} />}
+                  {l === 'Programs' && <Layers size={20} strokeWidth={2} />}
+                  {l === 'School' && <Building2 size={20} strokeWidth={2} />}
+                  {l === 'News' && <Newspaper size={20} strokeWidth={2} />}
+                  {l === 'Gallery' && <ImageIcon size={20} strokeWidth={2} />}
+                </span>
+                <span className="nav-text">{l}</span>
                 {l === 'Programs' && (
                   <svg className="caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 )}

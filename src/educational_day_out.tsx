@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import './educational_day_out.css';
-import { MapPin, Compass, GraduationCap, ChevronLeft, ChevronRight, BookOpen, Route } from 'lucide-react';
+import { MapPin, Compass, GraduationCap, BookOpen, Route } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 
@@ -10,9 +10,6 @@ export default function EducationalDayOut() {
   // Gallery Filter State
   const [activeCategory, setActiveCategory] = useState('all');
 
-  // Quotes Carousel State
-  const [carouselIdx, setCarouselIdx] = useState(0);
-  const [fade, setFade] = useState(false);
 
   
   const destinations = [
@@ -88,41 +85,6 @@ export default function EducationalDayOut() {
     }
   ];
 
-  const studentQuotes = [
-    {
-      quote: "Seeing the Foucault pendulum prove Earth's rotation live at Science City was way better than just looking at a diagram in my physics book!",
-      author: "Rohan Sen",
-      grade: "Grade 9 Student"
-    },
-    {
-      quote: "Under the planetarium dome, I felt so small yet so connected to the stars. It made me want to study astronomy in college.",
-      author: "Mili Das",
-      grade: "Grade 8 Student"
-    },
-    {
-      quote: "Writing my history journal while sitting in front of the marble statues at Victoria Memorial made the history lessons feel alive.",
-      author: "Anish Roy",
-      grade: "Grade 7 Student"
-    }
-  ];
-
-
-
-  const handleNextQuote = () => {
-    setFade(true);
-    setTimeout(() => {
-      setCarouselIdx((prev) => (prev + 1) % studentQuotes.length);
-      setFade(false);
-    }, 400);
-  };
-
-  const handlePrevQuote = () => {
-    setFade(true);
-    setTimeout(() => {
-      setCarouselIdx((prev) => (prev - 1 + studentQuotes.length) % studentQuotes.length);
-      setFade(false);
-    }, 400);
-  };
 
   const filteredDestinations = activeCategory === 'all'
     ? destinations.filter(item => item.title !== "Summer Camp")
@@ -253,50 +215,6 @@ export default function EducationalDayOut() {
         </div>
       </section>
 
-
-      {/* ── STUDENT JOURNAL TESTIMONIALS ── */}
-      <section className="trip-section trip-carousel-section">
-        <div className="trip-wrap">
-          <div className="text-center" style={{ textAlign: 'center' }}>
-            <div className="trip-chip">Student Journals</div>
-            <h2 className="trip-h2">Voices <span>From the Field</span></h2>
-            <p className="trip-lead">
-              Our students share the memorable moments and discoveries from their travel journals.
-            </p>
-          </div>
-
-          <div className="trip-carousel-container">
-            <div className="trip-carousel-card">
-              <div className="trip-quote-icon">“</div>
-              <div className={`trip-quote-content ${fade ? 'fade-out' : ''}`}>
-                <p className="trip-quote-text">"{studentQuotes[carouselIdx].quote}"</p>
-
-                <div className="trip-student-info">
-                  <div className="trip-avatar">
-                    {studentQuotes[carouselIdx].author.charAt(0)}
-                  </div>
-                  <div className="trip-meta-info">
-                    <h4>{studentQuotes[carouselIdx].author}</h4>
-                    <p>{studentQuotes[carouselIdx].grade}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="trip-carousel-controls">
-              <button className="trip-ctrl-btn" onClick={handlePrevQuote} aria-label="Previous quote">
-                <ChevronLeft size={20} />
-              </button>
-              <span className="trip-ctrl-indicator">
-                {carouselIdx + 1} / {studentQuotes.length}
-              </span>
-              <button className="trip-ctrl-btn" onClick={handleNextQuote} aria-label="Next quote">
-                <ChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
 
