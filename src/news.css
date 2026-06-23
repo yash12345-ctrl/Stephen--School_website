@@ -810,6 +810,21 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  transition: background 0.5s ease;
+}
+
+.flipbook-wrapper--light {
+  background: radial-gradient(circle at center top, #ffffff 0%, #f0f2f5 100%);
+}
+
+.flipbook-wrapper--light .mag-back-btn {
+  color: #1a1a1a !important;
+  border-color: #1a1a1a !important;
+}
+
+.flipbook-wrapper--light .mag-back-btn:hover {
+  background: #1a1a1a !important;
+  color: #fff !important;
 }
 
 .flipbook-transition-wrapper {

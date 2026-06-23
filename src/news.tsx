@@ -151,6 +151,40 @@ export default function News() {
         excerpt: '',
         image: '/c3.png', image2: '/z3.png', featured: false, hot: false,
       },
+      {
+        id: 104, category: '' as const,
+        date: '07 May 2022', readTime: '3 min read',
+        title: "Gifts For School Children",
+        title2: "Life Lession Learn in Summer Session",
+        date2: "19.June.2014",
+        excerpt: '',
+        image: '/z4.png', image2: '/z5.png', featured: false, hot: false,
+      },
+      {
+        id: 105, category: '' as const,
+        date: '', readTime: '3 min read',
+        title: "Times City",
+        title2: "On Display, Tales of triumph",
+        excerpt: '',
+        image: '/z6.png', image2: '/z7.png', featured: false, hot: false,
+      },
+      {
+        id: 106, category: '' as const,
+        date: '', readTime: '3 min read',
+        title: "CP Discusses safe mobile Use",
+        title2: "Students Tour Museum",
+        excerpt: '',
+        image: '/z8.png', image2: '/z9.png', featured: false, hot: false,
+      },
+      {
+        id: 107, category: '' as const,
+        date: '', readTime: '3 min read',
+        title: "Teacher Felicitation Ceremony",
+        title2: "Special Eid for needy Kids",
+        excerpt: '',
+        image: '/z10.png', image2: '/z11.png', featured: false, hot: false,
+      },
+
 
 
     ];
@@ -210,8 +244,8 @@ export default function News() {
             </div>
             <div className="mag-desk-item item-cuttings" onClick={() => setSelectedMagazine('cuttings')}>
               <div className="mag-desk-cover">
-                <img loading="lazy" src="/v4.webp" alt="News Paper Cuttings" />
-                <div className="mag-desk-label">News Paper Cuttings</div>
+                <img loading="lazy" src="/v4.webp" alt="Media Coverage" />
+                <div className="mag-desk-label">Media Coverage</div>
               </div>
             </div>
           </div>
@@ -225,13 +259,13 @@ export default function News() {
                 onClick={() => {
                   carouselRef.current?.scrollTo({ left: i * (carouselRef.current?.offsetWidth ?? 0), behavior: 'smooth' });
                 }}
-                aria-label={i === 0 ? 'The Dignitary Voice' : 'News Paper Cuttings'}
+                aria-label={i === 0 ? 'The Dignitary Voice' : 'Media Coverage'}
               />
             ))}
           </div>
         </div>
       ) : (
-        <div className="flipbook-wrapper">
+        <div className="flipbook-wrapper flipbook-wrapper--light">
 
           <button className="mag-back-btn" onClick={() => {
             setSelectedMagazine('none');
@@ -403,18 +437,18 @@ export default function News() {
                         <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '50px' }} />
                       </div>
 
-                      <h1 className="np-paper-title" style={{ fontSize: 'clamp(2rem, 8vw, 2.5rem)', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>News Paper<br />Cuttings</h1>
+                      <h1 className="np-paper-title" style={{ fontSize: 'clamp(2rem, 8vw, 2.5rem)', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>Media &<br />Publications</h1>
 
                       <div style={{ width: '70%', margin: '1rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
                         <img loading="lazy" src="/v4.webp" alt="Cover Image" style={{ width: '100%', height: '130px', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                       </div>
 
-                      <p className="subtitle" style={{ textAlign: 'center', margin: '0', fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.9rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>Press Releases</p>
+                      <p className="subtitle" style={{ textAlign: 'center', margin: '0', fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.9rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>ST. Stephen Schools</p>
                       <div style={{ width: '40px', height: '2px', background: '#0f1115', margin: '0.4rem auto' }}></div>
-                      <p style={{ textAlign: 'center', margin: '0', fontStyle: 'italic', fontSize: '0.85rem', color: '#333', fontFamily: '"Merriweather", serif' }}>Media & Publications</p>
+                      <p style={{ textAlign: 'center', margin: '0', fontStyle: 'italic', fontSize: '0.85rem', color: '#333', fontFamily: '"Merriweather", serif' }}>BOWBAZAR</p>
 
                       <div style={{ marginTop: '1rem', textAlign: 'center' }}>
-                        <p style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#0f1115', margin: 0 }}>Vol. II</p>
+                        <p style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#0f1115', margin: 0 }}></p>
                       </div>
                     </div>
                   </div>
