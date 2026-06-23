@@ -26,7 +26,7 @@ export default function App() {
 
       {/* ── HERO ── */}
       <section className="hero" id="home" ref={heroRef} onMouseMove={handleHeroMouseMove}>
-        <div className="hero-img" style={{ backgroundImage: "url('/img.webp')" }} />
+        <div className="hero-img" style={{ backgroundImage: "url('/img.png')" }} />
         <div className="hero-veil" />
         <div className="hero-glow g1" /><div className="hero-glow g2" />
         <div className="hero-body">
@@ -133,12 +133,12 @@ export default function App() {
 
           <div className="dignitary-card" style={{ marginTop: '2rem' }}>
             <div className="dignitary-img">
-              <img loading="lazy" src="/v10.webp" alt="Ayesha Siddiqui" />
+              <img loading="lazy" src="/v10.webp" alt="Ayesha Iqbal Siddiqui" />
             </div>
             <div className="dignitary-content">
               <div className="dignitary-quote-icon">❝</div>
               <p className="dignitary-quote">"At St. Stephen’s School, we firmly believe that quality education should not be a privilege reserved for a few, but a right accessible to every child. Our mission is to provide affordable, value-based education to children from all sections of society, especially those who may otherwise be deprived of opportunities. We work tirelessly to create a nurturing environment equipped with modern facilities, experienced educators, and holistic learning experiences comparable to the finest schools in Kolkata. Our vision is not merely to educate young minds, but to empower them with knowledge, confidence, and values that will help them build a brighter future for themselves and their communities."</p>
-              <h4 className="dignitary-name">Ayesha Siddiqui</h4>
+              <h4 className="dignitary-name">Ayesha Iqbal Siddiqui</h4>
               <p className="dignitary-role">HeadMistress</p>
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function App() {
             {[
               { tag: '🎨 Event', date: 'May 20, 2026', h: 'Annual Art & Craft Exhibition', p: 'Join us for a spectacular showcase of creativity as students display their finest artwork, sculptures, and crafts.', hot: true, img: '/v11.webp' },
               { tag: '🎭 Event', date: 'December 15, 2026', h: 'Annual Function 2026', p: 'Experience a grand evening of student performances, award ceremonies, and cultural showcases across all grades.', hot: false, img: '/v12.webp' },
-              { tag: '📋 Admissions', date: 'May 1, 2026', h: 'Admissions Open for 2026–27', p: 'Applications now open for all grades. Early registrations receive priority slots and scholarship consideration.', hot: false, img: '/img.webp' },
+              { tag: '📋 Admissions', date: 'May 1, 2026', h: 'Admissions Open for 2026–27', p: 'Applications now open for all grades. Early registrations receive priority slots and scholarship consideration.', hot: false, img: '/img.png' },
             ].map((n, i) => (
               <div className={`news-card${n.hot ? ' news-hot' : ''}`} key={i}>
                 {n.hot && <div className="news-ribbon">Featured</div>}

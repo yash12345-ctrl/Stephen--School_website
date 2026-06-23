@@ -26,7 +26,7 @@ const displayData = [
     img: '/v7.webp'
   },
   {
-    grade: 'Evening Session',
+    grade: 'Afternoon Session',
     range: 'Class VI to Class X',
     emoji: <Moon size={28} strokeWidth={2.5} color="#eb3349" />,
     desc: 'Comprehensive academic preparation focused on advanced coursework, critical thinking, and board examination readiness, empowering senior students for future success.',
@@ -47,12 +47,10 @@ export function ProgramMegaMenu({ open, onClose }: { open: boolean; onClose: () 
 
           <div className="mega-left-stats">
             <div className="mega-stat">
-              <span className="mega-stat-num">25+</span>
-              <span className="mega-stat-lbl">Annual Events</span>
+
             </div>
             <div className="mega-stat">
-              <span className="mega-stat-num">500+</span>
-              <span className="mega-stat-lbl">Participants</span>
+
             </div>
           </div>
         </div>
@@ -111,7 +109,7 @@ export default function ProgramTop() {
             <div className="shift-banner-item">
               <div className="shift-tag">Session 02</div>
               <div className="shift-details">
-                <h4 className="shift-name">Evening Session</h4>
+                <h4 className="shift-name">Afternoon Session</h4>
                 <p className="shift-time">11:30 AM <span className="gold">—</span> 4:00 PM</p>
               </div>
             </div>

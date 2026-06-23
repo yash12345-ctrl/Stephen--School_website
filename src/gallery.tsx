@@ -99,6 +99,60 @@ const MANAGEMENT_MEMBERS = {
   ],
 };
 
+// ── FLAT PHOTO-GRID DATA ──────────────────────────────────────────────
+const MANAGEMENT_GRID = {
+  groupPhoto: '/st_stephen_group_1.webp',
+  leaders: [
+    { name: 'Imran Zaki', role: 'Hony. Secretary', img: '/v9.jpeg' },
+    { name: 'Ayesha Iqbal Siddiqui', role: 'Headmistress', img: '/v10.webp' },
+    { name: 'Ajoy Paul', role: 'Administrator', img: '/v33.webp' },
+  ],
+  members: [
+    { name: 'Falaq Qaiyum', role: 'Management Team', img: '/logo.webp' },
+    { name: 'Shagufta Gulnar', role: 'Management Team', img: '/logo.webp' },
+    { name: 'Tabassum Rashid', role: 'Management Team', img: '/logo.webp' },
+    { name: 'Zikra Salim', role: 'Management Team', img: '/logo.webp' },
+    { name: 'Ifra Rehman', role: 'Management Team', img: '/logo.webp' },
+    { name: 'Rumsha Nehal', role: 'Management Team', img: '/logo.webp' },
+  ],
+};
+
+const MORNING_FACULTY_GRID = {
+  groupPhoto: '/st_stephen_group_1.webp',
+  members: [
+    { name: 'Neeta Mukherjee', role: 'Morning Faculty', img: '/v38.webp' },
+    { name: 'Resham Nahed', role: 'Morning Faculty', img: '/v39.webp' },
+    { name: 'Tabinda Salim', role: 'Morning Faculty', img: '/v40.webp' },
+    { name: 'Insha Rehman', role: 'Morning Faculty', img: '/v41.webp' },
+    { name: 'Falaq Qaiyum', role: 'Morning Faculty', img: '/v42.webp' },
+    { name: 'Shagufta Gulnar', role: 'Morning Faculty', img: '/v43.webp' },
+    { name: 'Tabassum Rashid', role: 'Morning Faculty', img: '/v44.webp' },
+    { name: 'Zikra Salim', role: 'Morning Faculty', img: '/v45.webp' },
+    { name: 'Ifra Rehman', role: 'Morning Faculty', img: '/v46.webp' },
+    { name: 'Rumsha Nehal', role: 'Morning Faculty', img: '/v47.webp' },
+  ],
+};
+
+const AFTERNOON_FACULTY_GRID = {
+  groupPhoto: '/st_stephen_group_1.webp',
+  members: [
+    { name: 'Rina Das', role: 'Afternoon Faculty', img: '/logo.webp' },
+    { name: 'Piyali Manna', role: 'Afternoon Faculty', img: '/v48.webp' },
+    { name: 'Shrinjini Saha', role: 'Afternoon Faculty', img: '/v49.webp' },
+    { name: 'Kriti Arora', role: 'Afternoon Faculty', img: '/v50.webp' },
+    { name: 'Nikhat Ara', role: 'Afternoon Faculty', img: '/v51.webp' },
+    { name: 'Obaid Ahmed', role: 'Afternoon Faculty', img: '/v52.webp' },
+    { name: 'Uday Shankar', role: 'Afternoon Faculty', img: '/logo.webp' },
+    { name: 'Hamidur Rehman', role: 'Afternoon Faculty', img: '/v53.webp' },
+    { name: 'Pappu Roy', role: 'Afternoon Faculty', img: '/logo.webp' },
+    { name: 'Md. Rafay Ali', role: 'Afternoon Faculty', img: '/v54.webp' },
+    { name: 'Md Tabrez', role: 'Afternoon Faculty', img: '/v55.webp' },
+    { name: 'Mashira Zakir', role: 'Afternoon Faculty', img: '/v56.webp' },
+    { name: 'Saleha Parveen', role: 'Afternoon Faculty', img: '/v57.webp' },
+    { name: 'Sirajuddaula', role: 'Afternoon Faculty', img: '/logo.webp' },
+  ],
+};
+
 const MORNING_FACULTY = {
   root: {
     id: 'root',
@@ -334,7 +388,85 @@ export default function Gallery() {
           </div>
 
           {/* ── TAB CONTENT ── */}
-          {isTreeTab ? (
+          {(activeTab === 'MANAGEMENT TEAM' || activeTab === 'MORNING FACULTY' || activeTab === 'AFTERNOON FACULTY') ? (
+            /* ── ADVANCED EDITORIAL PHOTO GRID ── */
+            <div className="photo-grid-wrap">
+
+              {/* ── GROUP PHOTO BANNER with editorial overlay ── */}
+              <div className="pg-banner">
+                <img
+                  loading="lazy"
+                  src={
+                    activeTab === 'MORNING FACULTY' ? MORNING_FACULTY_GRID.groupPhoto
+                    : activeTab === 'AFTERNOON FACULTY' ? AFTERNOON_FACULTY_GRID.groupPhoto
+                    : MANAGEMENT_GRID.groupPhoto
+                  }
+                  alt={`${currentTabInfo.title} Group Photo`}
+                  className="pg-banner-img"
+                />
+                <div className="pg-banner-overlay">
+                  <div className="pg-banner-tag">Group Photo</div>
+                  <div className="pg-banner-title">{currentTabInfo.title}</div>
+                  <div className="pg-banner-sub">{currentTabInfo.subtitle}</div>
+                </div>
+              </div>
+
+              {/* ── LEADERSHIP ROW (Management Team only) — Featured Cards ── */}
+              {activeTab === 'MANAGEMENT TEAM' && (<>
+                <div className="pg-divider">
+                  <div className="pg-divider-line" />
+                  <span className="pg-divider-label">Leadership</span>
+                  <div className="pg-divider-line right" />
+                </div>
+                <div className="pg-featured-grid">
+                  {MANAGEMENT_GRID.leaders.map((m, i) => (
+                    <div className={`pg-featured-card ${i === 1 ? 'pg-featured-center' : ''}`} key={i}>
+                      <div className="pg-featured-img">
+                        <img loading="lazy" src={m.img} alt={m.name} />
+                      </div>
+                      <div className="pg-featured-overlay">
+                        <div className="pg-featured-info">
+                          <div className="pg-featured-role">{m.role}</div>
+                          <div className="pg-featured-name">{m.name}</div>
+                        </div>
+                      </div>
+                      {i === 1 && <div className="pg-featured-crown">★</div>}
+                    </div>
+                  ))}
+                </div>
+              </>)}
+
+              {/* ── MEMBERS GRID — Overlay Reveal Cards ── */}
+              <div className="pg-divider" style={{ marginTop: activeTab === 'MANAGEMENT TEAM' ? '2rem' : '0' }}>
+                <div className="pg-divider-line" />
+                <span className="pg-divider-label">
+                  {activeTab === 'MANAGEMENT TEAM' ? 'Team Members' : 'Faculty Members'}
+                </span>
+                <div className="pg-divider-line right" />
+              </div>
+
+              <div className="pg-overlay-grid">
+                {(
+                  activeTab === 'MORNING FACULTY' ? MORNING_FACULTY_GRID.members
+                  : activeTab === 'AFTERNOON FACULTY' ? AFTERNOON_FACULTY_GRID.members
+                  : MANAGEMENT_GRID.members
+                ).map((m, i) => (
+                  <div className="pg-overlay-card" key={i}>
+                    <div className="pg-overlay-img">
+                      <img loading="lazy" src={m.img} alt={m.name} />
+                    </div>
+                    <div className="pg-overlay-info">
+                      <div className="pg-overlay-name">{m.name}</div>
+                      <div className="pg-overlay-role">{m.role}</div>
+                    </div>
+                    <div className="pg-overlay-index">{String(i + 1).padStart(2, '0')}</div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+          ) : isTreeTab ? (
             <div className="org-canvas-wrap">
               <div className="org-canvas-inner" ref={containerRef}>
 

@@ -413,12 +413,814 @@
   }
 }
 
+/* ═══════════════════════════════════════════════════════
+   ADVANCED EDITORIAL PHOTO GRID
+   Management Team · Morning Faculty · Afternoon Faculty
+════════════════════════════════════════════════════════ */
+.photo-grid-wrap {
+  padding: 2rem 5% 6rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── CINEMATIC BANNER ── */
+.pg-banner {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  aspect-ratio: 16 / 5;
+  background: #0f1115;
+  box-shadow:
+    0 0 0 1px rgba(212,175,55,0.2),
+    0 30px 80px rgba(0,0,0,0.2);
+}
+
+.pg-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 8s ease;
+  filter: brightness(0.75);
+}
+
+.pg-banner:hover .pg-banner-img {
+  transform: scale(1.04);
+}
+
+/* Dark veil over banner */
+.pg-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10,12,16,0.85) 0%,
+    rgba(10,12,16,0.45) 55%,
+    rgba(212,175,55,0.06) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Gold top stripe */
+.pg-banner::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, rgba(212,175,55,0.3) 60%, transparent 100%);
+  z-index: 3;
+}
+
+/* Banner editorial text overlay */
+.pg-banner-overlay {
+  position: absolute;
+  bottom: 0; left: 0;
+  z-index: 2;
+  padding: 2rem 2.5rem;
+}
+
+.pg-banner-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.pg-banner-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.5px;
+}
+
+.pg-banner-sub {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+/* ── SECTION DIVIDERS ── */
+.pg-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0 0 2rem;
+}
+
+.pg-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212,175,55,0.45), transparent);
+}
+
+.pg-divider-line.right {
+  background: linear-gradient(270deg, rgba(212,175,55,0.45), transparent);
+}
+
+.pg-divider-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(135deg, var(--gold), #E6C875);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ═══════════════════════════════
+   FEATURED LEADERSHIP CARDS
+═══════════════════════════════ */
+.pg-featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 0;
+  align-items: end;
+}
+
+.pg-featured-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: default;
+  background: #0f1115;
+  height: 280px;
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(212,175,55,0.15);
+  transition:
+    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.4s ease;
+}
+
+.pg-featured-card:hover {
+  transform: translateY(-10px) scale(1.015);
+  box-shadow:
+    0 24px 60px rgba(212,175,55,0.2),
+    0 0 0 1.5px rgba(212,175,55,0.5);
+}
+
+/* Centre (Headmistress) card is taller */
+.pg-featured-center {
+  height: 320px;
+}
+
+/* Crown badge on featured centre card */
+.pg-featured-crown {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--gold), #E6C875);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #0f1115;
+  z-index: 4;
+  box-shadow: 0 4px 14px rgba(212,175,55,0.5);
+  animation: crownPulse 3s ease-in-out infinite;
+}
+
+@keyframes crownPulse {
+  0%, 100% { box-shadow: 0 4px 14px rgba(212,175,55,0.5); }
+  50%       { box-shadow: 0 4px 22px rgba(212,175,55,0.8), 0 0 0 6px rgba(212,175,55,0.12); }
+}
+
+/* Featured card image — fills entire card */
+.pg-featured-img {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.pg-featured-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: brightness(0.82);
+  transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1),
+              filter 0.4s ease;
+}
+
+.pg-featured-card:hover .pg-featured-img img {
+  transform: scale(1.07);
+  filter: brightness(0.7);
+}
+
+/* Dark gradient scrim at bottom */
+.pg-featured-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 12, 16, 0.92) 0%,
+    rgba(10, 12, 16, 0.4) 45%,
+    transparent 70%
+  );
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem 1.1rem;
+  transition: background 0.4s ease;
+}
+
+.pg-featured-card:hover .pg-featured-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(10, 12, 16, 0.97) 0%,
+    rgba(10, 12, 16, 0.55) 55%,
+    transparent 80%
+  );
+}
+
+/* Gold accent line that grows on hover */
+.pg-featured-overlay::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  border-radius: 2px;
+  margin-bottom: 0.6rem;
+  transition: width 0.4s ease;
+}
+
+.pg-featured-card:hover .pg-featured-overlay::before {
+  width: 40px;
+}
+
+.pg-featured-info {
+  transform: translateY(4px);
+  transition: transform 0.4s ease;
+}
+
+.pg-featured-card:hover .pg-featured-info {
+  transform: translateY(0);
+}
+
+.pg-featured-role {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 0.3rem;
+  opacity: 0.9;
+}
+
+.pg-featured-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+}
+
+.pg-featured-center .pg-featured-name {
+  font-size: 1.1rem;
+}
+
+/* ═══════════════════════════════
+   OVERLAY REVEAL MEMBER GRID
+═══════════════════════════════ */
+.pg-overlay-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.pg-overlay-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: default;
+  background: #0f1115;
+  aspect-ratio: 3 / 4;
+  box-shadow:
+    0 2px 10px rgba(0,0,0,0.1),
+    0 0 0 1px rgba(212,175,55,0.1);
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.4s ease;
+}
+
+.pg-overlay-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 18px 45px rgba(212,175,55,0.18),
+    0 0 0 1.5px rgba(212,175,55,0.4);
+  z-index: 2;
+}
+
+.pg-overlay-img {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.pg-overlay-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: brightness(0.88);
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.pg-overlay-card:hover .pg-overlay-img img {
+  transform: scale(1.08);
+  filter: brightness(0.65);
+}
+
+/* Persistent subtle scrim */
+.pg-overlay-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10,12,16,0.88) 0%,
+    rgba(10,12,16,0.2) 45%,
+    transparent 65%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Name/role info — sits at bottom, slides up on hover */
+.pg-overlay-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 2;
+  padding: 0.75rem 0.75rem 0.8rem;
+  transform: translateY(3px);
+  transition: transform 0.4s ease;
+}
+
+.pg-overlay-card:hover .pg-overlay-info {
+  transform: translateY(0);
+}
+
+/* Gold accent line */
+.pg-overlay-info::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1.5px;
+  background: var(--gold);
+  border-radius: 1px;
+  margin-bottom: 0.4rem;
+  transition: width 0.35s ease;
+}
+
+.pg-overlay-card:hover .pg-overlay-info::before {
+  width: 24px;
+}
+
+.pg-overlay-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 0.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pg-overlay-role {
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Inter', sans-serif;
+  opacity: 0.85;
+}
+
+/* Sequential index badge — top right corner */
+.pg-overlay-index {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 3;
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.45);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.pg-overlay-card:hover .pg-overlay-index {
+  color: var(--gold);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .pg-overlay-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .pg-banner { aspect-ratio: 16 / 6; }
+  .pg-featured-grid { grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+  .pg-featured-card { height: 240px; }
+  .pg-featured-center { height: 270px; }
+  .pg-overlay-grid { grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+}
+
+@media (max-width: 600px) {
+  .photo-grid-wrap { padding: 1rem 4% 4rem; }
+  .pg-banner { aspect-ratio: 4 / 3; border-radius: 14px; margin-bottom: 1.5rem; }
+  .pg-banner-overlay { padding: 1.25rem 1.25rem; }
+  .pg-banner-title { font-size: 1.2rem; }
+  .pg-featured-grid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+  .pg-featured-card { height: 160px; border-radius: 10px; }
+  .pg-featured-center { height: 185px; }
+  .pg-featured-name { font-size: 0.75rem; }
+  .pg-featured-crown { width: 26px; height: 26px; font-size: 0.75rem; }
+  .pg-overlay-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .pg-overlay-card { border-radius: 10px; }
+  .pg-overlay-name { font-size: 0.68rem; }
+  .pg-overlay-role { font-size: 0.5rem; }
+  .pg-overlay-info { padding: 0.5rem 0.55rem 0.55rem; }
+  .pg-divider { margin: 0.25rem 0 1rem; }
+}
+
+
+/* ── Section header label ── */
+.pg-section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.pg-section-label::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.pg-section-label-text {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── CINEMATIC GROUP BANNER ── */
+.pg-banner {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  position: relative;
+  aspect-ratio: 16 / 6;
+  background: #0f1115;
+  box-shadow:
+    0 2px 0 rgba(212,175,55,0.5),
+    0 30px 80px rgba(0,0,0,0.18),
+    0 0 0 1px rgba(212,175,55,0.15);
+}
+
+/* Cinematic gradient veil over the banner */
+.pg-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(15,17,21,0.55) 0%,
+    rgba(15,17,21,0.15) 50%,
+    rgba(212,175,55,0.08) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Gold corner accent line */
+.pg-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), rgba(212,175,55,0.2), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pg-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  transition: transform 8s ease;
+}
+
+.pg-banner:hover .pg-banner-img {
+  transform: scale(1.03);
+}
+
+/* ── SECTION DIVIDER ── */
+.pg-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0.5rem 0 2rem;
+}
+
+.pg-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212,175,55,0.4), transparent);
+}
+
+.pg-divider-line.right {
+  background: linear-gradient(270deg, rgba(212,175,55,0.4), transparent);
+}
+
+.pg-divider-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, var(--gold), #E6C875);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── MEMBER GRID ── */
+.pg-member-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Leader row — same 3-col but slightly bigger cards */
+.pg-leaders {
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 0.5rem;
+}
+
+/* ── INDIVIDUAL CARD ── */
+.pg-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.9) inset,
+    0 6px 24px rgba(0,0,0,0.06),
+    0 1px 4px rgba(0,0,0,0.04);
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.4s ease,
+    border-color 0.3s ease;
+  cursor: default;
+}
+
+/* Gold top accent bar — hidden until hover */
+.pg-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), #E6C875, var(--gold));
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+  animation: goldShimmer 2.5s linear infinite paused;
+}
+
+.pg-card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+@keyframes goldShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.pg-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 50px rgba(212, 175, 55, 0.15),
+    0 8px 20px rgba(0,0,0,0.08),
+    0 0 0 1px rgba(212, 175, 55, 0.3);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+/* ── LEADER CARD SPECIAL STYLE ── */
+.pg-leaders .pg-card {
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow:
+    0 8px 32px rgba(212, 175, 55, 0.1),
+    0 2px 8px rgba(0,0,0,0.06);
+}
+
+.pg-leaders .pg-card::before {
+  opacity: 0.5;
+  animation-play-state: running;
+}
+
+/* ── CARD IMAGE ── */
+.pg-card-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: linear-gradient(145deg, #f5f1eb, #ede8e0);
+  position: relative;
+}
+
+/* Subtle shimmer skeleton while image loads */
+.pg-card-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(255,255,255,0.6) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes skeletonShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.pg-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.pg-card:hover .pg-card-img img {
+  transform: scale(1.08);
+}
+
+/* ── CARD INFO ── */
+.pg-card-info {
+  padding: 1rem 1.1rem 1.1rem;
+  background: #ffffff;
+  position: relative;
+}
+
+/* Thin gold accent at top of info area */
+.pg-card-info::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 0.6rem;
+  opacity: 0.7;
+}
+
+.pg-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+
+.pg-card-role {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #9a7c2a;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Leader cards get larger name text */
+.pg-leaders .pg-card-name {
+  font-size: 1.1rem;
+}
+
+.pg-leaders .pg-card-info {
+  padding: 1.1rem 1.25rem 1.25rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .pg-member-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+  }
+  .pg-banner {
+    aspect-ratio: 16 / 7;
+  }
+}
+
+@media (max-width: 600px) {
+  .photo-grid-wrap {
+    padding: 1rem 4% 4rem;
+  }
+  .pg-banner {
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+  }
+  .pg-member-grid,
+  .pg-leaders {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+  }
+  .pg-card {
+    border-radius: 12px;
+  }
+  .pg-card-name {
+    font-size: 0.75rem;
+  }
+  .pg-leaders .pg-card-name {
+    font-size: 0.8rem;
+  }
+  .pg-card-role {
+    font-size: 0.58rem;
+    letter-spacing: 0.5px;
+  }
+  .pg-card-info {
+    padding: 0.55rem 0.65rem 0.65rem;
+  }
+  .pg-card-info::before {
+    width: 18px;
+    margin-bottom: 0.4rem;
+  }
+  .pg-divider {
+    margin: 0.25rem 0 1.25rem;
+  }
+}
+
 /* ── TREE WRAPPER ── */
 .org-canvas-wrap {
   position: relative;
   width: 100%;
   padding: 0 2rem 4rem;
 }
+
 
 .org-canvas-inner {
   position: relative;
