@@ -9,7 +9,7 @@ const GOVERNING_MEMBERS = {
     id: 'root',
     name: 'Imran Zaki',
     role: 'Hony. Secretary',
-    img: '/v9.webp',
+    img: '/v9.jpeg',
     bio: `Oversees the governance of St. Stephen's School and leads the management body with vision and dedication.`,
   },
   level1: [
@@ -69,7 +69,7 @@ const MANAGEMENT_MEMBERS = {
     id: 'root',
     name: 'Imran Zaki',
     role: 'Hony. Secretary',
-    img: '/v9.webp',
+    img: '/v9.jpeg',
     bio: `Guides the Management Team with strategic vision and ensures smooth operations.`,
   },
   level1: [

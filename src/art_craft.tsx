@@ -1,51 +1,12 @@
 
 import './App.css';
 import './art_craft.css';
-import { Palette, Scissors, MapPin, Sparkles, Star, Award, Camera, Monitor } from 'lucide-react';
+import { MapPin, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 
 export default function ArtCraftExhibition() {
         
-
-  const highlights = [
-    {
-      icon: <Palette size={24} />,
-      title: 'Live Pottery Workshop',
-      desc: 'Watch and try your hand at the traditional potter\'s wheel under the expert guidance of local traditional clay artisans.',
-      image: '/v3.webp'
-    },
-    {
-      icon: <Scissors size={24} />,
-      title: 'Eco-Craft Station',
-      desc: 'A dedicated creative zone where visitors learn to design beautiful flower vases and pen stands using domestic waste.',
-      image: '/v8.webp'
-    },
-    {
-      icon: <Sparkles size={24} />,
-      title: 'Collaborative Wall Canvas',
-      desc: 'All students, parents, and guests are invited to leave their unique handprint brushstrokes on a giant community canvas.',
-      image: '/v11.webp'
-    },
-    {
-      icon: <Award size={24} />,
-      title: 'Young Artist Awards',
-      desc: 'Outstanding achievements in creativity and environmental message-driven art will be awarded by the local Academy of Fine Arts.',
-      image: '/images 2.webp'
-    },
-    {
-      icon: <Monitor size={24} />,
-      title: 'Digital Art Kiosk',
-      desc: 'Explore interactive digital illustrations and 3D animations created by our senior students using industry-standard software.',
-      image: '/v25.webp'
-    },
-    {
-      icon: <Camera size={24} />,
-      title: 'Heritage Photography Display',
-      desc: 'A curated photographic journey capturing the essence of Bowbazar\'s rich cultural history through the lens of young photographers.',
-      image: '/v31.webp'
-    }
-  ];
 
 
   return (
@@ -85,9 +46,7 @@ export default function ArtCraftExhibition() {
             </div>
           </div>
 
-          <div className="art-hero-btns">
-            <a href="#highlights" className="art-btn-ghost">Event Highlights</a>
-          </div>
+
         </motion.div>
       </section>
 
@@ -117,42 +76,7 @@ export default function ArtCraftExhibition() {
         </div>
       </section>
 
-      {/* ── EXHIBITION HIGHLIGHTS ── */}
-      <section className="art-section art-highlights-section" id="highlights" style={{ position: 'relative' }}>
-        {/* Decorative Glow */}
-        <div style={{ position: 'absolute', top: '50px', left: '50%', transform: 'translateX(-50%)', width: '500px', height: '500px', borderRadius: '50%', background: 'rgba(255,180,0,.05)', filter: 'blur(80px)', pointerEvents: 'none', zIndex: 0 }}></div>
 
-        <div className="art-wrap" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="text-center">
-            <div className="art-chip">Special Attractions</div>
-            <h2 className="art-h2">Interactive <span>Showcases & Zones</span></h2>
-            <p className="art-lead" style={{ maxWidth: '650px', margin: '0 auto' }}>
-              Explore the hands-on workshops and unique exhibits designed to engage visitors in the joy of creating.
-            </p>
-          </div>
-
-          <div className="art-highlights-grid">
-            {highlights.map((h, i) => (
-              <motion.div
-                className="art-highlight-card"
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column' }}
-              >
-                <div style={{ width: '100%', flex: 1, borderRadius: '16px', overflow: 'hidden', marginBottom: '1.5rem' }}>
-                  <img src={h.image} alt={h.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }} onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'} loading="lazy" />
-                </div>
-                <div className="art-highlight-icon-wrap">{h.icon}</div>
-                <h3 className="art-highlight-h">{h.title}</h3>
-                <p className="art-highlight-p">{h.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
 

@@ -799,6 +799,25 @@
 }
 
 @media (max-width: 768px) {
+  .xm-hero {
+    padding: 6rem 1.25rem 4rem;
+    min-height: 100svh;
+    align-items: center;
+  }
+  .xm-hero-inner {
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .xm-hero-tag, .xm-hero-h1, .xm-hero-sub {
+    margin-bottom: 0;
+  }
+  .xm-hero-sub {
+    text-align: center;
+  }
+  .xm-hero-h1 {
+    font-size: 3rem;
+  }
   .xm-cta-inner {
     flex-direction: column;
     text-align: center;
@@ -815,6 +834,29 @@
     gap: 1rem;
     max-width: 320px;
     margin: 0 auto;
+    width: 100%;
+  }
+  .xm-btn-gold,
+  .xm-btn-ghost {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .xm-about-stats {
+    grid-template-columns: 1fr;
+  }
+  .xm-hero-tag {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .xm-hero-h1 {
+    font-size: 2.5rem;
+  }
+  .xm-spotlight-card {
+    padding: 2rem 1.25rem !important;
   }
 }
 

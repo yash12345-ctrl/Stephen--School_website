@@ -108,7 +108,7 @@ export default function Rabindrajayanti() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2.5rem' }}>
+          <div className="rj-spotlight-cards-container">
             {/* Card 1: Nick Low Visit 2022 */}
             <div className="rj-spotlight-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>

@@ -942,20 +942,61 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+  .ind-about-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
-  .ind-hero-meta {
-    flex-direction: column;
-    gap: 1.2rem;
-    padding: 1.2rem 2rem;
-    align-items: flex-start;
+  .ind-hero {
+    padding: 7rem 1.5rem 4rem;
+  }
+  .ind-hero-h1 {
+    font-size: 3.2rem;
+  }
+  .ind-hero-inner {
+    text-align: center;
+  }
+  .ind-hero-tag {
+    justify-content: center;
+  }
+  .ind-hero-btns {
+    justify-content: center !important;
   }
   .ind-hero-btns, .ind-cta-btns {
     flex-direction: column;
     gap: 1rem;
     max-width: 320px;
     margin: 0 auto;
+    width: 100%;
+  }
+  .ind-about-stats {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .ind-about-collage {
+    height: 300px;
+    width: 100%;
+  }
+  .ind-collage-img-main {
+    height: 240px;
+    width: 90%;
+  }
+  .ind-collage-img-sec {
+    height: 140px;
+    width: 60%;
+  }
+  .ind-about-badge {
+    right: 5%;
+    top: -1rem;
+    padding: 0.8rem;
+  }
+  .ind-about-badge-num {
+    font-size: 1.5rem;
+  }
+  .flag-sim-interactive {
+    height: 350px;
   }
   .ind-timeline::before {
     left: 20px;
@@ -976,5 +1017,26 @@
     top: 4px;
     width: auto;
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .ind-hero-h1 {
+    font-size: 2.5rem;
+  }
+  .ind-hero-sub {
+    font-size: 1.1rem;
+  }
+  .ind-section {
+    padding: 4.5rem 0;
+  }
+  .ind-h2 {
+    font-size: 2rem;
+  }
+  .flag-sim-container {
+    padding: 1.5rem;
+  }
+  .ind-spotlight-card {
+    padding: 1.5rem;
   }
 }

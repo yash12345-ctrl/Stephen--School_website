@@ -1012,7 +1012,7 @@
   /* Hero */
   .pk-hero {
     padding: 6rem 1.2rem 4rem;
-    min-height: 92svh;
+    min-height: 100vh;
   }
   .pk-hero-inner {
     text-align: center;
