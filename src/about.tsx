@@ -293,7 +293,7 @@ export default function About() {
 
             {[
               { name: 'Imran Zaki', role: 'Hony. Secretary', img: '/v9.jpeg', color: '#C9A84C', desc: 'Dedicated leader committed to the social and economic transformation of underprivileged children in Kolkata.' },
-              { name: 'Ayesha Siddiqui', role: 'HeadMistress', img: '/v10.webp', color: '#7c6b99', desc: 'Experienced educator guiding the academic excellence and holistic development of every student at St. Stephen\'s.' },
+              { name: 'Ayesha Iqbal Siddiqui', role: 'HeadMistress', img: '/v10.webp', color: '#7c6b99', desc: 'Experienced educator guiding the academic excellence and holistic development of every student at St. Stephen\'s.' },
               { name: 'Ajay Paul', role: 'Administrator & Advisory Board Member', img: '/v33.webp', color: '#2d6a6a', desc: 'Overseeing school operations and providing strategic advisory support to strengthen the institution\'s mission.' },
               { name: 'Rajesh Arora', role: 'Advisory Board Member', img: '/v34.webp', color: '#5a4a7a', desc: 'Providing expert guidance and community leadership to support St. Stephen\'s long-term educational goals.' },
               { name: 'Rehan Misbah', role: 'Advisory Board Member', img: '/v35.webp', color: '#8e54e9', desc: 'Advising on strategic initiatives and community engagement to foster continuous growth and excellence.' },

@@ -155,23 +155,23 @@ export default function School() {
         <div className="sch-container">
           <div className="sch-msg-grid">
             <div className="sch-msg-photo-wrap">
-              <img loading="lazy" src="/k6.webp" className="sch-msg-photo" alt="Principal Desk" />
+              <img loading="lazy" src="/hey3.jpeg" className="sch-msg-photo" alt="Principal Desk" />
               <div className="sch-msg-frame" />
             </div>
             <div className="sch-msg-body">
-              <span className="sch-chip" style={{ width: 'fit-content' }}>From the Administrator & Advisory Board's Desk</span>
+              <span className="sch-chip" style={{ width: 'fit-content' }}>AWARDS & RECOGNITION</span>
               <div className="sch-msg-quote">
-                "We don't just teach curricula; we cultivate an environment where students learn to identify problems, build creative models, and test them with scientific rigor."
+                "A moment of pride and inspiration for our entire school community."
               </div>
               <p className="sch-msg-text">
-                At our school, we believe in nurturing young minds through quality education, strong values, and holistic development. We are committed to creating an environment where every child feels inspired to learn, grow, and achieve their full potential.
+                We were deeply honored to welcome the renowned actress and public figure, Smt. Rupa Ganguly, to our school. Her gracious presence and encouraging words have left an indelible mark on our students and faculty alike.
               </p>
               <p className="sch-msg-text">
-                Together, let us continue to shape confident, compassionate, and responsible future leaders.
+                Such moments of recognition reinforce our commitment to excellence and inspire our students to reach for the stars in all their endeavors.
               </p>
               <div className="sch-msg-signature">
-                <div className="sch-msg-name">Mr. Ajay Pal</div>
-                <div className="sch-msg-title">Administrator & Advisory Board</div>
+                <div className="sch-msg-name">Smt. Rupa Ganguly</div>
+                <div className="sch-msg-title">Honourable Guest</div>
               </div>
             </div>
           </div>

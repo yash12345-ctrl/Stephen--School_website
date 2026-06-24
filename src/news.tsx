@@ -28,6 +28,20 @@ const BookPage = forwardRef((props: BookPageProps, ref: ForwardedRef<HTMLDivElem
 
 const allNews = [
   {
+    id: 0, category: '' as const,
+    date: '7th July 2011', readTime: '3 min read',
+    title: 'Rupa Ganguly visited St Stephens School for Kutchina event',
+    excerpt: '',
+    image: '/l3.jpeg', image2: '/l4.jpeg', featured: false, hot: false,
+  },
+  {
+    id: 0.5, category: '' as const,
+    date: '9th July, 2010', readTime: '3 min read',
+    title: 'Mrs. Agnimitra Paul with the students of St Stphens School',
+    excerpt: '',
+    image: '/l5.jpeg', image2: '/l7.jpeg', featured: false, hot: false,
+  },
+  {
     id: 1, category: 'Governor' as const,
     date: 'May 4, 2017', readTime: '2 min read',
     title: 'Shri Keshari Nath Tripathi — Governor of West Bengal',
@@ -126,6 +140,8 @@ export default function News() {
     date2?: string;
     featured?: boolean;
     hot?: boolean;
+    publisher?: string;
+    publisher2?: string;
   }> = [
       {
         id: 101, category: 'METRO' as const,
@@ -136,14 +152,14 @@ export default function News() {
         image: '/c1.png', image2: '/z1.png', featured: true, hot: true,
       },
       {
-        id: 102, category: 'Telegraph' as const,
+        id: 102, category: 'Metro' as const,
         date: '23 April 2023', readTime: '4 min read',
         title: 'Celebrating Id with First Generation learners',
         excerpt: '',
         image: '/c2.png', image2: '/z2.png', featured: false, hot: false,
       },
       {
-        id: 103, category: '' as const,
+        id: 103, category: 't2' as const,
         date: '4 June 2022', readTime: '3 min read',
         title: "Those Who beat the odds to Excel",
         title2: "RABINDRA JAYANTI WITH 'MUSIC AND LYRICS",
@@ -152,7 +168,7 @@ export default function News() {
         image: '/c3.png', image2: '/z3.png', featured: false, hot: false,
       },
       {
-        id: 104, category: '' as const,
+        id: 104, category: '. METRO' as const,
         date: '07 May 2022', readTime: '3 min read',
         title: "Gifts For School Children",
         title2: "Life Lession Learn in Summer Session",
@@ -161,28 +177,35 @@ export default function News() {
         image: '/z4.png', image2: '/z5.png', featured: false, hot: false,
       },
       {
-        id: 105, category: '' as const,
-        date: '', readTime: '3 min read',
-        title: "Times City",
+        id: 105, category: '. TIME CITY' as const,
+        date: '18 AUG 2014', readTime: '3 min read',
+        date2: "12 FEB 2014",
+        title: "Independant Day Celebration",
         title2: "On Display, Tales of triumph",
         excerpt: '',
         image: '/z6.png', image2: '/z7.png', featured: false, hot: false,
+        publisher: 'The Times of India', publisher2: 'The Times of India',
       },
       {
-        id: 106, category: '' as const,
-        date: '', readTime: '3 min read',
-        title: "CP Discusses safe mobile Use",
+        id: 106, category: '. TIME CITY' as const,
+        date: '20 FEB 2025', readTime: '3 min read',
+        date2: "24 JULY 2022",
+        title: "CP Discusses safe mobile use",
         title2: "Students Tour Museum",
         excerpt: '',
         image: '/z8.png', image2: '/z9.png', featured: false, hot: false,
+        publisher: 'The Times of India', publisher2: 'The Times of India',
       },
       {
         id: 107, category: '' as const,
-        date: '', readTime: '3 min read',
+        date: '17 MAY 2022', readTime: '3 min read',
+        date2: "7 MAY 2022",
         title: "Teacher Felicitation Ceremony",
         title2: "Special Eid for needy Kids",
         excerpt: '',
         image: '/z10.png', image2: '/z11.png', featured: false, hot: false,
+        publisher: 'Sanmarg',
+        publisher2: 'The Times of India',
       },
 
 
@@ -338,7 +361,7 @@ export default function News() {
                       <BookPage key={`${item.id}-img`}>
                         <div className="newspaper-container" style={{
                           height: '100%',
-                          padding: '2.5rem',
+                          padding: '1.5rem',
                           display: 'grid',
                           gridTemplateColumns: (item.image3 || item.image4) ? '1fr 1fr' : '1fr',
                           gridTemplateRows: (item.image2 || item.image3 || item.image4) ? '1fr 1fr' : '1fr',
@@ -356,7 +379,7 @@ export default function News() {
                               boxSizing: 'border-box',
                               minHeight: 0
                             }}>
-                              <img loading="lazy" src={imgSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                              <img loading="lazy" src={imgSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
                             </div>
                           ))}
                         </div>
@@ -471,7 +494,7 @@ export default function News() {
                           </div>
 
                           <div className="news-clipping-footer">
-                            Media Coverage &bull; {item.category ? <>{item.category} &bull; </> : ''}{item.date}
+                            {item.publisher || 'The Telegrapgh'} &bull; {item.category ? <>{item.category} &bull; </> : ''}{item.date}
                           </div>
                         </div>
                       </BookPage>
@@ -491,7 +514,7 @@ export default function News() {
                           </div>
 
                           <div className="news-clipping-footer">
-                            Media Coverage &bull; {item.category ? <>{item.category} &bull; </> : ''}{item.date2 || item.date}
+                            {item.publisher2 || item.publisher || 'The Telegrapgh'} &bull; {item.category ? <>{item.category} &bull; </> : ''}{item.date2 || item.date}
                           </div>
                         </div>
                       ) : (

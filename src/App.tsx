@@ -76,7 +76,7 @@ export default function App() {
         <div className="container about-grid">
           <div className="about-imgs">
             <div className="aimg aimg-main"><img loading="lazy" src="/v3.webp" alt="Campus Life" /></div>
-            <div className="aimg aimg-sec"><img loading="lazy" src="/v4.webp" alt="Students" /></div>
+            <div className="aimg aimg-sec"><img loading="lazy" src="/hey1.jpeg" alt="Students" /></div>
             <div className="about-badge">
               <div className="ab-num">20+</div>
               <div className="ab-txt">Years of<br />Service</div>
