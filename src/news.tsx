@@ -76,20 +76,8 @@ const allNews = [
     excerpt: 'Mr. Adrian Pratt, Director of the American Center visited St. Stephens School and interacted with the kids on July 19, 2022.',
     image: '/v27.webp', image2: '/v28.webp', featured: true, hot: true,
   },
-  {
-    id: 6, category: 'Dignitary' as const,
-    date: '7th September', readTime: '2 min read',
-    title: 'Embassy of the United States of America',
-    excerpt: 'On September 7th, 2022, Ms. Ruth Goode, representing the Embassy of the United States of America.',
-    image: '/v29.webp', featured: false, hot: false,
-  },
-  {
-    id: 7, category: 'Dignitary' as const,
-    date: '8th July', readTime: '2 min read',
-    title: 'Director of Alliance Francaise',
-    excerpt: 'Mr. Nicolas Facino, Director of Alliance Francaise visited our school on 8th July, 2022. He provided insights on the importance of education, skill development. He encouraged the students to pursue their dreams with determination.',
-    image: '/v30.webp', featured: false, hot: false,
-  },
+
+
   {
     id: 8, category: 'Dignitary' as const,
     date: '7th September', readTime: '2 min read',
@@ -305,9 +293,9 @@ export default function News() {
                 width={400}
                 height={560}
                 size="stretch"
-                minWidth={300}
+                minWidth={280}
                 maxWidth={400}
-                minHeight={400}
+                minHeight={380}
                 maxHeight={560}
                 maxShadowOpacity={0.5}
                 showCover={true}
@@ -319,17 +307,8 @@ export default function News() {
               >
                 {/* Right Cover / Title Page (Page 1) */}
                 <BookPage density="hard">
-                  <div className="book-cover" style={{
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    height: '100%', padding: '1.5rem', boxSizing: 'border-box', backgroundColor: '#eaddcf'
-                  }}>
-                    <div style={{
-                      width: '100%', height: '100%',
-                      border: '2px solid #1a1a1a',
-                      outline: '4px double #1a1a1a', outlineOffset: '-12px',
-                      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                      padding: '2rem', boxSizing: 'border-box'
-                    }}>
+                  <div className="book-cover bg-eaddcf" style={{ padding: '0' }}>
+                    <div className="np-book-cover-inner">
                       <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem' }}>
                         <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '60px' }} />
                       </div>
@@ -359,15 +338,9 @@ export default function News() {
                     // Page for Full Image
                     pages.push(
                       <BookPage key={`${item.id}-img`}>
-                        <div className="newspaper-container" style={{
-                          height: '100%',
-                          padding: '1.5rem',
-                          display: 'grid',
+                        <div className="newspaper-container np-book-img-container" style={{
                           gridTemplateColumns: (item.image3 || item.image4) ? '1fr 1fr' : '1fr',
                           gridTemplateRows: (item.image2 || item.image3 || item.image4) ? '1fr 1fr' : '1fr',
-                          backgroundColor: '#f4f0e6',
-                          boxSizing: 'border-box',
-                          gap: '1rem'
                         }}>
                           {[item.image, item.image2, item.image3, item.image4].filter(Boolean).map((imgSrc, idx) => (
                             <div key={idx} style={{
@@ -379,7 +352,7 @@ export default function News() {
                               boxSizing: 'border-box',
                               minHeight: 0
                             }}>
-                              <img loading="lazy" src={imgSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }} />
+                              <img loading="lazy" src={imgSrc} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                             </div>
                           ))}
                         </div>
@@ -391,7 +364,7 @@ export default function News() {
                   pages.push(
                     <BookPage key={`${item.id}-txt`}>
                       <div className="book-story" style={{ padding: '0', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', backgroundColor: '#f4f0e6' }}>
-                        <div style={{ padding: '2.5rem', flex: 1 }}>
+                        <div className="np-book-story-inner">
                           <h2 className="np-paper-h-small" style={{ fontSize: '1.8rem', marginBottom: '1rem', lineHeight: 1.1 }}>{item.title}</h2>
 
                           <div className="np-paper-caption" style={{ marginBottom: '1rem' }}>
@@ -412,7 +385,7 @@ export default function News() {
 
                 {/* Back Cover */}
                 <BookPage density="hard">
-                  <div className="book-back-cover" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '2.5rem', backgroundColor: '#eaddcf' }}>
+                  <div className="book-back-cover np-book-back-cover-inner bg-eaddcf">
                     <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem', opacity: 0.5 }}>
                       <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '60px' }} />
                     </div>
@@ -431,9 +404,9 @@ export default function News() {
                 width={400}
                 height={560}
                 size="stretch"
-                minWidth={300}
+                minWidth={280}
                 maxWidth={400}
-                minHeight={400}
+                minHeight={380}
                 maxHeight={560}
                 maxShadowOpacity={0.5}
                 showCover={true}
@@ -445,17 +418,8 @@ export default function News() {
               >
                 {/* Right Cover / Title Page (Page 1) */}
                 <BookPage density="hard">
-                  <div className="book-cover" style={{
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                    height: '100%', padding: '1.5rem', boxSizing: 'border-box', backgroundColor: '#d4c5b0'
-                  }}>
-                    <div style={{
-                      width: '100%', height: '100%',
-                      border: '2px solid #1a1a1a',
-                      outline: '4px double #1a1a1a', outlineOffset: '-12px',
-                      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                      padding: '2rem', boxSizing: 'border-box'
-                    }}>
+                  <div className="book-cover bg-d4c5b0" style={{ padding: '0' }}>
+                    <div className="np-book-cover-inner">
                       <div className="logo-crest-wrapper" style={{ margin: '0 auto 1rem' }}>
                         <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '50px' }} />
                       </div>
@@ -519,7 +483,7 @@ export default function News() {
                         </div>
                       ) : (
                         <div className="book-story" style={{ padding: '0', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', backgroundColor: '#f4f0e6' }}>
-                          <div style={{ padding: '2.5rem', flex: 1 }}>
+                        <div className="np-book-story-inner">
                             <h2 className="np-paper-h-small" style={{ fontSize: '1.8rem', marginBottom: '1rem', lineHeight: 1.1 }}>{item.title}</h2>
 
                             <div className="np-paper-caption" style={{ marginBottom: '1rem' }}>
@@ -541,7 +505,7 @@ export default function News() {
 
                 {/* Back Cover */}
                 <BookPage density="hard">
-                  <div className="book-back-cover" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '2.5rem', backgroundColor: '#d4c5b0' }}>
+                  <div className="book-back-cover np-book-back-cover-inner bg-d4c5b0">
                     <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem', opacity: 0.5 }}>
                       <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '60px' }} />
                     </div>

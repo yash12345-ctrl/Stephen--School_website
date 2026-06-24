@@ -194,7 +194,7 @@
 
 .gallery-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 7vw, 5rem);
+  font-size: clamp(2.2rem, 8vw, 5rem);
   font-weight: 800;
   margin: 0;
   color: var(--navy);
@@ -863,18 +863,18 @@
   .photo-grid-wrap { padding: 1rem 4% 4rem; }
   .pg-banner { aspect-ratio: 4 / 3; border-radius: 14px; margin-bottom: 1.5rem; }
   .pg-banner-overlay { padding: 1.25rem 1.25rem; }
-  .pg-banner-title { font-size: 1.2rem; }
-  .pg-featured-grid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
-  .pg-featured-card { height: 160px; border-radius: 10px; }
-  .pg-featured-center { height: 185px; }
-  .pg-featured-name { font-size: 0.75rem; }
-  .pg-featured-crown { width: 26px; height: 26px; font-size: 0.75rem; }
-  .pg-overlay-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
-  .pg-overlay-card { border-radius: 10px; }
-  .pg-overlay-name { font-size: 0.68rem; }
-  .pg-overlay-role { font-size: 0.5rem; }
-  .pg-overlay-info { padding: 0.5rem 0.55rem 0.55rem; }
-  .pg-divider { margin: 0.25rem 0 1rem; }
+  .pg-banner-title { font-size: 1.4rem; }
+  .pg-featured-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .pg-featured-card { height: 280px; border-radius: 12px; }
+  .pg-featured-center { height: 280px; }
+  .pg-featured-name { font-size: 1.1rem; }
+  .pg-featured-crown { width: 32px; height: 32px; font-size: 0.85rem; }
+  .pg-overlay-grid { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
+  .pg-overlay-card { border-radius: 12px; }
+  .pg-overlay-name { font-size: 0.85rem; }
+  .pg-overlay-role { font-size: 0.6rem; }
+  .pg-overlay-info { padding: 0.75rem; }
+  .pg-divider { margin: 0.5rem 0 1rem; }
 }
 
 

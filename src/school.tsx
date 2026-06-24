@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './school.css';
 import { BookOpen, Atom, Compass, Play, Cpu, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 
 export default function School() {
@@ -154,12 +155,25 @@ export default function School() {
       <section className="sch-section" style={{ background: '#fcfcfc', borderTop: '1px solid rgba(0,0,0,0.04)', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
         <div className="sch-container">
           <div className="sch-msg-grid">
-            <div className="sch-msg-photo-wrap">
+            <motion.div 
+              className="sch-msg-photo-wrap"
+              style={{ position: 'sticky', top: '160px', marginTop: '4rem' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <img loading="lazy" src="/hey3.jpeg" className="sch-msg-photo" alt="Principal Desk" />
               <div className="sch-msg-frame" />
-            </div>
+            </motion.div>
             <div className="sch-msg-body">
-              <div style={{ marginBottom: '2.5rem' }}>
+              <motion.div 
+                style={{ marginBottom: '2.5rem' }}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
                 <div style={{ 
                   fontFamily: 'Playfair Display, serif', 
                   fontSize: '3.5rem', 
@@ -171,35 +185,35 @@ export default function School() {
                   Awards & <br/><span style={{ color: 'var(--gold)', fontStyle: 'italic', fontWeight: 600 }}>Recognition</span>
                 </div>
                 <div style={{ width: '80px', height: '4px', background: 'var(--gold)', marginTop: '1.5rem', borderRadius: '2px' }} />
-              </div>
+              </motion.div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <div style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                   <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>01.</span>
                   <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
                     Ms Mehnaz Sayeed, teacher of St. Stephen's School got felicitated by EX CM Smt. Mamta Banerjee, in the presence of Police Commissioner Mr. R.K Pachnanda, Mayor Shri Shovan Chaterjee on the occassion of teacher's day 5th September, 2012.
                   </p>
-                </div>
+                </motion.div>
                 
-                <div style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                   <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>02.</span>
                   <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
                     Certificate of Appreciation was awarded to St. Stephen's School by Jahangirabad Institute of Technology, Barabanki (U.P).
                   </p>
-                </div>
+                </motion.div>
 
-                <div style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                   <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>03.</span>
                   <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
                     Mrs. Niharika Mukherjee was awarded with Nation Builder Award by Rotary Club of Kolkata on 8th September, 2015.
                   </p>
-                </div>
+                </motion.div>
 
-                <div style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }} style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
                   <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>04.</span>
                   <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
                     KKMERS Award for Excellence in Education & Social Service was awarded to the school on 7th December, 2013.
                   </p>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
