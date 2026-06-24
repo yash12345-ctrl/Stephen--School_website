@@ -15,7 +15,7 @@ const GOVERNING_MEMBERS = {
   level1: [
     {
       id: 'l1-0',
-      name: 'Ayesha Siddiqui',
+      name: 'Ayesha Iqbal Siddiqui',
       role: 'Head-Mistress',
       img: '/v10.webp',
       bio: `Leads academic excellence, student welfare, and day-to-day operations of the school with 15+ years of experience.`,
@@ -101,24 +101,24 @@ const MANAGEMENT_MEMBERS = {
 
 // ── FLAT PHOTO-GRID DATA ──────────────────────────────────────────────
 const MANAGEMENT_GRID = {
-  groupPhoto: '/st_stephen_group_1.webp',
+  groupPhoto: '/ww1.jpeg?v=3',
   leaders: [
     { name: 'Imran Zaki', role: 'Hony. Secretary', img: '/v9.jpeg' },
     { name: 'Ayesha Iqbal Siddiqui', role: 'Headmistress', img: '/v10.webp' },
     { name: 'Ajoy Paul', role: 'Administrator', img: '/v33.webp' },
   ],
   members: [
-    { name: 'Falaq Qaiyum', role: 'Management Team', img: '/logo.webp' },
-    { name: 'Shagufta Gulnar', role: 'Management Team', img: '/logo.webp' },
-    { name: 'Tabassum Rashid', role: 'Management Team', img: '/logo.webp' },
-    { name: 'Zikra Salim', role: 'Management Team', img: '/logo.webp' },
-    { name: 'Ifra Rehman', role: 'Management Team', img: '/logo.webp' },
-    { name: 'Rumsha Nehal', role: 'Management Team', img: '/logo.webp' },
+    { name: 'Meghna Mukherjee', role: 'Curriculum Advisor', img: '/logo1.png' },
+    { name: 'Nikarika Mukherjee', role: 'Co-Curriculum Advisor', img: '/logo2.png' },
+    { name: 'Irfana Nabi', role: 'Morning Administrator', img: '/logo3.png' },
+    { name: 'Zahida Perveen Niyazi ', role: 'Morning coordinators', img: '/logo4.png' },
+    { name: 'Shabana Yasin ', role: 'Office Coordinator', img: '/logo5.png' },
+    { name: 'Anila Saigal', role: 'Primary coordinator', img: '/logo6.png' },
   ],
 };
 
 const MORNING_FACULTY_GRID = {
-  groupPhoto: '/st_stephen_group_1.webp',
+  groupPhoto: '/ww2.jpeg',
   members: [
     { name: 'Neeta Mukherjee', role: 'Morning Faculty', img: '/v38.webp' },
     { name: 'Resham Nahed', role: 'Morning Faculty', img: '/v39.webp' },
@@ -134,7 +134,7 @@ const MORNING_FACULTY_GRID = {
 };
 
 const AFTERNOON_FACULTY_GRID = {
-  groupPhoto: '/st_stephen_group_1.webp',
+  groupPhoto: '/ww3.jpeg',
   members: [
     { name: 'Rina Das', role: 'Afternoon Faculty', img: '/logo.webp' },
     { name: 'Piyali Manna', role: 'Afternoon Faculty', img: '/v48.webp' },
@@ -212,7 +212,7 @@ const NON_TEACHING_STAFF = {
     bio: 'The essential backbone supporting our school operations.',
   },
   level1: [
-    { id: 'nts-0', name: 'Mushtaque', role: 'Advisory Board', img: '/v58.webp', bio: 'Supports the operational and administrative functions.' },
+    { id: 'nts-0', name: 'Mohammad Mushtaque', role: 'Advisory Board', img: '/v58.webp', bio: 'Supports the operational and administrative functions.' },
     { id: 'nts-1', name: 'Humaira', role: 'Advisory Board', img: '/v59.webp', bio: 'Supports the operational and administrative functions.' },
   ],
   level2: [],
@@ -227,10 +227,12 @@ const CARE_TAKERS = {
     bio: 'Dedicated personnel ensuring campus maintenance and student care.',
   },
   level1: [
-    { id: 'ct-0', name: 'Rehan Misbah', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-1', name: 'Rajender Singh', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-2', name: 'Asif Iqbal', role: 'Advisory Board', img: '/logo.webp', bio: 'Supports maintenance and operational duties.' },
-
+    { id: 'ct-0', name: 'Subhash Rana', role: 'Care-Taker', img: '/s1.jpeg', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-1', name: 'Sarita Rana', role: 'Care-Taker', img: '/s2.jpeg', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-2', name: 'Monirul', role: 'Care-Taker', img: '/s3.jpeg', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-3', name: 'Aparna Samanto', role: 'Care-Taker', img: '/s4.jpeg', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-4', name: 'Priyanka Devi Shah', role: 'Care-Taker', img: '/s5.jpeg', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-5', name: 'Poonam Devi', role: 'Care-Taker', img: '/s6.jpeg', bio: 'Supports maintenance and operational duties.' },
   ],
   level2: [],
 };
@@ -328,7 +330,7 @@ export default function Gallery() {
       {viewMode === 'selection' && (
         <div className="gallery-selection-view">
           <div className="selection-split left" onClick={() => setViewMode('governance')}>
-            <img src="/st_stephen_group_1.webp" alt="Governance" className="bg-img" />
+            <img src="/ww1.jpeg?v=3" alt="Governance" className="bg-img" style={{ objectPosition: 'top' }} />
             <div className="overlay"></div>
             <div className="content">
               <span className="selection-label">Leadership</span>
@@ -398,8 +400,8 @@ export default function Gallery() {
                   loading="lazy"
                   src={
                     activeTab === 'MORNING FACULTY' ? MORNING_FACULTY_GRID.groupPhoto
-                    : activeTab === 'AFTERNOON FACULTY' ? AFTERNOON_FACULTY_GRID.groupPhoto
-                    : MANAGEMENT_GRID.groupPhoto
+                      : activeTab === 'AFTERNOON FACULTY' ? AFTERNOON_FACULTY_GRID.groupPhoto
+                        : MANAGEMENT_GRID.groupPhoto
                   }
                   alt={`${currentTabInfo.title} Group Photo`}
                   className="pg-banner-img"
@@ -430,7 +432,6 @@ export default function Gallery() {
                           <div className="pg-featured-name">{m.name}</div>
                         </div>
                       </div>
-                      {i === 1 && <div className="pg-featured-crown">★</div>}
                     </div>
                   ))}
                 </div>
@@ -448,8 +449,8 @@ export default function Gallery() {
               <div className="pg-overlay-grid">
                 {(
                   activeTab === 'MORNING FACULTY' ? MORNING_FACULTY_GRID.members
-                  : activeTab === 'AFTERNOON FACULTY' ? AFTERNOON_FACULTY_GRID.members
-                  : MANAGEMENT_GRID.members
+                    : activeTab === 'AFTERNOON FACULTY' ? AFTERNOON_FACULTY_GRID.members
+                      : MANAGEMENT_GRID.members
                 ).map((m, i) => (
                   <div className="pg-overlay-card" key={i}>
                     <div className="pg-overlay-img">

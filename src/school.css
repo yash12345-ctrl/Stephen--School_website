@@ -614,9 +614,9 @@
 ══════════════════════════════════════════ */
 .sch-msg-grid {
   display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 4rem;
-  align-items: center;
+  grid-template-columns: 480px 1fr;
+  gap: 5rem;
+  align-items: flex-start;
 }
 
 .sch-msg-photo-wrap {

@@ -1434,8 +1434,10 @@
 
 /* ── AVATAR ── */
 .node-avatar {
-  width: 240px;
   height: 160px;
+  width: fit-content;
+  min-width: 140px;
+  max-width: 240px;
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 1.5rem;
@@ -1444,6 +1446,10 @@
   flex-shrink: 0;
   position: relative;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--card-bg);
 }
 
 .org-node:hover .node-avatar {
@@ -1453,15 +1459,18 @@
 
 .org-node.is-root .node-avatar {
   border-color: var(--gold);
-  width: 260px;
   height: 180px;
+  width: fit-content;
+  min-width: 160px;
+  max-width: 260px;
   border-radius: 20px;
 }
 
 .node-avatar img {
-  width: 100%;
   height: 100%;
-  object-fit: cover;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
   display: block;
 }
 

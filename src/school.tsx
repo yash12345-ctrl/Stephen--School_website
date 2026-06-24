@@ -159,19 +159,47 @@ export default function School() {
               <div className="sch-msg-frame" />
             </div>
             <div className="sch-msg-body">
-              <span className="sch-chip" style={{ width: 'fit-content' }}>AWARDS & RECOGNITION</span>
-              <div className="sch-msg-quote">
-                "A moment of pride and inspiration for our entire school community."
+              <div style={{ marginBottom: '2.5rem' }}>
+                <div style={{ 
+                  fontFamily: 'Playfair Display, serif', 
+                  fontSize: '3.5rem', 
+                  fontWeight: 800, 
+                  color: 'var(--navy)', 
+                  lineHeight: 1.1,
+                  letterSpacing: '-0.02em',
+                }}>
+                  Awards & <br/><span style={{ color: 'var(--gold)', fontStyle: 'italic', fontWeight: 600 }}>Recognition</span>
+                </div>
+                <div style={{ width: '80px', height: '4px', background: 'var(--gold)', marginTop: '1.5rem', borderRadius: '2px' }} />
               </div>
-              <p className="sch-msg-text">
-                We were deeply honored to welcome the renowned actress and public figure, Smt. Rupa Ganguly, to our school. Her gracious presence and encouraging words have left an indelible mark on our students and faculty alike.
-              </p>
-              <p className="sch-msg-text">
-                Such moments of recognition reinforce our commitment to excellence and inspire our students to reach for the stars in all their endeavors.
-              </p>
-              <div className="sch-msg-signature">
-                <div className="sch-msg-name">Smt. Rupa Ganguly</div>
-                <div className="sch-msg-title">Honourable Guest</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>01.</span>
+                  <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
+                    Ms Mehnaz Sayeed, teacher of St. Stephen's School got felicitated by EX CM Smt. Mamta Banerjee, in the presence of Police Commissioner Mr. R.K Pachnanda, Mayor Shri Shovan Chaterjee on the occassion of teacher's day 5th September, 2012.
+                  </p>
+                </div>
+                
+                <div style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>02.</span>
+                  <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
+                    Certificate of Appreciation was awarded to St. Stephen's School by Jahangirabad Institute of Technology, Barabanki (U.P).
+                  </p>
+                </div>
+
+                <div style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>03.</span>
+                  <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
+                    Mrs. Niharika Mukherjee was awarded with Nation Builder Award by Rotary Club of Kolkata on 8th September, 2015.
+                  </p>
+                </div>
+
+                <div style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>04.</span>
+                  <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
+                    KKMERS Award for Excellence in Education & Social Service was awarded to the school on 7th December, 2013.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
