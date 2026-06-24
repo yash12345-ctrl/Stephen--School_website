@@ -15,7 +15,7 @@ export default function Christmas() {
 
       {/* ── HERO ── */}
       <section className="xm-hero">
-        <div className="xm-hero-bg" style={{ backgroundImage: "url('/christmas_students.jpg')" }} />
+        <div className="xm-hero-bg" style={{ backgroundImage: "url('/christmas_students.webp')" }} />
         <div className="xm-snow-overlay" />
         <div className="xm-snow-overlay-2" />
         <div className="xm-snow-overlay-3" />
@@ -53,8 +53,8 @@ export default function Christmas() {
           <div className="xm-about-grid">
             <div className="xm-about-visual">
               <div className="xm-about-collage">
-                <img loading="lazy" src="/christmas_students.jpg" alt="Students with Santa hats and Christmas gift bags" className="xm-collage-img-main" />
-                <img loading="lazy" src="/b7.jpg" alt="Students at Christmas celebration" className="xm-collage-img-sec" />
+                <img loading="lazy" src="/christmas_students.webp" alt="Students with Santa hats and Christmas gift bags" className="xm-collage-img-main" />
+                <img loading="lazy" src="/b7.webp" alt="Students at Christmas celebration" className="xm-collage-img-sec" />
               </div>
               <div className="xm-about-badge">
                 <div className="xm-about-badge-num">🎄</div>
@@ -99,7 +99,7 @@ export default function Christmas() {
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
                 <div style={{ position: 'relative', borderRadius: '14px', overflow: 'hidden', height: '200px' }}>
-                  <img loading="lazy" src="/b5.jpg" alt="Christmas Celebration at St. Stephen's School" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img loading="lazy" src="/b5.webp" alt="Christmas Celebration at St. Stephen's School" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <div style={{
                     position: 'absolute', bottom: '0.6rem', left: '0.6rem',
                     background: 'rgba(156, 37, 41, 0.85)', color: '#fff',
@@ -108,7 +108,7 @@ export default function Christmas() {
                   }}>📅 Dec 25, 2024</div>
                 </div>
                 <div style={{ position: 'relative', borderRadius: '14px', overflow: 'hidden', height: '200px' }}>
-                  <img loading="lazy" src="/b6.jpg" alt="Students with Christmas gifts at St. Stephen's School" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img loading="lazy" src="/b6.webp" alt="Students with Christmas gifts at St. Stephen's School" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
               </div>
             </div>

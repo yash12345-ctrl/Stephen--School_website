@@ -163,7 +163,7 @@ export default function School() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <img loading="lazy" src="/hey3.jpeg" className="sch-msg-photo" alt="Principal Desk" />
+              <img loading="lazy" src="/hey3.webp" className="sch-msg-photo" alt="Principal Desk" />
               <div className="sch-msg-frame" />
             </motion.div>
             <div className="sch-msg-body">

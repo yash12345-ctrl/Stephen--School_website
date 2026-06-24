@@ -26,7 +26,7 @@ export default function App() {
 
       {/* ── HERO ── */}
       <section className="hero" id="home" ref={heroRef} onMouseMove={handleHeroMouseMove}>
-        <div className="hero-img" style={{ backgroundImage: "url('/img.png')" }} />
+        <div className="hero-img" style={{ backgroundImage: "url('/img.webp')" }} />
         <div className="hero-veil" />
         <div className="hero-glow g1" /><div className="hero-glow g2" />
         <div className="hero-body">
@@ -76,7 +76,7 @@ export default function App() {
         <div className="container about-grid">
           <div className="about-imgs">
             <div className="aimg aimg-main"><img loading="lazy" src="/v3.webp" alt="Campus Life" /></div>
-            <div className="aimg aimg-sec"><img loading="lazy" src="/hey1.jpeg" alt="Students" /></div>
+            <div className="aimg aimg-sec"><img loading="lazy" src="/hey1.webp" alt="Students" /></div>
             <div className="about-badge">
               <div className="ab-num">20+</div>
               <div className="ab-txt">Years of<br />Service</div>
@@ -121,7 +121,7 @@ export default function App() {
           </div>
           <div className="dignitary-card">
             <div className="dignitary-img">
-              <img loading="lazy" src="/v9.jpeg" alt="Imran Zaki" />
+              <img loading="lazy" src="/v9.webp" alt="Imran Zaki" />
             </div>
             <div className="dignitary-content">
               <div className="dignitary-quote-icon">❝</div>
@@ -156,7 +156,7 @@ export default function App() {
             {[
               { tag: '🎨 Event', date: 'May 20, 2026', h: 'Annual Art & Craft Exhibition', p: 'Join us for a spectacular showcase of creativity as students display their finest artwork, sculptures, and crafts.', hot: true, img: '/v11.webp' },
               { tag: '🎭 Event', date: 'December 15, 2026', h: 'Annual Function 2026', p: 'Experience a grand evening of student performances, award ceremonies, and cultural showcases across all grades.', hot: false, img: '/v12.webp' },
-              { tag: '📋 Admissions', date: 'May 1, 2026', h: 'Admissions Open for 2026–27', p: 'Applications now open for all grades. Early registrations receive priority slots and scholarship consideration.', hot: false, img: '/img.png' },
+              { tag: '📋 Admissions', date: 'May 1, 2026', h: 'Admissions Open for 2026–27', p: 'Applications now open for all grades. Early registrations receive priority slots and scholarship consideration.', hot: false, img: '/img.webp' },
             ].map((n, i) => (
               <div className={`news-card${n.hot ? ' news-hot' : ''}`} key={i}>
                 {n.hot && <div className="news-ribbon">Featured</div>}

@@ -23,7 +23,7 @@ export default function Rabindrajayanti() {
 
       {/* ── HERO ── */}
       <section className="rj-hero">
-        <div className="rj-hero-bg" style={{ backgroundImage: "url('/b9.jpg')" }} />
+        <div className="rj-hero-bg" style={{ backgroundImage: "url('/b9.webp')" }} />
         <div className="rj-hero-glow g1" /><div className="rj-hero-glow g2" />
         <div className="rj-hero-veil" />
 
@@ -149,7 +149,7 @@ export default function Rabindrajayanti() {
                 </p>
               </div>
               <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '220px', marginTop: 'auto' }}>
-                <img loading="lazy" src="/b8.jpg" alt="Rabindra Jayanti celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }} />
+                <img loading="lazy" src="/b8.webp" alt="Rabindra Jayanti celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }} />
                 <div style={{
                   position: 'absolute',
                   bottom: '1rem',

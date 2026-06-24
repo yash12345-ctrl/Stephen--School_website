@@ -32,14 +32,14 @@ const allNews = [
     date: '7th July 2011', readTime: '3 min read',
     title: 'Rupa Ganguly visited St Stephens School for Kutchina event',
     excerpt: '',
-    image: '/l3.jpeg', image2: '/l4.jpeg', featured: false, hot: false,
+    image: '/l3.webp', image2: '/l4.webp', featured: false, hot: false,
   },
   {
     id: 0.5, category: '' as const,
     date: '9th July, 2010', readTime: '3 min read',
     title: 'Mrs. Agnimitra Paul with the students of St Stphens School',
     excerpt: '',
-    image: '/l5.jpeg', image2: '/l7.jpeg', featured: false, hot: false,
+    image: '/l5.webp', image2: '/l7.webp', featured: false, hot: false,
   },
   {
     id: 1, category: 'Governor' as const,
@@ -53,7 +53,7 @@ const allNews = [
     date: 'April 17, 2018', readTime: '2 min read',
     title: 'Mrs. Iris Schrod & Mr. Jurgen Thomas Schrod — Deputy Consul General of Germany',
     excerpt: 'On April 17, 2018, Mrs. Iris Schrod and Mr. Jurgen Thomas Schrod, Deputy Consul General of Germany, visited St. Stephen\'s School Bowbazar.',
-    image: '/v21.png', image2: '/v22.webp', featured: false, hot: true,
+    image: '/v21.webp', image2: '/v22.webp', featured: false, hot: true,
   },
   {
     id: 3, category: 'Diplomat' as const,
@@ -137,14 +137,14 @@ export default function News() {
         date2: '20 Feb 2023',
         title: 'Envoy from US explains the power of voting',
         excerpt: '',
-        image: '/c1.png', image2: '/z1.png', featured: true, hot: true,
+        image: '/c1.webp', image2: '/z1.webp', featured: true, hot: true,
       },
       {
         id: 102, category: 'Metro' as const,
         date: '23 April 2023', readTime: '4 min read',
         title: 'Celebrating Id with First Generation learners',
         excerpt: '',
-        image: '/c2.png', image2: '/z2.png', featured: false, hot: false,
+        image: '/c2.webp', image2: '/z2.webp', featured: false, hot: false,
       },
       {
         id: 103, category: 't2' as const,
@@ -153,7 +153,7 @@ export default function News() {
         title2: "RABINDRA JAYANTI WITH 'MUSIC AND LYRICS",
         date2: "26 MAY 2022",
         excerpt: '',
-        image: '/c3.png', image2: '/z3.png', featured: false, hot: false,
+        image: '/c3.webp', image2: '/z3.webp', featured: false, hot: false,
       },
       {
         id: 104, category: '. METRO' as const,
@@ -162,7 +162,7 @@ export default function News() {
         title2: "Life Lession Learn in Summer Session",
         date2: "19.June.2014",
         excerpt: '',
-        image: '/z4.png', image2: '/z5.png', featured: false, hot: false,
+        image: '/z4.webp', image2: '/z5.webp', featured: false, hot: false,
       },
       {
         id: 105, category: '. TIME CITY' as const,
@@ -171,7 +171,7 @@ export default function News() {
         title: "Independant Day Celebration",
         title2: "On Display, Tales of triumph",
         excerpt: '',
-        image: '/z6.png', image2: '/z7.png', featured: false, hot: false,
+        image: '/z6.webp', image2: '/z7.webp', featured: false, hot: false,
         publisher: 'The Times of India', publisher2: 'The Times of India',
       },
       {
@@ -181,7 +181,7 @@ export default function News() {
         title: "CP Discusses safe mobile use",
         title2: "Students Tour Museum",
         excerpt: '',
-        image: '/z8.png', image2: '/z9.png', featured: false, hot: false,
+        image: '/z8.webp', image2: '/z9.webp', featured: false, hot: false,
         publisher: 'The Times of India', publisher2: 'The Times of India',
       },
       {
@@ -191,7 +191,7 @@ export default function News() {
         title: "Teacher Felicitation Ceremony",
         title2: "Special Eid for needy Kids",
         excerpt: '',
-        image: '/z10.png', image2: '/z11.png', featured: false, hot: false,
+        image: '/z10.webp', image2: '/z11.webp', featured: false, hot: false,
         publisher: 'Sanmarg',
         publisher2: 'The Times of India',
       },

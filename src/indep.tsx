@@ -89,7 +89,7 @@ export default function Indep() {
 
       {/* ── HERO ── */}
       <section className="ind-hero">
-        <div className="ind-hero-bg" style={{ backgroundImage: "url('/i4.jpg')" }} />
+        <div className="ind-hero-bg" style={{ backgroundImage: "url('/i4.webp')" }} />
         <div className="ind-hero-veil" />
 
         <div className="ind-hero-inner">
@@ -234,8 +234,8 @@ export default function Indep() {
           <div className="ind-about-grid">
             <div className="ind-about-visual">
               <div className="ind-about-collage">
-                <img loading="lazy" src="/i1.jpg" alt="Students in parade" className="ind-collage-img-main" />
-                <img loading="lazy" src="/i2.jpg" alt="Flag hoisting preparation" className="ind-collage-img-sec" />
+                <img loading="lazy" src="/i1.webp" alt="Students in parade" className="ind-collage-img-main" />
+                <img loading="lazy" src="/i2.webp" alt="Flag hoisting preparation" className="ind-collage-img-sec" />
               </div>
               <div className="ind-about-badge">
                 <div className="ind-about-badge-num">🇮🇳</div>
@@ -287,16 +287,16 @@ export default function Indep() {
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.65rem', height: '280px' }}>
                 <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden' }}>
-                  <img loading="lazy" src="/i3.jpg" alt="Independence Day Celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img loading="lazy" src="/i3.webp" alt="Independence Day Celebrations" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden' }}>
-                  <img loading="lazy" src="/i4.jpg" alt="Students parading" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img loading="lazy" src="/i4.webp" alt="Students parading" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden' }}>
-                  <img loading="lazy" src="/i5.jpg" alt="Cultural performance" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img loading="lazy" src="/i5.webp" alt="Cultural performance" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div style={{ position: 'relative', borderRadius: '12px', overflow: 'hidden' }}>
-                  <img loading="lazy" src="/i6.jpg" alt="Choir singing national anthem" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img loading="lazy" src="/i6.webp" alt="Choir singing national anthem" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <div style={{
                     position: 'absolute',
                     bottom: '0.6rem',

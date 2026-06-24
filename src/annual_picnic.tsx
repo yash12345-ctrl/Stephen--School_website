@@ -18,25 +18,25 @@ export default function AnnualPicnic() {
       title: "Friendly Tournaments & Games",
       desc: "From classic tug-of-war and sack races to exciting cricket and badminton matches, the spacious greens of Eco Park turn into a arena of laughter, teamwork, and healthy competition.",
       bullet: "Builds teamwork & confidence",
-      image: "/y15.png"
+      image: "/y15.webp"
     },
     magic: {
       title: "INTERACTIVE CLUB",
       desc: "The Interactive Club spearheads a commendable endeavor: the Paper Bag Distribution Initiative. Its purpose is to foster sustainability and environmental consciousness within our school and community.",
       bullet: "Encourages creative imagination",
-      image: "/y16.png"
+      image: "/y16.webp"
     },
     feast: {
       title: "Summer Camp",
       desc: "Summer Camp organised for students of Class IV from 19th to 21st May by Mr. Ajoy Paul.",
       bullet: "Prepared with love",
-      image: "/y12.png"
+      image: "/y12.webp"
     },
     music: {
       title: "Music & Jam Sessions",
       desc: "The eighth Annual Concert of St. Stephen's School took place in the auditorium of Mahajati Sadan on February 8, 2023. It included one of our school students' best interpretations with a group effort.",
       bullet: "Fosters self-expression",
-      image: "/y17.png"
+      image: "/y17.webp"
     }
   };
 
@@ -92,8 +92,8 @@ export default function AnnualPicnic() {
           <div className="pk-about-grid">
             <div className="pk-about-visual">
               <div className="pk-about-collage">
-                <img loading="lazy" src="/y3.png" alt="Happy Picnic Group" className="pk-collage-img-main" />
-                <img loading="lazy" src="/y4.png" alt="Students Playing Tug of War" className="pk-collage-img-sec" />
+                <img loading="lazy" src="/y3.webp" alt="Happy Picnic Group" className="pk-collage-img-main" />
+                <img loading="lazy" src="/y4.webp" alt="Students Playing Tug of War" className="pk-collage-img-sec" />
               </div>
               <div className="pk-about-badge">
                 <div className="pk-about-badge-num">🌳</div>

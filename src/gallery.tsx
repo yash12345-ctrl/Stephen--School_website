@@ -9,7 +9,7 @@ const GOVERNING_MEMBERS = {
     id: 'root',
     name: 'Imran Zaki',
     role: 'Hony. Secretary',
-    img: '/v9.jpeg',
+    img: '/v9.webp',
     bio: `Oversees the governance of St. Stephen's School and leads the management body with vision and dedication.`,
   },
   level1: [
@@ -69,7 +69,7 @@ const MANAGEMENT_MEMBERS = {
     id: 'root',
     name: 'Imran Zaki',
     role: 'Hony. Secretary',
-    img: '/v9.jpeg',
+    img: '/v9.webp',
     bio: `Guides the Management Team with strategic vision and ensures smooth operations.`,
   },
   level1: [
@@ -101,24 +101,24 @@ const MANAGEMENT_MEMBERS = {
 
 // ── FLAT PHOTO-GRID DATA ──────────────────────────────────────────────
 const MANAGEMENT_GRID = {
-  groupPhoto: '/ww1.jpeg?v=3',
+  groupPhoto: '/ww1.webp?v=3',
   leaders: [
-    { name: 'Imran Zaki', role: 'Hony. Secretary', img: '/v9.jpeg' },
+    { name: 'Imran Zaki', role: 'Hony. Secretary', img: '/v9.webp' },
     { name: 'Ayesha Iqbal Siddiqui', role: 'Headmistress', img: '/v10.webp' },
     { name: 'Ajoy Paul', role: 'Administrator', img: '/v33.webp' },
   ],
   members: [
-    { name: 'Meghna Mukherjee', role: 'Curriculum Advisor', img: '/logo1.png' },
-    { name: 'Nikarika Mukherjee', role: 'Co-Curriculum Advisor', img: '/logo2.png' },
-    { name: 'Irfana Nabi', role: 'Morning Administrator', img: '/logo3.png' },
-    { name: 'Zahida Perveen Niyazi ', role: 'Morning coordinators', img: '/logo4.png' },
-    { name: 'Shabana Yasin ', role: 'Office Coordinator', img: '/logo5.png' },
-    { name: 'Anila Saigal', role: 'Primary coordinator', img: '/logo6.png' },
+    { name: 'Meghna Mukherjee', role: 'Curriculum Advisor', img: '/logo1.webp' },
+    { name: 'Nikarika Mukherjee', role: 'Co-Curriculum Advisor', img: '/logo2.webp' },
+    { name: 'Irfana Nabi', role: 'Morning Administrator', img: '/logo3.webp' },
+    { name: 'Zahida Perveen Niyazi ', role: 'Morning coordinators', img: '/logo4.webp' },
+    { name: 'Shabana Yasin ', role: 'Office Coordinator', img: '/logo5.webp' },
+    { name: 'Anila Saigal', role: 'Primary coordinator', img: '/logo6.webp' },
   ],
 };
 
 const MORNING_FACULTY_GRID = {
-  groupPhoto: '/ww2.jpeg',
+  groupPhoto: '/ww2.webp',
   members: [
     { name: 'Neeta Mukherjee', role: 'Morning Faculty', img: '/v38.webp' },
     { name: 'Resham Nahed', role: 'Morning Faculty', img: '/v39.webp' },
@@ -134,7 +134,7 @@ const MORNING_FACULTY_GRID = {
 };
 
 const AFTERNOON_FACULTY_GRID = {
-  groupPhoto: '/ww3.jpeg',
+  groupPhoto: '/ww3.webp',
   members: [
     { name: 'Rina Das', role: 'Afternoon Faculty', img: '/logo.webp' },
     { name: 'Piyali Manna', role: 'Afternoon Faculty', img: '/v48.webp' },
@@ -227,12 +227,12 @@ const CARE_TAKERS = {
     bio: 'Dedicated personnel ensuring campus maintenance and student care.',
   },
   level1: [
-    { id: 'ct-0', name: 'Subhash Rana', role: 'Care-Taker', img: '/s1.jpeg', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-1', name: 'Sarita Rana', role: 'Care-Taker', img: '/s2.jpeg', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-2', name: 'Monirul', role: 'Care-Taker', img: '/s3.jpeg', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-3', name: 'Aparna Samanto', role: 'Care-Taker', img: '/s4.jpeg', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-4', name: 'Priyanka Devi Shah', role: 'Care-Taker', img: '/s5.jpeg', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-5', name: 'Poonam Devi', role: 'Care-Taker', img: '/s6.jpeg', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-0', name: 'Subhash Rana', role: 'Care-Taker', img: '/s1.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-1', name: 'Sarita Rana', role: 'Care-Taker', img: '/s2.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-2', name: 'Monirul', role: 'Care-Taker', img: '/s3.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-3', name: 'Aparna Samanto', role: 'Care-Taker', img: '/s4.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-4', name: 'Priyanka Devi Shah', role: 'Care-Taker', img: '/s5.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-5', name: 'Poonam Devi', role: 'Care-Taker', img: '/s6.webp', bio: 'Supports maintenance and operational duties.' },
   ],
   level2: [],
 };
@@ -330,7 +330,7 @@ export default function Gallery() {
       {viewMode === 'selection' && (
         <div className="gallery-selection-view">
           <div className="selection-split left" onClick={() => setViewMode('governance')}>
-            <img src="/ww1.jpeg?v=3" alt="Governance" className="bg-img" style={{ objectPosition: 'top' }} />
+            <img src="/ww1.webp?v=3" alt="Governance" className="bg-img" style={{ objectPosition: 'top' }} />
             <div className="overlay"></div>
             <div className="content">
               <span className="selection-label">Leadership</span>
@@ -629,30 +629,30 @@ export default function Gallery() {
           <div className="dignitary-grid-container">
             {[
               // Page 24 (Existing)
-              { id: 1, name: 'Shri Keshari Nath Tripathi', role: 'Governor of West Bengal', image: '/t1.jpeg' },
-              { id: 2, name: 'Dr. Abdus Sattar', role: 'West Bengal Minority Affair Minister', image: '/t2.jpeg' },
-              { id: 3, name: 'Dinesh Bajaj', role: 'Politician', image: '/c6.jpeg' },
-              { id: 4, name: 'Mohammed Salim', role: 'Ex MP Lok Sabha', image: '/t4.jpeg' },
-              { id: 5, name: 'Md. Nadimul Haque', role: 'M.P Rajya Sabha', image: '/c7.jpeg' },
-              { id: 6, name: 'Rehana Khatoon', role: 'Councillor and Borough Chairman', image: '/c8.jpeg' },
-              { id: 7, name: 'Jeffrey K. Reneau', role: 'Director, American Center.', image: '/c9.jpeg' },
-              { id: 8, name: 'Adrian Pratt', role: 'Director, American Center', image: '/c10.jpeg' },
-              { id: 9, name: 'Cory Wilcox', role: 'US Consulate', image: '/c11.jpeg' },
-              { id: 10, name: 'Idris Ali', role: 'MP', image: '/c12.jpeg' },
-              { id: 11, name: 'Lesego Motsumi', role: 'Botswana High Commission', image: '/c13.jpeg' },
-              { id: 12, name: 'Nicolas Facino', role: 'Director of Alliance Francaise', image: '/c14.jpeg' },
+              { id: 1, name: 'Shri Keshari Nath Tripathi', role: 'Governor of West Bengal', image: '/t1.webp' },
+              { id: 2, name: 'Dr. Abdus Sattar', role: 'West Bengal Minority Affair Minister', image: '/t2.webp' },
+              { id: 3, name: 'Dinesh Bajaj', role: 'Politician', image: '/c6.webp' },
+              { id: 4, name: 'Mohammed Salim', role: 'Ex MP Lok Sabha', image: '/t4.webp' },
+              { id: 5, name: 'Md. Nadimul Haque', role: 'M.P Rajya Sabha', image: '/c7.webp' },
+              { id: 6, name: 'Rehana Khatoon', role: 'Councillor and Borough Chairman', image: '/c8.webp' },
+              { id: 7, name: 'Jeffrey K. Reneau', role: 'Director, American Center.', image: '/c9.webp' },
+              { id: 8, name: 'Adrian Pratt', role: 'Director, American Center', image: '/c10.webp' },
+              { id: 9, name: 'Cory Wilcox', role: 'US Consulate', image: '/c11.webp' },
+              { id: 10, name: 'Idris Ali', role: 'MP', image: '/c12.webp' },
+              { id: 11, name: 'Lesego Motsumi', role: 'Botswana High Commission', image: '/c13.webp' },
+              { id: 12, name: 'Nicolas Facino', role: 'Director of Alliance Francaise', image: '/c14.webp' },
 
               // Page 27
-              { id: 13, name: 'Shri Jag Mohan', role: 'IPS', image: '/c15.jpeg' },
-              { id: 14, name: 'Ranjit Kumar Pachnanda', role: 'IPS', image: '/c16.jpeg' },
-              { id: 15, name: 'Debasish Roy', role: 'IPS', image: '/c17.jpeg' },
-              { id: 16, name: 'Damayanti Sen', role: 'IPS', image: '/c18.jpeg' },
-              { id: 17, name: 'Gautam Mohan Chakraborty', role: 'IPS', image: '/c19.jpeg' },
-              { id: 18, name: 'Ajay Mukund Ranade', role: 'IPS', image: '/c20.jpeg' },
-              { id: 19, name: 'Nevendera Singh ', role: 'IPS', image: '/c21.jpeg' },
-              { id: 20, name: 'Tripurari Atharv', role: 'IPS', image: '/c22.jpeg' },
-              { id: 21, name: 'Sanjay Singh', role: 'IPS', image: '/c23.jpeg' },
-              { id: 22, name: 'Nizam Shamim', role: 'IPS', image: '/c24.jpeg' },
+              { id: 13, name: 'Shri Jag Mohan', role: 'IPS', image: '/c15.webp' },
+              { id: 14, name: 'Ranjit Kumar Pachnanda', role: 'IPS', image: '/c16.webp' },
+              { id: 15, name: 'Debasish Roy', role: 'IPS', image: '/c17.webp' },
+              { id: 16, name: 'Damayanti Sen', role: 'IPS', image: '/c18.webp' },
+              { id: 17, name: 'Gautam Mohan Chakraborty', role: 'IPS', image: '/c19.webp' },
+              { id: 18, name: 'Ajay Mukund Ranade', role: 'IPS', image: '/c20.webp' },
+              { id: 19, name: 'Nevendera Singh ', role: 'IPS', image: '/c21.webp' },
+              { id: 20, name: 'Tripurari Atharv', role: 'IPS', image: '/c22.webp' },
+              { id: 21, name: 'Sanjay Singh', role: 'IPS', image: '/c23.webp' },
+              { id: 22, name: 'Nizam Shamim', role: 'IPS', image: '/c24.webp' },
 
 
 

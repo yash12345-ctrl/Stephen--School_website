@@ -133,8 +133,8 @@ export default function Eid() {
           <div className="eid-about-grid">
             <div className="eid-about-visual">
               <div className="eid-about-collage">
-                <img loading="lazy" src="/b1.jpg" alt="Eid Milan Celebration Assembly" className="eid-collage-img-main" />
-                <img loading="lazy" src="/b4.jpg" alt="Grand Community Feast" className="eid-collage-img-sec" />
+                <img loading="lazy" src="/b1.webp" alt="Eid Milan Celebration Assembly" className="eid-collage-img-main" />
+                <img loading="lazy" src="/b4.webp" alt="Grand Community Feast" className="eid-collage-img-sec" />
               </div>
               <div className="eid-about-badge">
                 <div className="eid-about-badge-num">🌙</div>
@@ -178,7 +178,7 @@ export default function Eid() {
                 </p>
               </div>
               <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '240px' }}>
-                <img loading="lazy" src="/b3.jpg" alt="Eid Milan Gift Distribution Drive Poster" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img loading="lazy" src="/b3.webp" alt="Eid Milan Gift Distribution Drive Poster" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{
                   position: 'absolute',
                   bottom: '1rem',
@@ -212,10 +212,10 @@ export default function Eid() {
           </div>
           <div className="eid-gallery-grid">
             {[
-              { img: '/b1.jpg', title: 'Community Assembly', desc: 'Students and teachers gather in the hall for Eid Milan greetings.' },
-              { img: '/b2.jpg', title: 'Magical Performance', desc: 'A live magic show bringing wonder and laughter to the children.' },
-              { img: '/b3.jpg', title: 'Gift Distribution Drive', desc: 'The official May 2022 banner inviting community support and Eidi donations.' },
-              { img: '/b4.jpg', title: 'Grand Community Feast', desc: 'A special festive lunch served to all 500+ students and staff.' }
+              { img: '/b1.webp', title: 'Community Assembly', desc: 'Students and teachers gather in the hall for Eid Milan greetings.' },
+              { img: '/b2.webp', title: 'Magical Performance', desc: 'A live magic show bringing wonder and laughter to the children.' },
+              { img: '/b3.webp', title: 'Gift Distribution Drive', desc: 'The official May 2022 banner inviting community support and Eidi donations.' },
+              { img: '/b4.webp', title: 'Grand Community Feast', desc: 'A special festive lunch served to all 500+ students and staff.' }
             ].map((item, index) => (
               <div className="eid-gallery-card" key={index} onClick={() => setActiveImage(item.img)}>
                 <div className="eid-gallery-img-wrapper">

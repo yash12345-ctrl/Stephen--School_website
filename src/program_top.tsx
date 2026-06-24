@@ -23,7 +23,7 @@ const displayData = [
     desc: 'A nurturing environment where early learners and primary students build strong foundational skills in literacy, numeracy, and character development through interactive, holistic education.',
     color1: '#11998e',
     color2: '#38ef7d',
-    img: '/hey2.jpeg',
+    img: '/hey2.webp',
     objectPosition: 'top'
   },
   {
