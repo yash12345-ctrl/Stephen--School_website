@@ -3,13 +3,13 @@ import Navbar from './Navbar';
 import './donate.css';
 
 export default function Donate() {
-        const [copied, setCopied] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'bank' | 'upi' | 'intl'>('bank');
+  const [copied, setCopied] = useState<string | null>(null);
+
   const [amount, setAmount] = useState<number>(5000);
   const [isMonthly, setIsMonthly] = useState<boolean>(false);
   const [isCustom, setIsCustom] = useState<boolean>(false);
-  
-  
+
+
   const handleCopy = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
     setCopied(field);
@@ -128,125 +128,42 @@ export default function Donate() {
           {/* Right Column: Advanced Payment Tabs */}
           <div className="donate-right">
             <div className="payment-card">
-              <div className="payment-tabs">
-                <button className={`tab-btn ${activeTab === 'bank' ? 'active' : ''}`} onClick={() => setActiveTab('bank')}>Bank Transfer</button>
-                <button className={`tab-btn ${activeTab === 'upi' ? 'active' : ''}`} onClick={() => setActiveTab('upi')}>UPI / QR</button>
-                <button className={`tab-btn ${activeTab === 'intl' ? 'active' : ''}`} onClick={() => setActiveTab('intl')}>International</button>
-              </div>
-
               <div className="payment-content">
-                {/* ── BANK TRANSFER TAB ── */}
-                {activeTab === 'bank' && (
-                  <div className="tab-pane fade-in">
-                    <div className="pane-header">
-                      <h3>NEFT / RTGS / IMPS</h3>
-                      <p>Instant domestic transfers directly to our NGO account.</p>
-                    </div>
-
-                    <div className="bank-details-list">
-                      {[
-                        { label: 'Account Name', value: "ST. STEPHEN's SCHOOL NGO", id: 'name' },
-                        { label: 'Bank Name', value: 'State Bank of India', id: 'bank' },
-                        { label: 'Account Number', value: '3141 5926 5358', id: 'acc' },
-                        { label: 'IFSC Code', value: 'SBIN0001234', id: 'ifsc' },
-                        { label: 'Branch', value: 'Bowbazar Branch, Kolkata', id: 'branch' },
-                      ].map((detail) => (
-                        <div className="bank-detail-item" key={detail.id}>
-                          <div className="detail-left">
-                            <span className="detail-label">{detail.label}</span>
-                            <span className="detail-value">{detail.value}</span>
-                          </div>
-                          <button
-                            className={`copy-btn ${copied === detail.id ? 'copied' : ''}`}
-                            onClick={() => handleCopy(detail.value, detail.id)}
-                            title="Copy to clipboard"
-                          >
-                            {copied === detail.id ? (
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            ) : (
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            )}
-                          </button>
-                        </div>
-                      ))}
-                    </div>
+                {/* ── BANK TRANSFER ── */}
+                <div className="tab-pane fade-in">
+                  <div className="pane-header">
+                    <h3>BANK DETAILS</h3>
+                    <p>Instant domestic transfers directly to our NGO account.</p>
                   </div>
-                )}
 
-                {/* ── UPI TAB ── */}
-                {activeTab === 'upi' && (
-                  <div className="tab-pane fade-in">
-                    <div className="pane-header">
-                      <h3>Scan & Pay via UPI</h3>
-                      <p>Supports GPay, PhonePe, Paytm, and all major UPI apps.</p>
-                    </div>
-
-                    <div className="upi-container">
-                      <div className="qr-wrapper">
-                        {/* A dynamic, professional looking QR box */}
-                        <div className="qr-corners">
-                          <img loading="lazy" src="/img.webp" alt="NGO Logo" className="qr-center-logo" />
-                        </div>
-                        <div className="qr-scan-line"></div>
-                      </div>
-
-                      <div className="upi-id-box">
+                  <div className="bank-details-list">
+                    {[
+                      { label: 'Bank Name', value: 'Indian Overseas Bank', id: 'bank' },
+                      { label: 'Branch', value: 'Indian exchange place', id: 'branch' },
+                      { label: 'Account Number', value: '22690200000422', id: 'acc' },
+                      { label: 'IFSC Code', value: 'IOBA0000015', id: 'ifsc' },
+                    ].map((detail) => (
+                      <div className="bank-detail-item" key={detail.id}>
                         <div className="detail-left">
-                          <span className="detail-label">Merchant UPI ID</span>
-                          <span className="detail-value">ststephensngo@sbi</span>
+                          <span className="detail-label">{detail.label}</span>
+                          <span className="detail-value">{detail.value}</span>
                         </div>
                         <button
-                          className={`copy-btn ${copied === 'upi' ? 'copied' : ''}`}
-                          onClick={() => handleCopy('ststephensngo@sbi', 'upi')}
+                          className={`copy-btn ${copied === detail.id ? 'copied' : ''}`}
+                          onClick={() => handleCopy(detail.value, detail.id)}
+                          title="Copy to clipboard"
                         >
-                          {copied === 'upi' ? (
+                          {copied === detail.id ? (
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                           ) : (
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                           )}
                         </button>
                       </div>
-                    </div>
+                    ))}
                   </div>
-                )}
+                </div>
 
-                {/* ── INTERNATIONAL TAB ── */}
-                {activeTab === 'intl' && (
-                  <div className="tab-pane fade-in">
-                    <div className="pane-header">
-                      <h3>International Wire</h3>
-                      <p>For donors outside India via SWIFT or Wire Transfer.</p>
-                    </div>
-
-                    <div className="bank-details-list">
-                      {[
-                        { label: 'SWIFT Code', value: 'SBININBBXXX', id: 'swift' },
-                        { label: 'Account Name', value: "ST. STEPHEN's SCHOOL NGO", id: 'iname' },
-                        { label: 'Account Number', value: '3141 5926 5358', id: 'iacc' },
-                        { label: 'Bank Name', value: 'State Bank of India', id: 'ibank' },
-                        { label: 'Branch Address', value: '123 Bowbazar Street, Kolkata 700012, India', id: 'iadd' },
-                      ].map((detail) => (
-                        <div className="bank-detail-item" key={detail.id}>
-                          <div className="detail-left">
-                            <span className="detail-label">{detail.label}</span>
-                            <span className="detail-value">{detail.value}</span>
-                          </div>
-                          <button
-                            className={`copy-btn ${copied === detail.id ? 'copied' : ''}`}
-                            onClick={() => handleCopy(detail.value, detail.id)}
-                            title="Copy to clipboard"
-                          >
-                            {copied === detail.id ? (
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            ) : (
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            )}
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
 

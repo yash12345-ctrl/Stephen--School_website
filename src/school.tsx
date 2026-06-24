@@ -151,78 +151,86 @@ export default function School() {
         </div>
       </section>
 
-      {/* ── LEADERSHIP & PRINCIPAL MESSAGE ── */}
-      <section className="sch-section" style={{ background: '#fcfcfc', borderTop: '1px solid rgba(0,0,0,0.04)', borderBottom: '1px solid rgba(0,0,0,0.04)' }}>
-        <div className="sch-container">
-          <div className="sch-msg-grid">
-            <motion.div 
-              className="sch-msg-photo-wrap"
-              style={{ position: 'sticky', top: '160px', marginTop: '4rem' }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <img loading="lazy" src="/hey3.webp" className="sch-msg-photo" alt="Principal Desk" />
-              <div className="sch-msg-frame" />
-            </motion.div>
-            <div className="sch-msg-body">
-              <motion.div 
-                style={{ marginBottom: '2.5rem' }}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div style={{ 
-                  fontFamily: 'Playfair Display, serif', 
-                  fontSize: '3.5rem', 
-                  fontWeight: 800, 
-                  color: 'var(--navy)', 
-                  lineHeight: 1.1,
-                  letterSpacing: '-0.02em',
-                }}>
-                  Awards & <br/><span style={{ color: 'var(--gold)', fontStyle: 'italic', fontWeight: 600 }}>Recognition</span>
-                </div>
-                <div style={{ width: '80px', height: '4px', background: 'var(--gold)', marginTop: '1.5rem', borderRadius: '2px' }} />
-              </motion.div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>01.</span>
-                  <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
-                    Ms Mehnaz Sayeed, teacher of St. Stephen's School got felicitated by EX CM Smt. Mamta Banerjee, in the presence of Police Commissioner Mr. R.K Pachnanda, Mayor Shri Shovan Chaterjee on the occassion of teacher's day 5th September, 2012.
-                  </p>
-                </motion.div>
-                
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>02.</span>
-                  <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
-                    Certificate of Appreciation was awarded to St. Stephen's School by Jahangirabad Institute of Technology, Barabanki (U.P).
-                  </p>
-                </motion.div>
-
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>03.</span>
-                  <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
-                    Mrs. Niharika Mukherjee was awarded with Nation Builder Award by Rotary Club of Kolkata on 8th September, 2015.
-                  </p>
-                </motion.div>
-
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }} style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>04.</span>
-                  <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
-                    KKMERS Award for Excellence in Education & Social Service was awarded to the school on 7th December, 2013.
-                  </p>
-                </motion.div>
-
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.5 }} style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>05.</span>
-                  <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
-                    Gurukul Awards by Lions Club International, 2009.
-                  </p>
-                </motion.div>
-              </div>
+      {/* ── AWARDS & RECOGNITION (Tree Layout) ── */}
+      <section className="sch-section" style={{ background: '#fcfcfc', borderTop: '1px solid rgba(0,0,0,0.04)', borderBottom: '1px solid rgba(0,0,0,0.04)', overflow: 'hidden' }}>
+        <div className="sch-container" style={{ maxWidth: '1400px' }}>
+          <div className="sch-center-head" style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <span className="sch-chip sch-chip-large" style={{ marginBottom: '1rem' }}>
+              Our Honors
+            </span>
+            <div style={{
+              fontFamily: 'Playfair Display, serif',
+              fontSize: '3.5rem',
+              fontWeight: 800,
+              color: 'var(--navy)',
+              lineHeight: 1.1,
+              letterSpacing: '-0.02em',
+            }}>
+              Awards & <span style={{ color: 'var(--gold)', fontStyle: 'italic', fontWeight: 600 }}>Recognition</span>
             </div>
+          </div>
+
+          <div className="sch-awards-tree">
+            <svg className="sch-tree-svg" width="100%" height="100%">
+              {/* Base Connections */}
+              <line x1="50%" y1="50%" x2="15%" y2="12.5%" className="sch-tree-line" />
+              <line x1="50%" y1="50%" x2="85%" y2="12.5%" className="sch-tree-line" />
+              <line x1="50%" y1="50%" x2="15%" y2="37.5%" className="sch-tree-line" />
+              <line x1="50%" y1="50%" x2="85%" y2="37.5%" className="sch-tree-line" />
+              <line x1="50%" y1="50%" x2="15%" y2="62.5%" className="sch-tree-line" />
+              <line x1="50%" y1="50%" x2="85%" y2="62.5%" className="sch-tree-line" />
+              <line x1="50%" y1="50%" x2="15%" y2="87.5%" className="sch-tree-line" />
+              <line x1="50%" y1="50%" x2="85%" y2="87.5%" className="sch-tree-line" />
+              <line x1="50%" y1="50%" x2="50%" y2="100%" className="sch-tree-line" />
+
+              {/* Glowing Data Packets */}
+              <line x1="50%" y1="50%" x2="15%" y2="12.5%" className="sch-tree-packet" style={{ animationDelay: '0s' }} />
+              <line x1="50%" y1="50%" x2="85%" y2="12.5%" className="sch-tree-packet" style={{ animationDelay: '1.2s' }} />
+              <line x1="50%" y1="50%" x2="15%" y2="37.5%" className="sch-tree-packet" style={{ animationDelay: '2.5s' }} />
+              <line x1="50%" y1="50%" x2="85%" y2="37.5%" className="sch-tree-packet" style={{ animationDelay: '0.8s' }} />
+              <line x1="50%" y1="50%" x2="15%" y2="62.5%" className="sch-tree-packet" style={{ animationDelay: '1.6s' }} />
+              <line x1="50%" y1="50%" x2="85%" y2="62.5%" className="sch-tree-packet" style={{ animationDelay: '0.4s' }} />
+              <line x1="50%" y1="50%" x2="15%" y2="87.5%" className="sch-tree-packet" style={{ animationDelay: '2.1s' }} />
+              <line x1="50%" y1="50%" x2="85%" y2="87.5%" className="sch-tree-packet" style={{ animationDelay: '1.1s' }} />
+              <line x1="50%" y1="50%" x2="50%" y2="100%" className="sch-tree-packet" style={{ animationDelay: '2.8s' }} />
+            </svg>
+
+            <div className="sch-tree-center">
+              <div className="sch-tree-center-img" />
+              <div className="sch-tree-ring sch-tree-ring-1" />
+              <div className="sch-tree-ring sch-tree-ring-2" />
+              <div className="sch-tree-ring sch-tree-ring-3" />
+              <div className="sch-tree-center-label">St. Stephen's Excellence</div>
+            </div>
+
+            {[
+              { year: '2012', title: 'CM Felicitation', color: '#C9A84C', desc: 'Ms Mehnaz Sayeed felicitated by EX CM Smt. Mamta Banerjee on Teacher\'s Day.' },
+              { year: 'Recognition', title: 'Certificate of Appreciation', color: '#7c6b99', desc: 'Awarded to St. Stephen\'s School by Jahangirabad Institute of Technology.' },
+              { year: '2015', title: 'Nation Builder Award', color: '#2d6a6a', desc: 'Mrs. Niharika Mukherjee awarded by Rotary Club of Kolkata.' },
+              { year: '2013', title: 'Excellence in Education', color: '#5a4a7a', desc: 'KKMERS Award for Excellence in Education & Social Service.' },
+              { year: '2009', title: 'Gurukul Awards', color: '#8e54e9', desc: 'Awarded by Lions Club International.' },
+              { year: '2009', title: 'SERVE Model of Education', color: '#11998e', desc: 'Awarded by Bro. Brenden McCartgaigh (CEO of SERVE NGO) for service to underprivileged children.' },
+              { year: '2011', title: 'Social Service Award', color: '#f45c43', desc: 'Awarded by Mother Teresa International Award Committee for Education.' },
+              { year: '2012', title: 'Service to Society', color: '#C9A84C', desc: 'Awarded by EX CM Smt. Mamta Banerjee for providing education to needy students.' },
+              { year: '2015', title: 'Best Philanthropist', color: '#2196F3', desc: 'Awarded at the 6th Annual Scholarship Programme by KKMERS.' },
+            ].map((l, i) => (
+              <motion.div 
+                className={`sch-tree-card sch-node-${i} ${i === 8 ? 'sch-center-node' : (i % 2 === 0 ? 'sch-left-node' : 'sch-right-node')}`} 
+                key={i} 
+                style={{ '--leader-color': l.color } as React.CSSProperties}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <div className="sch-tree-card-img">{i + 1 < 10 ? `0${i + 1}` : i + 1}</div>
+                <div className="sch-tree-card-info">
+                  <span className="sch-tree-role">{l.year}</span>
+                  <h4 className="sch-tree-name">{l.title}</h4>
+                  <p className="sch-tree-desc">{l.desc}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

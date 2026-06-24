@@ -1199,11 +1199,12 @@
 }
 
 .node-6 {
-  grid-column: 1 / -1;
+  grid-column: 1 / 4;
   grid-row: 5;
   justify-self: center;
+  margin: -3rem auto 0 auto;
   max-width: 480px;
-  margin-top: -3rem;
+  width: 100%;
 }
 
 /* ── CTA ── */
