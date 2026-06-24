@@ -214,6 +214,13 @@ export default function School() {
                     KKMERS Award for Excellence in Education & Social Service was awarded to the school on 7th December, 2013.
                   </p>
                 </motion.div>
+
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.5 }} style={{ padding: '1.5rem', background: '#ffffff', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', boxShadow: '0 4px 14px rgba(0,0,0,0.02)', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.25rem', fontFamily: 'Playfair Display, serif', marginTop: '-2px' }}>05.</span>
+                  <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.6, color: '#4a4d52', fontWeight: 500 }}>
+                    Gurukul Awards by Lions Club International, 2009.
+                  </p>
+                </motion.div>
               </div>
             </div>
           </div>

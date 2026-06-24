@@ -212,8 +212,8 @@ const NON_TEACHING_STAFF = {
     bio: 'The essential backbone supporting our school operations.',
   },
   level1: [
-    { id: 'nts-0', name: 'Mohammad Mushtaque', role: 'Advisory Board', img: '/v58.webp', bio: 'Supports the operational and administrative functions.' },
-    { id: 'nts-1', name: 'Humaira', role: 'Advisory Board', img: '/v59.webp', bio: 'Supports the operational and administrative functions.' },
+    { id: 'nts-0', name: 'Mohammad Mushtaque', role: 'Office Support', img: '/v58.webp', bio: 'Supports the operational and administrative functions.' },
+    { id: 'nts-1', name: 'Humaira', role: 'Office Support', img: '/v59.webp', bio: 'Supports the operational and administrative functions.' },
   ],
   level2: [],
 };
