@@ -101,7 +101,7 @@ const MANAGEMENT_MEMBERS = {
 
 // ── FLAT PHOTO-GRID DATA ──────────────────────────────────────────────
 const MANAGEMENT_GRID = {
-  groupPhoto: '/ww1.webp?v=3',
+  groupPhoto: '/a11.jpeg?v=3',
   leaders: [
     { name: 'Imran Zaki', role: 'Hony. Secretary', img: '/v9.webp' },
     { name: 'Ayesha Iqbal Siddiqui', role: 'Headmistress', img: '/v10.webp' },
@@ -136,20 +136,20 @@ const MORNING_FACULTY_GRID = {
 const AFTERNOON_FACULTY_GRID = {
   groupPhoto: '/ww3.webp',
   members: [
-    { name: 'Rina Das', role: 'Afternoon Faculty', img: '/logo.webp' },
+    { name: 'Rina Das', role: 'Afternoon Faculty', img: '/a14.jpeg' },
     { name: 'Piyali Manna', role: 'Afternoon Faculty', img: '/v48.webp' },
     { name: 'Shrinjini Saha', role: 'Afternoon Faculty', img: '/v49.webp' },
     { name: 'Kriti Arora', role: 'Afternoon Faculty', img: '/v50.webp' },
     { name: 'Nikhat Ara', role: 'Afternoon Faculty', img: '/v51.webp' },
     { name: 'Obaid Ahmed', role: 'Afternoon Faculty', img: '/v52.webp' },
-    { name: 'Uday Shankar', role: 'Afternoon Faculty', img: '/logo.webp' },
+    { name: 'Uday Shankar', role: 'Afternoon Faculty', img: '/a12.jpeg' },
     { name: 'Hamidur Rehman', role: 'Afternoon Faculty', img: '/v53.webp' },
-    { name: 'Pappu Roy', role: 'Afternoon Faculty', img: '/logo.webp' },
+    { name: 'Pappu Roy', role: 'Afternoon Faculty', img: '/a13.jpeg' },
     { name: 'Md. Rafay Ali', role: 'Afternoon Faculty', img: '/v54.webp' },
     { name: 'Md Tabrez', role: 'Afternoon Faculty', img: '/v55.webp' },
     { name: 'Mashira Zakir', role: 'Afternoon Faculty', img: '/v56.webp' },
     { name: 'Saleha Parveen', role: 'Afternoon Faculty', img: '/v57.webp' },
-    { name: 'Sirajuddaula', role: 'Afternoon Faculty', img: '/logo.webp' },
+    { name: 'Sirajuddaula', role: 'Afternoon Faculty', img: '/a15.jpeg' },
   ],
 };
 
