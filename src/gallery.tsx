@@ -22,7 +22,7 @@ const GOVERNING_MEMBERS = {
     },
     {
       id: 'l1-1',
-      name: 'Ajay Paul',
+      name: 'Ajoy Paul',
       role: 'Administrator & Advisory Board',
       img: '/v33.webp',
       bio: `Manages administrative affairs and bridges the gap between the governing body and teaching staff effectively.`,
@@ -648,7 +648,7 @@ export default function Gallery() {
               { id: 15, name: 'Debasish Roy', role: 'IPS', image: '/c17.webp' },
               { id: 16, name: 'Damayanti Sen', role: 'IPS', image: '/c18.webp' },
               { id: 17, name: 'Gautam Mohan Chakraborty', role: 'IPS', image: '/c19.webp' },
-              { id: 18, name: 'Ajay Mukund Ranade', role: 'IPS', image: '/c20.webp' },
+              { id: 18, name: 'Ajoy Mukund Ranade', role: 'IPS', image: '/c20.webp' },
               { id: 19, name: 'Nevendera Singh ', role: 'IPS', image: '/c21.webp' },
               { id: 20, name: 'Tripurari Atharv', role: 'IPS', image: '/c22.webp' },
               { id: 21, name: 'Sanjay Singh', role: 'IPS', image: '/c23.webp' },
