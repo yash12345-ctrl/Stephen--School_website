@@ -255,19 +255,19 @@ function makeCurvedPath(x1: number, y1: number, x2: number, y2: number) {
 
 // ── MAIN COMPONENT ─────────────────────────────────────────────────────
 export default function Gallery() {
-  const [activeTab, setActiveTab] = useState('GOVERNING BODY');
+  const [activeTab, setActiveTab] = useState('GOVERNING BOARD MEMBER');
   const [viewMode, setViewMode] = useState<'selection' | 'governance' | 'dignitaries'>('selection');
 
-  const isTreeTab = activeTab === 'GOVERNING BODY' || activeTab === 'MANAGEMENT TEAM' || activeTab === 'MORNING FACULTY' || activeTab === 'AFTERNOON FACULTY' || activeTab === 'NON-TEACHING STAFF' || activeTab === 'CARE-TAKERS';
-  const currentMembers = activeTab === 'CARE-TAKERS' ? CARE_TAKERS : activeTab === 'NON-TEACHING STAFF' ? NON_TEACHING_STAFF : activeTab === 'AFTERNOON FACULTY' ? AFTERNOON_FACULTY : activeTab === 'MORNING FACULTY' ? MORNING_FACULTY : activeTab === 'MANAGEMENT TEAM' ? MANAGEMENT_MEMBERS : GOVERNING_MEMBERS;
+  const isTreeTab = activeTab === 'GOVERNING BOARD MEMBER' || activeTab === 'MANAGEMENT TEAM' || activeTab === 'MORNING FACULTY' || activeTab === 'AFTERNOON FACULTY' || activeTab === 'NON-TEACHING STAFF' || activeTab === 'SUPPORT STAFF';
+  const currentMembers = activeTab === 'SUPPORT STAFF' ? CARE_TAKERS : activeTab === 'NON-TEACHING STAFF' ? NON_TEACHING_STAFF : activeTab === 'AFTERNOON FACULTY' ? AFTERNOON_FACULTY : activeTab === 'MORNING FACULTY' ? MORNING_FACULTY : activeTab === 'MANAGEMENT TEAM' ? MANAGEMENT_MEMBERS : GOVERNING_MEMBERS;
 
   const tabInfo: Record<string, { title: string, subtitle: string }> = {
-    'GOVERNING BODY': { title: 'Governing Body', subtitle: "Leadership structure of St. Stephen's School" },
+    'GOVERNING BOARD MEMBER': { title: 'Governing Board Member', subtitle: "Leadership structure of St. Stephen's School" },
     'MANAGEMENT TEAM': { title: 'Management Team', subtitle: 'Strategic planning and operational execution' },
     'MORNING FACULTY': { title: 'Morning Faculty', subtitle: 'Educators for the morning academic session' },
     'AFTERNOON FACULTY': { title: 'Afternoon Faculty', subtitle: 'Educators for the afternoon academic session' },
     'NON-TEACHING STAFF': { title: 'Non-Teaching Staff', subtitle: 'Administrative and support personnel' },
-    'CARE-TAKERS': { title: 'Care-Takers', subtitle: 'Campus maintenance and student care' },
+    'SUPPORT STAFF': { title: 'Support Staff', subtitle: 'Campus maintenance and student care' },
   };
 
   const currentTabInfo = tabInfo[activeTab] || { title: activeTab, subtitle: 'Directory and structure coming soon.' };
@@ -330,7 +330,7 @@ export default function Gallery() {
       {viewMode === 'selection' && (
         <div className="gallery-selection-view">
           <div className="selection-split left" onClick={() => setViewMode('governance')}>
-            <img src="/ww1.webp?v=3" alt="Governance" className="bg-img" style={{ objectPosition: 'top' }} />
+            <img src="/a17.jpeg?v=3" alt="Governance" className="bg-img" style={{ objectPosition: 'top' }} />
             <div className="overlay"></div>
             <div className="content">
               <span className="selection-label">Leadership</span>
@@ -340,7 +340,7 @@ export default function Gallery() {
             </div>
           </div>
           <div className="selection-split right" onClick={() => setViewMode('dignitaries')}>
-            <img src="/v6.webp" alt="Dignitaries" className="bg-img" />
+            <img src="/v20.webp" alt="Dignitaries" className="bg-img" />
             <div className="overlay"></div>
             <div className="content">
               <span className="selection-label">Visits & Events</span>

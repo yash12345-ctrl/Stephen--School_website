@@ -30,14 +30,14 @@ const allNews = [
   {
     id: 0, category: '' as const,
     date: '7th July 2011', readTime: '3 min read',
-    title: 'Rupa Ganguly visited St Stephens School for Kutchina event',
+    title: 'Mrs. Agnimitra Paul with the students of St Stephens School',
     excerpt: '',
     image: '/l3.webp', image2: '/l4.webp', featured: false, hot: false,
   },
   {
     id: 0.5, category: '' as const,
     date: '9th July, 2010', readTime: '3 min read',
-    title: 'Mrs. Agnimitra Paul with the students of St Stphens School',
+    title: 'Rupa Ganguly visited St Stephens School for Kutchina event',
     excerpt: '',
     image: '/l5.webp', image2: '/l7.webp', featured: false, hot: false,
   },
@@ -65,7 +65,7 @@ const allNews = [
   {
     id: 4, category: 'Diplomat' as const,
     date: 'June 29, 2022', readTime: '3 min read',
-    title: 'Consul General of People Republic of China',
+    title: "Consul General of People 's Republic of China",
     excerpt: 'Mr. Zha Liyou, Consul General of People Republic of China, paid a visit to our school on 29th of June, 2022 and interacted warmly with our school teachers and students. He also graciously attended the monitor selection ceremony, witnessing the oath-taking and encouraging the young leaders.',
     image: '/v24.webp', image2: '/v25.webp', image3: '/v26.webp', image4: '/v4.webp', featured: false, hot: false,
   },
@@ -249,13 +249,13 @@ export default function News() {
           >
             <div className="mag-desk-item item-dignitary" onClick={() => setSelectedMagazine('dignitary')}>
               <div className="mag-desk-cover">
-                <img loading="lazy" src="/v6.webp" alt="The Dignitary Voice" />
+                <img loading="lazy" src="/v4.webp" alt="The Dignitary Voice" />
                 <div className="mag-desk-label">The Dignitary Voice</div>
               </div>
             </div>
             <div className="mag-desk-item item-cuttings" onClick={() => setSelectedMagazine('cuttings')}>
               <div className="mag-desk-cover">
-                <img loading="lazy" src="/v4.webp" alt="Media Coverage" />
+                <img loading="lazy" src="/z4.webp" alt="Media Coverage" />
                 <div className="mag-desk-label">Media Coverage</div>
               </div>
             </div>
@@ -309,23 +309,17 @@ export default function News() {
                 <BookPage density="hard">
                   <div className="book-cover bg-eaddcf" style={{ padding: '0' }}>
                     <div className="np-book-cover-inner">
-                      <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.5rem' }}>
-                        <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '60px' }} />
+                      <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.2rem' }}>
+                        <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '45px' }} />
                       </div>
 
-                      <h1 className="np-paper-title" style={{ fontSize: 'clamp(2.2rem, 10vw, 3.5rem)', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>The Dignitary<br />Voice</h1>
+                      <h1 className="np-paper-title" style={{ fontSize: 'clamp(2rem, 8vw, 2.8rem)', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>The Dignitary<br />Voice</h1>
 
-                      <div style={{ width: '80%', margin: '1.5rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
-                        <img loading="lazy" src="/v6.webp" alt="Cover Image" style={{ width: '100%', height: '180px', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                      <div style={{ width: '75%', flex: 1, minHeight: '130px', maxHeight: '220px', margin: '1.5rem auto', border: '4px double #1a1a1a', padding: '4px', display: 'flex', flexDirection: 'column' }}>
+                        <img loading="lazy" src="/a16.jpeg" alt="Cover Image" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                       </div>
 
-                      <p className="subtitle" style={{ textAlign: 'center', margin: 0, fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '1rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>St. Stephen's School</p>
-                      <div style={{ width: '40px', height: '2px', background: '#0f1115', margin: '0.5rem auto' }}></div>
-                      <p style={{ textAlign: 'center', margin: '0', fontStyle: 'italic', fontSize: '0.9rem', color: '#333', fontFamily: '"Merriweather", serif' }}>Special Dignitaries Edition</p>
-
-                      <div style={{ marginTop: 'auto', textAlign: 'center' }}>
-                        <p style={{ fontSize: '0.75rem', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#0f1115', margin: 0 }}>Est. 2001 &mdash; Vol. I</p>
-                      </div>
+                      <p className="subtitle" style={{ textAlign: 'center', margin: '0 0 0.5rem', fontWeight: 700, letterSpacing: '5px', textTransform: 'uppercase', fontSize: '0.85rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>St. Stephen's School</p>
                     </div>
                   </div>
                 </BookPage>
@@ -420,14 +414,14 @@ export default function News() {
                 <BookPage density="hard">
                   <div className="book-cover bg-d4c5b0" style={{ padding: '0' }}>
                     <div className="np-book-cover-inner">
-                      <div className="logo-crest-wrapper" style={{ margin: '0 auto 1rem' }}>
-                        <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '50px' }} />
+                      <div className="logo-crest-wrapper" style={{ margin: '0 auto 1.2rem' }}>
+                        <img loading="lazy" src="/v2.webp" className="logo-crest-img" alt="St. Stephen's Crest" style={{ width: '45px' }} />
                       </div>
 
                       <h1 className="np-paper-title" style={{ fontSize: 'clamp(2rem, 8vw, 2.5rem)', textAlign: 'center', margin: 0, lineHeight: 1.1, fontFamily: '"Playfair Display", serif', color: '#0f1115' }}>Media &<br />Publications</h1>
 
-                      <div style={{ width: '70%', margin: '1rem auto', border: '4px double #1a1a1a', padding: '4px' }}>
-                        <img loading="lazy" src="/v4.webp" alt="Cover Image" style={{ width: '100%', height: '130px', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
+                      <div style={{ width: '75%', flex: 1, minHeight: '120px', maxHeight: '180px', margin: '1.2rem auto', border: '4px double #1a1a1a', padding: '4px', display: 'flex', flexDirection: 'column' }}>
+                        <img loading="lazy" src="/a16.jpeg" alt="Cover Image" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }} />
                       </div>
 
                       <p className="subtitle" style={{ textAlign: 'center', margin: '0', fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', fontSize: '0.9rem', color: '#0f1115', fontFamily: '"Inter", sans-serif' }}>ST. Stephen Schools</p>
@@ -483,7 +477,7 @@ export default function News() {
                         </div>
                       ) : (
                         <div className="book-story" style={{ padding: '0', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', backgroundColor: '#f4f0e6' }}>
-                        <div className="np-book-story-inner">
+                          <div className="np-book-story-inner">
                             <h2 className="np-paper-h-small" style={{ fontSize: '1.8rem', marginBottom: '1rem', lineHeight: 1.1 }}>{item.title}</h2>
 
                             <div className="np-paper-caption" style={{ marginBottom: '1rem' }}>
