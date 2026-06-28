@@ -221,7 +221,7 @@ const NON_TEACHING_STAFF = {
 const CARE_TAKERS = {
   root: {
     id: 'root',
-    name: 'Care-Takers',
+    name: 'SUPPORT STAFF',
     role: 'Maintenance & Support',
     img: '',
     bio: 'Dedicated personnel ensuring campus maintenance and student care.',
