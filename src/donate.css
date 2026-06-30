@@ -560,75 +560,106 @@
   font-size: 0.95rem;
 }
 
-.bank-details-list {
+.contact-details-list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-.bank-detail-item {
+.contact-detail-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--offwhite);
-  border: 1px solid transparent;
-  padding: 0.85rem 1.25rem;
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  background: linear-gradient(145deg, #ffffff, #f8f9fb);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 1.25rem;
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
-.bank-detail-item:hover {
-  background: #fff;
-  border-color: rgba(212, 175, 55, 0.3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+.contact-detail-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 12px 24px rgba(212, 175, 55, 0.1);
 }
 
-.detail-left {
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-avatar {
+  width: 48px;
+  height: 48px;
+  background: rgba(212, 175, 55, 0.1);
+  color: #D4AF37;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.contact-text {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.detail-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--slate);
-  font-weight: 600;
-}
-
-.detail-value {
+.contact-name {
   font-size: 1.1rem;
   color: var(--navy);
-  font-weight: 600;
-  font-family: monospace;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
 }
 
-.copy-btn {
-  background: rgba(0, 0, 0, 0.04);
+.contact-phone {
+  font-size: 0.95rem;
+  color: var(--slate);
+  font-weight: 500;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  background: rgba(0, 0, 0, 0.03);
   border: none;
   width: 40px;
   height: 40px;
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--slate);
   cursor: pointer;
   transition: all 0.2s ease;
+  text-decoration: none;
 }
 
-.copy-btn svg {
+.action-btn svg {
   width: 18px;
   height: 18px;
 }
 
-.copy-btn:hover {
+.action-btn:hover {
   background: rgba(212, 175, 55, 0.1);
   color: #D4AF37;
 }
 
-.copy-btn.copied {
+.action-btn.call-btn:hover {
+  background: rgba(46, 204, 113, 0.1);
+  color: #27ae60;
+}
+
+.action-btn.copied {
   background: rgba(46, 204, 113, 0.1);
   color: #27ae60;
 }
@@ -721,12 +752,15 @@
   .payment-content {
     padding: 1.5rem 1rem;
   }
-  .bank-detail-item {
-    padding: 0.75rem 1rem;
+  .contact-detail-item {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
-  .detail-value {
-    font-size: 0.95rem;
-    word-break: break-all;
+  .contact-actions {
+    width: 100%;
+    justify-content: flex-end;
   }
 
   .student-testimonial {

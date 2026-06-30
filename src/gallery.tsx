@@ -135,6 +135,9 @@ const MORNING_FACULTY_GRID = {
 
 const AFTERNOON_FACULTY_GRID = {
   groupPhoto: '/ww3.webp',
+  leaders: [
+    { name: 'Nazreen Irshad', role: 'Afternoon Session Coordinator', img: '/a19.jpeg' },
+  ],
   members: [
     { name: 'Rina Das', role: 'Afternoon Faculty', img: '/a14.jpeg' },
     { name: 'Piyali Manna', role: 'Afternoon Faculty', img: '/v48.webp' },
@@ -150,8 +153,11 @@ const AFTERNOON_FACULTY_GRID = {
     { name: 'Mashira Zakir', role: 'Afternoon Faculty', img: '/v56.webp' },
     { name: 'Saleha Parveen', role: 'Afternoon Faculty', img: '/v57.webp' },
     { name: 'Sirajuddaula', role: 'Afternoon Faculty', img: '/a15.jpeg' },
+    { name: 'Sadiya Hasin', role: 'Afternoon Teacher', img: '/a18.jpeg' },
+    { name: 'Uzma Idris', role: 'Afternoon Teacher', img: '/a20.jpeg' },
   ],
 };
+
 
 const MORNING_FACULTY = {
   root: {
@@ -185,6 +191,7 @@ const AFTERNOON_FACULTY = {
     bio: 'The dedicated educators of the afternoon session.',
   },
   level1: [
+    { id: 'af-15', name: 'Nazreen Irshad', role: 'Afternoon Session Coordinator', img: '/logo.webp', bio: 'Coordinator for afternoon session.' },
     { id: 'af-0', name: 'Rina Das', role: 'Afternoon Faculty', img: '/logo.webp', bio: 'Educator for afternoon session.' },
     { id: 'af-1', name: 'Piyali Mnna', role: 'Afternoon Faculty', img: '/v48.webp', bio: 'Educator for afternoon session.' },
     { id: 'af-2', name: 'Shrinjini Saha', role: 'Afternoon Faculty', img: '/v49.webp', bio: 'Educator for afternoon session.' },
@@ -199,6 +206,8 @@ const AFTERNOON_FACULTY = {
     { id: 'af-11', name: 'Mashira Zakir', role: 'Afternoon Faculty', img: '/v56.webp', bio: 'Educator for afternoon session.' },
     { id: 'af-12', name: 'Saleha Parveen', role: 'Afternoon Faculty', img: '/v57.webp', bio: 'Educator for afternoon session.' },
     { id: 'af-13', name: 'Sirajuddaula', role: 'Afternoon Faculty', img: '/logo.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-14', name: 'Sadiya Hasin', role: 'Afternoon Teacher', img: '/logo.webp', bio: 'Educator for afternoon session.' },
+    { id: 'af-16', name: 'Uzma Idris', role: 'Afternoon Teacher', img: '/logo.webp', bio: 'Educator for afternoon session.' },
   ],
   level2: [],
 };
@@ -227,12 +236,12 @@ const CARE_TAKERS = {
     bio: 'Dedicated personnel ensuring campus maintenance and student care.',
   },
   level1: [
-    { id: 'ct-0', name: 'Subhash Rana', role: 'Care-Taker', img: '/s1.webp', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-1', name: 'Sarita Rana', role: 'Care-Taker', img: '/s2.webp', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-2', name: 'Monirul', role: 'Care-Taker', img: '/s3.webp', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-3', name: 'Aparna Samanto', role: 'Care-Taker', img: '/s4.webp', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-4', name: 'Priyanka Devi Shah', role: 'Care-Taker', img: '/s5.webp', bio: 'Supports maintenance and operational duties.' },
-    { id: 'ct-5', name: 'Poonam Devi', role: 'Care-Taker', img: '/s6.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-0', name: 'Subhash Rana', role: 'SUPPORT STAFF', img: '/s1.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-1', name: 'Sarita Rana', role: 'SUPPORT STAFF', img: '/s2.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-2', name: 'Monirul', role: 'SUPPORT STAFF', img: '/s3.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-3', name: 'Aparna Samanto', role: 'SUPPORT STAFF', img: '/s4.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-4', name: 'Priyanka Devi Shah', role: 'SUPPORT STAFF', img: '/s5.webp', bio: 'Supports maintenance and operational duties.' },
+    { id: 'ct-5', name: 'Poonam Devi', role: 'SUPPORT STAFF', img: '/s6.webp', bio: 'Supports maintenance and operational duties.' },
   ],
   level2: [],
 };
@@ -413,15 +422,19 @@ export default function Gallery() {
                 </div>
               </div>
 
-              {/* ── LEADERSHIP ROW (Management Team only) — Featured Cards ── */}
-              {activeTab === 'MANAGEMENT TEAM' && (<>
+              {/* ── LEADERSHIP ROW — Featured Cards ── */}
+              {(activeTab === 'MANAGEMENT TEAM' || activeTab === 'AFTERNOON FACULTY') && (
+                activeTab === 'MANAGEMENT TEAM' || (activeTab === 'AFTERNOON FACULTY' && AFTERNOON_FACULTY_GRID.leaders)
+              ) && (<>
                 <div className="pg-divider">
                   <div className="pg-divider-line" />
-                  <span className="pg-divider-label">Leadership</span>
+                  <span className="pg-divider-label">
+                    {activeTab === 'MANAGEMENT TEAM' ? 'Leadership' : 'Coordinator'}
+                  </span>
                   <div className="pg-divider-line right" />
                 </div>
-                <div className="pg-featured-grid">
-                  {MANAGEMENT_GRID.leaders.map((m, i) => (
+                <div className={`pg-featured-grid ${(activeTab === 'AFTERNOON FACULTY' && AFTERNOON_FACULTY_GRID.leaders.length === 1) ? 'single-leader' : ''}`}>
+                  {(activeTab === 'MANAGEMENT TEAM' ? MANAGEMENT_GRID.leaders : AFTERNOON_FACULTY_GRID.leaders).map((m, i) => (
                     <div className={`pg-featured-card ${i === 1 ? 'pg-featured-center' : ''}`} key={i}>
                       <div className="pg-featured-img">
                         <img loading="lazy" src={m.img} alt={m.name} />
@@ -438,7 +451,7 @@ export default function Gallery() {
               </>)}
 
               {/* ── MEMBERS GRID — Overlay Reveal Cards ── */}
-              <div className="pg-divider" style={{ marginTop: activeTab === 'MANAGEMENT TEAM' ? '2rem' : '0' }}>
+              <div className="pg-divider" style={{ marginTop: (activeTab === 'MANAGEMENT TEAM' || activeTab === 'AFTERNOON FACULTY') ? '2rem' : '0' }}>
                 <div className="pg-divider-line" />
                 <span className="pg-divider-label">
                   {activeTab === 'MANAGEMENT TEAM' ? 'Team Members' : 'Faculty Members'}

@@ -219,25 +219,22 @@
   justify-content: flex-start;
   width: 100%;
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
 }
 
 .gallery-tabs {
-  display: flex;
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  display: inline-flex;
+  flex-wrap: nowrap;
+  background: #ffffff;
+  border: 1px solid rgba(212, 175, 55, 0.2);
   border-radius: 100px;
-  padding: 8px;
-  gap: 6px;
+  padding: 6px;
+  gap: 4px;
   overflow-x: auto;
   scrollbar-width: none;
-  max-width: 100%;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03),
-    0 1px 3px rgba(0, 0, 0, 0.02),
-    inset 0 0 0 1px rgba(212, 175, 55, 0.1);
   -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
   margin: 0;
 }
 
@@ -247,42 +244,41 @@
 
 .gallery-tab {
   background: transparent;
-  border: none;
-  color: #888A90;
-  padding: 10px 18px;
+  border: 1px solid transparent;
+  color: #4A4D55; /* Higher contrast dark grey */
+  padding: 10px 22px;
   border-radius: 100px;
   font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   letter-spacing: 1px;
   text-transform: uppercase;
   white-space: nowrap;
-  flex-shrink: 0;
   position: relative;
   z-index: 1;
 }
-@media (min-width: 769px) {
+
+@media (max-width: 768px) {
   .gallery-tab {
-    padding: 14px 28px;
-    font-size: 0.75rem;
-    letter-spacing: 1.2px;
+    font-size: 0.7rem;
+    padding: 10px 16px;
   }
 }
 
 .gallery-tab:hover {
   color: var(--navy);
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(15, 17, 21, 0.04);
 }
 
 .gallery-tab.active {
-  background: var(--navy);
-  color: var(--gold-light);
-  box-shadow: 0 10px 30px rgba(15, 17, 21, 0.3),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  font-weight: 700;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #F3E5AB, var(--gold));
+  color: var(--navy);
+  font-weight: 800;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+  transform: translateY(-1px);
 }
 
 .tab-placeholder {
@@ -553,6 +549,15 @@
   gap: 1.25rem;
   margin-bottom: 0;
   align-items: end;
+}
+
+.pg-featured-grid.single-leader {
+  grid-template-columns: 280px;
+  justify-content: center;
+}
+
+.pg-featured-grid.single-leader .pg-featured-card {
+  height: 360px;
 }
 
 .pg-featured-card {

@@ -6,7 +6,6 @@ export default function Donate() {
   const [copied, setCopied] = useState<string | null>(null);
 
   const [amount, setAmount] = useState<number>(5000);
-  const [isMonthly, setIsMonthly] = useState<boolean>(false);
   const [isCustom, setIsCustom] = useState<boolean>(false);
 
 
@@ -70,10 +69,6 @@ export default function Donate() {
             <div className="donation-calculator">
               <div className="calc-header">
                 <h3 className="calc-title">Select your impact</h3>
-                <div className="freq-toggle">
-                  <button className={`freq-btn ${!isMonthly ? 'active' : ''}`} onClick={() => setIsMonthly(false)}>One Time</button>
-                  <button className={`freq-btn ${isMonthly ? 'active' : ''}`} onClick={() => setIsMonthly(true)}>Monthly</button>
-                </div>
               </div>
 
               <div className="amount-grid">
@@ -109,7 +104,7 @@ export default function Donate() {
                 <div className="impact-text">
                   <strong>The Impact:</strong> {
                     isCustom
-                      ? (isMonthly ? "Provides sustained, long-term flexible support for our school's most critical operations." : "Contributes directly to our general fund to support ongoing student needs and campus maintenance.")
+                      ? "Contributes directly to our general fund to support ongoing student needs and campus maintenance."
                       : impactMap[amount] || "Contributes to our general fund."
                   }
                 </div>
@@ -129,36 +124,41 @@ export default function Donate() {
           <div className="donate-right">
             <div className="payment-card">
               <div className="payment-content">
-                {/* ── BANK TRANSFER ── */}
+                {/* ── CONTACT FOR DONATION ── */}
                 <div className="tab-pane fade-in">
                   <div className="pane-header">
-                    <h3>BANK DETAILS</h3>
-                    <p>Instant domestic transfers directly to our NGO account.</p>
+                    <h3>CONTACT US</h3>
+                    <p>Reach out to our representatives for premium support and direct donations.</p>
                   </div>
 
-                  <div className="bank-details-list">
+                  <div className="contact-details-list">
                     {[
-                      { label: 'Bank Name', value: 'Indian Overseas Bank', id: 'bank' },
-                      { label: 'Branch', value: 'Indian exchange place', id: 'branch' },
-                      { label: 'Account Number', value: '22690200000422', id: 'acc' },
-                      { label: 'IFSC Code', value: 'IOBA0000015', id: 'ifsc' },
-                    ].map((detail) => (
-                      <div className="bank-detail-item" key={detail.id}>
-                        <div className="detail-left">
-                          <span className="detail-label">{detail.label}</span>
-                          <span className="detail-value">{detail.value}</span>
+                      { name: 'Imran Zaki', phone: '+91 98310 19298', id: 'imran' },
+                      { name: 'Mushy Mushtaq', phone: '+91 90386 06389', id: 'mushy' },
+                    ].map((contact) => (
+                      <div className="contact-detail-item" key={contact.id}>
+                        <div className="contact-info">
+                          <div className="contact-avatar">
+                            {contact.name.charAt(0)}
+                          </div>
+                          <div className="contact-text">
+                            <span className="contact-name">{contact.name}</span>
+                            <span className="contact-phone">{contact.phone}</span>
+                          </div>
                         </div>
-                        <button
-                          className={`copy-btn ${copied === detail.id ? 'copied' : ''}`}
-                          onClick={() => handleCopy(detail.value, detail.id)}
-                          title="Copy to clipboard"
-                        >
-                          {copied === detail.id ? (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                          ) : (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                          )}
-                        </button>
+                        <div className="contact-actions">
+                          <button
+                            className={`action-btn ${copied === contact.id ? 'copied' : ''}`}
+                            onClick={() => handleCopy(contact.phone, contact.id)}
+                            title="Copy Phone Number"
+                          >
+                            {copied === contact.id ? (
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            ) : (
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            )}
+                          </button>
+                        </div>
                       </div>
                     ))}
                   </div>
