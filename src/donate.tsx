@@ -134,7 +134,7 @@ export default function Donate() {
                   <div className="contact-details-list">
                     {[
                       { name: 'Imran Zaki', phone: '+91 98310 19298', id: 'imran' },
-                      { name: 'Mushy Mushtaq', phone: '+91 90386 06389', id: 'mushy' },
+                      { name: 'Md Mustaque', phone: '+91 90386 06389', id: 'mushy' },
                     ].map((contact) => (
                       <div className="contact-detail-item" key={contact.id}>
                         <div className="contact-info">
